@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Canvas as FabricCanvas } from "fabric";
+import SignaturePad from "signature_pad";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
@@ -12,72 +12,72 @@ interface ElectronicSignatureProps {
 
 export function ElectronicSignature({ shipmentId, onSignatureComplete }: ElectronicSignatureProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [fabricCanvas, setFabricCanvas] = useState<FabricCanvas | null>(null);
+  const [sigPad, setSigPad] = useState<SignaturePad | null>(null);
   const [isSigning, setIsSigning] = useState(false);
 
-  useEffect(() => {
+useEffect(() => {
     if (!canvasRef.current) return;
 
-    const canvas = new FabricCanvas(canvasRef.current, {
-      width: 400,
-      height: 200,
-      backgroundColor: "#ffffff",
-      isDrawingMode: true,
+    const canvas = canvasRef.current;
+
+    // High-DPI scaling for crisp lines
+    const ratio = Math.max(window.devicePixelRatio || 1, 1);
+    canvas.width = 400 * ratio;
+    canvas.height = 200 * ratio;
+    const ctx = canvas.getContext('2d');
+    if (ctx) ctx.scale(ratio, ratio);
+
+    canvas.style.width = '400px';
+    canvas.style.height = '200px';
+
+    const pad = new SignaturePad(canvas, {
+      penColor: '#000000',
+      backgroundColor: 'rgba(255,255,255,1)',
+      minWidth: 0.5,
+      maxWidth: 2.5,
     });
 
-    // Configure brush for signature
-    canvas.freeDrawingBrush.color = "#000000";
-    canvas.freeDrawingBrush.width = 2;
-
-    setFabricCanvas(canvas);
+    setSigPad(pad);
 
     return () => {
-      canvas.dispose();
+      pad.clear();
+      setSigPad(null);
     };
   }, []);
 
-  const handleClear = () => {
-    if (!fabricCanvas) return;
-    fabricCanvas.clear();
-    fabricCanvas.backgroundColor = "#ffffff";
-    fabricCanvas.renderAll();
+const handleClear = () => {
+    if (!sigPad) return;
+    sigPad.clear();
   };
 
-  const handleSave = async () => {
-    if (!fabricCanvas) return;
+const handleSave = async () => {
+    if (!sigPad) return;
+    if (sigPad.isEmpty()) {
+      toast.error('Veuillez signer avant de confirmer');
+      return;
+    }
 
     setIsSigning(true);
-    
     try {
-      // Convert canvas to blob
-      const dataURL = fabricCanvas.toDataURL({
-        format: 'png',
-        quality: 1.0,
-        multiplier: 1,
-      });
+      const dataURL = sigPad.toDataURL('image/png');
 
-      // Convert data URL to blob
       const response = await fetch(dataURL);
       const blob = await response.blob();
 
-      // Generate unique filename
       const fileName = `signature-${shipmentId}-${Date.now()}.png`;
 
-      // Upload to Supabase storage
-      const { data: uploadData, error: uploadError } = await supabase.storage
+      const { error: uploadError } = await supabase.storage
         .from('shipment-photos')
         .upload(fileName, blob, {
           contentType: 'image/png',
+          upsert: true,
         });
-
       if (uploadError) throw uploadError;
 
-      // Get public URL
       const { data: urlData } = supabase.storage
         .from('shipment-photos')
         .getPublicUrl(fileName);
 
-      // Save signature record to database
       const { error: dbError } = await supabase
         .from('shipment_photos')
         .insert({
@@ -85,12 +85,11 @@ export function ElectronicSignature({ shipmentId, onSignatureComplete }: Electro
           photo_url: urlData.publicUrl,
           photo_type: 'signature',
           description: 'Electronic signature for delivery proof',
-          uploaded_by: null, // Anonymous signature
+          uploaded_by: null,
         });
-
       if (dbError) throw dbError;
 
-      toast.success("Signature enregistrée avec succès!");
+      toast.success('Signature enregistrée avec succès!');
       onSignatureComplete();
     } catch (error) {
       console.error('Error saving signature:', error);
