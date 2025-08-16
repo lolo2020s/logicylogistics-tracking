@@ -131,7 +131,6 @@ export function HomePage({ onNavigate }: HomePageProps) {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-800/60 to-slate-700/40 group-hover:from-slate-900/95 group-hover:via-slate-800/70 group-hover:to-slate-700/50 transition-all duration-300" />
                 <div className="relative z-10 p-6 h-full flex flex-col justify-center items-center text-center">
-                  <img src={service.icon} alt={service.title} className="h-16 w-16 mb-4 filter brightness-0 invert" />
                   <h3 className="text-xl font-montserrat font-bold text-white leading-tight whitespace-pre-line mb-4">
                     {service.title}
                   </h3>
