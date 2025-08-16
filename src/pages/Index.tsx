@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Header } from '@/components/Header-simple';
 import { Footer } from '@/components/Footer';
 import { HomePage } from './HomePage';
-import { AboutPage } from './AboutPage';
+
 import { ContactPage } from './ContactPage';
 import { ServicesPage } from './ServicesPage';
 import { TrackingPage } from './TrackingPage';
@@ -26,7 +26,7 @@ const Index = () => {
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'about': return <AboutPage onNavigate={setCurrentPage} />;
+      
       case 'contact': return <ContactPage />;
       case 'services': return <ServicesPage onNavigate={setCurrentPage} />;
       case 'tracking': return <TrackingPage />;
