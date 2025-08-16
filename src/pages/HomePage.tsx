@@ -119,18 +119,19 @@ export function HomePage({ onNavigate }: HomePageProps) {
           {/* Les 3 cartes de transport - Maintenant cliquables */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { bg: transportRoutierBg, title: t('home.services.road.title'), route: 'transport-routier', icon: <TruckIcon />, bgColor: 'bg-slate-800' },
-              { bg: transportAerienBg, title: t('home.services.air.title'), route: 'transport-aerien', icon: <PlaneIcon />, bgColor: 'bg-slate-800' },
-              { bg: transportMaritimeBg, title: t('home.services.maritime.title'), route: 'transport-maritime', icon: <ShipIcon />, bgColor: 'bg-slate-800' }
+              { bg: transportRoutierBg, title: t('home.services.road.title'), route: 'transport-routier', icon: roadIcon, bgColor: 'bg-slate-800' },
+              { bg: transportAerienBg, title: t('home.services.air.title'), route: 'transport-aerien', icon: airIcon, bgColor: 'bg-slate-800' },
+              { bg: transportMaritimeBg, title: t('home.services.maritime.title'), route: 'transport-maritime', icon: maritimeIcon, bgColor: 'bg-slate-800' }
             ].map((service, index) => (
               <button
                 key={index}
                 onClick={() => onNavigate(service.route)}
-                className={`relative h-[300px] rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl ${service.bgColor}`}
+                className={`relative h-[300px] rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl`}
+                style={{ backgroundImage: `url(${service.bg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-800/60 to-slate-700/40 group-hover:from-slate-900/95 group-hover:via-slate-800/70 group-hover:to-slate-700/50 transition-all duration-300" />
                 <div className="relative z-10 p-6 h-full flex flex-col justify-center items-center text-center">
-                  {service.icon}
+                  <img src={service.icon} alt={service.title} className="h-16 w-16 mb-4 filter brightness-0 invert" />
                   <h3 className="text-xl font-montserrat font-bold text-white leading-tight whitespace-pre-line mb-4">
                     {service.title}
                   </h3>
