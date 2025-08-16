@@ -21,7 +21,9 @@ export type Database = {
           email: string | null
           full_name: string | null
           id: string
+          is_admin: boolean | null
           phone: string | null
+          role: string | null
           updated_at: string
           user_id: string
         }
@@ -31,7 +33,9 @@ export type Database = {
           email?: string | null
           full_name?: string | null
           id?: string
+          is_admin?: boolean | null
           phone?: string | null
+          role?: string | null
           updated_at?: string
           user_id: string
         }
@@ -41,7 +45,9 @@ export type Database = {
           email?: string | null
           full_name?: string | null
           id?: string
+          is_admin?: boolean | null
           phone?: string | null
+          role?: string | null
           updated_at?: string
           user_id?: string
         }
@@ -128,7 +134,7 @@ export type Database = {
           sender_country: string
           sender_name: string
           shipment_type: string
-          tracking_number: string
+          tracking_number?: string
           transport_mode: string
           updated_at?: string
           user_id?: string | null
@@ -209,7 +215,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      generate_tracking_number: {
+        Args: Record<PropertyKey, never>
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never
