@@ -335,7 +335,7 @@ export const translationData: Record<Language, Record<string, any>> = {
       }
     }
   },
-
+  
   en: {
     // Navigation
     nav: {
@@ -802,7 +802,7 @@ export const translationData: Record<Language, Record<string, any>> = {
     // Services
     services: {
       title: 'Nuestros Servicios de Transporte',
-      description: 'Soluciones logísticas completas para todas sus necesidades de transporte, desde la entrega express hasta envíos internacionales',
+      description: 'Soluciones logísticas completas para todas sus necesidades de transporte, desde entrega express hasta envíos internacionales',
       experience: 'Más de 17 años de experiencia',
       road: {
         title: 'Transporte Terrestre',
@@ -811,12 +811,12 @@ export const translationData: Record<Language, Record<string, any>> = {
           'Entrega express 24-48h',
           'Vehículos ligeros a pesados',
           'Seguimiento en tiempo real',
-          'Seguro a todo riesgo'
+          'Seguro de cobertura total'
         ]
       },
       air: {
         title: 'Transporte Aéreo',
-        description: 'Carga aérea express para sus envíos urgentes en todo el mundo',
+        description: 'Flete aéreo express para sus envíos urgentes en todo el mundo',
         features: [
           'Entrega 24-72h',
           'Cobertura mundial',
@@ -826,7 +826,7 @@ export const translationData: Record<Language, Record<string, any>> = {
       },
       maritime: {
         title: 'Transporte Marítimo',
-        description: 'Soluciones económicas para sus expediciones internacionales voluminosas',
+        description: 'Soluciones económicas para sus grandes envíos internacionales',
         features: [
           'Contenedores FCL/LCL',
           'Todos los puertos mundiales',
@@ -836,7 +836,7 @@ export const translationData: Record<Language, Record<string, any>> = {
       },
       express: {
         title: 'Logística Express',
-        description: 'Servicio premium para sus envíos urgentes con garantía de plazos',
+        description: 'Servicio premium para envíos urgentes con garantía de entrega',
         features: [
           'Mismo día posible',
           'Servicio 24/7',
@@ -845,12 +845,12 @@ export const translationData: Record<Language, Record<string, any>> = {
         ]
       },
       custom: {
-        title: 'Soluciones a Medida',
+        title: 'Soluciones Personalizadas',
         description: 'Soluciones logísticas personalizadas según sus necesidades específicas',
         features: [
           'Análisis de necesidades',
           'Solución dedicada',
-          'Acompañamiento experto',
+          'Soporte experto',
           'Escalabilidad garantizada'
         ]
       },
@@ -866,7 +866,7 @@ export const translationData: Record<Language, Record<string, any>> = {
       },
       advantages: {
         delivery: {
-          title: 'Plazos Respetados',
+          title: 'Entrega Puntual',
           description: 'Nuestros equipos se comprometen a respetar los plazos acordados con garantías'
         },
         security: {
@@ -874,7 +874,7 @@ export const translationData: Record<Language, Record<string, any>> = {
           description: 'Sus envíos están protegidos y asegurados durante todo el transporte'
         },
         pricing: {
-          title: 'Tarifas Transparentes',
+          title: 'Precios Transparentes',
           description: 'Precios fijos sin sorpresas con cotización gratuita en 24h'
         }
       }
@@ -883,45 +883,34 @@ export const translationData: Record<Language, Record<string, any>> = {
     // Contact
     contact: {
       title: 'Contáctanos',
-      description: 'Nuestro equipo está a su disposición para responder sus preguntas',
+      description: 'Nuestro equipo está disponible para responder sus preguntas',
       form: {
-        title: 'Envíanos un mensaje',
         name: 'Nombre completo',
-        namePlaceholder: 'Su nombre completo',
-        email: 'Dirección de correo',
-        emailPlaceholder: 'su.email@ejemplo.com',
+        email: 'Dirección de email',
+        phone: 'Teléfono',
+        subject: 'Asunto',
         message: 'Mensaje',
-        messagePlaceholder: 'Describa su solicitud...',
-        send: 'Enviar mensaje',
-        success: {
-          title: '¡Mensaje enviado!',
-          description: 'Le responderemos a la brevedad.'
-        }
+        send: 'Enviar mensaje'
       },
       info: {
-        email: 'Correo',
-        phone: 'Teléfono',
         address: 'Dirección',
-        hours: 'Horarios de atención',
-        schedule: 'Lun-Vie: 8h-18h\nSáb: 9h-12h'
-      },
-      map: {
-        title: 'Encuéntranos',
-        note: '* Un mapa interactivo estará pronto disponible para facilitar su visita'
+        phone: 'Teléfono',
+        email: 'Email',
+        hours: 'Horarios de atención'
       }
     },
 
     // About
     about: {
       title: 'Acerca de LOGICY TRANSPORT',
-      description: 'Líder en el campo del transporte y la logística',
+      description: 'Líder en el sector del transporte y la logística',
       story: {
         title: 'Nuestra Historia',
-        content: 'Desde nuestra creación, LOGICY TRANSPORT se ha establecido como un actor importante del sector logístico gracias a nuestra experiencia y compromiso con la excelencia.'
+        content: 'Desde nuestra creación, LOGICY TRANSPORT se ha establecido como un actor principal del sector logístico gracias a nuestra experiencia y compromiso con la excelencia.'
       },
       mission: {
         title: 'Nuestra Misión',
-        content: 'Proporcionar soluciones de transporte confiables, eficientes y personalizadas para acompañar el crecimiento de nuestros clientes.'
+        content: 'Proporcionar soluciones de transporte confiables, eficientes y personalizadas para apoyar el crecimiento de nuestros clientes.'
       },
       values: {
         title: '¿Por qué elegir LOGICY TRANSPORT?',
@@ -929,62 +918,6 @@ export const translationData: Record<Language, Record<string, any>> = {
         innovation: 'Innovación',
         quality: 'Calidad',
         service: 'Servicio al cliente'
-      },
-      stats: {
-        experience: 'Años de experiencia',
-        clients: 'Clientes satisfechos',
-        countries: 'Países atendidos',
-        shipments: 'Envíos realizados'
-      },
-      timeline: {
-        title: 'Nuestra Historia',
-        items: [
-          {
-            year: '2007',
-            title: 'Creación de LOGICY TRANSPORT',
-            description: 'Fundación de la empresa con una visión clara: revolucionar el transporte logístico.'
-          },
-          {
-            year: '2010',
-            title: 'Expansión europea',
-            description: 'Apertura de nuestros servicios en toda Europa con socios de confianza.'
-          },
-          {
-            year: '2015',
-            title: 'Transporte aéreo',
-            description: 'Lanzamiento de nuestros servicios de transporte aéreo para envíos express.'
-          },
-          {
-            year: '2018',
-            title: 'Soluciones marítimas',
-            description: 'Desarrollo de nuestra oferta marítima para cargas voluminosas.'
-          },
-          {
-            year: '2020',
-            title: 'Digitalización',
-            description: 'Implementación del sistema de seguimiento en tiempo real y digitalización completa.'
-          },
-          {
-            year: '2024',
-            title: 'Innovación continua',
-            description: 'Hoy, seguimos innovando para ofrecer las mejores soluciones.'
-          }
-        ]
-      },
-      missionExpanded: {
-        content: 'Nos comprometemos a brindar soluciones de transporte innovadoras, poniendo la satisfacción del cliente en el centro de nuestras preocupaciones.'
-      },
-      commitments: {
-        title: 'Nuestros Compromisos',
-        tracking: 'Trazabilidad completa de sus envíos',
-        support: 'Servicio al cliente receptivo 24/7',
-        environment: 'Respeto por el medio ambiente'
-      },
-      cta: {
-        title: 'Únase a nuestros clientes satisfechos',
-        description: 'Descubra por qué cientos de empresas confían en nosotros',
-        servicesButton: 'Descubrir nuestros servicios',
-        contactButton: 'Contáctenos'
       }
     },
 
@@ -1140,404 +1073,320 @@ export const translationData: Record<Language, Record<string, any>> = {
     }
   },
 
-  ar: {
+  de: {
     // Navigation
     nav: {
-      home: 'الرئيسية',
-      tracking: 'التتبع',
-      services: 'الخدمات',
-      about: 'من نحن',
-      contact: 'اتصل بنا',
-      quote: 'عرض السعر',
-      zones: 'مناطق التسليم'
+      home: 'Startseite',
+      tracking: 'Sendungsverfolgung',
+      services: 'Dienstleistungen',
+      about: 'Über uns',
+      contact: 'Kontakt',
+      quote: 'Angebot',
+      zones: 'Lieferzonen'
     },
     
     // Common
     common: {
-      learnMore: 'اعرف المزيد',
-      contact: 'اتصل بنا',
-      getQuote: 'احصل على عرض سعر',
-      freeQuote: 'عرض سعر مجاني',
-      readMore: 'قراءة المزيد',
-      close: 'إغلاق',
-      loading: 'جاري التحميل...',
-      error: 'خطأ',
-      success: 'نجح'
+      learnMore: 'Mehr erfahren',
+      contact: 'Kontaktieren Sie uns',
+      getQuote: 'Angebot anfordern',
+      freeQuote: 'Kostenloses Angebot',
+      readMore: 'Weiterlesen',
+      close: 'Schließen',
+      loading: 'Laden...',
+      error: 'Fehler',
+      success: 'Erfolg'
     },
 
-    // Home page
+    // Basic German translations
     home: {
-      title: 'منذ عام 2007، تقوم LOGICY TRANSPORT بتوصيل طرودكم وشحناتكم ومركباتكم في جميع أنحاء العالم بموثوقية وهيبة',
-      subtitle: 'شريكك اللوجستي الموثوق',
-      description: 'حلول نقل ولوجستيك مخصصة لاحتياجاتكم المهنية في جميع أنحاء العالم',
-      cta: 'اكتشف خدماتنا',
+      title: 'Seit 2007 liefert LOGICY TRANSPORT Ihre Pakete, Fracht und Fahrzeuge weltweit mit Zuverlässigkeit und Prestige',
+      subtitle: 'Ihr vertrauensvoller Logistikpartner',
+      description: 'Maßgeschneiderte Transport- und Logistiklösungen für Ihre beruflichen Bedürfnisse weltweit',
+      cta: 'Unsere Services entdecken',
       services: {
-        title: 'خدماتنا',
+        title: 'Unsere Services',
         road: {
-          title: 'النقل البري',
-          description: 'حلول نقل بري موثوقة واقتصادية'
+          title: 'Straßentransport',
+          description: 'Zuverlässige und wirtschaftliche Landtransportlösungen'
         },
         air: {
-          title: 'النقل الجوي',
-          description: 'توصيل سريع عبر الطيران'
+          title: 'Lufttransport',
+          description: 'Schnelle Lieferungen auf dem Luftweg'
         },
         maritime: {
-          title: 'النقل البحري',
-          description: 'نقل البضائع بحراً'
+          title: 'Seetransport',
+          description: 'Warentransport auf dem Seeweg'
         }
       }
     },
 
-    // Tracking
     tracking: {
-      title: 'تتبع الطرود',
-      description: 'أدخل رمز التتبع الخاص بك لمعرفة حالة شحنتك في الوقت الفعلي',
-      placeholder: 'أدخل رمز التتبع الخاص بك',
-      search: 'بحث',
-      help: 'هل تحتاج إلى مساعدة؟',
-      format: 'تنسيق رمز التتبع:',
-      formatExample: 'LOG + 9 أرقام (مثال: LOG123456789)',
-      testCodes: 'رموز الاختبار:',
+      title: 'Paketverfolgung',
+      description: 'Geben Sie Ihren Tracking-Code ein, um den Status Ihrer Sendung in Echtzeit zu erfahren',
+      placeholder: 'Geben Sie Ihren Tracking-Code ein',
+      search: 'Suchen',
+      help: 'Brauchen Sie Hilfe?',
+      format: 'Tracking-Code-Format:',
+      formatExample: 'LOG + 9 Ziffern (z.B.: LOG123456789)',
+      testCodes: 'Test-Codes:',
       testCodesExample: 'LOG123456789, LOG987654321'
     },
 
-    // Services
     services: {
-      title: 'خدمات النقل الخاصة بنا',
-      description: 'حلول لوجستية كاملة لجميع احتياجات النقل الخاصة بك، من التسليم السريع إلى الشحنات الدولية',
-      experience: 'أكثر من 17 عامًا من الخبرة',
-      road: {
-        title: 'النقل البري',
-        description: 'حلول نقل بري موثوقة لأوروبا وشمال أفريقيا',
-        features: [
-          'توصيل سريع 24-48 ساعة',
-          'مركبات خفيفة إلى ثقيلة',
-          'تتبع في الوقت الحقيقي',
-          'تأمين شامل'
-        ]
-      },
-      air: {
-        title: 'النقل الجوي',
-        description: 'شحن جوي سريع لشحناتك العاجلة في جميع أنحاء العالم',
-        features: [
-          'توصيل 24-72 ساعة',
-          'تغطية عالمية',
-          'أمان عالي',
-          'تتبع كامل'
-        ]
-      },
-      maritime: {
-        title: 'النقل البحري',
-        description: 'حلول اقتصادية لشحناتك الدولية الكبيرة',
-        features: [
-          'حاويات FCL/LCL',
-          'جميع الموانئ العالمية',
-          'أسعار تنافسية',
-          'تجميع محسن'
-        ]
-      },
-      express: {
-        title: 'اللوجستيات السريعة',
-        description: 'خدمة مميزة لشحناتك العاجلة مع ضمان التسليم',
-        features: [
-          'التسليم في نفس اليوم ممكن',
-          'خدمة 24/7',
-          'ساعي مخصص',
-          'استرداد في حالة التأخير'
-        ]
-      },
-      custom: {
-        title: 'حلول مخصصة',
-        description: 'حلول لوجستية مخصصة حسب احتياجاتك الخاصة',
-        features: [
-          'تحليل الاحتياجات',
-          'حل مخصص',
-          'دعم الخبراء',
-          'قابلية التوسع مضمونة'
-        ]
-      },
-      tracking: {
-        title: 'تتبع الطرود',
-        description: 'نظام تتبع متقدم لمتابعة شحناتك في الوقت الحقيقي',
-        features: [
-          'تحديد الموقع الجغرافي GPS',
-          'إشعارات SMS',
-          'واجهة ويب',
-          'API متاحة'
-        ]
-      },
-      advantages: {
-        delivery: {
-          title: 'التسليم في الوقت المحدد',
-          description: 'تلتزم فرقنا باحترام المواعيد المتفق عليها مع ضمانات'
-        },
-        security: {
-          title: 'أمان عالي',
-          description: 'شحناتك محمية ومؤمنة طوال فترة النقل'
-        },
-        pricing: {
-          title: 'أسعار شفافة',
-          description: 'أسعار ثابتة بدون مفاجآت مع عروض مجانية خلال 24 ساعة'
-        }
-      }
+      title: 'Unsere Transportdienstleistungen',
+      description: 'Vollständige Logistiklösungen für alle Ihre Transportbedürfnisse',
+      experience: 'Über 17 Jahre Erfahrung'
     },
 
-    // Contact
     contact: {
-      title: 'اتصل بنا',
-      description: 'فريقنا متاح للرد على استفساراتك',
+      title: 'Kontaktieren Sie uns',
+      description: 'Unser Team steht Ihnen zur Verfügung, um Ihre Fragen zu beantworten',
       form: {
-        title: 'أرسل لنا رسالة',
-        name: 'الاسم الكامل',
-        namePlaceholder: 'اسمك الكامل',
-        email: 'البريد الإلكتروني',
-        emailPlaceholder: 'your.email@example.com',
-        message: 'الرسالة',
-        messagePlaceholder: 'صف طلبك...',
-        send: 'إرسال الرسالة',
-        success: {
-          title: 'تم إرسال الرسالة!',
-          description: 'سوف نرد عليك في أقرب وقت ممكن.'
-        }
+        name: 'Vollständiger Name',
+        email: 'E-Mail-Adresse',
+        phone: 'Telefon',
+        subject: 'Betreff',
+        message: 'Nachricht',
+        send: 'Nachricht senden'
       },
       info: {
-        email: 'البريد الإلكتروني',
-        phone: 'الهاتف',
-        address: 'العنوان',
-        hours: 'ساعات العمل',
-        schedule: 'الإثنين-الجمعة: 8ص-6م\nالسبت: 9ص-12م'
-      },
-      map: {
-        title: 'اعثر علينا',
-        note: '* سيتم توفير خريطة تفاعلية قريبًا لتسهيل زيارتك'
+        address: 'Adresse',
+        phone: 'Telefon',
+        email: 'E-Mail',
+        hours: 'Öffnungszeiten'
       }
     },
 
-    // About
     about: {
-      title: 'حول LOGICY TRANSPORT',
-      description: 'الرائد في مجال النقل واللوجستيات',
+      title: 'Über LOGICY TRANSPORT',
+      description: 'Marktführer im Bereich Transport und Logistik',
       story: {
-        title: 'قصتنا',
-        content: 'منذ تأسيسها، أصبحت LOGICY TRANSPORT لاعبًا رئيسيًا في قطاع اللوجستيات بفضل خبرتنا والتزامنا بالتميز.'
+        title: 'Unsere Geschichte',
+        content: 'Seit unserer Gründung hat sich LOGICY TRANSPORT als wichtiger Akteur im Logistiksektor etabliert.'
       },
       mission: {
-        title: 'مهمتنا',
-        content: 'توفير حلول نقل موثوقة وفعالة ومخصصة لدعم نمو عملائنا.'
+        title: 'Unsere Mission',
+        content: 'Zuverlässige, effiziente und personalisierte Transportlösungen anzubieten.'
       },
       values: {
-        title: 'لماذا تختار LOGICY TRANSPORT؟',
-        reliability: 'الموثوقية',
-        innovation: 'الابتكار',
-        quality: 'الجودة',
-        service: 'خدمة العملاء'
-      },
-      stats: {
-        experience: 'سنوات الخبرة',
-        clients: 'عملاء راضون',
-        countries: 'الدول المخدومة',
-        shipments: 'الشحنات المنجزة'
-      },
-      timeline: {
-        title: 'تاريخنا',
-        items: [
-          {
-            year: '2007',
-            title: 'تأسيس LOGICY TRANSPORT',
-            description: 'تأسيس الشركة برؤية واضحة: ثورة في نقل اللوجستيات.'
-          },
-          {
-            year: '2010',
-            title: 'التوسع الأوروبي',
-            description: 'فتح خدماتنا في جميع أنحاء أوروبا مع شركاء موثوقين.'
-          },
-          {
-            year: '2015',
-            title: 'النقل الجوي',
-            description: 'إطلاق خدمات النقل الجوي للتسليم السريع.'
-          },
-          {
-            year: '2018',
-            title: 'الحلول البحرية',
-            description: 'تطوير عرضنا البحري للشحنات الكبيرة.'
-          },
-          {
-            year: '2020',
-            title: 'الرقمنة',
-            description: 'تنفيذ نظام التتبع في الوقت الحقيقي والرقمنة الكاملة.'
-          },
-          {
-            year: '2024',
-            title: 'الابتكار المستمر',
-            description: 'نواصل الابتكار لتقديم أفضل الحلول.'
-          }
-        ]
-      },
-      missionExpanded: {
-        content: 'نلتزم بتقديم حلول نقل مبتكرة، مع وضع رضا العملاء في قلب اهتماماتنا.'
-      },
-      commitments: {
-        title: 'التزاماتنا',
-        tracking: 'تتبع كامل لشحناتكم',
-        support: 'خدمة عملاء سريعة الاستجابة 24/7',
-        environment: 'المسؤولية البيئية'
-      },
-      cta: {
-        title: 'انضم إلى عملائنا الراضين',
-        description: 'اكتشف لماذا يثق بنا مئات الشركات',
-        servicesButton: 'اكتشف خدماتنا',
-        contactButton: 'اتصل بنا'
+        title: 'Warum LOGICY TRANSPORT wählen?',
+        reliability: 'Zuverlässigkeit',
+        innovation: 'Innovation',
+        quality: 'Qualität',
+        service: 'Kundenservice'
+      }
+    }
+  },
+
+  it: {
+    // Navigation  
+    nav: {
+      home: 'Home',
+      tracking: 'Tracking',
+      services: 'Servizi',
+      about: 'Chi siamo',
+      contact: 'Contatti',
+      quote: 'Preventivo',
+      zones: 'Zone di consegna'
+    },
+    
+    // Common
+    common: {
+      learnMore: 'Scopri di più',
+      contact: 'Contattaci',
+      getQuote: 'Richiedi preventivo',
+      freeQuote: 'Preventivo gratuito',
+      readMore: 'Leggi di più',
+      close: 'Chiudi',
+      loading: 'Caricamento...',
+      error: 'Errore',
+      success: 'Successo'
+    },
+
+    // Basic Italian translations
+    home: {
+      title: 'Dal 2007, LOGICY TRANSPORT consegna i vostri pacchi, merci e veicoli in tutto il mondo con affidabilità e prestigio',
+      subtitle: 'Il vostro partner logistico di fiducia',
+      description: 'Soluzioni di trasporto e logistica personalizzate per le vostre esigenze professionali in tutto il mondo',
+      cta: 'Scopri i nostri servizi',
+      services: {
+        title: 'I Nostri Servizi',
+        road: {
+          title: 'Trasporto Stradale',
+          description: 'Soluzioni di trasporto terrestre affidabili ed economiche'
+        },
+        air: {
+          title: 'Trasporto Aereo',
+          description: 'Consegne veloci via aerea'
+        },
+        maritime: {
+          title: 'Trasporto Marittimo',
+          description: 'Trasporto merci via mare'
+        }
       }
     },
 
-    // Transport pages
-    transport: {
-      aerial: {
-        title: 'النقل الجوي',
-        subtitle: 'حلول شحن جوي سريع لشحناتكم العاجلة والدولية مع تغطية عالمية',
-        quote: 'طلب عرض سعر',
-        whyChoose: 'لماذا تختار النقل الجوي لدينا؟',
-        servicesTitle: 'خدمات الشحن الجوي',
-        contact: 'اتصل بنا',
-        freeQuote: 'عرض سعر مجاني',
-        advantages: {
-          speed: {
-            title: 'سرعة استثنائية',
-            description: 'توصيل سريع في جميع أنحاء العالم خلال 24-72 ساعة'
-          },
-          coverage: {
-            title: 'تغطية عالمية',
-            description: 'شبكة دولية مع جميع المطارات الرئيسية'
-          },
-          security: {
-            title: 'أمان قصوى',
-            description: 'أعلى معايير الأمان في الطيران'
-          },
-          tracking: {
-            title: 'تتبع كامل',
-            description: 'تتبع في الوقت الفعلي من مطار المغادرة إلى التسليم'
-          }
-        },
-        services: [
-          'شحن جوي سريع (24/48/72 ساعة)',
-          'نقل البضائع القابلة للتلف',
-          'الطرود العاجلة والوثائق',
-          'البضائع الثمينة',
-          'النقل الصيدلاني',
-          'قطع الغيار الصناعية',
-          'التجارة الإلكترونية الدولية',
-          'التوحيد والتجميع الجوي'
-        ],
-        timelines: {
-          title: 'المواعيد والوجهات',
-          express24: 'سريع 24 ساعة',
-          express48: 'سريع 48 ساعة',
-          express72: 'سريع 72 ساعة',
-          standard: 'قياسي',
-          zones: {
-            europe: 'أوروبا، أمريكا الشمالية',
-            asia: 'آسيا، الشرق الأوسط',
-            southAmerica: 'أمريكا الجنوبية، أوقيانوسيا',
-            africa: 'أفريقيا، وجهات خاصة'
-          },
-          destinations: {
-            title: 'الوجهات الرئيسية',
-            list: [
-              'أكثر من 200 وجهة عالمية',
-              'شراكات مع شركات الطيران الكبرى',
-              'الوصول إلى مطارات الشحن المتخصصة',
-              'خدمة من الباب إلى الباب متاحة'
-            ]
-          }
-        }
+    tracking: {
+      title: 'Tracciamento Pacchi',
+      description: 'Inserisci il tuo codice di tracciamento per conoscere lo stato della tua spedizione in tempo reale',
+      placeholder: 'Inserisci il tuo codice di tracciamento',
+      search: 'Cerca',
+      help: 'Hai bisogno di aiuto?',
+      format: 'Formato codice di tracciamento:',
+      formatExample: 'LOG + 9 cifre (es: LOG123456789)',
+      testCodes: 'Codici di test:',
+      testCodesExample: 'LOG123456789, LOG987654321'
+    },
+
+    services: {
+      title: 'I Nostri Servizi di Trasporto',
+      description: 'Soluzioni logistiche complete per tutte le vostre esigenze di trasporto',
+      experience: 'Oltre 17 anni di esperienza'
+    },
+
+    contact: {
+      title: 'Contattaci',
+      description: 'Il nostro team è a vostra disposizione per rispondere alle vostre domande',
+      form: {
+        name: 'Nome completo',
+        email: 'Indirizzo email',
+        phone: 'Telefono',
+        subject: 'Oggetto',
+        message: 'Messaggio',
+        send: 'Invia messaggio'
       },
-      maritime: {
-        title: 'النقل البحري',
-        subtitle: 'حلول شحن بحري اقتصادية وموثوقة لشحناتكم الدولية من جميع الأحجام',
-        whyChoose: 'لماذا تختار النقل البحري لدينا؟',
-        servicesTitle: 'خدمات النقل البحري',
-        routesTitle: 'الطرق الرئيسية',
-        advantages: {
-          economical: {
-            title: 'اقتصادي',
-            description: 'الحل الأكثر فعالية من حيث التكلفة للأحجام الكبيرة'
-          },
-          global: {
-            title: 'عالمي',
-            description: 'الوصول إلى جميع الموانئ الدولية'
-          },
-          capacity: {
-            title: 'السعة',
-            description: 'نقل الأحمال الثقيلة والضخمة'
-          },
-          reliability: {
-            title: 'الموثوقية',
-            description: 'احترام المواعيد وأمان البضائع'
-          }
-        },
-        services: [
-          'حاويات FCL (حمولة حاوية كاملة)',
-          'تجميع LCL (أقل من حمولة حاوية)',
-          'حاويات مبردة',
-          'نقل المركبات (RoRo)',
-          'البضائع السائبة',
-          'المشاريع الصناعية',
-          'حاويات خاصة (Open Top, Flat Rack)',
-          'النقل متعدد الوسائط بحر/طريق/سكة حديد'
-        ],
-        containers: {
-          title: 'أنواع الحاويات',
-          list: [
-            "20' قياسي (33 م³)",
-            "40' قياسي (67 م³)",
-            "40' عالي المكعب (76 م³)",
-            "حاويات خاصة حسب الطلب"
-          ]
-        }
+      info: {
+        address: 'Indirizzo',
+        phone: 'Telefono',
+        email: 'Email',
+        hours: 'Orari di apertura'
+      }
+    },
+
+    about: {
+      title: 'Chi è LOGICY TRANSPORT',
+      description: 'Leader nel settore del trasporto e della logistica',
+      story: {
+        title: 'La Nostra Storia',
+        content: 'Dalla nostra creazione, LOGICY TRANSPORT si è affermata come attore principale del settore logistico.'
       },
-      road: {
-        title: 'النقل البري',
-        subtitle: 'حلول نقل بري موثوقة ومرنة لأوروبا وشمال أفريقيا مع تتبع في الوقت الفعلي',
-        whyChoose: 'لماذا تختار النقل البري لدينا؟',
-        servicesTitle: 'خدمات النقل البري',
-        vehiclesTitle: 'أسطولنا',
-        advantages: {
-          flexibility: {
-            title: 'المرونة',
-            description: 'من الباب إلى الباب مع جداول زمنية مكيفة'
-          },
-          coverage: {
-            title: 'تغطية موسعة',
-            description: 'أوروبا وشمال أفريقيا'
-          },
-          speed: {
-            title: 'السرعة',
-            description: 'توصيل سريع 24-48 ساعة'
-          },
-          tracking: {
-            title: 'تتبع في الوقت الفعلي',
-            description: 'تحديد الموقع الجغرافي GPS مستمر'
-          }
+      mission: {
+        title: 'La Nostra Missione',
+        content: 'Fornire soluzioni di trasporto affidabili, efficienti e personalizzate.'
+      },
+      values: {
+        title: 'Perché scegliere LOGICY TRANSPORT?',
+        reliability: 'Affidabilità',
+        innovation: 'Innovazione',
+        quality: 'Qualità',
+        service: 'Servizio clienti'
+      }
+    }
+  },
+
+  pt: {
+    // Navigation
+    nav: {
+      home: 'Início',
+      tracking: 'Rastreamento',
+      services: 'Serviços',
+      about: 'Sobre',
+      contact: 'Contato',
+      quote: 'Orçamento',
+      zones: 'Zonas de entrega'
+    },
+    
+    // Common
+    common: {
+      learnMore: 'Saiba mais',
+      contact: 'Entre em contato',
+      getQuote: 'Solicitar orçamento',
+      freeQuote: 'Orçamento gratuito',
+      readMore: 'Leia mais',
+      close: 'Fechar',
+      loading: 'Carregando...',
+      error: 'Erro',
+      success: 'Sucesso'
+    },
+
+    // Basic Portuguese translations
+    home: {
+      title: 'Desde 2007, LOGICY TRANSPORT entrega suas encomendas, cargas e veículos em todo o mundo com confiabilidade e prestígio',
+      subtitle: 'Seu parceiro logístico de confiança',
+      description: 'Soluções de transporte e logística personalizadas para suas necessidades profissionais em todo o mundo',
+      cta: 'Descobrir nossos serviços',
+      services: {
+        title: 'Nossos Serviços',
+        road: {
+          title: 'Transporte Rodoviário',
+          description: 'Soluções de transporte terrestre confiáveis e econômicas'
         },
-        services: [
-          'توصيل سريع 24-48 ساعة',
-          'نقل الرسائل',
-          'الطرود والمنصات',
-          'نقل مهني',
-          'نقل المركبات',
-          'البضائع الخطرة (ADR)',
-          'النقل المبرد',
-          'التجميع والتوزيع'
-        ],
-        vehicles: {
-          title: 'أنواع المركبات',
-          list: [
-            'مركبات خفيفة (3.5 طن)',
-            'شاحنات (7.5 - 19 طن)',
-            'شاحنات مقطورة (40 طن)',
-            'مركبات مبردة'
-          ]
+        air: {
+          title: 'Transporte Aéreo',
+          description: 'Entregas rápidas por via aérea'
+        },
+        maritime: {
+          title: 'Transporte Marítimo',
+          description: 'Transporte de mercadorias por via marítima'
         }
+      }
+    },
+
+    tracking: {
+      title: 'Rastreamento de Encomendas',
+      description: 'Digite seu código de rastreamento para conhecer o status de seu envio em tempo real',
+      placeholder: 'Digite seu código de rastreamento',
+      search: 'Pesquisar',
+      help: 'Precisa de ajuda?',
+      format: 'Formato do código de rastreamento:',
+      formatExample: 'LOG + 9 dígitos (ex: LOG123456789)',
+      testCodes: 'Códigos de teste:',
+      testCodesExample: 'LOG123456789, LOG987654321'
+    },
+
+    services: {
+      title: 'Nossos Serviços de Transporte',
+      description: 'Soluções logísticas completas para todas as suas necessidades de transporte',
+      experience: 'Mais de 17 anos de experiência'
+    },
+
+    contact: {
+      title: 'Entre em contato',
+      description: 'Nossa equipe está à sua disposição para responder suas perguntas',
+      form: {
+        name: 'Nome completo',
+        email: 'Endereço de email',
+        phone: 'Telefone',
+        subject: 'Assunto',
+        message: 'Mensagem',
+        send: 'Enviar mensagem'
+      },
+      info: {
+        address: 'Endereço',
+        phone: 'Telefone',
+        email: 'Email',
+        hours: 'Horários de atendimento'
+      }
+    },
+
+    about: {
+      title: 'Sobre LOGICY TRANSPORT',
+      description: 'Líder no setor de transporte e logística',
+      story: {
+        title: 'Nossa História',
+        content: 'Desde nossa criação, LOGICY TRANSPORT se estabeleceu como um ator principal do setor logístico.'
+      },
+      mission: {
+        title: 'Nossa Missão',
+        content: 'Fornecer soluções de transporte confiáveis, eficientes e personalizadas.'
+      },
+      values: {
+        title: 'Por que escolher LOGICY TRANSPORT?',
+        reliability: 'Confiabilidade',
+        innovation: 'Inovação',
+        quality: 'Qualidade',
+        service: 'Atendimento ao cliente'
       }
     }
   }
