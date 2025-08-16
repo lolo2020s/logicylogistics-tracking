@@ -91,7 +91,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                     <div key={index} className="flex-none w-full">
                       <img 
                         src={image} 
-                        alt={`${t('services.title')} ${index + 1}`}
+                        alt={t(`home.carousel.alt.${index}`, `${t('home.services.title')} ${index + 1}`)}
                         className="w-full h-[400px] object-cover"
                       />
                     </div>

@@ -32,6 +32,13 @@ export const translationData: Record<Language, Record<string, any>> = {
       subtitle: 'Votre partenaire logistique de confiance',
       description: 'Solutions de transport et logistique sur mesure pour vos besoins professionnels partout dans le monde',
       cta: 'Découvrir nos services',
+      carousel: {
+        alt: {
+          0: 'Transport et logistique LOGICY - Image 1',
+          1: 'Solutions de transport professionnel - Image 2', 
+          2: 'Services logistiques internationaux - Image 3'
+        }
+      },
       services: {
         title: 'Nos Services',
         road: {
@@ -216,6 +223,13 @@ export const translationData: Record<Language, Record<string, any>> = {
       subtitle: 'Your trusted logistics partner',
       description: 'Customized transport and logistics solutions for your professional needs worldwide',
       cta: 'Discover our services',
+      carousel: {
+        alt: {
+          0: 'LOGICY transport and logistics - Image 1',
+          1: 'Professional transport solutions - Image 2',
+          2: 'International logistics services - Image 3'
+        }
+      },
       services: {
         title: 'Our Services',
         road: {
@@ -467,6 +481,13 @@ export const translationData: Record<Language, Record<string, any>> = {
       subtitle: 'Su socio logístico de confianza',
       description: 'Soluciones de transporte y logística personalizadas para sus necesidades profesionales en todo el mundo',
       cta: 'Descubrir nuestros servicios',
+      carousel: {
+        alt: {
+          0: 'Transporte y logística LOGICY - Imagen 1',
+          1: 'Soluciones de transporte profesional - Imagen 2',
+          2: 'Servicios logísticos internacionales - Imagen 3'
+        }
+      },
       services: {
         title: 'Nuestros Servicios',
         road: {
@@ -718,6 +739,13 @@ export const translationData: Record<Language, Record<string, any>> = {
       subtitle: 'Ihr vertrauensvoller Logistikpartner',
       description: 'Maßgeschneiderte Transport- und Logistiklösungen für Ihre geschäftlichen Anforderungen weltweit',
       cta: 'Unsere Dienstleistungen entdecken',
+      carousel: {
+        alt: {
+          0: 'LOGICY Transport und Logistik - Bild 1',
+          1: 'Professionelle Transportlösungen - Bild 2',
+          2: 'Internationale Logistikdienstleistungen - Bild 3'
+        }
+      },
       services: {
         title: 'Unsere Dienstleistungen',
         road: {
@@ -969,6 +997,13 @@ export const translationData: Record<Language, Record<string, any>> = {
       subtitle: 'Il vostro partner logistico di fiducia',
       description: 'Soluzioni di trasporto e logistica su misura per le vostre esigenze professionali in tutto il mondo',
       cta: 'Scopri i nostri servizi',
+      carousel: {
+        alt: {
+          0: 'Trasporto e logistica LOGICY - Immagine 1',
+          1: 'Soluzioni di trasporto professionale - Immagine 2',
+          2: 'Servizi logistici internazionali - Immagine 3'
+        }
+      },
       services: {
         title: 'I Nostri Servizi',
         road: {
@@ -1220,6 +1255,13 @@ export const translationData: Record<Language, Record<string, any>> = {
       subtitle: 'Seu parceiro logístico de confiança',
       description: 'Soluções de transporte e logística personalizadas para suas necessidades profissionais em todo o mundo',
       cta: 'Descubra nossos serviços',
+      carousel: {
+        alt: {
+          0: 'Transporte e logística LOGICY - Imagem 1',
+          1: 'Soluções de transporte profissional - Imagem 2',
+          2: 'Serviços logísticos internacionais - Imagem 3'
+        }
+      },
       services: {
         title: 'Nossos Serviços',
         road: {
