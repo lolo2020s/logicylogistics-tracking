@@ -67,19 +67,15 @@ export function HomePage({ onNavigate }: HomePageProps) {
             {/* Texte à gauche */}
             <div className="text-left">
               <h1 className="text-4xl md:text-5xl font-montserrat font-bold text-black leading-tight mb-8">
-                Depuis 2007,<br />
-                LOGICY TRANSPORT<br />
-                livre vos colis, cargaisons<br />
-                et véhicules partout dans<br />
-                le monde avec fiabilité<br />
-                et prestige
+                {t('home.title')}<br />
+                {t('home.subtitle')}
               </h1>
               
               <Button
                 onClick={() => onNavigate('tracking')}
                 className="bg-primary hover:bg-primary/90 text-white font-montserrat font-semibold px-8 py-4 text-lg rounded-lg shadow-button transition-smooth"
               >
-                Suivre un envoi
+                {t('nav.tracking')}
               </Button>
             </div>
 
@@ -112,18 +108,16 @@ export function HomePage({ onNavigate }: HomePageProps) {
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-white leading-tight mb-8">
-              Depuis 2007, LOGICY TRANSPORT<br />
-              livre vos colis, cargaisons et<br />
-              véhicules partout dans le monde
+              {t('home.description')}
             </h2>
           </div>
 
           {/* Les 3 cartes de transport - Maintenant cliquables */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { bg: transportRoutierBg, title: 'Transport\nroutier', route: 'transport-routier', icon: <Truck className="h-12 w-12 text-orange-400 mb-4" />, bgColor: 'bg-slate-800' },
-              { bg: transportAerienBg, title: 'Transport\naérien', route: 'transport-aerien', icon: <Plane className="h-12 w-12 text-orange-400 mb-4" />, bgColor: 'bg-slate-800' },
-              { bg: transportMaritimeBg, title: 'Transport\nmaritime', route: 'transport-maritime', icon: <Ship className="h-12 w-12 text-orange-400 mb-4" />, bgColor: 'bg-slate-800' }
+              { bg: transportRoutierBg, title: t('home.services.road.title'), route: 'transport-routier', icon: <Truck className="h-12 w-12 text-orange-400 mb-4" />, bgColor: 'bg-slate-800' },
+              { bg: transportAerienBg, title: t('home.services.air.title'), route: 'transport-aerien', icon: <Plane className="h-12 w-12 text-orange-400 mb-4" />, bgColor: 'bg-slate-800' },
+              { bg: transportMaritimeBg, title: t('home.services.maritime.title'), route: 'transport-maritime', icon: <Ship className="h-12 w-12 text-orange-400 mb-4" />, bgColor: 'bg-slate-800' }
             ].map((service, index) => (
               <button
                 key={index}

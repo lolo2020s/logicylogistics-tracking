@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/select';
 import { Menu, X } from 'lucide-react';
 import { LanguageSelector } from '@/components/LanguageSelector';
+import { useTranslation } from '@/hooks/useTranslation';
 // Logo URL direct
 const logicyLogo = '/lovable-uploads/bf7b75bd-bbc4-4ea9-8372-c927a61de59b.png';
 
@@ -18,14 +19,15 @@ interface HeaderProps {
 }
 
 export function Header({ currentPage, onNavigate }: HeaderProps) {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigationItems = [
-    { key: 'home', label: 'Accueil' },
-    { key: 'tracking', label: 'Suivi' },
-    { key: 'services', label: 'Services' },
-    { key: 'about', label: 'À propos' },
-    { key: 'contact', label: 'Contact' },
+    { key: 'home', label: t('nav.home') },
+    { key: 'tracking', label: t('nav.tracking') },
+    { key: 'services', label: t('nav.services') },
+    { key: 'about', label: t('nav.about') },
+    { key: 'contact', label: t('nav.contact') },
   ];
 
   return (

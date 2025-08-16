@@ -11,19 +11,19 @@ export function Footer({ onNavigate }: FooterProps) {
   const { t } = useTranslation();
 
   const services = [
-    { key: 'transport-routier', label: 'Transport Routier', icon: <Truck className="h-4 w-4" /> },
-    { key: 'transport-aerien', label: 'Transport Aérien', icon: <Plane className="h-4 w-4" /> },
-    { key: 'transport-maritime', label: 'Transport Maritime', icon: <Ship className="h-4 w-4" /> },
-    { key: 'logistique-express', label: 'Logistique Express', icon: <Clock className="h-4 w-4" /> },
-    { key: 'solutions-sur-mesure', label: 'Solutions Sur-Mesure' }
+    { key: 'transport-routier', label: t('services.road.title'), icon: <Truck className="h-4 w-4" /> },
+    { key: 'transport-aerien', label: t('services.air.title'), icon: <Plane className="h-4 w-4" /> },
+    { key: 'transport-maritime', label: t('services.maritime.title'), icon: <Ship className="h-4 w-4" /> },
+    { key: 'logistique-express', label: t('common.learnMore'), icon: <Clock className="h-4 w-4" /> },
+    { key: 'solutions-sur-mesure', label: t('common.contact') }
   ];
 
   const quickLinks = [
-    { key: 'tracking', label: 'Suivi Colis' },
-    { key: 'quote', label: 'Demander un Devis' },
-    { key: 'zones-livraison', label: 'Zones de Livraison' },
-    { key: 'about', label: 'À Propos' },
-    { key: 'contact', label: 'Contact' }
+    { key: 'tracking', label: t('nav.tracking') },
+    { key: 'quote', label: t('common.getQuote') },
+    { key: 'zones-livraison', label: t('nav.zones') },
+    { key: 'about', label: t('nav.about') },
+    { key: 'contact', label: t('nav.contact') }
   ];
 
   const legalLinks = [
@@ -47,8 +47,7 @@ export function Footer({ onNavigate }: FooterProps) {
           <div className="space-y-4">
             <h3 className="text-lg font-bold text-foreground">LOGICY TRANSPORT</h3>
             <p className="text-sm text-muted-foreground">
-              Depuis 2007, votre partenaire logistique de confiance pour tous vos besoins de transport 
-              et livraison dans le monde entier.
+              {t('about.description')}
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
@@ -68,7 +67,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground">Nos Services</h3>
+            <h3 className="text-lg font-semibold text-foreground">{t('services.title')}</h3>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.key}>
@@ -86,7 +85,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground">Liens Rapides</h3>
+            <h3 className="text-lg font-semibold text-foreground">{t('nav.home')}</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.key}>
@@ -103,7 +102,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
           {/* Contact & Social */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground">Nous Suivre</h3>
+            <h3 className="text-lg font-semibold text-foreground">{t('contact.title')}</h3>
             <div className="flex space-x-3">
               {socialLinks.map((social, index) => (
                 <a
@@ -121,14 +120,14 @@ export function Footer({ onNavigate }: FooterProps) {
                 onClick={() => onNavigate('quote')}
                 className="w-full bg-primary hover:bg-primary/90"
               >
-                Demander un Devis
+                {t('common.getQuote')}
               </Button>
               <Button 
                 onClick={() => onNavigate('tracking')}
                 variant="outline"
                 className="w-full"
               >
-                Suivre un Colis
+                {t('nav.tracking')}
               </Button>
             </div>
           </div>

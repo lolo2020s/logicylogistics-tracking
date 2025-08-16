@@ -22,15 +22,15 @@ export function TrackingPage() {
 
         {/* Help Section */}
         <div className="bg-gradient-dark rounded-xl p-6 shadow-premium animate-scale-in mx-4">
-        <h3 className="font-semibold mb-3 text-white">Besoin d'aide ?</h3>
+        <h3 className="font-semibold mb-3 text-white">{t('tracking.help')}</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div>
-            <p className="font-medium mb-1 text-white">Format du code de suivi :</p>
-            <p className="text-white/80">LOG + 9 chiffres (ex: LOG123456789)</p>
+            <p className="font-medium mb-1 text-white">{t('tracking.format')}</p>
+            <p className="text-white/80">{t('tracking.formatExample')}</p>
           </div>
           <div>
-            <p className="font-medium mb-1 text-white">Codes de test :</p>
-            <p className="text-white/80">LOG123456789, LOG987654321</p>
+            <p className="font-medium mb-1 text-white">{t('tracking.testCodes')}</p>
+            <p className="text-white/80">{t('tracking.testCodesExample')}</p>
           </div>
         </div>
         </div>
