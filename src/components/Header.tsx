@@ -9,7 +9,6 @@ import {
 } from '@/components/ui/select';
 import { Menu, X } from 'lucide-react';
 import { LanguageSelector } from '@/components/LanguageSelector';
-import { GoogleTranslate } from '@/components/GoogleTranslate';
 // Logo URL direct
 const logicyLogo = '/lovable-uploads/bf7b75bd-bbc4-4ea9-8372-c927a61de59b.png';
 
@@ -56,7 +55,6 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
           {/* Language Selector & Mobile Menu */}
           <div className="flex items-center space-x-3">
             <LanguageSelector />
-            <GoogleTranslate />
 
             {/* Mobile Menu Toggle */}
             <button

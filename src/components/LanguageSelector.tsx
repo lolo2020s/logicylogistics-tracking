@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -7,6 +6,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useLanguageContext } from '@/context/LanguageContext';
+import { buildLocalizedPath } from '@/utils/routeUtils';
 
 const languages = [
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
@@ -18,42 +19,13 @@ const languages = [
 ];
 
 export function LanguageSelector() {
-  const [currentLanguage, setCurrentLanguage] = useState('fr');
-
-  useEffect(() => {
-    // Detect current language from URL or localStorage
-    const pathSegments = window.location.pathname.split('/');
-    const urlLang = pathSegments[1];
-    const supportedLangs = languages.map(l => l.code);
-    
-    if (supportedLangs.includes(urlLang)) {
-      setCurrentLanguage(urlLang);
-    } else {
-      const savedLang = localStorage.getItem('selectedLang');
-      if (savedLang && supportedLangs.includes(savedLang)) {
-        setCurrentLanguage(savedLang);
-      }
-    }
-  }, []);
+  const { currentLanguage, setLanguage } = useLanguageContext();
 
   const handleLanguageChange = (languageCode: string) => {
-    setCurrentLanguage(languageCode);
+    setLanguage(languageCode as any);
     
-    // Trigger Google Translate
-    const selectEl = document.querySelector("#google_translate_element select") as HTMLSelectElement;
-    if (selectEl) {
-      selectEl.value = languageCode;
-      selectEl.dispatchEvent(new Event('change'));
-    }
-    
-    // Update URL
-    const currentPath = window.location.pathname;
-    const cleanPath = currentPath.replace(/^\/(fr|en|es|de|it|pt)/, '');
-    const newPath = languageCode === 'fr' ? cleanPath : `/${languageCode}${cleanPath}`;
-    
-    if (currentPath !== newPath) {
-      window.history.pushState({}, '', newPath);
-    }
+    // Force page reload to ensure all content is updated
+    window.location.reload();
   };
 
   const currentLang = languages.find(lang => lang.code === currentLanguage) || languages[0];

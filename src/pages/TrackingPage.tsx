@@ -1,18 +1,18 @@
 import { TrackingSearch } from '@/components/TrackingSearch';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export function TrackingPage() {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-gradient-surface">
       <div className="max-w-4xl mx-auto space-y-8 relative">
         <div className="bg-gradient-hero text-center py-16 px-4 -mx-4 animate-fade-in">
           <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">
-            {t.tracking.title}
+            {t('tracking.title')}
           </h1>
           <p className="text-lg text-white/90">
-            Entrez votre code de suivi pour connaître l'état de votre envoi en temps réel
+            {t('tracking.description')}
           </p>
         </div>
 

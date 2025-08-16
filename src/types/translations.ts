@@ -1,4 +1,4 @@
-export type Language = 'fr' | 'en' | 'es' | 'pt' | 'it';
+export type Language = 'fr' | 'en' | 'es' | 'de' | 'it' | 'pt';
 
 export interface Translations {
   nav: {
@@ -316,6 +316,85 @@ export const translations: Record<Language, Translations> = {
       message: "Mensaje",
       send: "Enviar",
       success: "Mensaje enviado exitosamente"
+    }
+  },
+  de: {
+    nav: {
+      home: "Startseite",
+      tracking: "Sendungsverfolgung",
+      services: "Dienstleistungen",
+      about: "Über uns",
+      contact: "Kontakt"
+    },
+    home: {
+      title: "Zuverlässige Logistiklösungen seit 2007",
+      subtitle: "LOGICY TRANSPORT bietet zuverlässige, schnelle und sichere Logistiklösungen weltweit.",
+      trackButton: "Sendung verfolgen",
+      trackingCode: "Verfolgungscode",
+      trackingPlaceholder: "Geben Sie Ihren Verfolgungscode ein",
+      services: {
+        road: {
+          title: "Straßentransport",
+          description: "Schnelle und sichere Lieferung in Europa und darüber hinaus, geeignet für Pakete und Fahrzeuge."
+        },
+        air: {
+          title: "Lufttransport",
+          description: "Express-Frachttransport international mit kurzen Lieferzeiten."
+        },
+        maritime: {
+          title: "Seetransport",
+          description: "Kostengünstige Lösungen für Volumenfracht, Fahrzeuge und Container."
+        }
+      }
+    },
+    tracking: {
+      title: "Ihre Sendung verfolgen",
+      placeholder: "Geben Sie Ihren Verfolgungscode ein",
+      search: "Suchen",
+      notFound: "Keine Sendung mit diesem Verfolgungscode gefunden",
+      status: {
+        preparing: "Vorbereitung",
+        transit: "Unterwegs",
+        customs: "Zoll",
+        delivering: "Zustellung",
+        delivered: "Zugestellt"
+      },
+      details: {
+        trackingNumber: "Verfolgungsnummer",
+        type: "Typ",
+        currentLocation: "Aktueller Standort",
+        status: "Status",
+        history: "Verlauf"
+      }
+    },
+    services: {
+      title: "Unsere Dienstleistungen",
+      road: {
+        title: "Straßentransport",
+        description: "Schnelle und sichere Lieferung in Europa und darüber hinaus, geeignet für Pakete und Fahrzeuge."
+      },
+      air: {
+        title: "Lufttransport",
+        description: "Express-Frachttransport international mit kurzen Lieferzeiten."
+      },
+      maritime: {
+        title: "Seetransport",
+        description: "Kostengünstige Lösungen für Volumenfracht, Fahrzeuge und Container."
+      }
+    },
+    about: {
+      title: "Über LOGICY TRANSPORT",
+      founded: "Gegründet 2007, spezialisiert sich LOGICY TRANSPORT auf Straßen-, Luft- und Seetransport.",
+      mission: "Unsere Mission: Sicherheit, Transparenz und Zuverlässigkeit im Transport gewährleisten.",
+      commitment: "Unsere Verpflichtungen: Echtzeitverfolgung, professionelles Team, globales Netzwerk."
+    },
+    contact: {
+      title: "Kontaktieren Sie uns",
+      email: "E-Mail",
+      name: "Name",
+      message: "Nachricht",
+      send: "Senden",
+      success: "Nachricht erfolgreich gesendet"
     }
   },
   pt: {
