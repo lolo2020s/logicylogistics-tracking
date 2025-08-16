@@ -9,7 +9,7 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const SUPPORTED_LANGUAGES: Language[] = ['fr', 'en', 'es', 'de', 'it', 'pt'];
+const SUPPORTED_LANGUAGES: Language[] = ['fr', 'es', 'de', 'it', 'pt'];
 const DEFAULT_LANGUAGE: Language = 'fr';
 
 interface LanguageProviderProps {

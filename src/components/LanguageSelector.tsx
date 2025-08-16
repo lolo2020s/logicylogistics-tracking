@@ -11,7 +11,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 const languages = [
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'en', name: 'English', flag: '🇬🇧' },
   { code: 'es', name: 'Español', flag: '🇪🇸' },
   { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
   { code: 'it', name: 'Italiano', flag: '🇮🇹' },
@@ -27,7 +26,7 @@ export function LanguageSelector() {
     setLanguage(languageCode as any);
     
     // Get current path without language prefix
-    const cleanPath = location.pathname.replace(/^\/(fr|en|es|de|it|pt)/, '') || '/';
+    const cleanPath = location.pathname.replace(/^\/(fr|es|de|it|pt)/, '') || '/';
     
     // Build new path with new language and navigate using React Router
     const newPath = languageCode === 'fr' ? cleanPath : `/${languageCode}${cleanPath}`;

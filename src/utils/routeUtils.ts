@@ -1,6 +1,6 @@
 import { Language } from '@/types/translations';
 
-export const SUPPORTED_LANGUAGES: Language[] = ['fr', 'en', 'es', 'de', 'it', 'pt'];
+export const SUPPORTED_LANGUAGES: Language[] = ['fr', 'es', 'de', 'it', 'pt'];
 export const DEFAULT_LANGUAGE: Language = 'fr';
 
 export function extractLanguageFromPath(pathname: string): { language: Language; cleanPath: string } {
