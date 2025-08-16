@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { useToast } from '@/hooks/use-toast';
+import { ContactMap } from '@/components/ContactMap';
 
 export function ContactPage() {
   const { t } = useTranslation();
@@ -190,19 +191,14 @@ export function ContactPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="bg-gradient-dark rounded-lg h-64 flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="font-semibold mb-2 text-white">LOGICY TRANSPORT</h3>
-              <p className="text-white/80">
+            <ContactMap />
+            <div className="mt-4 text-center">
+              <h3 className="font-semibold mb-2">LOGICY TRANSPORT</h3>
+              <p className="text-muted-foreground">
                 123 Avenue de la Logistique<br />
                 69000 Lyon, France
               </p>
             </div>
-          </div>
-          <p className="text-sm text-muted-foreground mt-4">
-            {t('contact.map.note', '* Une carte interactive sera bientôt disponible pour faciliter votre visite')}
-          </p>
           </CardContent>
         </Card>
       </div>
