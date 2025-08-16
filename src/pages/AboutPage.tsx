@@ -20,53 +20,54 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
   // Fonction pour obtenir les éléments de timeline de manière sécurisée
   const getTimelineItems = () => {
     try {
+      // Essayer d'obtenir le tableau items directement
       const timelineData = t('about.timeline.items');
       if (Array.isArray(timelineData) && timelineData.length > 0) {
         return timelineData;
       }
       
-      // Fallback avec traductions individuelles
+      // Si ça ne marche pas, construire avec les traductions individuelles
       return [
         { 
           year: '2007', 
-          title: t('about.timeline.creation.title') || 'Création de LOGICY TRANSPORT', 
-          description: t('about.timeline.creation.description') || 'Fondation de l\'entreprise avec une vision claire : révolutionner le transport logistique.' 
+          title: t('about.timeline.items.0.title'), 
+          description: t('about.timeline.items.0.description') 
         },
         { 
           year: '2010', 
-          title: t('about.timeline.expansion.title') || 'Expansion européenne', 
-          description: t('about.timeline.expansion.description') || 'Ouverture de nos services dans toute l\'Europe avec des partenaires de confiance.' 
+          title: t('about.timeline.items.1.title'), 
+          description: t('about.timeline.items.1.description') 
         },
         { 
           year: '2015', 
-          title: t('about.timeline.air.title') || 'Transport aérien', 
-          description: t('about.timeline.air.description') || 'Lancement de nos services de transport aérien pour les envois express.' 
+          title: t('about.timeline.items.2.title'), 
+          description: t('about.timeline.items.2.description') 
         },
         { 
           year: '2018', 
-          title: t('about.timeline.maritime.title') || 'Solutions maritimes', 
-          description: t('about.timeline.maritime.description') || 'Développement de notre offre maritime pour les cargaisons volumineuses.' 
+          title: t('about.timeline.items.3.title'), 
+          description: t('about.timeline.items.3.description') 
         },
         { 
           year: '2020', 
-          title: t('about.timeline.digital.title') || 'Digitalisation', 
-          description: t('about.timeline.digital.description') || 'Mise en place du système de suivi en temps réel et digitalisation complète.' 
+          title: t('about.timeline.items.4.title'), 
+          description: t('about.timeline.items.4.description') 
         },
         { 
           year: '2024', 
-          title: t('about.timeline.innovation.title') || 'Innovation continue', 
-          description: t('about.timeline.innovation.description') || 'Aujourd\'hui, nous continuons d\'innover pour offrir les meilleures solutions.' 
+          title: t('about.timeline.items.5.title'), 
+          description: t('about.timeline.items.5.description') 
         },
       ];
     } catch (error) {
-      // Dernier fallback en français
+      // En cas d'erreur, utiliser les clés de traduction par défaut
       return [
-        { year: '2007', title: 'Création de LOGICY TRANSPORT', description: 'Fondation de l\'entreprise avec une vision claire : révolutionner le transport logistique.' },
-        { year: '2010', title: 'Expansion européenne', description: 'Ouverture de nos services dans toute l\'Europe avec des partenaires de confiance.' },
-        { year: '2015', title: 'Transport aérien', description: 'Lancement de nos services de transport aérien pour les envois express.' },
-        { year: '2018', title: 'Solutions maritimes', description: 'Développement de notre offre maritime pour les cargaisons volumineuses.' },
-        { year: '2020', title: 'Digitalisation', description: 'Mise en place du système de suivi en temps réel et digitalisation complète.' },
-        { year: '2024', title: 'Innovation continue', description: 'Aujourd\'hui, nous continuons d\'innover pour offrir les meilleures solutions.' },
+        { year: '2007', title: t('about.timeline.items.0.title'), description: t('about.timeline.items.0.description') },
+        { year: '2010', title: t('about.timeline.items.1.title'), description: t('about.timeline.items.1.description') },
+        { year: '2015', title: t('about.timeline.items.2.title'), description: t('about.timeline.items.2.description') },
+        { year: '2018', title: t('about.timeline.items.3.title'), description: t('about.timeline.items.3.description') },
+        { year: '2020', title: t('about.timeline.items.4.title'), description: t('about.timeline.items.4.description') },
+        { year: '2024', title: t('about.timeline.items.5.title'), description: t('about.timeline.items.5.description') },
       ];
     }
   };
@@ -106,30 +107,30 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
           <Card className="p-8 shadow-premium bg-gradient-surface border-0 animate-scale-in">
             <h3 className="text-xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">{t('about.mission.title')}</h3>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            {t('about.mission.content', 'Fournir des solutions de transport fiables, efficaces et personnalisées pour accompagner la croissance de nos clients.')}
+            {t('about.mission.content')}
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            {t('about.missionExpanded.content', 'Nous nous engageons à fournir des solutions de transport innovantes, en mettant la satisfaction client au cœur de nos préoccupations.')}
+            {t('about.missionExpanded.content')}
           </p>
         </Card>
 
           <Card className="p-8 shadow-premium bg-gradient-surface border-0 animate-scale-in" style={{animationDelay: '0.2s'}}>
-            <h3 className="text-xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">{t('about.commitments.title', 'Nos Engagements')}</h3>
+            <h3 className="text-xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">{t('about.commitments.title')}</h3>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            {t('about.values.reliability', 'Fiabilité')}
+            {t('about.values.reliability')}
           </p>
           <ul className="space-y-2 text-muted-foreground">
             <li className="flex items-center">
               <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-              {t('about.commitments.tracking', 'Traçabilité complète de vos envois')}
+              {t('about.commitments.tracking')}
             </li>
             <li className="flex items-center">
               <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-              {t('about.commitments.support', 'Service client réactif 24h/24')}
+              {t('about.commitments.support')}
             </li>
             <li className="flex items-center">
               <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-              {t('about.commitments.environment', 'Respect de l\'environnement')}
+              {t('about.commitments.environment')}
             </li>
           </ul>
         </Card>
@@ -138,7 +139,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
       {/* Timeline */}
       <section className="bg-gradient-accent rounded-2xl p-8 md:p-12">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-          {t('about.timeline.title', 'Notre Histoire')}
+          {t('about.timeline.title')}
         </h2>
         <div className="space-y-8">
           {timeline.map((item, index) => (
@@ -157,9 +158,9 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
 
         {/* CTA */}
         <div className="text-center bg-gradient-dark rounded-2xl p-8 shadow-premium animate-scale-in mx-4">
-          <h2 className="text-2xl font-bold mb-4 text-white">{t('about.cta.title', 'Rejoignez nos clients satisfaits')}</h2>
+          <h2 className="text-2xl font-bold mb-4 text-white">{t('about.cta.title')}</h2>
           <p className="text-white/80 mb-6">
-            {t('about.cta.description', 'Découvrez pourquoi des centaines d\'entreprises nous font confiance')}
+            {t('about.cta.description')}
           </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button 
@@ -167,14 +168,14 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
             size="lg"
             className="bg-gradient-primary hover:opacity-90"
           >
-            {t('about.cta.servicesButton', 'Découvrir nos services')}
+            {t('about.cta.servicesButton')}
           </Button>
           <Button 
             onClick={() => onNavigate('contact')}
             variant="outline"
             size="lg"
           >
-            {t('about.cta.contactButton', 'Nous contacter')}
+            {t('about.cta.contactButton')}
           </Button>
         </div>
         </div>
