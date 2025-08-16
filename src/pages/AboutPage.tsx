@@ -27,36 +27,37 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
   ];
 
   return (
-    <div className="space-y-16">
-      {/* Header */}
-      <div className="text-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-          {t.about.title}
-        </h1>
-        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          {t.about.founded}
-        </p>
-      </div>
+    <div className="min-h-screen bg-gradient-surface">
+      <div className="space-y-16 relative">
+        {/* Header */}
+        <div className="bg-gradient-hero text-center py-16 px-4 -mx-4 animate-fade-in">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">
+            {t.about.title}
+          </h1>
+          <p className="text-lg text-white/90 max-w-3xl mx-auto">
+            {t.about.founded}
+          </p>
+        </div>
 
-      {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        {stats.map((stat, index) => (
-          <Card key={index} className="text-center p-6 hover:shadow-elegant transition-smooth">
-            <CardContent className="space-y-3 p-0">
-              <div className="mx-auto w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center">
-                <stat.icon className="w-6 h-6 text-primary" />
-              </div>
-              <div className="text-2xl font-bold text-primary">{stat.value}</div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 px-4">
+          {stats.map((stat, index) => (
+            <Card key={index} className="text-center p-6 hover:shadow-premium transition-smooth hover:-translate-y-2 bg-gradient-surface border-0 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
+              <CardContent className="space-y-3 p-0">
+                <div className="mx-auto w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shadow-premium">
+                  <stat.icon className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">{stat.value}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
-      {/* Mission & Values */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <Card className="p-8 shadow-elegant">
-          <h3 className="text-xl font-bold mb-4 text-primary">Notre Mission</h3>
+        {/* Mission & Values */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
+          <Card className="p-8 shadow-premium bg-gradient-surface border-0 animate-scale-in">
+            <h3 className="text-xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Notre Mission</h3>
           <p className="text-muted-foreground leading-relaxed mb-4">
             {t.about.mission}
           </p>
@@ -66,8 +67,8 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
           </p>
         </Card>
 
-        <Card className="p-8 shadow-elegant">
-          <h3 className="text-xl font-bold mb-4 text-primary">Nos Engagements</h3>
+          <Card className="p-8 shadow-premium bg-gradient-surface border-0 animate-scale-in" style={{animationDelay: '0.2s'}}>
+            <h3 className="text-xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Nos Engagements</h3>
           <p className="text-muted-foreground leading-relaxed mb-4">
             {t.about.commitment}
           </p>
@@ -108,12 +109,12 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
         </div>
       </section>
 
-      {/* CTA */}
-      <div className="text-center bg-white rounded-2xl p-8 shadow-elegant">
-        <h2 className="text-2xl font-bold mb-4">Rejoignez nos clients satisfaits</h2>
-        <p className="text-muted-foreground mb-6">
-          Découvrez pourquoi des centaines d'entreprises nous font confiance
-        </p>
+        {/* CTA */}
+        <div className="text-center bg-gradient-dark rounded-2xl p-8 shadow-premium animate-scale-in mx-4">
+          <h2 className="text-2xl font-bold mb-4 text-white">Rejoignez nos clients satisfaits</h2>
+          <p className="text-white/80 mb-6">
+            Découvrez pourquoi des centaines d'entreprises nous font confiance
+          </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button 
             onClick={() => onNavigate('services')}
@@ -129,6 +130,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
           >
             Nous contacter
           </Button>
+        </div>
         </div>
       </div>
     </div>

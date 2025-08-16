@@ -68,20 +68,21 @@ export function ContactPage() {
   ];
 
   return (
-    <div className="space-y-12">
-      {/* Header */}
-      <div className="text-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-          {t.contact.title}
-        </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Notre équipe est à votre disposition pour répondre à toutes vos questions
-        </p>
-      </div>
+    <div className="min-h-screen bg-gradient-surface">
+      <div className="space-y-12 relative">
+        {/* Header */}
+        <div className="bg-gradient-hero text-center py-16 px-4 -mx-4 animate-fade-in">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">
+            {t.contact.title}
+          </h1>
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
+            Notre équipe est à votre disposition pour répondre à toutes vos questions
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Contact Form */}
-        <Card className="shadow-elegant">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4">
+          {/* Contact Form */}
+          <Card className="shadow-premium bg-gradient-surface border-0 animate-scale-in">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <Send className="h-5 w-5 text-primary" />
@@ -151,15 +152,15 @@ export function ContactPage() {
           </CardContent>
         </Card>
 
-        {/* Contact Information */}
-        <div className="space-y-6">
-          {contactInfo.map((info, index) => (
-            <Card key={index} className="shadow-elegant hover:shadow-primary transition-smooth">
+          {/* Contact Information */}
+          <div className="space-y-6">
+            {contactInfo.map((info, index) => (
+              <Card key={index} className="shadow-premium hover:shadow-premium transition-smooth hover:-translate-y-1 bg-gradient-surface border-0 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
               <CardContent className="p-6">
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center">
-                    <info.icon className="w-6 h-6 text-primary" />
-                  </div>
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center shadow-premium">
+                      <info.icon className="w-6 h-6 text-white" />
+                    </div>
                   <div className="flex-1">
                     <h3 className="font-semibold mb-1">{info.label}</h3>
                     {info.action ? (
@@ -177,23 +178,23 @@ export function ContactPage() {
               </CardContent>
             </Card>
           ))}
+          </div>
         </div>
-      </div>
 
-      {/* Map Section */}
-      <Card className="shadow-elegant">
-        <CardHeader>
-          <CardTitle className="flex items-center space-x-2">
-            <MapPin className="h-5 w-5 text-primary" />
-            <span>Nous trouver</span>
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="bg-gradient-accent rounded-lg h-64 flex items-center justify-center">
+        {/* Map Section */}
+        <Card className="shadow-premium bg-gradient-surface border-0 animate-scale-in mx-4">
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2">
+              <MapPin className="h-5 w-5 text-primary" />
+              <span>Nous trouver</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="bg-gradient-dark rounded-lg h-64 flex items-center justify-center">
             <div className="text-center">
               <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="font-semibold mb-2">LOGICY TRANSPORT</h3>
-              <p className="text-muted-foreground">
+              <h3 className="font-semibold mb-2 text-white">LOGICY TRANSPORT</h3>
+              <p className="text-white/80">
                 123 Avenue de la Logistique<br />
                 69000 Lyon, France
               </p>
@@ -202,8 +203,9 @@ export function ContactPage() {
           <p className="text-sm text-muted-foreground mt-4">
             * Une carte interactive sera bientôt disponible pour faciliter votre visite
           </p>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

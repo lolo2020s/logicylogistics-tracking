@@ -56,29 +56,30 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
   ];
 
   return (
-    <div className="space-y-16">
-      {/* Header */}
-      <div className="text-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-          {t.services.title}
-        </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Découvrez nos solutions de transport adaptées à tous vos besoins logistiques
-        </p>
-      </div>
+    <div className="min-h-screen bg-gradient-surface">
+      <div className="space-y-16 relative">
+        {/* Header */}
+        <div className="bg-gradient-hero text-center py-16 px-4 -mx-4 animate-fade-in">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">
+            {t.services.title}
+          </h1>
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
+            Découvrez nos solutions de transport adaptées à tous vos besoins logistiques
+          </p>
+        </div>
 
-      {/* Services Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {services.map((service, index) => (
-          <Card key={index} className="group hover:shadow-elegant transition-smooth">
-            <CardHeader className="text-center">
-              <div className="mx-auto mb-4 w-20 h-20 rounded-full bg-gradient-accent flex items-center justify-center group-hover:scale-110 transition-smooth">
-                <img src={service.icon} alt={service.title} className="w-12 h-12" />
-              </div>
-              <CardTitle className="text-xl group-hover:text-primary transition-smooth">
-                {service.title}
-              </CardTitle>
-            </CardHeader>
+        {/* Services Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4">
+          {services.map((service, index) => (
+            <Card key={index} className="group hover:shadow-premium transition-smooth hover:-translate-y-2 bg-gradient-surface border-0 animate-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
+              <CardHeader className="text-center">
+                <div className="mx-auto mb-4 w-20 h-20 rounded-full bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-smooth shadow-premium">
+                  <img src={service.icon} alt={service.title} className="w-12 h-12" />
+                </div>
+                <CardTitle className="text-xl group-hover:text-primary transition-smooth">
+                  {service.title}
+                </CardTitle>
+              </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground leading-relaxed">
                 {service.description}
@@ -114,12 +115,12 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         </div>
       </section>
 
-      {/* CTA */}
-      <div className="text-center bg-white rounded-2xl p-8 shadow-elegant">
-        <h2 className="text-2xl font-bold mb-4">Besoin d'un devis personnalisé ?</h2>
-        <p className="text-muted-foreground mb-6">
-          Contactez nos experts pour une solution adaptée à vos besoins
-        </p>
+        {/* CTA */}
+        <div className="text-center bg-gradient-dark rounded-2xl p-8 shadow-premium animate-scale-in mx-4">
+          <h2 className="text-2xl font-bold mb-4 text-white">Besoin d'un devis personnalisé ?</h2>
+          <p className="text-white/80 mb-6">
+            Contactez nos experts pour une solution adaptée à vos besoins
+          </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button 
             onClick={() => onNavigate('contact')}
@@ -135,6 +136,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
           >
             Suivre un envoi
           </Button>
+        </div>
         </div>
       </div>
     </div>
