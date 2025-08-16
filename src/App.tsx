@@ -17,6 +17,12 @@ import { LogistiqueExpressPage } from "./pages/LogistiqueExpressPage";
 import { SolutionsSurMesurePage } from "./pages/SolutionsSurMesurePage";
 import { ConditionsGeneralesPage } from "./pages/ConditionsGeneralesPage";
 import { PolitiqueConfidentialitePage } from "./pages/PolitiqueConfidentialitePage";
+import { AuthProvider } from "./context/AuthContext";
+import { AuthPage } from "./pages/AuthPage";
+import { AdminLayout } from "./pages/admin/AdminLayout";
+import { AdminDashboard } from "./pages/admin/AdminDashboard";
+import { ShipmentsList } from "./pages/admin/ShipmentsList";
+import { NewShipment } from "./pages/admin/NewShipment";
 import { LanguageProvider } from "./context/LanguageContext";
 
 const queryClient = new QueryClient();
@@ -24,9 +30,10 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <LanguageProvider>
-        <Toaster />
-        <Sonner />
+      <AuthProvider>
+        <LanguageProvider>
+          <Toaster />
+          <Sonner />
         <BrowserRouter>
           <Routes>
             {/* Default French routes */}
@@ -43,6 +50,16 @@ const App = () => (
             <Route path="/solutions-sur-mesure" element={<SolutionsSurMesurePage onNavigate={() => {}} />} />
             <Route path="/conditions-generales" element={<ConditionsGeneralesPage onNavigate={() => {}} />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialitePage onNavigate={() => {}} />} />
+            
+            {/* Auth routes */}
+            <Route path="/auth" element={<AuthPage />} />
+            
+            {/* Admin routes */}
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="shipments" element={<ShipmentsList />} />
+              <Route path="shipments/new" element={<NewShipment />} />
+            </Route>
             
             {/* Spanish routes */}
             <Route path="/es" element={<Index />} />
@@ -109,7 +126,8 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </LanguageProvider>
-    </TooltipProvider>
+    </AuthProvider>
+  </TooltipProvider>
   </QueryClientProvider>
 );
 
