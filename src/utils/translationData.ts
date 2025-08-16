@@ -617,36 +617,81 @@ export const translationData: Record<Language, Record<string, any>> = {
     // Services
     services: {
       title: 'Unsere Transportdienstleistungen',
-      description: 'Entdecken Sie unser komplettes Angebot an Logistiklösungen',
+      description: 'Komplette Logistiklösungen für alle Ihre Transportbedürfnisse, von Express-Lieferung bis zu internationalen Sendungen',
+      experience: 'Über 17 Jahre Erfahrung',
       road: {
         title: 'Straßentransport',
-        description: 'An Ihre Bedürfnisse angepasste Landtransportlösungen',
+        description: 'Zuverlässige Straßentransportlösungen für Europa und Nordafrika',
         features: [
-          'Express-Lieferung 24h/48h',
-          'Transport verschiedener Waren',
-          'Nationale und europäische Abdeckung',
-          'Echtzeitverfolgung'
+          'Express-Lieferung 24-48h',
+          'Leichte bis schwere Fahrzeuge',
+          'Echtzeit-Verfolgung',
+          'Vollkaskoversicherung'
         ]
       },
       air: {
         title: 'Lufttransport',
-        description: 'Schnelle Sendungen auf dem Luftweg',
+        description: 'Express-Luftfracht für Ihre dringenden Sendungen weltweit',
         features: [
-          'Internationale Express-Lieferung',
-          'Transport dringender Produkte',
-          'Weltweites Partnernetzwerk',
-          'Zolldokumentation'
+          'Lieferung 24-72h',
+          'Weltweite Abdeckung',
+          'Maximale Sicherheit',
+          'Vollständige Rückverfolgbarkeit'
         ]
       },
       maritime: {
         title: 'Seetransport',
-        description: 'Wirtschaftliche Lösungen für Ihre sperrigen Sendungen',
+        description: 'Kostengünstige Lösungen für Ihre großen internationalen Sendungen',
         features: [
-          'Containertransport',
-          'Internationale Seefracht',
-          'Sammelgut/Vollladungslösungen',
-          'Warenversicherung'
+          'FCL/LCL Container',
+          'Alle Welthäfen',
+          'Wettbewerbsfähige Preise',
+          'Optimierte Sammelgut'
         ]
+      },
+      express: {
+        title: 'Express-Logistik',
+        description: 'Premium-Service für dringende Sendungen mit Liefergarantie',
+        features: [
+          'Noch am selben Tag möglich',
+          '24/7 Service',
+          'Eigener Kurier',
+          'Erstattung bei Verspätung'
+        ]
+      },
+      custom: {
+        title: 'Maßgeschneiderte Lösungen',
+        description: 'Personalisierte Logistiklösungen nach Ihren spezifischen Bedürfnissen',
+        features: [
+          'Bedarfsanalyse',
+          'Eigene Lösung',
+          'Expertenbegleitung',
+          'Garantierte Skalierbarkeit'
+        ]
+      },
+      tracking: {
+        title: 'Paketverfolgung',
+        description: 'Erweiterte Tracking-System zur Verfolgung Ihrer Sendungen in Echtzeit',
+        features: [
+          'GPS-Geolokalisierung',
+          'SMS-Benachrichtigungen',
+          'Web-Interface',
+          'API verfügbar'
+        ]
+      },
+      advantages: {
+        delivery: {
+          title: 'Termine Eingehalten',
+          description: 'Unsere Teams verpflichten sich, vereinbarte Termine mit Garantien einzuhalten'
+        },
+        security: {
+          title: 'Maximale Sicherheit',
+          description: 'Ihre Sendungen sind während des gesamten Transports geschützt und versichert'
+        },
+        pricing: {
+          title: 'Transparente Preise',
+          description: 'Festpreise ohne Überraschungen mit kostenlosem Angebot innerhalb von 24h'
+        }
       }
     },
 
@@ -683,7 +728,7 @@ export const translationData: Record<Language, Record<string, any>> = {
         content: 'Zuverlässige, effiziente und personalisierte Transportlösungen bereitzustellen, um das Wachstum unserer Kunden zu unterstützen.'
       },
       values: {
-        title: 'Unsere Werte',
+        title: 'Warum LOGICY TRANSPORT wählen?',
         reliability: 'Zuverlässigkeit',
         innovation: 'Innovation',
         quality: 'Qualität',
@@ -756,36 +801,81 @@ export const translationData: Record<Language, Record<string, any>> = {
     // Services
     services: {
       title: 'I Nostri Servizi di Trasporto',
-      description: 'Scopri la nostra gamma completa di soluzioni logistiche',
+      description: 'Soluzioni logistiche complete per tutte le vostre esigenze di trasporto, dalla consegna express alle spedizioni internazionali',
+      experience: 'Oltre 17 anni di esperienza',
       road: {
         title: 'Trasporto Stradale',
-        description: 'Soluzioni di trasporto terrestre adattate alle vostre esigenze',
+        description: 'Soluzioni di trasporto stradale affidabili per Europa e Nord Africa',
         features: [
-          'Consegna express 24h/48h',
-          'Trasporto merci varie',
-          'Copertura nazionale ed europea',
-          'Tracciamento in tempo reale'
+          'Consegna express 24-48h',
+          'Veicoli leggeri e pesanti',
+          'Tracciamento in tempo reale',
+          'Assicurazione completa'
         ]
       },
       air: {
         title: 'Trasporto Aereo',
-        description: 'Spedizioni rapide per via aerea',
+        description: 'Trasporto aereo express per le vostre spedizioni urgenti in tutto il mondo',
         features: [
-          'Consegna express internazionale',
-          'Trasporto prodotti urgenti',
-          'Rete mondiale di partner',
-          'Documentazione doganale'
+          'Consegna 24-72h',
+          'Copertura mondiale',
+          'Sicurezza massima',
+          'Tracciabilità completa'
         ]
       },
       maritime: {
         title: 'Trasporto Marittimo',
-        description: 'Soluzioni economiche per le vostre spedizioni voluminose',
+        description: 'Soluzioni economiche per le vostre spedizioni internazionali voluminose',
         features: [
-          'Trasporto container',
-          'Trasporto marittimo internazionale',
-          'Soluzioni groupage/completo',
-          'Assicurazione merci'
+          'Container FCL/LCL',
+          'Tutti i porti mondiali',
+          'Tariffe competitive',
+          'Groupage ottimizzato'
         ]
+      },
+      express: {
+        title: 'Logistica Express',
+        description: 'Servizio premium per le vostre spedizioni urgenti con garanzia di consegna',
+        features: [
+          'Stesso giorno possibile',
+          'Servizio 24/7',
+          'Corriere dedicato',
+          'Rimborso se in ritardo'
+        ]
+      },
+      custom: {
+        title: 'Soluzioni Su Misura',
+        description: 'Soluzioni logistiche personalizzate secondo le vostre esigenze specifiche',
+        features: [
+          'Analisi delle esigenze',
+          'Soluzione dedicata',
+          'Accompagnamento esperto',
+          'Scalabilità garantita'
+        ]
+      },
+      tracking: {
+        title: 'Tracciamento Pacchi',
+        description: 'Sistema di tracking avanzato per seguire le vostre spedizioni in tempo reale',
+        features: [
+          'Geolocalizzazione GPS',
+          'Notifiche SMS',
+          'Interfaccia web',
+          'API disponibile'
+        ]
+      },
+      advantages: {
+        delivery: {
+          title: 'Tempi Rispettati',
+          description: 'I nostri team si impegnano a rispettare i tempi concordati con garanzie'
+        },
+        security: {
+          title: 'Sicurezza Massima',
+          description: 'Le vostre spedizioni sono protette e assicurate durante tutto il trasporto'
+        },
+        pricing: {
+          title: 'Prezzi Trasparenti',
+          description: 'Prezzi fissi senza sorprese con preventivo gratuito entro 24h'
+        }
       }
     },
 
@@ -822,7 +912,7 @@ export const translationData: Record<Language, Record<string, any>> = {
         content: 'Fornire soluzioni di trasporto affidabili, efficienti e personalizzate per accompagnare la crescita dei nostri clienti.'
       },
       values: {
-        title: 'I Nostri Valori',
+        title: 'Perché Scegliere LOGICY TRANSPORT?',
         reliability: 'Affidabilità',
         innovation: 'Innovazione',
         quality: 'Qualità',
@@ -895,36 +985,81 @@ export const translationData: Record<Language, Record<string, any>> = {
     // Services
     services: {
       title: 'Nossos Serviços de Transporte',
-      description: 'Descubra nossa gama completa de soluções logísticas',
+      description: 'Soluções logísticas completas para todas as suas necessidades de transporte, desde entrega expressa até remessas internacionais',
+      experience: 'Mais de 17 anos de experiência',
       road: {
         title: 'Transporte Rodoviário',
-        description: 'Soluções de transporte terrestre adaptadas às suas necessidades',
+        description: 'Soluções de transporte rodoviário confiáveis para Europa e Norte da África',
         features: [
-          'Entrega expressa 24h/48h',
-          'Transporte de mercadorias diversas',
-          'Cobertura nacional e europeia',
-          'Rastreamento em tempo real'
+          'Entrega expressa 24-48h',
+          'Veículos leves a pesados',
+          'Rastreamento em tempo real',
+          'Seguro completo'
         ]
       },
       air: {
         title: 'Transporte Aéreo',
-        description: 'Remessas rápidas por via aérea',
+        description: 'Transporte aéreo expresso para suas remessas urgentes em todo o mundo',
         features: [
-          'Entrega expressa internacional',
-          'Transporte de produtos urgentes',
-          'Rede mundial de parceiros',
-          'Documentação alfandegária'
+          'Entrega 24-72h',
+          'Cobertura mundial',
+          'Segurança máxima',
+          'Rastreabilidade completa'
         ]
       },
       maritime: {
         title: 'Transporte Marítimo',
-        description: 'Soluções econômicas para suas remessas volumosas',
+        description: 'Soluções econômicas para suas remessas internacionais volumosas',
         features: [
-          'Transporte de contêineres',
-          'Frete marítimo internacional',
-          'Soluções de groupage/completo',
-          'Seguro de mercadorias'
+          'Contêineres FCL/LCL',
+          'Todos os portos mundiais',
+          'Tarifas competitivas',
+          'Groupage otimizado'
         ]
+      },
+      express: {
+        title: 'Logística Expressa',
+        description: 'Serviço premium para suas remessas urgentes com garantia de entrega',
+        features: [
+          'Mesmo dia possível',
+          'Serviço 24/7',
+          'Courier dedicado',
+          'Reembolso se atrasado'
+        ]
+      },
+      custom: {
+        title: 'Soluções Personalizadas',
+        description: 'Soluções logísticas personalizadas de acordo com suas necessidades específicas',
+        features: [
+          'Análise de necessidades',
+          'Solução dedicada',
+          'Acompanhamento especializado',
+          'Escalabilidade garantida'
+        ]
+      },
+      tracking: {
+        title: 'Rastreamento de Pacotes',
+        description: 'Sistema de rastreamento avançado para acompanhar suas remessas em tempo real',
+        features: [
+          'Geolocalização GPS',
+          'Notificações SMS',
+          'Interface web',
+          'API disponível'
+        ]
+      },
+      advantages: {
+        delivery: {
+          title: 'Prazos Respeitados',
+          description: 'Nossas equipes se comprometem a respeitar os prazos acordados com garantias'
+        },
+        security: {
+          title: 'Segurança Máxima',
+          description: 'Suas remessas são protegidas e seguradas durante todo o transporte'
+        },
+        pricing: {
+          title: 'Preços Transparentes',
+          description: 'Preços fixos sem surpresas com orçamento gratuito em 24h'
+        }
       }
     },
 
@@ -961,7 +1096,7 @@ export const translationData: Record<Language, Record<string, any>> = {
         content: 'Fornecer soluções de transporte confiáveis, eficientes e personalizadas para acompanhar o crescimento de nossos clientes.'
       },
       values: {
-        title: 'Nossos Valores',
+        title: 'Por Que Escolher LOGICY TRANSPORT?',
         reliability: 'Confiabilidade',
         innovation: 'Inovação',
         quality: 'Qualidade',
