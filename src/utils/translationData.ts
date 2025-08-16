@@ -28,9 +28,9 @@ export const translationData: Record<Language, Record<string, any>> = {
 
     // Home page
     home: {
-      title: 'LOGICY TRANSPORT',
+      title: 'Depuis 2007, LOGICY TRANSPORT livre vos colis, cargaisons et véhicules partout dans le monde avec fiabilité et prestige',
       subtitle: 'Votre partenaire logistique de confiance',
-      description: 'Solutions de transport et logistique sur mesure pour vos besoins professionnels',
+      description: 'Solutions de transport et logistique sur mesure pour vos besoins professionnels partout dans le monde',
       cta: 'Découvrir nos services',
       services: {
         title: 'Nos Services',
@@ -39,7 +39,7 @@ export const translationData: Record<Language, Record<string, any>> = {
           description: 'Solutions de transport terrestre fiables et économiques'
         },
         air: {
-          title: 'Transport Aérien',
+          title: 'Transport Aérien', 
           description: 'Livraisons rapides par voie aérienne'
         },
         maritime: {
@@ -167,9 +167,9 @@ export const translationData: Record<Language, Record<string, any>> = {
 
     // Home page
     home: {
-      title: 'LOGICY TRANSPORT',
+      title: 'Since 2007, LOGICY TRANSPORT delivers your packages, cargo and vehicles worldwide with reliability and prestige',
       subtitle: 'Your trusted logistics partner',
-      description: 'Customized transport and logistics solutions for your professional needs',
+      description: 'Customized transport and logistics solutions for your professional needs worldwide',
       cta: 'Discover our services',
       services: {
         title: 'Our Services',
@@ -306,9 +306,9 @@ export const translationData: Record<Language, Record<string, any>> = {
 
     // Home page
     home: {
-      title: 'LOGICY TRANSPORT',
+      title: 'Desde 2007, LOGICY TRANSPORT entrega sus paquetes, carga y vehículos en todo el mundo con confiabilidad y prestigio',
       subtitle: 'Su socio logístico de confianza',
-      description: 'Soluciones de transporte y logística personalizadas para sus necesidades profesionales',
+      description: 'Soluciones de transporte y logística personalizadas para sus necesidades profesionales en todo el mundo',
       cta: 'Descubrir nuestros servicios',
       services: {
         title: 'Nuestros Servicios',
@@ -445,9 +445,9 @@ export const translationData: Record<Language, Record<string, any>> = {
 
     // Home page
     home: {
-      title: 'LOGICY TRANSPORT',
+      title: 'Seit 2007 liefert LOGICY TRANSPORT Ihre Pakete, Fracht und Fahrzeuge weltweit mit Zuverlässigkeit und Prestige',
       subtitle: 'Ihr vertrauensvoller Logistikpartner',
-      description: 'Maßgeschneiderte Transport- und Logistiklösungen für Ihre geschäftlichen Anforderungen',
+      description: 'Maßgeschneiderte Transport- und Logistiklösungen für Ihre geschäftlichen Anforderungen weltweit',
       cta: 'Unsere Dienstleistungen entdecken',
       services: {
         title: 'Unsere Dienstleistungen',
@@ -584,9 +584,9 @@ export const translationData: Record<Language, Record<string, any>> = {
 
     // Home page
     home: {
-      title: 'LOGICY TRANSPORT',
+      title: 'Dal 2007, LOGICY TRANSPORT consegna i vostri pacchi, merci e veicoli in tutto il mondo con affidabilità e prestigio',
       subtitle: 'Il vostro partner logistico di fiducia',
-      description: 'Soluzioni di trasporto e logistica su misura per le vostre esigenze professionali',
+      description: 'Soluzioni di trasporto e logistica su misura per le vostre esigenze professionali in tutto il mondo',
       cta: 'Scopri i nostri servizi',
       services: {
         title: 'I Nostri Servizi',
@@ -723,9 +723,9 @@ export const translationData: Record<Language, Record<string, any>> = {
 
     // Home page
     home: {
-      title: 'LOGICY TRANSPORT',
+      title: 'Desde 2007, a LOGICY TRANSPORT entrega seus pacotes, cargas e veículos em todo o mundo com confiabilidade e prestígio',
       subtitle: 'Seu parceiro logístico de confiança',
-      description: 'Soluções de transporte e logística personalizadas para suas necessidades profissionais',
+      description: 'Soluções de transporte e logística personalizadas para suas necessidades profissionais em todo o mundo',
       cta: 'Descubra nossos serviços',
       services: {
         title: 'Nossos Serviços',

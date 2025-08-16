@@ -67,8 +67,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             {/* Texte à gauche */}
             <div className="text-left">
               <h1 className="text-4xl md:text-5xl font-montserrat font-bold text-black leading-tight mb-8">
-                {t('home.title')}<br />
-                {t('home.subtitle')}
+                {t('home.title')}
               </h1>
               
               <Button
@@ -87,7 +86,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                     <div key={index} className="flex-none w-full">
                       <img 
                         src={image} 
-                        alt={`Logistique ${index + 1}`}
+                        alt={`${t('services.title')} ${index + 1}`}
                         className="w-full h-[400px] object-cover"
                       />
                     </div>
