@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { Truck, Plane, Ship, MapPin, Phone, Mail, Clock, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Truck, Plane, Ship, MapPin, Phone, Mail } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
 
 interface FooterProps {
@@ -27,12 +27,6 @@ export function Footer({ onNavigate }: FooterProps) {
     { key: 'mentions-legales', label: t('footer.legal.mentions', 'Mentions Légales') }
   ];
 
-  const socialLinks = [
-    { icon: <Facebook className="h-5 w-5" />, href: '#', label: 'Facebook' },
-    { icon: <Twitter className="h-5 w-5" />, href: '#', label: 'Twitter' },
-    { icon: <Linkedin className="h-5 w-5" />, href: '#', label: 'LinkedIn' },
-    { icon: <Instagram className="h-5 w-5" />, href: '#', label: 'Instagram' }
-  ];
 
   return (
     <footer className="bg-background border-t border-border">
@@ -95,21 +89,9 @@ export function Footer({ onNavigate }: FooterProps) {
             </ul>
           </div>
 
-          {/* Contact & Social */}
+          {/* Contact */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground">{t('contact.title')}</h3>
-            <div className="flex space-x-3">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                  aria-label={social.label}
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
             <div className="space-y-2">
               <Button 
                 onClick={() => onNavigate('contact')}
