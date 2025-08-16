@@ -5,17 +5,24 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Search, Package, Truck, Plane, Ship, MapPin, Clock } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
+import { TrackingMap } from './TrackingMap';
 
 interface TrackingResult {
   trackingNumber: string;
   type: 'package' | 'cargo' | 'vehicle';
   transportMode: 'road' | 'air' | 'maritime';
   currentLocation: string;
+  current_latitude?: number;
+  current_longitude?: number;
+  transport_mode?: string;
   status: 'preparing' | 'transit' | 'customs' | 'delivering' | 'delivered';
   history: Array<{
     date: string;
     location: string;
     status: string;
+    latitude?: number;
+    longitude?: number;
+    timestamp: string;
   }>;
 }
 
@@ -33,12 +40,43 @@ export function TrackingSearch() {
       type: 'package',
       transportMode: 'road',
       currentLocation: 'Paris, France',
+      current_latitude: 48.8566,
+      current_longitude: 2.3522,
+      transport_mode: 'road',
       status: 'transit',
       history: [
-        { date: '2024-01-15 09:00', location: 'Entrepôt LOGICY - Lyon', status: 'Colis enregistré' },
-        { date: '2024-01-15 14:30', location: 'Centre de tri - Lyon', status: 'En cours de traitement' },
-        { date: '2024-01-16 08:00', location: 'En transit vers Paris', status: 'Transport en cours' },
-        { date: '2024-01-16 16:00', location: 'Paris, France', status: 'Arrivé à destination' },
+        { 
+          date: '2024-01-15 09:00', 
+          location: 'Entrepôt LOGICY - Lyon', 
+          status: 'Colis enregistré',
+          latitude: 45.7640,
+          longitude: 4.8357,
+          timestamp: '2024-01-15T09:00:00Z'
+        },
+        { 
+          date: '2024-01-15 14:30', 
+          location: 'Centre de tri - Lyon', 
+          status: 'En cours de traitement',
+          latitude: 45.7640,
+          longitude: 4.8357,
+          timestamp: '2024-01-15T14:30:00Z'
+        },
+        { 
+          date: '2024-01-16 08:00', 
+          location: 'En transit vers Paris', 
+          status: 'Transport en cours',
+          latitude: 47.0000,
+          longitude: 3.0000,
+          timestamp: '2024-01-16T08:00:00Z'
+        },
+        { 
+          date: '2024-01-16 16:00', 
+          location: 'Paris, France', 
+          status: 'Arrivé à destination',
+          latitude: 48.8566,
+          longitude: 2.3522,
+          timestamp: '2024-01-16T16:00:00Z'
+        },
       ]
     },
     'LOG987654321': {
@@ -46,12 +84,43 @@ export function TrackingSearch() {
       type: 'vehicle',
       transportMode: 'maritime',
       currentLocation: 'Port de Marseille',
+      current_latitude: 43.2965,
+      current_longitude: 5.3698,
+      transport_mode: 'maritime',
       status: 'customs',
       history: [
-        { date: '2024-01-10 10:00', location: 'Casablanca, Maroc', status: 'Véhicule embarqué' },
-        { date: '2024-01-12 15:00', location: 'En mer Méditerranée', status: 'Transport maritime' },
-        { date: '2024-01-15 09:00', location: 'Port de Marseille', status: 'Arrivée au port' },
-        { date: '2024-01-15 14:00', location: 'Port de Marseille', status: 'Contrôle douanier' },
+        { 
+          date: '2024-01-10 10:00', 
+          location: 'Casablanca, Maroc', 
+          status: 'Véhicule embarqué',
+          latitude: 33.5731,
+          longitude: -7.5898,
+          timestamp: '2024-01-10T10:00:00Z'
+        },
+        { 
+          date: '2024-01-12 15:00', 
+          location: 'En mer Méditerranée', 
+          status: 'Transport maritime',
+          latitude: 36.0000,
+          longitude: 3.0000,
+          timestamp: '2024-01-12T15:00:00Z'
+        },
+        { 
+          date: '2024-01-15 09:00', 
+          location: 'Port de Marseille', 
+          status: 'Arrivée au port',
+          latitude: 43.2965,
+          longitude: 5.3698,
+          timestamp: '2024-01-15T09:00:00Z'
+        },
+        { 
+          date: '2024-01-15 14:00', 
+          location: 'Port de Marseille', 
+          status: 'Contrôle douanier',
+          latitude: 43.2965,
+          longitude: 5.3698,
+          timestamp: '2024-01-15T14:00:00Z'
+        },
       ]
     }
   };
@@ -147,6 +216,19 @@ export function TrackingSearch() {
 
       {result && (
         <div className="space-y-4">
+          {/* Map Component */}
+          <Card className="shadow-elegant">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                <span>Localisation en temps réel</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <TrackingMap trackingData={result} />
+            </CardContent>
+          </Card>
+
           {/* Main Result */}
           <Card className="shadow-elegant">
             <CardHeader>
