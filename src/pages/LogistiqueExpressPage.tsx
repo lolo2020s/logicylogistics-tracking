@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Zap, Clock, Shield, Phone, CheckCircle, Truck, Plane, Package } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import heroImage from '@/assets/hero-premium.jpg';
 import logistiqueExpressHero from '@/assets/logistique-express-hero.jpg';
 
@@ -11,7 +11,7 @@ interface LogistiqueExpressPageProps {
 }
 
 export function LogistiqueExpressPage({ onNavigate }: LogistiqueExpressPageProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const services = [
     {

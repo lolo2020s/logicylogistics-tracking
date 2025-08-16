@@ -1,14 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { FileText, Phone, Mail } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface ConditionsGeneralesPageProps {
   onNavigate: (page: string) => void;
 }
 
 export function ConditionsGeneralesPage({ onNavigate }: ConditionsGeneralesPageProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const sections = [
     {

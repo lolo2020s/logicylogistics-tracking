@@ -4,11 +4,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import { useToast } from '@/hooks/use-toast';
 
 export function ContactPage() {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -73,7 +73,7 @@ export function ContactPage() {
         {/* Header */}
         <div className="bg-gradient-hero text-center py-16 px-4 -mx-4 animate-fade-in">
           <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">
-            {t.contact.title}
+            {t('contact.title')}
           </h1>
           <p className="text-lg text-white/90 max-w-2xl mx-auto">
             Notre équipe est à votre disposition pour répondre à toutes vos questions
@@ -93,7 +93,7 @@ export function ContactPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  {t.contact.name} *
+                  {t('contact.form.name')} *
                 </label>
                 <Input
                   id="name"
@@ -108,7 +108,7 @@ export function ContactPage() {
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  {t.contact.email} *
+                  {t('contact.form.email')} *
                 </label>
                 <Input
                   id="email"
@@ -123,7 +123,7 @@ export function ContactPage() {
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  {t.contact.message} *
+                  {t('contact.form.message')} *
                 </label>
                 <Textarea
                   id="message"
@@ -146,7 +146,7 @@ export function ContactPage() {
                 ) : (
                   <Send className="h-4 w-4 mr-2" />
                 )}
-                {t.contact.send}
+                {t('contact.form.send')}
               </Button>
             </form>
           </CardContent>

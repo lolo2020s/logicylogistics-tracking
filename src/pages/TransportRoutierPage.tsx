@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Truck, Clock, Shield, Euro, CheckCircle, Phone } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import transportRoutierBg from '@/assets/transport-routier-bg.jpg';
 import transportRoutierHero from '@/assets/transport-routier-hero.jpg';
 
@@ -10,7 +10,7 @@ interface TransportRoutierPageProps {
 }
 
 export function TransportRoutierPage({ onNavigate }: TransportRoutierPageProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const advantages = [
     {

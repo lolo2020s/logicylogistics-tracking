@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Settings, Users, Lightbulb, Target, CheckCircle, Phone, Calendar, ArrowRight } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import heroImage from '@/assets/hero-premium.jpg';
 import solutionsHero from '@/assets/solutions-hero.jpg';
 
@@ -11,7 +11,7 @@ interface SolutionsSurMesurePageProps {
 }
 
 export function SolutionsSurMesurePage({ onNavigate }: SolutionsSurMesurePageProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const solutions = [
     {

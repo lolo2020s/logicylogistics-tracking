@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Truck, Plane, Ship, Package, Clock, Shield, Euro, CheckCircle, Zap, Settings, Phone } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import heroImage from '@/assets/hero-premium.jpg';
 
 interface ServicesPageProps {
@@ -10,7 +10,7 @@ interface ServicesPageProps {
 }
 
 export function ServicesPage({ onNavigate }: ServicesPageProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const services = [
     {

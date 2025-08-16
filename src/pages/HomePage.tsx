@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Truck, Plane, Ship, Search, ArrowRight } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import { useState, useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
@@ -22,7 +22,7 @@ interface HomePageProps {
 }
 
 export function HomePage({ onNavigate }: HomePageProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   const [quickTrackingCode, setQuickTrackingCode] = useState('');
 
   // Images du carrousel
@@ -43,18 +43,18 @@ export function HomePage({ onNavigate }: HomePageProps) {
   const services = [
     {
       icon: roadIcon,
-      title: t.home.services.road.title,
-      description: t.home.services.road.description,
+      title: t('home.services.road.title'),
+      description: t('home.services.road.description'),
     },
     {
       icon: airIcon,
-      title: t.home.services.air.title,
-      description: t.home.services.air.description,
+      title: t('home.services.air.title'),
+      description: t('home.services.air.description'),
     },
     {
       icon: maritimeIcon,
-      title: t.home.services.maritime.title,
-      description: t.home.services.maritime.description,
+      title: t('home.services.maritime.title'),
+      description: t('home.services.maritime.description'),
     },
   ];
 

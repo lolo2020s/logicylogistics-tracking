@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Search, Package, Truck, Plane, Ship, MapPin, Clock, Weight, Calendar, User, Camera, CheckCircle2, Bell, PenTool } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import { TrackingMap } from './TrackingMap';
 import { ElectronicSignature } from './ElectronicSignature';
 import { supabase } from '@/integrations/supabase/client';
@@ -62,7 +62,7 @@ export function TrackingSearch() {
   const [loading, setLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
   const [showSignature, setShowSignature] = useState(false);
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   // Real-time notifications
   useEffect(() => {
@@ -231,13 +231,13 @@ export function TrackingSearch() {
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <Search className="h-5 w-5 text-primary" />
-            <span>{t.tracking.title}</span>
+            <span>{t('tracking.title')}</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex space-x-3">
             <Input
-              placeholder={t.tracking.placeholder}
+              placeholder={t('tracking.placeholder')}
               value={trackingCode}
               onChange={(e) => setTrackingCode(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
@@ -251,7 +251,7 @@ export function TrackingSearch() {
               {loading ? (
                 <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
               ) : (
-                t.tracking.search
+                t('tracking.search')
               )}
             </Button>
           </div>
@@ -262,7 +262,7 @@ export function TrackingSearch() {
       {notFound && (
         <Card className="border-destructive/20 bg-destructive/5">
           <CardContent className="pt-6">
-            <p className="text-center text-muted-foreground">{t.tracking.notFound}</p>
+            <p className="text-center text-muted-foreground">{t('tracking.notFound')}</p>
           </CardContent>
         </Card>
       )}

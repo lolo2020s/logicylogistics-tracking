@@ -1,14 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Shield, Eye, Lock, UserCheck, Phone, Mail } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface PolitiqueConfidentialitePageProps {
   onNavigate: (page: string) => void;
 }
 
 export function PolitiqueConfidentialitePage({ onNavigate }: PolitiqueConfidentialitePageProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const sections = [
     {

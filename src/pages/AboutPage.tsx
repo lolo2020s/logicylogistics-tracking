@@ -1,14 +1,14 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Award, Users, MapPin, TrendingUp } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface AboutPageProps {
   onNavigate: (page: string) => void;
 }
 
 export function AboutPage({ onNavigate }: AboutPageProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const stats = [
     { icon: Award, value: '17+', label: 'Années d\'expérience' },
@@ -32,10 +32,10 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
         {/* Header */}
         <div className="bg-gradient-hero text-center py-16 px-4 -mx-4 animate-fade-in">
           <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">
-            {t.about.title}
+            {t('about.title')}
           </h1>
           <p className="text-lg text-white/90 max-w-3xl mx-auto">
-            {t.about.founded}
+            {t('about.story.content')}
           </p>
         </div>
 
@@ -59,7 +59,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
           <Card className="p-8 shadow-premium bg-gradient-surface border-0 animate-scale-in">
             <h3 className="text-xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Notre Mission</h3>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            {t.about.mission}
+            {t('about.mission.content')}
           </p>
           <p className="text-muted-foreground leading-relaxed">
             Nous nous engageons à fournir des solutions de transport innovantes, 
@@ -70,7 +70,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
           <Card className="p-8 shadow-premium bg-gradient-surface border-0 animate-scale-in" style={{animationDelay: '0.2s'}}>
             <h3 className="text-xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Nos Engagements</h3>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            {t.about.commitment}
+            {t('about.values.reliability')}
           </p>
           <ul className="space-y-2 text-muted-foreground">
             <li className="flex items-center">

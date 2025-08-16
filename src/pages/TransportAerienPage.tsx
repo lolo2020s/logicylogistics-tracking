@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Plane, Clock, Globe, Shield, CheckCircle, Phone } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import transportAerienBg from '@/assets/transport-aerien-bg.jpg';
 import transportAerienHero from '@/assets/transport-aerien-hero.jpg';
 
@@ -10,7 +10,7 @@ interface TransportAerienPageProps {
 }
 
 export function TransportAerienPage({ onNavigate }: TransportAerienPageProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const advantages = [
     {

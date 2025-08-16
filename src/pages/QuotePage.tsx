@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Calculator, Truck, Plane, Ship, Package, User, MapPin, Clock } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import { toast } from 'sonner';
 
 interface QuotePageProps {
@@ -14,7 +14,7 @@ interface QuotePageProps {
 }
 
 export function QuotePage({ onNavigate }: QuotePageProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     transportMode: '',
     serviceType: '',

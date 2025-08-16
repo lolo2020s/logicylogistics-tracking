@@ -2,14 +2,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { MapPin, Globe, Clock, Truck, Plane, Ship, Phone } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface ZonesLivraisonPageProps {
   onNavigate: (page: string) => void;
 }
 
 export function ZonesLivraisonPage({ onNavigate }: ZonesLivraisonPageProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const zones = [
     {

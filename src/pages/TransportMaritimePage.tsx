@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Ship, Anchor, Globe, DollarSign, CheckCircle, Phone } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import transportMaritimeBg from '@/assets/transport-maritime-bg.jpg';
 import transportMaritimeHero from '@/assets/transport-maritime-hero.jpg';
 
@@ -10,7 +10,7 @@ interface TransportMaritimePageProps {
 }
 
 export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const advantages = [
     {

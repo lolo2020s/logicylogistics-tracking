@@ -1,14 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Truck, Plane, Ship, MapPin, Phone, Mail, Clock, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface FooterProps {
   onNavigate: (page: string) => void;
 }
 
 export function Footer({ onNavigate }: FooterProps) {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const services = [
     { key: 'transport-routier', label: 'Transport Routier', icon: <Truck className="h-4 w-4" /> },
