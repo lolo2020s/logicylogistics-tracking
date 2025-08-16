@@ -118,25 +118,30 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </h2>
           </div>
 
-          {/* Les 3 cartes de transport */}
+          {/* Les 3 cartes de transport - Maintenant cliquables */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { bg: transportRoutierBg, title: 'Transport\nroutier' },
-              { bg: transportAerienBg, title: 'Transport\naérien' },
-              { bg: transportMaritimeBg, title: 'Transport\nmaritime' }
+              { bg: transportRoutierBg, title: 'Transport\nroutier', route: 'transport-routier', icon: <Truck className="h-12 w-12 text-orange-400 mb-4" /> },
+              { bg: transportAerienBg, title: 'Transport\naérien', route: 'transport-aerien', icon: <Plane className="h-12 w-12 text-orange-400 mb-4" /> },
+              { bg: transportMaritimeBg, title: 'Transport\nmaritime', route: 'transport-maritime', icon: <Ship className="h-12 w-12 text-orange-400 mb-4" /> }
             ].map((service, index) => (
-              <div 
+              <button
                 key={index}
-                className="relative h-[300px] bg-cover bg-center rounded-lg overflow-hidden"
+                onClick={() => onNavigate(service.route)}
+                className="relative h-[300px] bg-cover bg-center rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                 style={{ backgroundImage: `url(${service.bg})` }}
               >
-                <div className="absolute inset-0 bg-black/40" />
-                <div className="relative z-10 p-6 h-full flex items-end">
-                  <h3 className="text-xl font-montserrat font-bold text-white leading-tight whitespace-pre-line">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/90 group-hover:via-black/50 group-hover:to-black/30 transition-all duration-300" />
+                <div className="relative z-10 p-6 h-full flex flex-col justify-center items-center text-center">
+                  {service.icon}
+                  <h3 className="text-xl font-montserrat font-bold text-white leading-tight whitespace-pre-line mb-4">
                     {service.title}
                   </h3>
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ArrowRight className="h-6 w-6 text-orange-400" />
+                  </div>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
