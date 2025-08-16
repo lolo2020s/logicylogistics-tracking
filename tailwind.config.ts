@@ -19,7 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				inter: ['Inter', 'sans-serif'],
+				'montserrat': ['Montserrat', 'sans-serif'],
+				'lato': ['Lato', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -71,12 +72,14 @@ export default {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-surface': 'var(--gradient-surface)',
-				'gradient-section': 'var(--gradient-section)'
+				'gradient-section': 'var(--gradient-section)',
+				'gradient-dark': 'var(--gradient-dark)'
 			},
 			boxShadow: {
 				'card': 'var(--shadow-card)',
 				'button': 'var(--shadow-button)',
-				'section': 'var(--shadow-section)'
+				'section': 'var(--shadow-section)',
+				'premium': 'var(--shadow-premium)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

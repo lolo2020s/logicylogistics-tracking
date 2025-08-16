@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Truck, Plane, Ship, Search, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useState } from 'react';
-import heroImage from '@/assets/hero-transport.jpg';
+import heroImage from '@/assets/hero-premium.jpg';
 import roadIcon from '@/assets/icon-road.png';
 import airIcon from '@/assets/icon-air.png';
 import maritimeIcon from '@/assets/icon-maritime.png';
@@ -45,9 +45,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
   ];
 
   return (
-    <div className="space-y-16 bg-gradient-surface min-h-screen">
+    <div className="space-y-0 bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-2xl shadow-section">
+      <section className="relative overflow-hidden">
         <div 
           className="relative h-[600px] bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -56,129 +56,70 @@ export function HomePage({ onNavigate }: HomePageProps) {
           
           <div className="relative z-10 flex items-center justify-center h-full text-center text-white px-6">
             <div className="max-w-4xl space-y-8">
-              <div className="space-y-4">
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                  {t.home.title}
+              <div className="space-y-6">
+                <h1 className="text-4xl md:text-6xl font-montserrat font-bold leading-tight">
+                  Depuis 2007,<br />
+                  LOGICY TRANSPORT<br />
+                  <span className="text-3xl md:text-5xl font-montserrat font-semibold">
+                    livre vos colis, cargaisons<br />
+                    et véhicules partout dans<br />
+                    le monde avec fiabilité<br />
+                    et prestige
+                  </span>
                 </h1>
-                <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-                  {t.home.subtitle}
-                </p>
               </div>
               
-              {/* Clean Quick Tracking */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto border border-white/20">
-                <div className="flex space-x-3">
-                  <Input
-                    placeholder={t.home.trackingPlaceholder}
-                    value={quickTrackingCode}
-                    onChange={(e) => setQuickTrackingCode(e.target.value)}
-                    onKeyPress={(e) => e.key === 'Enter' && handleQuickTracking()}
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/70 h-12"
-                  />
-                  <Button 
-                    onClick={handleQuickTracking}
-                    className="bg-primary hover:bg-primary/90 h-12 px-6 shadow-button transition-smooth"
-                  >
-                    <Search className="h-5 w-5" />
-                  </Button>
-                </div>
-              </div>
-
               <Button
                 onClick={() => onNavigate('tracking')}
                 size="lg"
-                className="bg-primary hover:bg-primary/90 shadow-button transition-smooth text-lg px-8 py-3 h-12"
+                className="bg-primary hover:bg-primary/90 shadow-button transition-smooth text-lg px-8 py-3 h-14 font-montserrat font-semibold"
               >
-                {t.home.trackButton}
-                <ArrowRight className="ml-2 h-5 w-5" />
+                Suivre un envoi
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 bg-gradient-section rounded-2xl mx-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            Nos Solutions de Transport
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Depuis 2007, nous offrons des services de transport fiables et sécurisés
-          </p>
-        </div>
+      {/* Services Section - Dark Background */}
+      <section className="py-20 bg-gradient-dark">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-montserrat font-bold mb-6 text-white">
+              Depuis 2007, LOGICY TRANSPORT<br />
+              livre vos colis, cargaisons et<br />
+              véhicules partout dans le monde
+            </h2>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const cardBackgrounds = [
-              transportRoutierBg,
-              transportAerienBg,
-              transportMaritimeBg
-            ];
-            
-            return (
-              <div 
-                key={index} 
-                className="group hover:shadow-section transition-smooth cursor-pointer rounded-lg overflow-hidden border shadow-card bg-cover bg-center relative min-h-[300px]"
-                style={{ backgroundImage: `url(${cardBackgrounds[index]})` }}
-              >
-                <div className="absolute inset-0 bg-white/85 group-hover:bg-white/90 transition-smooth" />
-                <div className="relative z-10 p-6 h-full flex flex-col justify-center">
-                  <CardHeader className="text-center p-0 mb-4">
-                    <div className="mx-auto mb-4 w-16 h-16 rounded-xl bg-primary-light flex items-center justify-center group-hover:bg-primary group-hover:scale-105 transition-smooth">
-                      <img src={service.icon} alt={service.title} className="w-10 h-10 group-hover:filter group-hover:brightness-0 group-hover:invert transition-smooth" />
-                    </div>
-                    <CardTitle className="text-xl group-hover:text-primary transition-smooth">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-0">
-                    <p className="text-center text-muted-foreground leading-relaxed mb-4">
-                      {service.description}
-                    </p>
-                    <div className="text-center">
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        className="group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-smooth"
-                      >
-                        En savoir plus
-                      </Button>
-                    </div>
-                  </CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+              const cardBackgrounds = [
+                transportRoutierBg,
+                transportAerienBg,
+                transportMaritimeBg
+              ];
+              const serviceNames = ['Transport\nroutier', 'Transport\naérien', 'Transport\nmaritime'];
+              
+              return (
+                <div 
+                  key={index} 
+                  className="group hover:shadow-premium transition-smooth cursor-pointer rounded-none overflow-hidden bg-cover bg-center relative h-[400px]"
+                  style={{ backgroundImage: `url(${cardBackgrounds[index]})` }}
+                >
+                  <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-smooth" />
+                  <div className="relative z-10 p-8 h-full flex flex-col justify-end">
+                    <h3 className="text-2xl font-montserrat font-bold text-white leading-tight whitespace-pre-line">
+                      {serviceNames[index]}
+                    </h3>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-accent rounded-2xl p-8 md:p-12 text-center shadow-card mx-4">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-          Prêt à expédier ?
-        </h2>
-        <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-          Contactez-nous pour obtenir un devis personnalisé ou suivez votre envoi en temps réel
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            onClick={() => onNavigate('contact')}
-            variant="outline"
-            size="lg"
-            className="shadow-button transition-smooth"
-          >
-            Demander un devis
-          </Button>
-          <Button 
-            onClick={() => onNavigate('tracking')}
-            size="lg"
-            className="bg-primary hover:bg-primary/90 shadow-button transition-smooth"
-          >
-            Suivre un envoi
-          </Button>
-        </div>
-      </section>
     </div>
   );
 }
