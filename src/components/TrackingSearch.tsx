@@ -3,9 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Search, Package, Truck, Plane, Ship, MapPin, Clock, Weight, Calendar, User, Camera, CheckCircle2, Bell } from 'lucide-react';
+import { Search, Package, Truck, Plane, Ship, MapPin, Clock, Weight, Calendar, User, Camera, CheckCircle2, Bell, PenTool } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { TrackingMap } from './TrackingMap';
+import { ElectronicSignature } from './ElectronicSignature';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 
@@ -60,6 +61,7 @@ export function TrackingSearch() {
   const [result, setResult] = useState<TrackingResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
+  const [showSignature, setShowSignature] = useState(false);
   const { t } = useLanguage();
 
   // Real-time notifications
@@ -465,6 +467,36 @@ export function TrackingSearch() {
                     )}
                   </div>
                 </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Signature Section */}
+          {result.status === 'delivered' && (
+            <Card className="shadow-elegant">
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <PenTool className="h-5 w-5 text-primary" />
+                  <span>Preuve de livraison</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {!showSignature ? (
+                  <Button 
+                    onClick={() => setShowSignature(true)}
+                    className="w-full bg-gradient-primary hover:opacity-90"
+                  >
+                    Signer la réception
+                  </Button>
+                ) : (
+                  <ElectronicSignature
+                    shipmentId={result.id}
+                    onSignatureComplete={() => {
+                      setShowSignature(false);
+                      handleSearch();
+                    }}
+                  />
+                )}
               </CardContent>
             </Card>
           )}
