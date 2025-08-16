@@ -7,9 +7,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Menu, X, Globe } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
-import { Language } from '@/types/translations';
+import { Menu, X } from 'lucide-react';
+import { GoogleTranslate } from '@/components/GoogleTranslate';
 // Logo URL direct
 const logicyLogo = '/lovable-uploads/bf7b75bd-bbc4-4ea9-8372-c927a61de59b.png';
 
@@ -20,22 +19,13 @@ interface HeaderProps {
 
 export function Header({ currentPage, onNavigate }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
-
-  const languages = [
-    { value: 'fr', label: 'Français', flag: '🇫🇷' },
-    { value: 'en', label: 'English', flag: '🇬🇧' },
-    { value: 'es', label: 'Español', flag: '🇪🇸' },
-    { value: 'pt', label: 'Português', flag: '🇵🇹' },
-    { value: 'it', label: 'Italiano', flag: '🇮🇹' },
-  ];
 
   const navigationItems = [
-    { key: 'home', label: t.nav.home },
-    { key: 'tracking', label: t.nav.tracking },
-    { key: 'services', label: t.nav.services },
-    { key: 'about', label: t.nav.about },
-    { key: 'contact', label: t.nav.contact },
+    { key: 'home', label: 'Accueil' },
+    { key: 'tracking', label: 'Suivi' },
+    { key: 'services', label: 'Services' },
+    { key: 'about', label: 'À propos' },
+    { key: 'contact', label: 'Contact' },
   ];
 
   return (
@@ -62,24 +52,9 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
             ))}
           </nav>
 
-          {/* Language Selector & Mobile Menu */}
+          {/* Google Translate & Mobile Menu */}
           <div className="flex items-center space-x-3">
-            <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
-              <SelectTrigger className="w-auto bg-transparent border-none shadow-none h-auto p-2 hover:bg-accent">
-                <Globe className="h-4 w-4 mr-1" />
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {languages.map((lang) => (
-                  <SelectItem key={lang.value} value={lang.value}>
-                    <span className="flex items-center space-x-2">
-                      <span>{lang.flag}</span>
-                      <span>{lang.label}</span>
-                    </span>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <GoogleTranslate />
 
             {/* Mobile Menu Toggle */}
             <button
