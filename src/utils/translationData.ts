@@ -729,8 +729,8 @@ export const translationData: Record<Language, Record<string, any>> = {
             3: 'Special containers on request'
           }
         }
+        }
       }
-    }
     },
 
     // Contact
