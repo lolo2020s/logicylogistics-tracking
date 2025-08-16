@@ -14,7 +14,7 @@ export function Footer({ onNavigate }: FooterProps) {
     { key: 'transport-routier', label: t('services.road.title'), icon: <Truck className="h-4 w-4" /> },
     { key: 'transport-aerien', label: t('services.air.title'), icon: <Plane className="h-4 w-4" /> },
     { key: 'transport-maritime', label: t('services.maritime.title'), icon: <Ship className="h-4 w-4" /> },
-    { key: 'services', label: t('services.express.title'), icon: <Clock className="h-4 w-4" /> },
+    { key: 'logistique-express', label: t('common.learnMore'), icon: <Clock className="h-4 w-4" /> },
     { key: 'solutions-sur-mesure', label: t('common.contact') }
   ];
 
@@ -22,6 +22,7 @@ export function Footer({ onNavigate }: FooterProps) {
     { key: 'tracking', label: t('nav.tracking') },
     { key: 'quote', label: t('common.getQuote') },
     { key: 'zones-livraison', label: t('nav.zones') },
+    { key: 'about', label: t('nav.about') },
     { key: 'contact', label: t('nav.contact') }
   ];
 
@@ -46,7 +47,7 @@ export function Footer({ onNavigate }: FooterProps) {
           <div className="space-y-4">
             <h3 className="text-lg font-bold text-foreground">LOGICY TRANSPORT</h3>
             <p className="text-sm text-muted-foreground">
-              Leader dans le domaine du transport et de la logistique
+              {t('about.description')}
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">

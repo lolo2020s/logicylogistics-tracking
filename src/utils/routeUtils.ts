@@ -35,6 +35,7 @@ export function getLocalizedNavigation(currentLanguage: Language) {
     home: '/',
     tracking: '/suivi',
     services: '/services',
+    about: '/a-propos',
     contact: '/contact',
     quote: '/devis',
     zones: '/zones-livraison'
