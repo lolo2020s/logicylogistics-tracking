@@ -22,7 +22,6 @@ export function Footer({ onNavigate }: FooterProps) {
     { key: 'tracking', label: t('nav.tracking') },
     { key: 'quote', label: t('common.getQuote') },
     { key: 'zones-livraison', label: t('nav.zones') },
-    { key: 'about', label: t('nav.about') },
     { key: 'contact', label: t('nav.contact') }
   ];
 
