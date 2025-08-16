@@ -46,7 +46,7 @@ export function Footer({ onNavigate }: FooterProps) {
           <div className="space-y-4">
             <h3 className="text-lg font-bold text-foreground">LOGICY TRANSPORT</h3>
             <p className="text-sm text-muted-foreground">
-              {t('about.description')}
+              Leader dans le domaine du transport et de la logistique
             </p>
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
