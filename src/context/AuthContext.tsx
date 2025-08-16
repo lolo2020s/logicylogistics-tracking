@@ -26,6 +26,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setUser(session?.user ?? null);
         
         if (session?.user) {
+          setLoading(true);
           // Check if user is admin
           setTimeout(async () => {
             const { data: profile } = await supabase
@@ -50,6 +51,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUser(session?.user ?? null);
       
       if (session?.user) {
+        setLoading(true);
         // Check if user is admin
         setTimeout(async () => {
           const { data: profile } = await supabase
