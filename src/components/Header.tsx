@@ -26,7 +26,6 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
     { key: 'home', label: t('nav.home') },
     { key: 'tracking', label: t('nav.tracking') },
     { key: 'services', label: t('nav.services') },
-    { key: 'about', label: t('nav.about') },
     { key: 'contact', label: t('nav.contact') },
   ];
 
