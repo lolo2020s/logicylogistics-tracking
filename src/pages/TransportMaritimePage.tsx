@@ -15,35 +15,35 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
   const advantages = [
     {
       icon: <DollarSign className="h-6 w-6 text-primary" />,
-      title: t('transport.maritime.advantages.economical.title', 'Économique'),
-      description: t('transport.maritime.advantages.economical.description', 'Solution la plus rentable pour les gros volumes')
+      title: t('transport.maritime.advantages.economical.title'),
+      description: t('transport.maritime.advantages.economical.description')
     },
     {
       icon: <Globe className="h-6 w-6 text-primary" />,
-      title: t('transport.maritime.advantages.global.title', 'Mondial'),
-      description: t('transport.maritime.advantages.global.description', 'Accès à tous les ports internationaux')
+      title: t('transport.maritime.advantages.global.title'),
+      description: t('transport.maritime.advantages.global.description')
     },
     {
       icon: <Anchor className="h-6 w-6 text-primary" />,
-      title: t('transport.maritime.advantages.capacity.title', 'Capacité'),
-      description: t('transport.maritime.advantages.capacity.description', 'Transport de charges lourdes et volumineuses')
+      title: t('transport.maritime.advantages.capacity.title'),
+      description: t('transport.maritime.advantages.capacity.description')
     },
     {
       icon: <CheckCircle className="h-6 w-6 text-primary" />,
-      title: t('transport.maritime.advantages.reliability.title', 'Fiabilité'),
-      description: t('transport.maritime.advantages.reliability.description', 'Respect des délais et sécurité des marchandises')
+      title: t('transport.maritime.advantages.reliability.title'),
+      description: t('transport.maritime.advantages.reliability.description')
     }
   ];
 
   const services = [
-    t('transport.maritime.services.0', 'Conteneurs FCL (Full Container Load)'),
-    t('transport.maritime.services.1', 'Groupage LCL (Less than Container Load)'),
-    t('transport.maritime.services.2', 'Conteneurs frigorifiques'),
-    t('transport.maritime.services.3', 'Transport de véhicules (RoRo)'),
-    t('transport.maritime.services.4', 'Marchandises en vrac'),
-    t('transport.maritime.services.5', 'Projets industriels'),
-    t('transport.maritime.services.6', 'Conteneurs spéciaux (Open Top, Flat Rack)'),
-    t('transport.maritime.services.7', 'Transport multi-modal mer/route/rail')
+    t('transport.maritime.services.0'),
+    t('transport.maritime.services.1'),
+    t('transport.maritime.services.2'),
+    t('transport.maritime.services.3'),
+    t('transport.maritime.services.4'),
+    t('transport.maritime.services.5'),
+    t('transport.maritime.services.6'),
+    t('transport.maritime.services.7')
   ];
 
   const routes = [
@@ -65,16 +65,16 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            {t('transport.maritime.title', 'Transport Maritime')}
+            {t('transport.maritime.title')}
           </h1>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            {t('transport.maritime.subtitle', 'Solutions de fret maritime économiques et fiables pour vos expéditions internationales de tous volumes')}
+            {t('transport.maritime.subtitle')}
           </p>
           <Button 
             onClick={() => onNavigate('quote')}
             className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg"
           >
-            {t('transport.aerial.quote', 'Demander un Devis')}
+            {t('transport.maritime.quote')}
           </Button>
         </div>
       </section>
@@ -82,7 +82,7 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
       <div className="max-w-6xl mx-auto px-6 py-16 space-y-16">
         {/* Avantages */}
         <section>
-          <h2 className="text-3xl font-bold text-center mb-12">{t('transport.maritime.whyChoose', 'Pourquoi choisir notre transport maritime ?')}</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">{t('transport.maritime.whyChoose')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {advantages.map((advantage, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
@@ -104,7 +104,7 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
         <section>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold mb-6">{t('transport.maritime.servicesTitle', 'Nos Services Maritimes')}</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('transport.maritime.servicesTitle')}</h2>
               <div className="space-y-3">
                 {services.map((service, index) => (
                   <div key={index} className="flex items-center space-x-3">
@@ -119,13 +119,13 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
                   className="bg-primary hover:bg-primary/90 text-white mr-4"
                 >
                   <Phone className="h-4 w-4 mr-2" />
-                  {t('transport.aerial.contact', 'Nous Contacter')}
+                  {t('transport.maritime.contact')}
                 </Button>
                 <Button 
                   onClick={() => onNavigate('quote')}
                   variant="outline"
                 >
-                  {t('transport.aerial.freeQuote', 'Devis Gratuit')}
+                  {t('transport.maritime.freeQuote')}
                 </Button>
               </div>
             </div>
@@ -134,7 +134,7 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Ship className="h-6 w-6 text-primary" />
-                  <span>{t('transport.maritime.routesTitle', 'Routes Principales')}</span>
+                  <span>{t('transport.maritime.routesTitle')}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -151,15 +151,10 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
                   ))}
                 </div>
                 <div className="mt-6 pt-4 border-t">
-                  <h4 className="font-medium mb-2">{t('transport.maritime.containers.title', 'Types de conteneurs')}</h4>
+                  <h4 className="font-medium mb-2">{t('transport.maritime.containers.title')}</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
                     {[0, 1, 2, 3].map(index => (
-                      <li key={index}>• {t(`transport.maritime.containers.list.${index}`, [
-                        "20' Standard (33 m³)",
-                        "40' Standard (67 m³)",
-                        "40' High Cube (76 m³)",
-                        "Conteneurs spéciaux sur demande"
-                      ][index])}</li>
+                      <li key={index}>• {t(`transport.maritime.containers.list.${index}`)}</li>
                     ))}
                   </ul>
                 </div>
