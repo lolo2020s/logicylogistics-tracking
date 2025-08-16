@@ -2584,17 +2584,7 @@ export const translationData: Record<Language, Record<string, any>> = {
           5: 'Projetos industriais',
           6: 'Contêineres especiais (Open Top, Flat Rack)',
           7: 'Transporte multimodal mar/rodovia/ferrovia'
-    },
-
-    // Footer
-    footer: {
-      copyright: '© 2024 LOGICY TRANSPORT. Todos os direitos reservados.',
-      legal: {
-        conditions: 'Condições Gerais',
-        privacy: 'Política de Privacidade',
-        mentions: 'Menções Legais'
-      }
-    },
+        },
         containers: {
           title: 'Tipos de contêineres',
           list: {
@@ -2604,6 +2594,114 @@ export const translationData: Record<Language, Record<string, any>> = {
             3: 'Contêineres especiais sob demanda'
           }
         }
+      }
+    },
+
+    // Quote page
+    quote: {
+      title: 'Solicitar Orçamento',
+      subtitle: 'Obtenha um orçamento personalizado em poucos minutos. Nossa equipe responderá em 24h.',
+      transportType: 'Tipo de Transporte',
+      transportTypeDescription: 'Selecione o modo de transporte mais adequado às suas necessidades',
+      serviceType: 'Tipo de serviço',
+      serviceTypePlaceholder: 'Selecione um serviço',
+      shipmentDetails: 'Detalhes da Remessa',
+      origin: 'Origem',
+      destination: 'Destino',
+      weight: 'Peso (kg)',
+      dimensions: 'Dimensões (C x L x A em cm)',
+      description: 'Descrição da mercadoria',
+      descriptionPlaceholder: 'Descreva brevemente o que deseja enviar...',
+      urgency: 'Urgência',
+      contactInfo: 'Suas Informações',
+      name: 'Nome completo',
+      company: 'Empresa',
+      email: 'Email',
+      phone: 'Telefone',
+      message: 'Mensagem adicional',
+      messagePlaceholder: 'Informações adicionais, restrições particulares...',
+      submit: 'Enviar Minha Solicitação de Orçamento',
+      successMessage: 'Solicitação de orçamento enviada com sucesso! Responderemos em 24h.',
+      responseTime: '* Responderemos em 24h com um orçamento detalhado',
+      urgencyLevels: {
+        standard: 'Padrão (5-7 dias)',
+        express: 'Expresso (2-3 dias)',
+        urgent: 'Urgente (24-48h)'
+      },
+      services: {
+        road: ['Pacote padrão', 'Expresso 24h', 'Transporte veículo', 'Mudança'],
+        air: ['Expresso 24h', 'Expresso 48h', 'Frete padrão', 'Mercadorias perecíveis'],
+        maritime: ['Contêiner FCL', 'Grupagem LCL', 'Veículo RoRo', 'Frete a granel']
+      }
+    },
+
+    // Delivery zones page
+    deliveryZones: {
+      title: 'Zonas de Entrega',
+      subtitle: 'Descubra nossa cobertura mundial e os prazos de entrega para cada destino',
+      stats: {
+        countries: 'Países atendidos',
+        cities: 'Cidades principais',
+        minDelivery: 'Prazo mínimo',
+        deliveryRate: 'Taxa de entrega'
+      },
+      coverage: 'Nossas Zonas de Cobertura',
+      transportModes: 'Modos de transporte:',
+      mainCountries: 'Países principais:',
+      others: 'outros',
+      conditions: {
+        title: 'Condições e Restrições',
+        description: 'Informações importantes sobre nossas entregas',
+        accepted: 'Mercadorias aceitas:',
+        acceptedList: [
+          'Pacotes e documentos padrão',
+          'Mercadorias comerciais',
+          'Veículos (conforme destino)',
+          'Produtos perecíveis (condições especiais)'
+        ],
+        restrictions: 'Restrições:',
+        restrictionsList: [
+          'Materiais perigosos (conforme regulamentação)',
+          'Produtos proibidos pela alfândega',
+          'Objetos de valor excepcional',
+          'Animais vivos (consultar)'
+        ]
+      },
+      cta: {
+        title: 'Seu destino não aparece na lista?',
+        description: 'Entre em contato para estudarmos sua solicitação específica. Temos soluções para quase todos os destinos.',
+        contact: 'Entre em Contato',
+        quote: 'Solicitar Orçamento'
+      },
+      regions: {
+        'França Metropolitana': {
+          description: 'Cobertura completa com serviço expresso disponível'
+        },
+        'União Europeia': {
+          description: 'Rede rodoviária e aérea otimizada'
+        },
+        'África do Norte': {
+          description: 'Conexões regulares por todos os modos de transporte'
+        },
+        'América do Norte': {
+          description: 'Frete aéreo expresso e marítimo econômico'
+        },
+        'Ásia-Pacífico': {
+          description: 'Hub logístico para a Ásia com opções expressas'
+        },
+        'Oriente Médio': {
+          description: 'Parcerias locais para entrega eficiente'
+        }
+      }
+    },
+
+    // Footer
+    footer: {
+      copyright: '© 2024 LOGICY TRANSPORT. Todos os direitos reservados.',
+      legal: {
+        conditions: 'Condições Gerais',
+        privacy: 'Política de Privacidade',
+        mentions: 'Menções Legais'
       }
     }
   }
