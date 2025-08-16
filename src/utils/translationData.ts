@@ -265,7 +265,7 @@ export const translationData: Record<Language, Record<string, any>> = {
       transportTypeDescription: 'Sélectionnez le mode de transport le plus adapté à vos besoins',
       serviceType: 'Type de service',
       serviceTypePlaceholder: 'Sélectionnez un service',
-      shipmentDetails: 'Détails de l\'Expédition',
+      shipmentDetails: "Détails de l'Expédition",
       origin: 'Origine',
       destination: 'Destination',
       weight: 'Poids (kg)',
