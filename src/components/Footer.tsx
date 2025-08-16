@@ -1,0 +1,159 @@
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { Truck, Plane, Ship, MapPin, Phone, Mail, Clock, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { useLanguage } from '@/hooks/useLanguage';
+
+interface FooterProps {
+  onNavigate: (page: string) => void;
+}
+
+export function Footer({ onNavigate }: FooterProps) {
+  const { t } = useLanguage();
+
+  const services = [
+    { key: 'transport-routier', label: 'Transport Routier', icon: <Truck className="h-4 w-4" /> },
+    { key: 'transport-aerien', label: 'Transport Aérien', icon: <Plane className="h-4 w-4" /> },
+    { key: 'transport-maritime', label: 'Transport Maritime', icon: <Ship className="h-4 w-4" /> },
+    { key: 'logistique-express', label: 'Logistique Express', icon: <Clock className="h-4 w-4" /> },
+    { key: 'solutions-sur-mesure', label: 'Solutions Sur-Mesure' }
+  ];
+
+  const quickLinks = [
+    { key: 'tracking', label: 'Suivi Colis' },
+    { key: 'quote', label: 'Demander un Devis' },
+    { key: 'zones-livraison', label: 'Zones de Livraison' },
+    { key: 'about', label: 'À Propos' },
+    { key: 'contact', label: 'Contact' }
+  ];
+
+  const legalLinks = [
+    { key: 'conditions-generales', label: 'Conditions Générales' },
+    { key: 'politique-confidentialite', label: 'Politique de Confidentialité' },
+    { key: 'mentions-legales', label: 'Mentions Légales' }
+  ];
+
+  const socialLinks = [
+    { icon: <Facebook className="h-5 w-5" />, href: '#', label: 'Facebook' },
+    { icon: <Twitter className="h-5 w-5" />, href: '#', label: 'Twitter' },
+    { icon: <Linkedin className="h-5 w-5" />, href: '#', label: 'LinkedIn' },
+    { icon: <Instagram className="h-5 w-5" />, href: '#', label: 'Instagram' }
+  ];
+
+  return (
+    <footer className="bg-background border-t border-border">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold text-foreground">LOGICY TRANSPORT</h3>
+            <p className="text-sm text-muted-foreground">
+              Depuis 2007, votre partenaire logistique de confiance pour tous vos besoins de transport 
+              et livraison dans le monde entier.
+            </p>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center space-x-2">
+                <MapPin className="h-4 w-4 text-primary" />
+                <span>123 Avenue de la Logistique, 75001 Paris</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Phone className="h-4 w-4 text-primary" />
+                <span>+33 1 23 45 67 89</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Mail className="h-4 w-4 text-primary" />
+                <span>contact@logicy-transport.com</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Services */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-foreground">Nos Services</h3>
+            <ul className="space-y-2">
+              {services.map((service) => (
+                <li key={service.key}>
+                  <button
+                    onClick={() => onNavigate(service.key)}
+                    className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {service.icon}
+                    <span>{service.label}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-foreground">Liens Rapides</h3>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.key}>
+                  <button
+                    onClick={() => onNavigate(link.key)}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact & Social */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-foreground">Nous Suivre</h3>
+            <div className="flex space-x-3">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  className="w-10 h-10 bg-muted rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+            <div className="space-y-2">
+              <Button 
+                onClick={() => onNavigate('quote')}
+                className="w-full bg-primary hover:bg-primary/90"
+              >
+                Demander un Devis
+              </Button>
+              <Button 
+                onClick={() => onNavigate('tracking')}
+                variant="outline"
+                className="w-full"
+              >
+                Suivre un Colis
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <Separator className="my-8" />
+
+        {/* Bottom Footer */}
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="text-sm text-muted-foreground">
+            © 2024 LOGICY TRANSPORT. Tous droits réservés.
+          </div>
+          <div className="flex flex-wrap gap-4 text-xs">
+            {legalLinks.map((link) => (
+              <button
+                key={link.key}
+                onClick={() => onNavigate(link.key)}
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
