@@ -25,8 +25,8 @@ export function ContactPage() {
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons dans les plus brefs délais.",
+      title: t('contact.form.success.title', 'Message envoyé !'),
+      description: t('contact.form.success.description', 'Nous vous répondrons dans les plus brefs délais.'),
     });
 
     setFormData({ name: '', email: '', message: '' });
@@ -43,26 +43,26 @@ export function ContactPage() {
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
+      label: t('contact.info.email', 'Email'),
       value: 'contact@logicy-transport.com',
       action: 'mailto:contact@logicy-transport.com'
     },
     {
       icon: Phone,
-      label: 'Téléphone',
+      label: t('contact.info.phone', 'Téléphone'),
       value: '+33 1 23 45 67 89',
       action: 'tel:+33123456789'
     },
     {
       icon: MapPin,
-      label: 'Adresse',
+      label: t('contact.info.address', 'Adresse'),
       value: '123 Avenue de la Logistique\n69000 Lyon, France',
       action: null
     },
     {
       icon: Clock,
-      label: 'Horaires',
-      value: 'Lun-Ven: 8h-18h\nSam: 9h-12h',
+      label: t('contact.info.hours', 'Horaires'),
+      value: t('contact.info.schedule', 'Lun-Ven: 8h-18h\nSam: 9h-12h'),
       action: null
     }
   ];
@@ -76,7 +76,7 @@ export function ContactPage() {
             {t('contact.title')}
           </h1>
           <p className="text-lg text-white/90 max-w-2xl mx-auto">
-            Notre équipe est à votre disposition pour répondre à toutes vos questions
+            {t('contact.description', 'Notre équipe est à votre disposition pour répondre à toutes vos questions')}
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export function ContactPage() {
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <Send className="h-5 w-5 text-primary" />
-              <span>Envoyez-nous un message</span>
+              <span>{t('contact.form.title', 'Envoyez-nous un message')}</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -102,7 +102,7 @@ export function ContactPage() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Votre nom complet"
+                  placeholder={t('contact.form.namePlaceholder', 'Votre nom complet')}
                 />
               </div>
 
@@ -117,7 +117,7 @@ export function ContactPage() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="votre.email@exemple.com"
+                  placeholder={t('contact.form.emailPlaceholder', 'votre.email@exemple.com')}
                 />
               </div>
 
@@ -131,7 +131,7 @@ export function ContactPage() {
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Décrivez votre demande..."
+                  placeholder={t('contact.form.messagePlaceholder', 'Décrivez votre demande...')}
                   className="min-h-[120px]"
                 />
               </div>
@@ -186,7 +186,7 @@ export function ContactPage() {
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <MapPin className="h-5 w-5 text-primary" />
-              <span>Nous trouver</span>
+              <span>{t('contact.map.title', 'Nous trouver')}</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -201,7 +201,7 @@ export function ContactPage() {
             </div>
           </div>
           <p className="text-sm text-muted-foreground mt-4">
-            * Une carte interactive sera bientôt disponible pour faciliter votre visite
+            {t('contact.map.note', '* Une carte interactive sera bientôt disponible pour faciliter votre visite')}
           </p>
           </CardContent>
         </Card>

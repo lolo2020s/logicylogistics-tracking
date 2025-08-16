@@ -332,18 +332,29 @@ export const translationData: Record<Language, Record<string, any>> = {
       title: 'Contact us',
       description: 'Our team is available to answer your questions',
       form: {
+        title: 'Send us a message',
         name: 'Full name',
+        namePlaceholder: 'Your full name',
         email: 'Email address',
-        phone: 'Phone',
-        subject: 'Subject',
+        emailPlaceholder: 'your.email@example.com',
         message: 'Message',
-        send: 'Send message'
+        messagePlaceholder: 'Describe your request...',
+        send: 'Send message',
+        success: {
+          title: 'Message sent!',
+          description: 'We will respond to you as soon as possible.'
+        }
       },
       info: {
-        address: 'Address',
-        phone: 'Phone',
         email: 'Email',
-        hours: 'Opening hours'
+        phone: 'Phone',
+        address: 'Address',
+        hours: 'Opening hours',
+        schedule: 'Mon-Fri: 8am-6pm\nSat: 9am-12pm'
+      },
+      map: {
+        title: 'Find us',
+        note: '* An interactive map will soon be available to facilitate your visit'
       }
     },
 
@@ -572,18 +583,29 @@ export const translationData: Record<Language, Record<string, any>> = {
       title: 'Contáctanos',
       description: 'Nuestro equipo está a su disposición para responder sus preguntas',
       form: {
+        title: 'Envíanos un mensaje',
         name: 'Nombre completo',
+        namePlaceholder: 'Su nombre completo',
         email: 'Dirección de correo',
-        phone: 'Teléfono',
-        subject: 'Asunto',
+        emailPlaceholder: 'su.email@ejemplo.com',
         message: 'Mensaje',
-        send: 'Enviar mensaje'
+        messagePlaceholder: 'Describa su solicitud...',
+        send: 'Enviar mensaje',
+        success: {
+          title: '¡Mensaje enviado!',
+          description: 'Le responderemos a la brevedad.'
+        }
       },
       info: {
-        address: 'Dirección',
-        phone: 'Teléfono',
         email: 'Correo',
-        hours: 'Horarios de atención'
+        phone: 'Teléfono',
+        address: 'Dirección',
+        hours: 'Horarios de atención',
+        schedule: 'Lun-Vie: 8h-18h\nSáb: 9h-12h'
+      },
+      map: {
+        title: 'Encuéntranos',
+        note: '* Un mapa interactivo estará pronto disponible para facilitar su visita'
       }
     },
 
@@ -812,18 +834,29 @@ export const translationData: Record<Language, Record<string, any>> = {
       title: 'Kontaktieren Sie uns',
       description: 'Unser Team steht Ihnen zur Verfügung, um Ihre Fragen zu beantworten',
       form: {
+        title: 'Senden Sie uns eine Nachricht',
         name: 'Vollständiger Name',
+        namePlaceholder: 'Ihr vollständiger Name',
         email: 'E-Mail-Adresse',
-        phone: 'Telefon',
-        subject: 'Betreff',
+        emailPlaceholder: 'ihre.email@beispiel.de',
         message: 'Nachricht',
-        send: 'Nachricht senden'
+        messagePlaceholder: 'Beschreiben Sie Ihre Anfrage...',
+        send: 'Nachricht senden',
+        success: {
+          title: 'Nachricht gesendet!',
+          description: 'Wir werden Ihnen so schnell wie möglich antworten.'
+        }
       },
       info: {
-        address: 'Adresse',
-        phone: 'Telefon',
         email: 'E-Mail',
-        hours: 'Öffnungszeiten'
+        phone: 'Telefon',
+        address: 'Adresse',
+        hours: 'Öffnungszeiten',
+        schedule: 'Mo-Fr: 8-18 Uhr\nSa: 9-12 Uhr'
+      },
+      map: {
+        title: 'Finden Sie uns',
+        note: '* Eine interaktive Karte wird bald verfügbar sein, um Ihren Besuch zu erleichtern'
       }
     },
 
@@ -1052,18 +1085,29 @@ export const translationData: Record<Language, Record<string, any>> = {
       title: 'Contattaci',
       description: 'Il nostro team è a vostra disposizione per rispondere alle vostre domande',
       form: {
+        title: 'Inviateci un messaggio',
         name: 'Nome completo',
+        namePlaceholder: 'Il vostro nome completo',
         email: 'Indirizzo email',
-        phone: 'Telefono',
-        subject: 'Oggetto',
+        emailPlaceholder: 'la.vostra.email@esempio.it',
         message: 'Messaggio',
-        send: 'Invia messaggio'
+        messagePlaceholder: 'Descrivete la vostra richiesta...',
+        send: 'Invia messaggio',
+        success: {
+          title: 'Messaggio inviato!',
+          description: 'Vi risponderemo il prima possibile.'
+        }
       },
       info: {
-        address: 'Indirizzo',
-        phone: 'Telefono',
         email: 'Email',
-        hours: 'Orari di apertura'
+        phone: 'Telefono',
+        address: 'Indirizzo',
+        hours: 'Orari di apertura',
+        schedule: 'Lun-Ven: 8-18\nSab: 9-12'
+      },
+      map: {
+        title: 'Trovateci',
+        note: '* Una mappa interattiva sarà presto disponibile per facilitare la vostra visita'
       }
     },
 
@@ -1292,18 +1336,29 @@ export const translationData: Record<Language, Record<string, any>> = {
       title: 'Entre em contato',
       description: 'Nossa equipe está à sua disposição para responder suas perguntas',
       form: {
+        title: 'Envie-nos uma mensagem',
         name: 'Nome completo',
+        namePlaceholder: 'Seu nome completo',
         email: 'Endereço de email',
-        phone: 'Telefone',
-        subject: 'Assunto',
+        emailPlaceholder: 'seu.email@exemplo.com',
         message: 'Mensagem',
-        send: 'Enviar mensagem'
+        messagePlaceholder: 'Descreva sua solicitação...',
+        send: 'Enviar mensagem',
+        success: {
+          title: 'Mensagem enviada!',
+          description: 'Responderemos o mais breve possível.'
+        }
       },
       info: {
-        address: 'Endereço',
-        phone: 'Telefone',
         email: 'Email',
-        hours: 'Horário de funcionamento'
+        phone: 'Telefone',
+        address: 'Endereço',
+        hours: 'Horário de funcionamento',
+        schedule: 'Seg-Sex: 8h-18h\nSáb: 9h-12h'
+      },
+      map: {
+        title: 'Encontre-nos',
+        note: '* Um mapa interativo estará disponível em breve para facilitar sua visita'
       }
     },
 
