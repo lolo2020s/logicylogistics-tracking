@@ -49,8 +49,6 @@ export function AdminSidebar() {
 
   return (
     <Sidebar className={!open ? 'w-14' : 'w-60'}>
-      <SidebarTrigger className="m-2 self-end" />
-
       <SidebarContent>
         {/* Header */}
         <div className="p-4 border-b">
