@@ -11,8 +11,6 @@ import { TransportAerienPage } from './TransportAerienPage';
 import { TransportMaritimePage } from './TransportMaritimePage';
 import { LogistiqueExpressPage } from './LogistiqueExpressPage';
 import { SolutionsSurMesurePage } from './SolutionsSurMesurePage';
-import { QuotePage } from './QuotePage';
-import { ZonesLivraisonPage } from './ZonesLivraisonPage';
 import { ConditionsGeneralesPage } from './ConditionsGeneralesPage';
 import { PolitiqueConfidentialitePage } from './PolitiqueConfidentialitePage';
 
@@ -35,8 +33,6 @@ const Index = () => {
       case 'transport-maritime': return <TransportMaritimePage onNavigate={setCurrentPage} />;
       case 'logistique-express': return <LogistiqueExpressPage onNavigate={setCurrentPage} />;
       case 'solutions-sur-mesure': return <SolutionsSurMesurePage onNavigate={setCurrentPage} />;
-      case 'quote': return <QuotePage onNavigate={setCurrentPage} />;
-      case 'zones-livraison': return <ZonesLivraisonPage onNavigate={setCurrentPage} />;
       case 'conditions-generales': return <ConditionsGeneralesPage onNavigate={setCurrentPage} />;
       case 'politique-confidentialite': return <PolitiqueConfidentialitePage onNavigate={setCurrentPage} />;
       default: return <HomePage onNavigate={setCurrentPage} />;

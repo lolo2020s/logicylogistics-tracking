@@ -15,8 +15,6 @@ import { TransportAerienPage } from "./pages/TransportAerienPage";
 import { TransportMaritimePage } from "./pages/TransportMaritimePage";
 import { LogistiqueExpressPage } from "./pages/LogistiqueExpressPage";
 import { SolutionsSurMesurePage } from "./pages/SolutionsSurMesurePage";
-import { QuotePage } from "./pages/QuotePage";
-import { ZonesLivraisonPage } from "./pages/ZonesLivraisonPage";
 import { ConditionsGeneralesPage } from "./pages/ConditionsGeneralesPage";
 import { PolitiqueConfidentialitePage } from "./pages/PolitiqueConfidentialitePage";
 import { LanguageProvider } from "./context/LanguageContext";
@@ -43,8 +41,6 @@ const App = () => (
             <Route path="/transport-maritime" element={<TransportMaritimePage onNavigate={() => {}} />} />
             <Route path="/logistique-express" element={<LogistiqueExpressPage onNavigate={() => {}} />} />
             <Route path="/solutions-sur-mesure" element={<SolutionsSurMesurePage onNavigate={() => {}} />} />
-            <Route path="/devis" element={<QuotePage onNavigate={() => {}} />} />
-            <Route path="/zones-livraison" element={<ZonesLivraisonPage onNavigate={() => {}} />} />
             <Route path="/conditions-generales" element={<ConditionsGeneralesPage onNavigate={() => {}} />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialitePage onNavigate={() => {}} />} />
             
@@ -60,8 +56,6 @@ const App = () => (
             <Route path="/es/transporte-maritimo" element={<TransportMaritimePage onNavigate={() => {}} />} />
             <Route path="/es/logistica-express" element={<LogistiqueExpressPage onNavigate={() => {}} />} />
             <Route path="/es/soluciones-medida" element={<SolutionsSurMesurePage onNavigate={() => {}} />} />
-            <Route path="/es/cotizacion" element={<QuotePage onNavigate={() => {}} />} />
-            <Route path="/es/zonas-entrega" element={<ZonesLivraisonPage onNavigate={() => {}} />} />
             <Route path="/es/condiciones-generales" element={<ConditionsGeneralesPage onNavigate={() => {}} />} />
             <Route path="/es/politica-privacidad" element={<PolitiqueConfidentialitePage onNavigate={() => {}} />} />
 
@@ -77,8 +71,6 @@ const App = () => (
             <Route path="/de/seetransport" element={<TransportMaritimePage onNavigate={() => {}} />} />
             <Route path="/de/express-logistik" element={<LogistiqueExpressPage onNavigate={() => {}} />} />
             <Route path="/de/massgeschneiderte-losungen" element={<SolutionsSurMesurePage onNavigate={() => {}} />} />
-            <Route path="/de/angebot" element={<QuotePage onNavigate={() => {}} />} />
-            <Route path="/de/lieferzonen" element={<ZonesLivraisonPage onNavigate={() => {}} />} />
             <Route path="/de/allgemeine-bedingungen" element={<ConditionsGeneralesPage onNavigate={() => {}} />} />
             <Route path="/de/datenschutzrichtlinie" element={<PolitiqueConfidentialitePage onNavigate={() => {}} />} />
 
@@ -94,8 +86,6 @@ const App = () => (
             <Route path="/it/trasporto-marittimo" element={<TransportMaritimePage onNavigate={() => {}} />} />
             <Route path="/it/logistica-express" element={<LogistiqueExpressPage onNavigate={() => {}} />} />
             <Route path="/it/soluzioni-su-misura" element={<SolutionsSurMesurePage onNavigate={() => {}} />} />
-            <Route path="/it/preventivo" element={<QuotePage onNavigate={() => {}} />} />
-            <Route path="/it/zone-consegna" element={<ZonesLivraisonPage onNavigate={() => {}} />} />
             <Route path="/it/condizioni-generali" element={<ConditionsGeneralesPage onNavigate={() => {}} />} />
             <Route path="/it/politica-privacy" element={<PolitiqueConfidentialitePage onNavigate={() => {}} />} />
 
@@ -111,8 +101,6 @@ const App = () => (
             <Route path="/pt/transporte-maritimo" element={<TransportMaritimePage onNavigate={() => {}} />} />
             <Route path="/pt/logistica-express" element={<LogistiqueExpressPage onNavigate={() => {}} />} />
             <Route path="/pt/solucoes-medida" element={<SolutionsSurMesurePage onNavigate={() => {}} />} />
-            <Route path="/pt/orcamento" element={<QuotePage onNavigate={() => {}} />} />
-            <Route path="/pt/zonas-entrega" element={<ZonesLivraisonPage onNavigate={() => {}} />} />
             <Route path="/pt/condicoes-gerais" element={<ConditionsGeneralesPage onNavigate={() => {}} />} />
             <Route path="/pt/politica-privacidade" element={<PolitiqueConfidentialitePage onNavigate={() => {}} />} />
             

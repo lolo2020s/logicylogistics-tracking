@@ -18,8 +18,6 @@ export function Footer({ onNavigate }: FooterProps) {
 
   const quickLinks = [
     { key: 'tracking', label: t('nav.tracking') },
-    { key: 'quote', label: t('common.getQuote') },
-    { key: 'zones-livraison', label: t('nav.zones') },
     { key: 'contact', label: t('nav.contact') }
   ];
 
@@ -114,10 +112,10 @@ export function Footer({ onNavigate }: FooterProps) {
             </div>
             <div className="space-y-2">
               <Button 
-                onClick={() => onNavigate('quote')}
+                onClick={() => onNavigate('contact')}
                 className="w-full bg-primary hover:bg-primary/90"
               >
-                {t('common.getQuote')}
+                {t('nav.contact')}
               </Button>
               <Button 
                 onClick={() => onNavigate('tracking')}
