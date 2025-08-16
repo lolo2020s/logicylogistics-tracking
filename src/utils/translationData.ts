@@ -188,6 +188,62 @@ export const translationData: Record<Language, Record<string, any>> = {
         innovation: 'Innovation',
         quality: 'Qualité',
         service: 'Service client'
+      },
+      stats: {
+        experience: 'Années d\'expérience',
+        clients: 'Clients satisfaits',
+        countries: 'Pays desservis',
+        shipments: 'Envois réalisés'
+      },
+      timeline: {
+        title: 'Notre Histoire',
+        items: [
+          {
+            year: '2007',
+            title: 'Création de LOGICY TRANSPORT',
+            description: 'Fondation de l\'entreprise avec une vision claire : révolutionner le transport logistique.'
+          },
+          {
+            year: '2010',
+            title: 'Expansion européenne',
+            description: 'Ouverture de nos services dans toute l\'Europe avec des partenaires de confiance.'
+          },
+          {
+            year: '2015',
+            title: 'Transport aérien',
+            description: 'Lancement de nos services de transport aérien pour les envois express.'
+          },
+          {
+            year: '2018',
+            title: 'Solutions maritimes',
+            description: 'Développement de notre offre maritime pour les charges volumineuses.'
+          },
+          {
+            year: '2020',
+            title: 'Digitalisation',
+            description: 'Mise en place du système de suivi en temps réel et digitalisation complète.'
+          },
+          {
+            year: '2024',
+            title: 'Innovation continue',
+            description: 'Aujourd\'hui, nous continuons d\'innover pour offrir les meilleures solutions.'
+          }
+        ]
+      },
+      missionExpanded: {
+        content: 'Nous nous engageons à fournir des solutions de transport innovantes en plaçant la satisfaction client au cœur de nos préoccupations.'
+      },
+      commitments: {
+        title: 'Nos Engagements',
+        tracking: 'Traçabilité complète de vos envois',
+        support: 'Service client réactif 24/7',
+        environment: 'Respect de l\'environnement'
+      },
+      cta: {
+        title: 'Rejoignez nos clients satisfaits',
+        description: 'Découvrez pourquoi des centaines d\'entreprises nous font confiance',
+        servicesButton: 'Découvrir nos services',
+        contactButton: 'Nous contacter'
       }
     },
 
@@ -628,6 +684,13 @@ export const translationData: Record<Language, Record<string, any>> = {
         tracking: 'Trazabilidad completa de sus envíos',
         support: 'Servicio al cliente receptivo 24/7',
         environment: 'Respeto por el medio ambiente'
+      },
+      cta: {
+        title: 'Únase a nuestros clientes satisfechos',
+        description: 'Descubra por qué cientos de empresas confían en nosotros',
+        servicesButton: 'Descubrir nuestros servicios',
+        contactButton: 'Contáctenos'
+      }
     },
 
     // Footer
@@ -637,13 +700,6 @@ export const translationData: Record<Language, Record<string, any>> = {
         conditions: 'Condiciones Generales',
         privacy: 'Política de Privacidad',
         mentions: 'Menciones Legales'
-      }
-    },
-      cta: {
-        title: 'Únase a nuestros clientes satisfechos',
-        description: 'Descubra por qué cientos de empresas confían en nosotros',
-        servicesButton: 'Descubrir nuestros servicios',
-        contactButton: 'Contáctenos'
       }
     },
 
