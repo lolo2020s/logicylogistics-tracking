@@ -55,8 +55,7 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
 
   return (
     <div className="min-h-screen bg-gradient-surface" style={{ backgroundImage: `url(${transportMaritimeHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
-      <div className="absolute inset-0 bg-black/70" />
-      
+      <div className="absolute inset-0 bg-white/90" />
       <div className="relative z-10">
       {/* Hero Section */}
       <section 
