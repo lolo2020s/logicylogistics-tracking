@@ -917,6 +917,62 @@ export const translationData: Record<Language, Record<string, any>> = {
         innovation: 'Innovazione',
         quality: 'Qualità',
         service: 'Servizio clienti'
+      },
+      stats: {
+        experience: 'Anni di esperienza',
+        clients: 'Clienti soddisfatti',
+        countries: 'Paesi serviti',
+        shipments: 'Spedizioni realizzate'
+      },
+      timeline: {
+        title: 'La Nostra Storia',
+        items: [
+          {
+            year: '2007',
+            title: 'Creazione di LOGICY TRANSPORT',
+            description: 'Fondazione dell\'azienda con una visione chiara: rivoluzionare il trasporto logistico.'
+          },
+          {
+            year: '2010',
+            title: 'Espansione europea',
+            description: 'Apertura dei nostri servizi in tutta Europa con partner di fiducia.'
+          },
+          {
+            year: '2015',
+            title: 'Trasporto aereo',
+            description: 'Lancio dei nostri servizi di trasporto aereo per spedizioni express.'
+          },
+          {
+            year: '2018',
+            title: 'Soluzioni marittime',
+            description: 'Sviluppo della nostra offerta marittima per carichi voluminosi.'
+          },
+          {
+            year: '2020',
+            title: 'Digitalizzazione',
+            description: 'Implementazione del sistema di tracciamento in tempo reale e digitalizzazione completa.'
+          },
+          {
+            year: '2024',
+            title: 'Innovazione continua',
+            description: 'Oggi, continuiamo a innovare per offrire le migliori soluzioni.'
+          }
+        ]
+      },
+      missionExpanded: {
+        content: 'Ci impegniamo a fornire soluzioni di trasporto innovative, mettendo la soddisfazione del cliente al centro delle nostre preoccupazioni.'
+      },
+      commitments: {
+        title: 'I Nostri Impegni',
+        tracking: 'Tracciabilità completa delle vostre spedizioni',
+        support: 'Servizio clienti reattivo 24/7',
+        environment: 'Rispetto dell\'ambiente'
+      },
+      cta: {
+        title: 'Unisciti ai nostri clienti soddisfatti',
+        description: 'Scopri perché centinaia di aziende si fidano di noi',
+        servicesButton: 'Scopri i nostri servizi',
+        contactButton: 'Contattaci'
       }
     }
   },

@@ -11,13 +11,14 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
   const { t } = useTranslation();
 
   const stats = [
-    { icon: Award, value: '17+', label: 'Années d\'expérience' },
-    { icon: Users, value: '500+', label: 'Clients satisfaits' },
-    { icon: MapPin, value: '50+', label: 'Pays desservis' },
-    { icon: TrendingUp, value: '10K+', label: 'Envois réalisés' },
+    { icon: Award, value: '17+', label: t('about.stats.experience') },
+    { icon: Users, value: '500+', label: t('about.stats.clients') },
+    { icon: MapPin, value: '50+', label: t('about.stats.countries') },
+    { icon: TrendingUp, value: '10K+', label: t('about.stats.shipments') },
   ];
 
-  const timeline = [
+  const timelineItems = t('about.timeline.items') || [];
+  const timeline = Array.isArray(timelineItems) ? timelineItems : [
     { year: '2007', title: 'Création de LOGICY TRANSPORT', description: 'Fondation de l\'entreprise avec une vision claire : révolutionner le transport logistique.' },
     { year: '2010', title: 'Expansion européenne', description: 'Ouverture de nos services dans toute l\'Europe avec des partenaires de confiance.' },
     { year: '2015', title: 'Transport aérien', description: 'Lancement de nos services de transport aérien pour les envois express.' },
@@ -57,33 +58,32 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
         {/* Mission & Values */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
           <Card className="p-8 shadow-premium bg-gradient-surface border-0 animate-scale-in">
-            <h3 className="text-xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Notre Mission</h3>
+            <h3 className="text-xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">{t('about.mission.title')}</h3>
           <p className="text-muted-foreground leading-relaxed mb-4">
             {t('about.mission.content')}
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            Nous nous engageons à fournir des solutions de transport innovantes, 
-            en mettant la satisfaction client au cœur de nos préoccupations.
+            {t('about.missionExpanded.content')}
           </p>
         </Card>
 
           <Card className="p-8 shadow-premium bg-gradient-surface border-0 animate-scale-in" style={{animationDelay: '0.2s'}}>
-            <h3 className="text-xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">Nos Engagements</h3>
+            <h3 className="text-xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">{t('about.commitments.title')}</h3>
           <p className="text-muted-foreground leading-relaxed mb-4">
             {t('about.values.reliability')}
           </p>
           <ul className="space-y-2 text-muted-foreground">
             <li className="flex items-center">
               <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-              Traçabilité complète de vos envois
+              {t('about.commitments.tracking')}
             </li>
             <li className="flex items-center">
               <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-              Service client réactif 24h/24
+              {t('about.commitments.support')}
             </li>
             <li className="flex items-center">
               <div className="w-2 h-2 bg-primary rounded-full mr-3" />
-              Respect de l'environnement
+              {t('about.commitments.environment')}
             </li>
           </ul>
         </Card>
@@ -92,7 +92,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
       {/* Timeline */}
       <section className="bg-gradient-accent rounded-2xl p-8 md:p-12">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-          Notre Histoire
+          {t('about.timeline.title')}
         </h2>
         <div className="space-y-8">
           {timeline.map((item, index) => (
@@ -111,9 +111,9 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
 
         {/* CTA */}
         <div className="text-center bg-gradient-dark rounded-2xl p-8 shadow-premium animate-scale-in mx-4">
-          <h2 className="text-2xl font-bold mb-4 text-white">Rejoignez nos clients satisfaits</h2>
+          <h2 className="text-2xl font-bold mb-4 text-white">{t('about.cta.title')}</h2>
           <p className="text-white/80 mb-6">
-            Découvrez pourquoi des centaines d'entreprises nous font confiance
+            {t('about.cta.description')}
           </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button 
@@ -121,14 +121,14 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
             size="lg"
             className="bg-gradient-primary hover:opacity-90"
           >
-            Découvrir nos services
+            {t('about.cta.servicesButton')}
           </Button>
           <Button 
             onClick={() => onNavigate('contact')}
             variant="outline"
             size="lg"
           >
-            Nous contacter
+            {t('about.cta.contactButton')}
           </Button>
         </div>
         </div>
