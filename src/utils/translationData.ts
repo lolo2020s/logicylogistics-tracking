@@ -65,36 +65,81 @@ export const translationData: Record<Language, Record<string, any>> = {
     // Services
     services: {
       title: 'Nos Services de Transport',
-      description: 'Découvrez notre gamme complète de solutions logistiques',
+      description: 'Solutions logistiques complètes pour tous vos besoins de transport, de la livraison express aux expéditions internationales',
+      experience: 'Plus de 17 ans d\'expérience',
       road: {
         title: 'Transport Routier',
-        description: 'Solutions de transport terrestre adaptées à vos besoins',
+        description: 'Solutions de transport routier fiables pour l\'Europe et l\'Afrique du Nord',
         features: [
-          'Livraison express 24h/48h',
-          'Transport de marchandises diverses',
-          'Couverture nationale et européenne',
-          'Suivi en temps réel'
+          'Livraison express 24-48h',
+          'Véhicules légers à poids lourds',
+          'Suivi temps réel',
+          'Assurance tous risques'
         ]
       },
       air: {
         title: 'Transport Aérien',
-        description: 'Expéditions rapides par voie aérienne',
+        description: 'Fret aérien express pour vos envois urgents dans le monde entier',
         features: [
-          'Livraison express internationale',
-          'Transport de produits urgents',
-          'Réseau mondial de partenaires',
-          'Documentation douanière'
+          'Livraison 24-72h',
+          'Couverture mondiale',
+          'Sécurité maximale',
+          'Traçabilité complète'
         ]
       },
       maritime: {
         title: 'Transport Maritime',
-        description: 'Solutions économiques pour vos envois volumineux',
+        description: 'Solutions économiques pour vos expéditions internationales volumineuses',
         features: [
-          'Transport de conteneurs',
-          'Fret maritime international',
-          'Solutions groupage/complet',
-          'Assurance marchandises'
+          'Conteneurs FCL/LCL',
+          'Tous ports mondiaux',
+          'Tarifs compétitifs',
+          'Groupage optimisé'
         ]
+      },
+      express: {
+        title: 'Logistique Express',
+        description: 'Service premium pour vos envois urgents avec garantie de délais',
+        features: [
+          'Même jour possible',
+          'Service 24/7',
+          'Coursier dédié',
+          'Remboursement si retard'
+        ]
+      },
+      custom: {
+        title: 'Solutions Sur-Mesure',
+        description: 'Solutions logistiques personnalisées selon vos besoins spécifiques',
+        features: [
+          'Analyse des besoins',
+          'Solution dédiée',
+          'Accompagnement expert',
+          'Évolutivité garantie'
+        ]
+      },
+      tracking: {
+        title: 'Suivi de Colis',
+        description: 'Système de tracking avancé pour suivre vos envois en temps réel',
+        features: [
+          'Géolocalisation GPS',
+          'Notifications SMS',
+          'Interface web',
+          'API disponible'
+        ]
+      },
+      advantages: {
+        delivery: {
+          title: 'Délais Respectés',
+          description: 'Nos équipes s\'engagent à respecter les délais convenus avec des garanties'
+        },
+        security: {
+          title: 'Sécurité Maximale',
+          description: 'Vos envois sont protégés et assurés durant tout le transport'
+        },
+        pricing: {
+          title: 'Tarifs Transparents',
+          description: 'Prix fixes sans surprise avec devis gratuit sous 24h'
+        }
       }
     },
 
@@ -131,7 +176,7 @@ export const translationData: Record<Language, Record<string, any>> = {
         content: 'Fournir des solutions de transport fiables, efficaces et personnalisées pour accompagner la croissance de nos clients.'
       },
       values: {
-        title: 'Nos Valeurs',
+        title: 'Pourquoi Choisir LOGICY TRANSPORT ?',
         reliability: 'Fiabilité',
         innovation: 'Innovation',
         quality: 'Qualité',
@@ -204,36 +249,81 @@ export const translationData: Record<Language, Record<string, any>> = {
     // Services
     services: {
       title: 'Our Transport Services',
-      description: 'Discover our complete range of logistics solutions',
+      description: 'Complete logistics solutions for all your transport needs, from express delivery to international shipments',
+      experience: 'Over 17 years of experience',
       road: {
         title: 'Road Transport',
-        description: 'Ground transport solutions adapted to your needs',
+        description: 'Reliable road transport solutions for Europe and North Africa',
         features: [
-          'Express delivery 24h/48h',
-          'Various goods transport',
-          'National and European coverage',
-          'Real-time tracking'
+          'Express delivery 24-48h',
+          'Light to heavy vehicles',
+          'Real-time tracking',
+          'Full coverage insurance'
         ]
       },
       air: {
         title: 'Air Transport',
-        description: 'Fast shipments by air',
+        description: 'Express air freight for your urgent shipments worldwide',
         features: [
-          'International express delivery',
-          'Urgent products transport',
-          'Global network of partners',
-          'Customs documentation'
+          'Delivery 24-72h',
+          'Global coverage',
+          'Maximum security',
+          'Complete traceability'
         ]
       },
       maritime: {
         title: 'Maritime Transport',
-        description: 'Economical solutions for your bulky shipments',
+        description: 'Cost-effective solutions for your large international shipments',
         features: [
-          'Container transport',
-          'International sea freight',
-          'Groupage/full solutions',
-          'Goods insurance'
+          'FCL/LCL containers',
+          'All world ports',
+          'Competitive rates',
+          'Optimized groupage'
         ]
+      },
+      express: {
+        title: 'Express Logistics',
+        description: 'Premium service for urgent shipments with delivery guarantee',
+        features: [
+          'Same day possible',
+          '24/7 service',
+          'Dedicated courier',
+          'Refund if delayed'
+        ]
+      },
+      custom: {
+        title: 'Custom Solutions',
+        description: 'Personalized logistics solutions according to your specific needs',
+        features: [
+          'Needs analysis',
+          'Dedicated solution',
+          'Expert support',
+          'Guaranteed scalability'
+        ]
+      },
+      tracking: {
+        title: 'Package Tracking',
+        description: 'Advanced tracking system to follow your shipments in real time',
+        features: [
+          'GPS geolocation',
+          'SMS notifications',
+          'Web interface',
+          'API available'
+        ]
+      },
+      advantages: {
+        delivery: {
+          title: 'Timely Delivery',
+          description: 'Our teams commit to respecting agreed deadlines with guarantees'
+        },
+        security: {
+          title: 'Maximum Security',
+          description: 'Your shipments are protected and insured throughout transport'
+        },
+        pricing: {
+          title: 'Transparent Pricing',
+          description: 'Fixed prices with no surprises and free quotes within 24h'
+        }
       }
     },
 
@@ -270,7 +360,7 @@ export const translationData: Record<Language, Record<string, any>> = {
         content: 'Provide reliable, efficient and personalized transport solutions to support our clients\' growth.'
       },
       values: {
-        title: 'Our Values',
+        title: 'Why Choose LOGICY TRANSPORT?',
         reliability: 'Reliability',
         innovation: 'Innovation',
         quality: 'Quality',
@@ -343,36 +433,81 @@ export const translationData: Record<Language, Record<string, any>> = {
     // Services
     services: {
       title: 'Nuestros Servicios de Transporte',
-      description: 'Descubra nuestra gama completa de soluciones logísticas',
+      description: 'Soluciones logísticas completas para todas sus necesidades de transporte, desde la entrega express hasta envíos internacionales',
+      experience: 'Más de 17 años de experiencia',
       road: {
         title: 'Transporte Terrestre',
-        description: 'Soluciones de transporte terrestre adaptadas a sus necesidades',
+        description: 'Soluciones de transporte terrestre confiables para Europa y África del Norte',
         features: [
-          'Entrega express 24h/48h',
-          'Transporte de mercancías diversas',
-          'Cobertura nacional y europea',
-          'Seguimiento en tiempo real'
+          'Entrega express 24-48h',
+          'Vehículos ligeros a pesados',
+          'Seguimiento en tiempo real',
+          'Seguro a todo riesgo'
         ]
       },
       air: {
         title: 'Transporte Aéreo',
-        description: 'Envíos rápidos por vía aérea',
+        description: 'Carga aérea express para sus envíos urgentes en todo el mundo',
         features: [
-          'Entrega express internacional',
-          'Transporte de productos urgentes',
-          'Red mundial de socios',
-          'Documentación aduanera'
+          'Entrega 24-72h',
+          'Cobertura mundial',
+          'Seguridad máxima',
+          'Trazabilidad completa'
         ]
       },
       maritime: {
         title: 'Transporte Marítimo',
-        description: 'Soluciones económicas para sus envíos voluminosos',
+        description: 'Soluciones económicas para sus expediciones internacionales voluminosas',
         features: [
-          'Transporte de contenedores',
-          'Flete marítimo internacional',
-          'Soluciones de grupaje/completo',
-          'Seguro de mercancías'
+          'Contenedores FCL/LCL',
+          'Todos los puertos mundiales',
+          'Tarifas competitivas',
+          'Grupaje optimizado'
         ]
+      },
+      express: {
+        title: 'Logística Express',
+        description: 'Servicio premium para sus envíos urgentes con garantía de plazos',
+        features: [
+          'Mismo día posible',
+          'Servicio 24/7',
+          'Mensajero dedicado',
+          'Reembolso si hay retraso'
+        ]
+      },
+      custom: {
+        title: 'Soluciones a Medida',
+        description: 'Soluciones logísticas personalizadas según sus necesidades específicas',
+        features: [
+          'Análisis de necesidades',
+          'Solución dedicada',
+          'Acompañamiento experto',
+          'Escalabilidad garantizada'
+        ]
+      },
+      tracking: {
+        title: 'Seguimiento de Paquetes',
+        description: 'Sistema de seguimiento avanzado para rastrear sus envíos en tiempo real',
+        features: [
+          'Geolocalización GPS',
+          'Notificaciones SMS',
+          'Interfaz web',
+          'API disponible'
+        ]
+      },
+      advantages: {
+        delivery: {
+          title: 'Plazos Respetados',
+          description: 'Nuestros equipos se comprometen a respetar los plazos acordados con garantías'
+        },
+        security: {
+          title: 'Seguridad Máxima',
+          description: 'Sus envíos están protegidos y asegurados durante todo el transporte'
+        },
+        pricing: {
+          title: 'Tarifas Transparentes',
+          description: 'Precios fijos sin sorpresas con cotización gratuita en 24h'
+        }
       }
     },
 
@@ -409,7 +544,7 @@ export const translationData: Record<Language, Record<string, any>> = {
         content: 'Proporcionar soluciones de transporte confiables, eficientes y personalizadas para acompañar el crecimiento de nuestros clientes.'
       },
       values: {
-        title: 'Nuestros Valores',
+        title: '¿Por Qué Elegir LOGICY TRANSPORT?',
         reliability: 'Confiabilidad',
         innovation: 'Innovación',
         quality: 'Calidad',

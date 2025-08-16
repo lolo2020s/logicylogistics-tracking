@@ -10,49 +10,49 @@ interface ServicesPageProps {
 }
 
 export function ServicesPage({ onNavigate }: ServicesPageProps) {
-  const { t } = useTranslation();
+  const { t, tArray } = useTranslation();
 
   const services = [
     {
       icon: <Truck className="h-8 w-8 text-blue-500" />,
-      title: "Transport Routier",
-      description: "Solutions de transport routier fiables pour l'Europe et l'Afrique du Nord",
-      features: ["Livraison express 24-48h", "Véhicules légers à poids lourds", "Suivi temps réel", "Assurance tous risques"],
+      title: t('services.road.title'),
+      description: t('services.road.description'),
+      features: tArray('services.road.features'),
       link: "transport-routier"
     },
     {
       icon: <Plane className="h-8 w-8 text-green-500" />,
-      title: "Transport Aérien",
-      description: "Fret aérien express pour vos envois urgents dans le monde entier",
-      features: ["Livraison 24-72h", "Couverture mondiale", "Sécurité maximale", "Traçabilité complète"],
+      title: t('services.air.title'),
+      description: t('services.air.description'),
+      features: tArray('services.air.features'),
       link: "transport-aerien"
     },
     {
       icon: <Ship className="h-8 w-8 text-blue-600" />,
-      title: "Transport Maritime",
-      description: "Solutions économiques pour vos expéditions internationales volumineuses",
-      features: ["Conteneurs FCL/LCL", "Tous ports mondiaux", "Tarifs compétitifs", "Groupage optimisé"],
+      title: t('services.maritime.title'),
+      description: t('services.maritime.description'),
+      features: tArray('services.maritime.features'),
       link: "transport-maritime"
     },
     {
       icon: <Zap className="h-8 w-8 text-yellow-500" />,
-      title: "Logistique Express",
-      description: "Service premium pour vos envois urgents avec garantie de délais",
-      features: ["Même jour possible", "Service 24/7", "Coursier dédié", "Remboursement si retard"],
+      title: t('services.express.title'),
+      description: t('services.express.description'),
+      features: tArray('services.express.features'),
       link: "logistique-express"
     },
     {
       icon: <Settings className="h-8 w-8 text-purple-500" />,
-      title: "Solutions Sur-Mesure",
-      description: "Solutions logistiques personnalisées selon vos besoins spécifiques",
-      features: ["Analyse des besoins", "Solution dédiée", "Accompagnement expert", "Évolutivité garantie"],
+      title: t('services.custom.title'),
+      description: t('services.custom.description'),
+      features: tArray('services.custom.features'),
       link: "solutions-sur-mesure"
     },
     {
       icon: <Package className="h-8 w-8 text-orange-500" />,
-      title: "Suivi de Colis",
-      description: "Système de tracking avancé pour suivre vos envois en temps réel",
-      features: ["Géolocalisation GPS", "Notifications SMS", "Interface web", "API disponible"],
+      title: t('services.tracking.title'),
+      description: t('services.tracking.description'),
+      features: tArray('services.tracking.features'),
       link: "tracking"
     }
   ];
@@ -60,18 +60,18 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
   const advantages = [
     {
       icon: <Clock className="h-8 w-8 text-primary" />,
-      title: "Délais Respectés",
-      description: "Nos équipes s'engagent à respecter les délais convenus avec des garanties"
+      title: t('services.advantages.delivery.title'),
+      description: t('services.advantages.delivery.description')
     },
     {
       icon: <Shield className="h-8 w-8 text-primary" />,
-      title: "Sécurité Maximale",
-      description: "Vos envois sont protégés et assurés durant tout le transport"
+      title: t('services.advantages.security.title'),
+      description: t('services.advantages.security.description')
     },
     {
       icon: <Euro className="h-8 w-8 text-primary" />,
-      title: "Tarifs Transparents",
-      description: "Prix fixes sans surprise avec devis gratuit sous 24h"
+      title: t('services.advantages.pricing.title'),
+      description: t('services.advantages.pricing.description')
     }
   ];
 
@@ -85,15 +85,14 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Nos Services de Transport
+            {t('services.title')}
           </h1>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Solutions logistiques complètes pour tous vos besoins de transport, 
-            de la livraison express aux expéditions internationales
+            {t('services.description')}
           </p>
           <Badge className="mb-8 bg-primary/20 text-primary border-primary/30">
             <CheckCircle className="h-3 w-3 mr-1" />
-            Plus de 17 ans d'expérience
+            {t('services.experience')}
           </Badge>
         </div>
       </section>
@@ -101,7 +100,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       <div className="max-w-6xl mx-auto px-6 py-16 space-y-16">
         {/* Services Grid */}
         <section>
-          <h2 className="text-3xl font-bold text-center mb-12">Découvrez Nos Solutions</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">{t('home.services.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Card key={index} 
@@ -131,7 +130,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
                     }}
                     className="w-full bg-primary hover:bg-primary/90"
                   >
-                    En savoir plus
+                    {t('common.learnMore')}
                   </Button>
                 </CardContent>
               </Card>
@@ -141,7 +140,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
 
         {/* Advantages */}
         <section>
-          <h2 className="text-3xl font-bold text-center mb-12">Pourquoi Choisir LOGICY TRANSPORT ?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">{t('about.values.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {advantages.map((advantage, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
@@ -164,11 +163,10 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
           <Card className="bg-gradient-hero">
             <CardContent className="pt-6 text-center">
               <h3 className="text-2xl font-bold text-white mb-4">
-                Besoin d'un Service Personnalisé ?
+                {t('common.getQuote')}
               </h3>
               <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-                Nos experts vous accompagnent pour trouver la solution de transport 
-                la plus adaptée à vos besoins et contraintes spécifiques.
+                {t('services.description')}
               </p>
               <div className="space-x-4">
                 <Button 
@@ -176,14 +174,14 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
                   className="bg-white text-primary hover:bg-white/90 mr-4"
                 >
                   <Phone className="h-4 w-4 mr-2" />
-                  Nous Contacter
+                  {t('common.contact')}
                 </Button>
                 <Button 
                   onClick={() => onNavigate('quote')}
                   variant="outline"
                   className="border-white text-white hover:bg-white/10"
                 >
-                  Devis Gratuit
+                  {t('common.freeQuote')}
                 </Button>
               </div>
             </CardContent>

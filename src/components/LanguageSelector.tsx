@@ -24,8 +24,15 @@ export function LanguageSelector() {
   const handleLanguageChange = (languageCode: string) => {
     setLanguage(languageCode as any);
     
-    // Force page reload to ensure all content is updated
-    window.location.reload();
+    // Get current path without language prefix
+    const currentPath = window.location.pathname;
+    const cleanPath = currentPath.replace(/^\/(fr|en|es|de|it|pt)/, '') || '/';
+    
+    // Build new path with new language
+    const newPath = languageCode === 'fr' ? cleanPath : `/${languageCode}${cleanPath}`;
+    
+    // Navigate to the same page in the new language
+    window.location.href = newPath;
   };
 
   const currentLang = languages.find(lang => lang.code === currentLanguage) || languages[0];
