@@ -10,7 +10,7 @@ interface TransportMaritimePageProps {
 }
 
 export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps) {
-  const { t } = useTranslation();
+  const { t, tArray } = useTranslation();
 
   const advantages = [
     {
@@ -35,16 +35,7 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
     }
   ];
 
-  const services = [
-    t('transport.maritime.services.0'),
-    t('transport.maritime.services.1'),
-    t('transport.maritime.services.2'),
-    t('transport.maritime.services.3'),
-    t('transport.maritime.services.4'),
-    t('transport.maritime.services.5'),
-    t('transport.maritime.services.6'),
-    t('transport.maritime.services.7')
-  ];
+  const services = tArray('transport.maritime.services');
 
   const routes = [
     { from: "Le Havre", to: "New York", duration: "7-10 jours" },
@@ -153,8 +144,8 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
                 <div className="mt-6 pt-4 border-t">
                   <h4 className="font-medium mb-2">{t('transport.maritime.containers.title')}</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    {[0, 1, 2, 3].map(index => (
-                      <li key={index}>• {t(`transport.maritime.containers.list.${index}`)}</li>
+                    {tArray('transport.maritime.containers.list').map((container, index) => (
+                      <li key={index}>• {container}</li>
                     ))}
                   </ul>
                 </div>
