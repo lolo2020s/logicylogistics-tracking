@@ -10,7 +10,8 @@ import {
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Language } from '@/types/translations';
-import logicyLogo from '@/assets/logicy-logo.png';
+// Logo URL direct
+const logicyLogo = '/lovable-uploads/bf7b75bd-bbc4-4ea9-8372-c927a61de59b.png';
 
 interface HeaderProps {
   currentPage: string;
@@ -43,10 +44,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => onNavigate('home')}>
-            <img src={logicyLogo} alt="LOGICY TRANSPORT" className="h-10 w-10" />
-            <div className="font-bold text-xl bg-gradient-primary bg-clip-text text-transparent">
-              LOGICY TRANSPORT
-            </div>
+            <img src={logicyLogo} alt="LOGICY TRANSPORT" className="h-12 w-auto" />
           </div>
 
           {/* Desktop Navigation */}
