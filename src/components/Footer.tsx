@@ -14,7 +14,6 @@ export function Footer({ onNavigate }: FooterProps) {
     { key: 'transport-routier', label: t('services.road.title'), icon: <Truck className="h-4 w-4" /> },
     { key: 'transport-aerien', label: t('services.air.title'), icon: <Plane className="h-4 w-4" /> },
     { key: 'transport-maritime', label: t('services.maritime.title'), icon: <Ship className="h-4 w-4" /> },
-    { key: 'logistique-express', label: t('common.learnMore'), icon: <Clock className="h-4 w-4" /> },
     { key: 'solutions-sur-mesure', label: t('common.contact') }
   ];
 
