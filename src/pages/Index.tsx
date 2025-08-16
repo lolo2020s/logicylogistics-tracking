@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { HomePage } from './HomePage';
@@ -18,6 +18,11 @@ import { PolitiqueConfidentialitePage } from './PolitiqueConfidentialitePage';
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState('home');
+
+  // Scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
 
   const renderPage = () => {
     switch (currentPage) {
