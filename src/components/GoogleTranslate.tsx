@@ -23,17 +23,7 @@ export function GoogleTranslate() {
     gtScript.type = 'text/javascript';
     gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     document.head.appendChild(gtScript);
-
-    return () => {
-      // Cleanup
-      const existingScript = document.querySelector('script[src*="translate.google.com"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-      delete window.googleTranslateElementInit;
-    };
   }, []);
-
 
   return (
     <div 
