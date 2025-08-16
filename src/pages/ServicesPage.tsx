@@ -130,7 +130,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
                     }}
                     className="w-full bg-primary hover:bg-primary/90"
                   >
-                    {t('common.learnMore')}
+                    {t('common.viewDetails', 'Voir les détails')}
                   </Button>
                 </CardContent>
               </Card>
