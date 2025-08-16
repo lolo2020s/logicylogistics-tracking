@@ -123,7 +123,8 @@ export function GoogleTranslate() {
   return (
     <div 
       id="google_translate_element" 
-      className="google-translate-container"
+      className="google-translate-container hidden"
+      style={{ display: 'none' }}
     />
   );
 }
