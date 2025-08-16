@@ -365,6 +365,62 @@ export const translationData: Record<Language, Record<string, any>> = {
         innovation: 'Innovation',
         quality: 'Quality',
         service: 'Customer service'
+      },
+      stats: {
+        experience: 'Years of experience',
+        clients: 'Satisfied clients',
+        countries: 'Countries served',
+        shipments: 'Shipments completed'
+      },
+      timeline: {
+        title: 'Our History',
+        items: [
+          {
+            year: '2007',
+            title: 'LOGICY TRANSPORT Creation',
+            description: 'Company foundation with a clear vision: revolutionizing logistics transport.'
+          },
+          {
+            year: '2010',
+            title: 'European expansion',
+            description: 'Opening our services throughout Europe with trusted partners.'
+          },
+          {
+            year: '2015',
+            title: 'Air transport',
+            description: 'Launch of our air transport services for express shipments.'
+          },
+          {
+            year: '2018',
+            title: 'Maritime solutions',
+            description: 'Development of our maritime offer for bulky cargo.'
+          },
+          {
+            year: '2020',
+            title: 'Digitalization',
+            description: 'Implementation of real-time tracking system and complete digitalization.'
+          },
+          {
+            year: '2024',
+            title: 'Continuous innovation',
+            description: 'Today, we continue to innovate to offer the best solutions.'
+          }
+        ]
+      },
+      missionExpanded: {
+        content: 'We are committed to providing innovative transport solutions, putting customer satisfaction at the heart of our concerns.'
+      },
+      commitments: {
+        title: 'Our Commitments',
+        tracking: 'Complete traceability of your shipments',
+        support: 'Responsive customer service 24/7',
+        environment: 'Environmental responsibility'
+      },
+      cta: {
+        title: 'Join our satisfied customers',
+        description: 'Discover why hundreds of companies trust us',
+        servicesButton: 'Discover our services',
+        contactButton: 'Contact us'
       }
     }
   },
