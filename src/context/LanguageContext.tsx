@@ -52,13 +52,6 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   const setLanguage = (language: Language) => {
     setCurrentLanguage(language);
     localStorage.setItem('logicy-language', language);
-    
-    // Update URL
-    const currentPath = window.location.pathname;
-    const pathWithoutLang = currentPath.replace(/^\/(fr|en|es|de|it|pt)/, '');
-    const newPath = language === DEFAULT_LANGUAGE ? pathWithoutLang || '/' : `/${language}${pathWithoutLang || '/'}`;
-    
-    window.history.pushState({}, '', newPath);
   };
 
   return (

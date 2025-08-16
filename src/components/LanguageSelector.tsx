@@ -7,7 +7,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useLanguageContext } from '@/context/LanguageContext';
-import { buildLocalizedPath } from '@/utils/routeUtils';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const languages = [
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
@@ -20,19 +20,18 @@ const languages = [
 
 export function LanguageSelector() {
   const { currentLanguage, setLanguage } = useLanguageContext();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLanguageChange = (languageCode: string) => {
     setLanguage(languageCode as any);
     
     // Get current path without language prefix
-    const currentPath = window.location.pathname;
-    const cleanPath = currentPath.replace(/^\/(fr|en|es|de|it|pt)/, '') || '/';
+    const cleanPath = location.pathname.replace(/^\/(fr|en|es|de|it|pt)/, '') || '/';
     
-    // Build new path with new language
+    // Build new path with new language and navigate using React Router
     const newPath = languageCode === 'fr' ? cleanPath : `/${languageCode}${cleanPath}`;
-    
-    // Navigate to the same page in the new language
-    window.location.href = newPath;
+    navigate(newPath);
   };
 
   const currentLang = languages.find(lang => lang.code === currentLanguage) || languages[0];
