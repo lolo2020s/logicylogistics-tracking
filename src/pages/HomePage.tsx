@@ -45,81 +45,66 @@ export function HomePage({ onNavigate }: HomePageProps) {
   ];
 
   return (
-    <div className="space-y-0 bg-white min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div 
-          className="relative h-[600px] bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-hero" />
+    <div className="min-h-screen bg-white">
+      {/* Section blanche du haut */}
+      <section className="bg-white py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-montserrat font-bold text-black leading-tight mb-8">
+            Depuis 2007,<br />
+            LOGICY TRANSPORT<br />
+            livre vos colis, cargaisons<br />
+            et véhicules partout dans<br />
+            le monde avec fiabilité<br />
+            et prestige
+          </h1>
           
-          <div className="relative z-10 flex items-center justify-center h-full text-center text-white px-6">
-            <div className="max-w-4xl space-y-8">
-              <div className="space-y-6">
-                <h1 className="text-4xl md:text-6xl font-montserrat font-bold leading-tight">
-                  Depuis 2007,<br />
-                  LOGICY TRANSPORT<br />
-                  <span className="text-3xl md:text-5xl font-montserrat font-semibold">
-                    livre vos colis, cargaisons<br />
-                    et véhicules partout dans<br />
-                    le monde avec fiabilité<br />
-                    et prestige
-                  </span>
-                </h1>
-              </div>
-              
-              <Button
-                onClick={() => onNavigate('tracking')}
-                size="lg"
-                className="bg-primary hover:bg-primary/90 shadow-button transition-smooth text-lg px-8 py-3 h-14 font-montserrat font-semibold"
-              >
-                Suivre un envoi
-              </Button>
-            </div>
-          </div>
+          <Button
+            onClick={() => onNavigate('tracking')}
+            className="bg-primary hover:bg-primary/90 text-white font-montserrat font-semibold px-8 py-4 text-lg rounded-lg shadow-button transition-smooth"
+          >
+            Suivre un envoi
+          </Button>
         </div>
       </section>
 
-      {/* Services Section - Dark Background */}
-      <section className="py-20 bg-gradient-dark">
-        <div className="container mx-auto px-4">
+      {/* Section noire du bas avec image d'avion */}
+      <section 
+        className="bg-black py-20 px-6 bg-cover bg-center relative"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      >
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-montserrat font-bold mb-6 text-white">
+            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-white leading-tight mb-8">
               Depuis 2007, LOGICY TRANSPORT<br />
               livre vos colis, cargaisons et<br />
               véhicules partout dans le monde
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const cardBackgrounds = [
-                transportRoutierBg,
-                transportAerienBg,
-                transportMaritimeBg
-              ];
-              const serviceNames = ['Transport\nroutier', 'Transport\naérien', 'Transport\nmaritime'];
-              
-              return (
-                <div 
-                  key={index} 
-                  className="group hover:shadow-premium transition-smooth cursor-pointer rounded-none overflow-hidden bg-cover bg-center relative h-[400px]"
-                  style={{ backgroundImage: `url(${cardBackgrounds[index]})` }}
-                >
-                  <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-smooth" />
-                  <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-                    <h3 className="text-2xl font-montserrat font-bold text-white leading-tight whitespace-pre-line">
-                      {serviceNames[index]}
-                    </h3>
-                  </div>
+          {/* Les 3 cartes de transport */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { bg: transportRoutierBg, title: 'Transport\nroutier' },
+              { bg: transportAerienBg, title: 'Transport\naérien' },
+              { bg: transportMaritimeBg, title: 'Transport\nmaritime' }
+            ].map((service, index) => (
+              <div 
+                key={index}
+                className="relative h-[300px] bg-cover bg-center rounded-lg overflow-hidden"
+                style={{ backgroundImage: `url(${service.bg})` }}
+              >
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="relative z-10 p-6 h-full flex items-end">
+                  <h3 className="text-xl font-montserrat font-bold text-white leading-tight whitespace-pre-line">
+                    {service.title}
+                  </h3>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>
-
     </div>
   );
 }
