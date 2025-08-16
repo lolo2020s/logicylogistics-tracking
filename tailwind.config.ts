@@ -30,13 +30,11 @@ export default {
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
-					glow: 'hsl(var(--primary-glow))',
-					soft: 'hsl(var(--primary-soft))'
+					light: 'hsl(var(--primary-light))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))',
-					light: 'hsl(var(--secondary-light))'
+					foreground: 'hsl(var(--secondary-foreground))'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -48,16 +46,7 @@ export default {
 				},
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))',
-					light: 'hsl(var(--accent-light))'
-				},
-				success: {
-					DEFAULT: 'hsl(var(--success))',
-					light: 'hsl(var(--success-light))'
-				},
-				info: {
-					DEFAULT: 'hsl(var(--info))',
-					light: 'hsl(var(--info-light))'
+					foreground: 'hsl(var(--accent-foreground))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -81,15 +70,12 @@ export default {
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-hero': 'var(--gradient-hero)',
-				'gradient-accent': 'var(--gradient-accent)',
-				'gradient-surface': 'var(--gradient-surface)',
-				'gradient-glass': 'var(--gradient-glass)'
+				'gradient-surface': 'var(--gradient-surface)'
 			},
 			boxShadow: {
-				'primary': 'var(--shadow-primary)',
-				'elegant': 'var(--shadow-elegant)',
-				'soft': 'var(--shadow-soft)',
-				'glow': 'var(--shadow-glow)'
+				'card': 'var(--shadow-card)',
+				'button': 'var(--shadow-button)',
+				'section': 'var(--shadow-section)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
