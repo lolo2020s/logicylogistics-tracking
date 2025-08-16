@@ -42,7 +42,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
   ];
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-16 bg-gradient-surface min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden rounded-2xl shadow-section">
         <div 
@@ -95,7 +95,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* Services Section */}
-      <section className="py-16">
+      <section className="py-16 bg-gradient-section rounded-2xl mx-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Nos Solutions de Transport
@@ -136,7 +136,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-primary-light rounded-2xl p-8 md:p-12 text-center shadow-card">
+      <section className="bg-accent rounded-2xl p-8 md:p-12 text-center shadow-card mx-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
           Prêt à expédier ?
         </h2>

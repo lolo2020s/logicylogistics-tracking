@@ -70,7 +70,8 @@ export default {
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-hero': 'var(--gradient-hero)',
-				'gradient-surface': 'var(--gradient-surface)'
+				'gradient-surface': 'var(--gradient-surface)',
+				'gradient-section': 'var(--gradient-section)'
 			},
 			boxShadow: {
 				'card': 'var(--shadow-card)',
