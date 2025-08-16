@@ -20,16 +20,46 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
   // Fonction pour obtenir les éléments de timeline de manière sécurisée
   const getTimelineItems = () => {
     try {
-      const items = t('about.timeline.items');
-      return Array.isArray(items) && items.length > 0 ? items : [
-        { year: '2007', title: t('about.timeline.creation.title', 'Création de LOGICY TRANSPORT'), description: t('about.timeline.creation.description', 'Fondation de l\'entreprise avec une vision claire : révolutionner le transport logistique.') },
-        { year: '2010', title: t('about.timeline.expansion.title', 'Expansion européenne'), description: t('about.timeline.expansion.description', 'Ouverture de nos services dans toute l\'Europe avec des partenaires de confiance.') },
-        { year: '2015', title: t('about.timeline.air.title', 'Transport aérien'), description: t('about.timeline.air.description', 'Lancement de nos services de transport aérien pour les envois express.') },
-        { year: '2018', title: t('about.timeline.maritime.title', 'Solutions maritimes'), description: t('about.timeline.maritime.description', 'Développement de notre offre maritime pour les cargaisons volumineuses.') },
-        { year: '2020', title: t('about.timeline.digital.title', 'Digitalisation'), description: t('about.timeline.digital.description', 'Mise en place du système de suivi en temps réel et digitalisation complète.') },
-        { year: '2024', title: t('about.timeline.innovation.title', 'Innovation continue'), description: t('about.timeline.innovation.description', 'Aujourd\'hui, nous continuons d\'innover pour offrir les meilleures solutions.') },
+      const timelineData = t('about.timeline.items');
+      if (Array.isArray(timelineData) && timelineData.length > 0) {
+        return timelineData;
+      }
+      
+      // Fallback avec traductions individuelles
+      return [
+        { 
+          year: '2007', 
+          title: t('about.timeline.creation.title') || 'Création de LOGICY TRANSPORT', 
+          description: t('about.timeline.creation.description') || 'Fondation de l\'entreprise avec une vision claire : révolutionner le transport logistique.' 
+        },
+        { 
+          year: '2010', 
+          title: t('about.timeline.expansion.title') || 'Expansion européenne', 
+          description: t('about.timeline.expansion.description') || 'Ouverture de nos services dans toute l\'Europe avec des partenaires de confiance.' 
+        },
+        { 
+          year: '2015', 
+          title: t('about.timeline.air.title') || 'Transport aérien', 
+          description: t('about.timeline.air.description') || 'Lancement de nos services de transport aérien pour les envois express.' 
+        },
+        { 
+          year: '2018', 
+          title: t('about.timeline.maritime.title') || 'Solutions maritimes', 
+          description: t('about.timeline.maritime.description') || 'Développement de notre offre maritime pour les cargaisons volumineuses.' 
+        },
+        { 
+          year: '2020', 
+          title: t('about.timeline.digital.title') || 'Digitalisation', 
+          description: t('about.timeline.digital.description') || 'Mise en place du système de suivi en temps réel et digitalisation complète.' 
+        },
+        { 
+          year: '2024', 
+          title: t('about.timeline.innovation.title') || 'Innovation continue', 
+          description: t('about.timeline.innovation.description') || 'Aujourd\'hui, nous continuons d\'innover pour offrir les meilleures solutions.' 
+        },
       ];
     } catch (error) {
+      // Dernier fallback en français
       return [
         { year: '2007', title: 'Création de LOGICY TRANSPORT', description: 'Fondation de l\'entreprise avec une vision claire : révolutionner le transport logistique.' },
         { year: '2010', title: 'Expansion européenne', description: 'Ouverture de nos services dans toute l\'Europe avec des partenaires de confiance.' },
