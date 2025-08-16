@@ -350,6 +350,28 @@ export const translationData: Record<Language, Record<string, any>> = {
           6: 'Conteneurs spéciaux (Open Top, Flat Rack)',
           7: 'Transport multi-modal mer/route/rail'
         },
+        routes: [
+          {
+            from: "Le Havre",
+            to: "New York", 
+            duration: "7-10 jours"
+          },
+          {
+            from: "Marseille",
+            to: "Casablanca",
+            duration: "2-3 jours"
+          },
+          {
+            from: "Anvers", 
+            to: "Shanghai",
+            duration: "25-30 jours"
+          },
+          {
+            from: "Rotterdam",
+            to: "Dubaï", 
+            duration: "12-15 jours"
+          }
+        ],
         containers: {
           title: 'Types de conteneurs',
           list: {
@@ -676,6 +698,28 @@ export const translationData: Record<Language, Record<string, any>> = {
           6: 'Special containers (Open Top, Flat Rack)',
           7: 'Multi-modal transport sea/road/rail'
         },
+        routes: [
+          {
+            from: "Le Havre",
+            to: "New York", 
+            duration: "7-10 days"
+          },
+          {
+            from: "Marseille",
+            to: "Casablanca",
+            duration: "2-3 days"
+          },
+          {
+            from: "Antwerp", 
+            to: "Shanghai",
+            duration: "25-30 days"
+          },
+          {
+            from: "Rotterdam",
+            to: "Dubai", 
+            duration: "12-15 days"
+          }
+        ],
         containers: {
           title: 'Container types',
           list: {
@@ -1214,6 +1258,28 @@ export const translationData: Record<Language, Record<string, any>> = {
           6: 'Contenedores especiales (Open Top, Flat Rack)',
           7: 'Transporte multimodal mar/carretera/ferrocarril'
         },
+        routes: [
+          {
+            from: "Le Havre",
+            to: "Nueva York", 
+            duration: "7-10 días"
+          },
+          {
+            from: "Marsella",
+            to: "Casablanca",
+            duration: "2-3 días"
+          },
+          {
+            from: "Amberes", 
+            to: "Shanghái",
+            duration: "25-30 días"
+          },
+          {
+            from: "Rotterdam",
+            to: "Dubái", 
+            duration: "12-15 días"
+          }
+        ],
         containers: {
           title: 'Tipos de contenedores',
           list: {
@@ -1643,6 +1709,28 @@ export const translationData: Record<Language, Record<string, any>> = {
           6: 'Spezialcontainer (Open Top, Flat Rack)',
           7: 'Multimodaler Transport See/Straße/Schiene'
         },
+        routes: [
+          {
+            from: "Le Havre",
+            to: "New York", 
+            duration: "7-10 Tage"
+          },
+          {
+            from: "Marseille",
+            to: "Casablanca",
+            duration: "2-3 Tage"
+          },
+          {
+            from: "Antwerpen", 
+            to: "Shanghai",
+            duration: "25-30 Tage"
+          },
+          {
+            from: "Rotterdam",
+            to: "Dubai", 
+            duration: "12-15 Tage"
+          }
+        ],
         containers: {
           title: 'Container-Typen',
           list: {
@@ -2072,6 +2160,28 @@ export const translationData: Record<Language, Record<string, any>> = {
           6: 'Container speciali (Open Top, Flat Rack)',
           7: 'Trasporto multimodale mare/strada/ferrovia'
         },
+        routes: [
+          {
+            from: "Le Havre",
+            to: "New York", 
+            duration: "7-10 giorni"
+          },
+          {
+            from: "Marsiglia",
+            to: "Casablanca",
+            duration: "2-3 giorni"
+          },
+          {
+            from: "Anversa", 
+            to: "Shanghai",
+            duration: "25-30 giorni"
+          },
+          {
+            from: "Rotterdam",
+            to: "Dubai", 
+            duration: "12-15 giorni"
+          }
+        ],
         containers: {
           title: 'Tipi di container',
           list: {
@@ -2501,6 +2611,28 @@ export const translationData: Record<Language, Record<string, any>> = {
           6: 'Contêineres especiais (Open Top, Flat Rack)',
           7: 'Transporte multimodal mar/rodovia/ferrovia'
         },
+        routes: [
+          {
+            from: "Le Havre",
+            to: "Nova York", 
+            duration: "7-10 dias"
+          },
+          {
+            from: "Marselha",
+            to: "Casablanca",
+            duration: "2-3 dias"
+          },
+          {
+            from: "Antuérpia", 
+            to: "Xangai",
+            duration: "25-30 dias"
+          },
+          {
+            from: "Rotterdam",
+            to: "Dubai", 
+            duration: "12-15 dias"
+          }
+        ],
         containers: {
           title: 'Tipos de contêineres',
           list: {

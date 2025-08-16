@@ -47,10 +47,26 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
   ];
 
   const routes = [
-    { from: "Le Havre", to: "New York", duration: "7-10 jours" },
-    { from: "Marseille", to: "Casablanca", duration: "2-3 jours" },
-    { from: "Anvers", to: "Shanghai", duration: "25-30 jours" },
-    { from: "Rotterdam", to: "Dubaï", duration: "12-15 jours" }
+    { 
+      from: t('transport.maritime.routes.0.from'), 
+      to: t('transport.maritime.routes.0.to'), 
+      duration: t('transport.maritime.routes.0.duration') 
+    },
+    { 
+      from: t('transport.maritime.routes.1.from'), 
+      to: t('transport.maritime.routes.1.to'), 
+      duration: t('transport.maritime.routes.1.duration') 
+    },
+    { 
+      from: t('transport.maritime.routes.2.from'), 
+      to: t('transport.maritime.routes.2.to'), 
+      duration: t('transport.maritime.routes.2.duration') 
+    },
+    { 
+      from: t('transport.maritime.routes.3.from'), 
+      to: t('transport.maritime.routes.3.to'), 
+      duration: t('transport.maritime.routes.3.duration') 
+    }
   ];
 
   return (
