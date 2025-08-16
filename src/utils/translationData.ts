@@ -255,6 +255,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       road: {
         title: 'Transport Routier',
         subtitle: 'Solutions de transport routier fiables et efficaces pour tous vos besoins logistiques en Europe et au-delà',
+        quote: 'Demander un Devis',
+        contact: 'Nous Contacter',
+        freeQuote: 'Devis Gratuit',
         whyChoose: 'Pourquoi choisir notre transport routier ?',
         servicesTitle: 'Nos Services de Transport Routier',
         advantages: {
@@ -319,6 +322,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       maritime: {
         title: 'Transport Maritime',
         subtitle: 'Solutions de fret maritime économiques et fiables pour vos expéditions internationales de tous volumes',
+        quote: 'Demander un Devis',
+        contact: 'Nous Contacter',
+        freeQuote: 'Devis Gratuit',
         whyChoose: 'Pourquoi choisir notre transport maritime ?',
         servicesTitle: 'Nos Services Maritimes',
         routesTitle: 'Routes Principales',
@@ -685,6 +691,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       road: {
         title: 'Transporte Terrestre',
         subtitle: 'Soluciones de transporte terrestre confiables y eficientes para todas sus necesidades logísticas en Europa y más allá',
+        quote: 'Solicitar Cotización',
+        contact: 'Contáctanos',
+        freeQuote: 'Cotización Gratuita',
         whyChoose: '¿Por qué elegir nuestro transporte terrestre?',
         servicesTitle: 'Nuestros Servicios de Transporte Terrestre',
         advantages: {
@@ -749,6 +758,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       maritime: {
         title: 'Transporte Marítimo',
         subtitle: 'Soluciones de carga marítima económicas y confiables para sus expediciones internacionales de todos los volúmenes',
+        quote: 'Solicitar Cotización',
+        contact: 'Contáctanos',
+        freeQuote: 'Cotización Gratuita',
         whyChoose: '¿Por qué elegir nuestro transporte marítimo?',
         servicesTitle: 'Nuestros Servicios Marítimos',
         routesTitle: 'Rutas Principales',
@@ -1114,6 +1126,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       road: {
         title: 'Straßentransport',
         subtitle: 'Zuverlässige und effiziente Straßentransport-Lösungen für alle Ihre Logistikbedürfnisse in Europa und darüber hinaus',
+        quote: 'Angebot anfordern',
+        contact: 'Kontaktieren Sie uns',
+        freeQuote: 'Kostenloses Angebot',
         whyChoose: 'Warum unseren Straßentransport wählen?',
         servicesTitle: 'Unsere Straßentransport-Dienstleistungen',
         advantages: {
@@ -1178,6 +1193,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       maritime: {
         title: 'Seetransport',
         subtitle: 'Wirtschaftliche und zuverlässige Seefracht-Lösungen für Ihre internationalen Sendungen aller Volumina',
+        quote: 'Angebot anfordern',
+        contact: 'Kontaktieren Sie uns',
+        freeQuote: 'Kostenloses Angebot',
         whyChoose: 'Warum unseren Seetransport wählen?',
         servicesTitle: 'Unsere Seetransport-Dienstleistungen',
         routesTitle: 'Hauptrouten',
@@ -1543,6 +1561,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       road: {
         title: 'Trasporto Stradale',
         subtitle: 'Soluzioni di trasporto stradale affidabili ed efficienti per tutte le vostre esigenze logistiche in Europa e oltre',
+        quote: 'Richiedi Preventivo',
+        contact: 'Contattaci',
+        freeQuote: 'Preventivo Gratuito',
         whyChoose: 'Perché scegliere il nostro trasporto stradale?',
         servicesTitle: 'I Nostri Servizi di Trasporto Stradale',
         advantages: {
@@ -1607,6 +1628,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       maritime: {
         title: 'Trasporto Marittimo',
         subtitle: 'Soluzioni di trasporto marittimo economiche e affidabili per le vostre spedizioni internazionali di tutti i volumi',
+        quote: 'Richiedi Preventivo',
+        contact: 'Contattaci',
+        freeQuote: 'Preventivo Gratuito',
         whyChoose: 'Perché scegliere il nostro trasporto marittimo?',
         servicesTitle: 'I Nostri Servizi Marittimi',
         routesTitle: 'Rotte Principali',
@@ -1972,6 +1996,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       road: {
         title: 'Transporte Rodoviário',
         subtitle: 'Soluções de transporte rodoviário confiáveis e eficientes para todas as suas necessidades logísticas na Europa e além',
+        quote: 'Solicitar Orçamento',
+        contact: 'Entre em Contato',
+        freeQuote: 'Orçamento Gratuito',
         whyChoose: 'Por que escolher nosso transporte rodoviário?',
         servicesTitle: 'Nossos Serviços de Transporte Rodoviário',
         advantages: {
@@ -2036,6 +2063,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       maritime: {
         title: 'Transporte Marítimo',
         subtitle: 'Soluções de transporte marítimo econômicas e confiáveis para suas remessas internacionais de todos os volumes',
+        quote: 'Solicitar Orçamento',
+        contact: 'Entre em Contato',
+        freeQuote: 'Orçamento Gratuito',
         whyChoose: 'Por que escolher nosso transporte marítimo?',
         servicesTitle: 'Nossos Serviços Marítimos',
         routesTitle: 'Rotas Principais',

@@ -35,7 +35,16 @@ export function TransportAerienPage({ onNavigate }: TransportAerienPageProps) {
     }
   ];
 
-  const services = tArray('transport.aerial.services');
+  const services = [
+    t('transport.aerial.services.0'),
+    t('transport.aerial.services.1'),
+    t('transport.aerial.services.2'),
+    t('transport.aerial.services.3'),
+    t('transport.aerial.services.4'),
+    t('transport.aerial.services.5'),
+    t('transport.aerial.services.6'),
+    t('transport.aerial.services.7')
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-surface" style={{ backgroundImage: `url(${transportAerienHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
@@ -142,9 +151,10 @@ export function TransportAerienPage({ onNavigate }: TransportAerienPageProps) {
                 <div className="pt-4 border-t">
                   <h4 className="font-medium mb-2">{t('transport.aerial.timelines.destinations.title')}</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    {tArray('transport.aerial.timelines.destinations.list').map((destination, index) => (
-                      <li key={index}>• {destination}</li>
-                    ))}
+                    <li>• {t('transport.aerial.timelines.destinations.list.0')}</li>
+                    <li>• {t('transport.aerial.timelines.destinations.list.1')}</li>
+                    <li>• {t('transport.aerial.timelines.destinations.list.2')}</li>
+                    <li>• {t('transport.aerial.timelines.destinations.list.3')}</li>
                   </ul>
                 </div>
               </CardContent>

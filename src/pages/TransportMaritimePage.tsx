@@ -35,7 +35,16 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
     }
   ];
 
-  const services = tArray('transport.maritime.services');
+  const services = [
+    t('transport.maritime.services.0'),
+    t('transport.maritime.services.1'),
+    t('transport.maritime.services.2'),
+    t('transport.maritime.services.3'),
+    t('transport.maritime.services.4'),
+    t('transport.maritime.services.5'),
+    t('transport.maritime.services.6'),
+    t('transport.maritime.services.7')
+  ];
 
   const routes = [
     { from: "Le Havre", to: "New York", duration: "7-10 jours" },
@@ -144,9 +153,10 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
                 <div className="mt-6 pt-4 border-t">
                   <h4 className="font-medium mb-2">{t('transport.maritime.containers.title')}</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    {tArray('transport.maritime.containers.list').map((container, index) => (
-                      <li key={index}>• {container}</li>
-                    ))}
+                    <li>• {t('transport.maritime.containers.list.0')}</li>
+                    <li>• {t('transport.maritime.containers.list.1')}</li>
+                    <li>• {t('transport.maritime.containers.list.2')}</li>
+                    <li>• {t('transport.maritime.containers.list.3')}</li>
                   </ul>
                 </div>
               </CardContent>

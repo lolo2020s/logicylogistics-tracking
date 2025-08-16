@@ -35,7 +35,16 @@ export function TransportRoutierPage({ onNavigate }: TransportRoutierPageProps) 
     }
   ];
 
-  const services = tArray('transport.road.services');
+  const services = [
+    t('transport.road.services.0'),
+    t('transport.road.services.1'),
+    t('transport.road.services.2'),
+    t('transport.road.services.3'),
+    t('transport.road.services.4'),
+    t('transport.road.services.5'),
+    t('transport.road.services.6'),
+    t('transport.road.services.7')
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-surface" style={{ backgroundImage: `url(${transportRoutierHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
@@ -142,9 +151,10 @@ export function TransportRoutierPage({ onNavigate }: TransportRoutierPageProps) 
                 <div className="pt-4 border-t">
                   <h4 className="font-medium mb-2">{t('transport.road.fleet.zones.title')}</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    {tArray('transport.road.fleet.zones.list').map((zone, index) => (
-                      <li key={index}>• {zone}</li>
-                    ))}
+                    <li>• {t('transport.road.fleet.zones.list.0')}</li>
+                    <li>• {t('transport.road.fleet.zones.list.1')}</li>
+                    <li>• {t('transport.road.fleet.zones.list.2')}</li>
+                    <li>• {t('transport.road.fleet.zones.list.3')}</li>
                   </ul>
                 </div>
               </CardContent>
