@@ -37,6 +37,13 @@ interface TrackingResult {
     recipient_name?: string;
     delivered_at?: string;
   };
+  photos?: Array<{
+    id: string;
+    photo_url: string;
+    photo_type: string;
+    description?: string;
+    created_at: string;
+  }>;
   history: Array<{
     date: string;
     location: string;
@@ -113,8 +120,19 @@ export function TrackingSearch() {
         .eq('shipment_id', shipment.id)
         .order('timestamp', { ascending: false });
 
+      // Get shipment photos
+      const { data: photos, error: photosError } = await supabase
+        .from('shipment_photos')
+        .select('*')
+        .eq('shipment_id', shipment.id)
+        .order('created_at', { ascending: false });
+
       if (historyError) {
         console.error('Error fetching history:', historyError);
+      }
+
+      if (photosError) {
+        console.error('Error fetching photos:', photosError);
       }
 
       // Format the result
@@ -136,6 +154,13 @@ export function TrackingSearch() {
         receiver_name: shipment.receiver_name,
         receiver_address: `${shipment.receiver_address}, ${shipment.receiver_city}, ${shipment.receiver_country}`,
         created_at: shipment.created_at,
+        photos: photos?.map(p => ({
+          id: p.id,
+          photo_url: p.photo_url,
+          photo_type: p.photo_type,
+          description: p.description,
+          created_at: p.created_at
+        })) || [],
         history: history?.map(h => ({
           date: new Date(h.timestamp).toLocaleDateString('fr-FR', {
             day: '2-digit',
@@ -346,6 +371,54 @@ export function TrackingSearch() {
               </CardContent>
             </Card>
           </div>
+
+          {/* Package Photos */}
+          {result.photos && result.photos.length > 0 && (
+            <Card className="shadow-elegant">
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <Camera className="h-5 w-5 text-primary" />
+                  <span>Photos du colis ({result.photos.length})</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {result.photos.map((photo) => (
+                    <div key={photo.id} className="space-y-2">
+                      <div className="relative">
+                        <img 
+                          src={photo.photo_url}
+                          alt={photo.description || 'Photo du colis'}
+                          className="w-full h-48 object-cover rounded-lg border shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                          onClick={() => window.open(photo.photo_url, '_blank')}
+                        />
+                        <div className="absolute top-2 right-2">
+                          <Badge variant="secondary" className="text-xs">
+                            {photo.photo_type === 'package' && 'Colis'}
+                            {photo.photo_type === 'delivery_proof' && 'Livraison'}
+                            {photo.photo_type === 'damage' && 'Dommage'}
+                            {photo.photo_type === 'signature' && 'Signature'}
+                          </Badge>
+                        </div>
+                      </div>
+                      {photo.description && (
+                        <p className="text-xs text-muted-foreground">{photo.description}</p>
+                      )}
+                      <p className="text-xs text-muted-foreground">
+                        {new Date(photo.created_at).toLocaleDateString('fr-FR', {
+                          day: '2-digit',
+                          month: '2-digit',
+                          year: 'numeric',
+                          hour: '2-digit',
+                          minute: '2-digit'
+                        })}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          )}
 
           {/* Proof of Delivery */}
           {result.proof_of_delivery && (

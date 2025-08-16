@@ -47,6 +47,44 @@ export type Database = {
         }
         Relationships: []
       }
+      shipment_photos: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          photo_type: string
+          photo_url: string
+          shipment_id: string
+          uploaded_by: string | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          photo_type: string
+          photo_url: string
+          shipment_id: string
+          uploaded_by?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          photo_type?: string
+          photo_url?: string
+          shipment_id?: string
+          uploaded_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "shipment_photos_shipment_id_fkey"
+            columns: ["shipment_id"]
+            isOneToOne: false
+            referencedRelation: "shipments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       shipments: {
         Row: {
           created_at: string
