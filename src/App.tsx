@@ -31,6 +31,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
+            {/* Default French routes */}
             <Route path="/" element={<Index />} />
             <Route path="/accueil" element={<HomePage onNavigate={() => {}} />} />
             <Route path="/a-propos" element={<AboutPage onNavigate={() => {}} />} />
@@ -47,24 +48,75 @@ const App = () => (
             <Route path="/conditions-generales" element={<ConditionsGeneralesPage onNavigate={() => {}} />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialitePage onNavigate={() => {}} />} />
             
-            {/* Language prefixed routes */}
-            <Route path="/:lang/" element={<Index />} />
-            <Route path="/:lang/accueil" element={<HomePage onNavigate={() => {}} />} />
-            <Route path="/:lang/a-propos" element={<AboutPage onNavigate={() => {}} />} />
-            <Route path="/:lang/contact" element={<ContactPage />} />
-            <Route path="/:lang/services" element={<ServicesPage onNavigate={() => {}} />} />
-            <Route path="/:lang/suivi" element={<TrackingPage />} />
-            <Route path="/:lang/transport-routier" element={<TransportRoutierPage onNavigate={() => {}} />} />
-            <Route path="/:lang/transport-aerien" element={<TransportAerienPage onNavigate={() => {}} />} />
-            <Route path="/:lang/transport-maritime" element={<TransportMaritimePage onNavigate={() => {}} />} />
-            <Route path="/:lang/logistique-express" element={<LogistiqueExpressPage onNavigate={() => {}} />} />
-            <Route path="/:lang/solutions-sur-mesure" element={<SolutionsSurMesurePage onNavigate={() => {}} />} />
-            <Route path="/:lang/devis" element={<QuotePage onNavigate={() => {}} />} />
-            <Route path="/:lang/zones-livraison" element={<ZonesLivraisonPage onNavigate={() => {}} />} />
-            <Route path="/:lang/conditions-generales" element={<ConditionsGeneralesPage onNavigate={() => {}} />} />
-            <Route path="/:lang/politique-confidentialite" element={<PolitiqueConfidentialitePage onNavigate={() => {}} />} />
+            {/* Spanish routes */}
+            <Route path="/es" element={<Index />} />
+            <Route path="/es/inicio" element={<HomePage onNavigate={() => {}} />} />
+            <Route path="/es/acerca-de" element={<AboutPage onNavigate={() => {}} />} />
+            <Route path="/es/contacto" element={<ContactPage />} />
+            <Route path="/es/servicios" element={<ServicesPage onNavigate={() => {}} />} />
+            <Route path="/es/seguimiento" element={<TrackingPage />} />
+            <Route path="/es/transporte-terrestre" element={<TransportRoutierPage onNavigate={() => {}} />} />
+            <Route path="/es/transporte-aereo" element={<TransportAerienPage onNavigate={() => {}} />} />
+            <Route path="/es/transporte-maritimo" element={<TransportMaritimePage onNavigate={() => {}} />} />
+            <Route path="/es/logistica-express" element={<LogistiqueExpressPage onNavigate={() => {}} />} />
+            <Route path="/es/soluciones-medida" element={<SolutionsSurMesurePage onNavigate={() => {}} />} />
+            <Route path="/es/cotizacion" element={<QuotePage onNavigate={() => {}} />} />
+            <Route path="/es/zonas-entrega" element={<ZonesLivraisonPage onNavigate={() => {}} />} />
+            <Route path="/es/condiciones-generales" element={<ConditionsGeneralesPage onNavigate={() => {}} />} />
+            <Route path="/es/politica-privacidad" element={<PolitiqueConfidentialitePage onNavigate={() => {}} />} />
+
+            {/* German routes */}
+            <Route path="/de" element={<Index />} />
+            <Route path="/de/startseite" element={<HomePage onNavigate={() => {}} />} />
+            <Route path="/de/uber-uns" element={<AboutPage onNavigate={() => {}} />} />
+            <Route path="/de/kontakt" element={<ContactPage />} />
+            <Route path="/de/dienstleistungen" element={<ServicesPage onNavigate={() => {}} />} />
+            <Route path="/de/sendungsverfolgung" element={<TrackingPage />} />
+            <Route path="/de/strassentransport" element={<TransportRoutierPage onNavigate={() => {}} />} />
+            <Route path="/de/lufttransport" element={<TransportAerienPage onNavigate={() => {}} />} />
+            <Route path="/de/seetransport" element={<TransportMaritimePage onNavigate={() => {}} />} />
+            <Route path="/de/express-logistik" element={<LogistiqueExpressPage onNavigate={() => {}} />} />
+            <Route path="/de/massgeschneiderte-losungen" element={<SolutionsSurMesurePage onNavigate={() => {}} />} />
+            <Route path="/de/angebot" element={<QuotePage onNavigate={() => {}} />} />
+            <Route path="/de/lieferzonen" element={<ZonesLivraisonPage onNavigate={() => {}} />} />
+            <Route path="/de/allgemeine-bedingungen" element={<ConditionsGeneralesPage onNavigate={() => {}} />} />
+            <Route path="/de/datenschutzrichtlinie" element={<PolitiqueConfidentialitePage onNavigate={() => {}} />} />
+
+            {/* Italian routes */}
+            <Route path="/it" element={<Index />} />
+            <Route path="/it/home" element={<HomePage onNavigate={() => {}} />} />
+            <Route path="/it/chi-siamo" element={<AboutPage onNavigate={() => {}} />} />
+            <Route path="/it/contatti" element={<ContactPage />} />
+            <Route path="/it/servizi" element={<ServicesPage onNavigate={() => {}} />} />
+            <Route path="/it/tracking" element={<TrackingPage />} />
+            <Route path="/it/trasporto-stradale" element={<TransportRoutierPage onNavigate={() => {}} />} />
+            <Route path="/it/trasporto-aereo" element={<TransportAerienPage onNavigate={() => {}} />} />
+            <Route path="/it/trasporto-marittimo" element={<TransportMaritimePage onNavigate={() => {}} />} />
+            <Route path="/it/logistica-express" element={<LogistiqueExpressPage onNavigate={() => {}} />} />
+            <Route path="/it/soluzioni-su-misura" element={<SolutionsSurMesurePage onNavigate={() => {}} />} />
+            <Route path="/it/preventivo" element={<QuotePage onNavigate={() => {}} />} />
+            <Route path="/it/zone-consegna" element={<ZonesLivraisonPage onNavigate={() => {}} />} />
+            <Route path="/it/condizioni-generali" element={<ConditionsGeneralesPage onNavigate={() => {}} />} />
+            <Route path="/it/politica-privacy" element={<PolitiqueConfidentialitePage onNavigate={() => {}} />} />
+
+            {/* Portuguese routes */}
+            <Route path="/pt" element={<Index />} />
+            <Route path="/pt/inicio" element={<HomePage onNavigate={() => {}} />} />
+            <Route path="/pt/sobre" element={<AboutPage onNavigate={() => {}} />} />
+            <Route path="/pt/contato" element={<ContactPage />} />
+            <Route path="/pt/servicos" element={<ServicesPage onNavigate={() => {}} />} />
+            <Route path="/pt/rastreamento" element={<TrackingPage />} />
+            <Route path="/pt/transporte-rodoviario" element={<TransportRoutierPage onNavigate={() => {}} />} />
+            <Route path="/pt/transporte-aereo" element={<TransportAerienPage onNavigate={() => {}} />} />
+            <Route path="/pt/transporte-maritimo" element={<TransportMaritimePage onNavigate={() => {}} />} />
+            <Route path="/pt/logistica-express" element={<LogistiqueExpressPage onNavigate={() => {}} />} />
+            <Route path="/pt/solucoes-medida" element={<SolutionsSurMesurePage onNavigate={() => {}} />} />
+            <Route path="/pt/orcamento" element={<QuotePage onNavigate={() => {}} />} />
+            <Route path="/pt/zonas-entrega" element={<ZonesLivraisonPage onNavigate={() => {}} />} />
+            <Route path="/pt/condicoes-gerais" element={<ConditionsGeneralesPage onNavigate={() => {}} />} />
+            <Route path="/pt/politica-privacidade" element={<PolitiqueConfidentialitePage onNavigate={() => {}} />} />
             
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            {/* Catch-all route must be last */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
