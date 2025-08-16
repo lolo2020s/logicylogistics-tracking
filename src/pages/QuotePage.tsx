@@ -170,7 +170,7 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Poids (kg)</label>
+                  <label className="block text-sm font-medium mb-2">{t('quote.weight')}</label>
                   <Input
                     type="number"
                     placeholder="Ex: 25"
@@ -180,7 +180,7 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Dimensions (L x l x H en cm)</label>
+                  <label className="block text-sm font-medium mb-2">{t('quote.dimensions')}</label>
                   <Input
                     placeholder="Ex: 50 x 30 x 20"
                     value={formData.dimensions}
@@ -190,9 +190,9 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Description de la marchandise</label>
+                <label className="block text-sm font-medium mb-2">{t('quote.description')}</label>
                 <Textarea
-                  placeholder="Décrivez brièvement ce que vous souhaitez expédier..."
+                  placeholder={t('quote.descriptionPlaceholder')}
                   value={formData.description}
                   onChange={(e) => handleInputChange('description', e.target.value)}
                   rows={3}
@@ -200,7 +200,7 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Urgence</label>
+                <label className="block text-sm font-medium mb-2">{t('quote.urgency')}</label>
                 <div className="flex flex-wrap gap-2">
                   {urgencyLevels.map((level) => (
                     <Badge
@@ -223,24 +223,24 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <User className="h-5 w-5 text-primary" />
-                <span>Vos Informations</span>
+                <span>{t('quote.contactInfo')}</span>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Nom complet *</label>
+                  <label className="block text-sm font-medium mb-2">{t('quote.name')} *</label>
                   <Input
-                    placeholder="Votre nom"
+                    placeholder={t('quote.name')}
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Entreprise</label>
+                  <label className="block text-sm font-medium mb-2">{t('quote.company')}</label>
                   <Input
-                    placeholder="Nom de l'entreprise"
+                    placeholder={t('quote.company')}
                     value={formData.company}
                     onChange={(e) => handleInputChange('company', e.target.value)}
                   />
@@ -249,7 +249,7 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email *</label>
+                  <label className="block text-sm font-medium mb-2">{t('quote.email')} *</label>
                   <Input
                     type="email"
                     placeholder="votre@email.com"
@@ -259,7 +259,7 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Téléphone</label>
+                  <label className="block text-sm font-medium mb-2">{t('quote.phone')}</label>
                   <Input
                     type="tel"
                     placeholder="+33 1 23 45 67 89"
@@ -270,9 +270,9 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Message complémentaire</label>
+                <label className="block text-sm font-medium mb-2">{t('quote.message')}</label>
                 <Textarea
-                  placeholder="Informations supplémentaires, contraintes particulières..."
+                  placeholder={t('quote.messagePlaceholder')}
                   value={formData.message}
                   onChange={(e) => handleInputChange('message', e.target.value)}
                   rows={3}

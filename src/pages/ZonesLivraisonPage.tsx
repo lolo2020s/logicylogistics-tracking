@@ -9,7 +9,7 @@ interface ZonesLivraisonPageProps {
 }
 
 export function ZonesLivraisonPage({ onNavigate }: ZonesLivraisonPageProps) {
-  const { t } = useTranslation();
+  const { t, tArray } = useTranslation();
 
   const zones = [
     {
@@ -152,12 +152,12 @@ export function ZonesLivraisonPage({ onNavigate }: ZonesLivraisonPageProps) {
                 <CardContent className="space-y-4">
                   {/* Modes de transport */}
                   <div>
-                    <p className="font-medium text-sm mb-2">Modes de transport :</p>
+                    <p className="font-medium text-sm mb-2">{t('deliveryZones.transportModes')}</p>
                     <div className="flex space-x-2">
                       {zone.modes.map((mode) => (
                         <Badge key={mode} variant="outline" className="flex items-center space-x-1">
                           {getTransportIcon(mode)}
-                          <span className="capitalize">{mode === 'road' ? 'Routier' : mode === 'air' ? 'Aérien' : 'Maritime'}</span>
+                          <span className="capitalize">{mode === 'road' ? t('services.road.title') : mode === 'air' ? t('services.air.title') : t('services.maritime.title')}</span>
                         </Badge>
                       ))}
                     </div>
@@ -165,7 +165,7 @@ export function ZonesLivraisonPage({ onNavigate }: ZonesLivraisonPageProps) {
 
                   {/* Pays */}
                   <div>
-                    <p className="font-medium text-sm mb-2">Pays principaux :</p>
+                    <p className="font-medium text-sm mb-2">{t('deliveryZones.mainCountries')}</p>
                     <div className="flex flex-wrap gap-1">
                       {zone.countries.slice(0, 6).map((country) => (
                         <Badge key={country} variant="secondary" className="text-xs">
@@ -174,7 +174,7 @@ export function ZonesLivraisonPage({ onNavigate }: ZonesLivraisonPageProps) {
                       ))}
                       {zone.countries.length > 6 && (
                         <Badge variant="secondary" className="text-xs">
-                          +{zone.countries.length - 6} autres
+                          +{zone.countries.length - 6} {t('deliveryZones.others')}
                         </Badge>
                       )}
                     </div>
@@ -189,29 +189,27 @@ export function ZonesLivraisonPage({ onNavigate }: ZonesLivraisonPageProps) {
         <section>
           <Card>
             <CardHeader>
-              <CardTitle>Conditions et Restrictions</CardTitle>
+              <CardTitle>{t('deliveryZones.conditions.title')}</CardTitle>
               <CardDescription>
-                Informations importantes concernant nos livraisons
+                {t('deliveryZones.conditions.description')}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-medium mb-2">Marchandises acceptées :</h4>
+                  <h4 className="font-medium mb-2">{t('deliveryZones.conditions.accepted')}</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Colis et documents standards</li>
-                    <li>• Marchandises commerciales</li>
-                    <li>• Véhicules (selon destination)</li>
-                    <li>• Produits périssables (conditions spéciales)</li>
+                    {tArray('deliveryZones.conditions.acceptedList').map((item, index) => (
+                      <li key={index}>• {item}</li>
+                    ))}
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-medium mb-2">Restrictions :</h4>
+                  <h4 className="font-medium mb-2">{t('deliveryZones.conditions.restrictions')}</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Matières dangereuses (selon réglementation)</li>
-                    <li>• Produits interdits par les douanes</li>
-                    <li>• Objets de valeur exceptionnelle</li>
-                    <li>• Animaux vivants (nous consulter)</li>
+                    {tArray('deliveryZones.conditions.restrictionsList').map((item, index) => (
+                      <li key={index}>• {item}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
