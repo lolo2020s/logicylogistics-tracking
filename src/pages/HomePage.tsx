@@ -121,17 +121,16 @@ export function HomePage({ onNavigate }: HomePageProps) {
           {/* Les 3 cartes de transport - Maintenant cliquables */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { bg: transportRoutierBg, title: 'Transport\nroutier', route: 'transport-routier', icon: <Truck className="h-12 w-12 text-orange-400 mb-4" /> },
-              { bg: transportAerienBg, title: 'Transport\naérien', route: 'transport-aerien', icon: <Plane className="h-12 w-12 text-orange-400 mb-4" /> },
-              { bg: transportMaritimeBg, title: 'Transport\nmaritime', route: 'transport-maritime', icon: <Ship className="h-12 w-12 text-orange-400 mb-4" /> }
+              { bg: transportRoutierBg, title: 'Transport\nroutier', route: 'transport-routier', icon: <Truck className="h-12 w-12 text-orange-400 mb-4" />, bgColor: 'bg-slate-800' },
+              { bg: transportAerienBg, title: 'Transport\naérien', route: 'transport-aerien', icon: <Plane className="h-12 w-12 text-orange-400 mb-4" />, bgColor: 'bg-slate-800' },
+              { bg: transportMaritimeBg, title: 'Transport\nmaritime', route: 'transport-maritime', icon: <Ship className="h-12 w-12 text-orange-400 mb-4" />, bgColor: 'bg-slate-800' }
             ].map((service, index) => (
               <button
                 key={index}
                 onClick={() => onNavigate(service.route)}
-                className="relative h-[300px] bg-cover bg-center rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-                style={{ backgroundImage: `url(${service.bg})` }}
+                className={`relative h-[300px] rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl ${service.bgColor}`}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/90 group-hover:via-black/50 group-hover:to-black/30 transition-all duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-800/60 to-slate-700/40 group-hover:from-slate-900/95 group-hover:via-slate-800/70 group-hover:to-slate-700/50 transition-all duration-300" />
                 <div className="relative z-10 p-6 h-full flex flex-col justify-center items-center text-center">
                   {service.icon}
                   <h3 className="text-xl font-montserrat font-bold text-white leading-tight whitespace-pre-line mb-4">
