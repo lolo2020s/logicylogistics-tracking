@@ -1,7 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Truck, Plane, Ship, Search, ArrowRight } from 'lucide-react';
+// Remplacement temporaire des icônes lucide-react
+const TruckIcon = () => <div className="h-12 w-12 text-orange-400 mb-4 border-2 border-orange-400 rounded flex items-center justify-center font-bold">T</div>;
+const PlaneIcon = () => <div className="h-12 w-12 text-orange-400 mb-4 border-2 border-orange-400 rounded flex items-center justify-center font-bold">P</div>;
+const ShipIcon = () => <div className="h-12 w-12 text-orange-400 mb-4 border-2 border-orange-400 rounded flex items-center justify-center font-bold">S</div>;
+const SearchIcon = () => <div className="h-6 w-6 text-orange-400">🔍</div>;
+const ArrowRightIcon = () => <div className="h-6 w-6 text-orange-400">→</div>;
 import { useTranslation } from '@/hooks/useTranslation';
 import { useState, useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -114,9 +119,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
           {/* Les 3 cartes de transport - Maintenant cliquables */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { bg: transportRoutierBg, title: t('home.services.road.title'), route: 'transport-routier', icon: <Truck className="h-12 w-12 text-orange-400 mb-4" />, bgColor: 'bg-slate-800' },
-              { bg: transportAerienBg, title: t('home.services.air.title'), route: 'transport-aerien', icon: <Plane className="h-12 w-12 text-orange-400 mb-4" />, bgColor: 'bg-slate-800' },
-              { bg: transportMaritimeBg, title: t('home.services.maritime.title'), route: 'transport-maritime', icon: <Ship className="h-12 w-12 text-orange-400 mb-4" />, bgColor: 'bg-slate-800' }
+              { bg: transportRoutierBg, title: t('home.services.road.title'), route: 'transport-routier', icon: <TruckIcon />, bgColor: 'bg-slate-800' },
+              { bg: transportAerienBg, title: t('home.services.air.title'), route: 'transport-aerien', icon: <PlaneIcon />, bgColor: 'bg-slate-800' },
+              { bg: transportMaritimeBg, title: t('home.services.maritime.title'), route: 'transport-maritime', icon: <ShipIcon />, bgColor: 'bg-slate-800' }
             ].map((service, index) => (
               <button
                 key={index}
@@ -130,7 +135,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                     {service.title}
                   </h3>
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <ArrowRight className="h-6 w-6 text-orange-400" />
+                    <ArrowRightIcon />
                   </div>
                 </div>
               </button>
