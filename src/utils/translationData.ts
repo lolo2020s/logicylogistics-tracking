@@ -575,6 +575,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       road: {
         title: 'Road Transport',
         subtitle: 'Reliable and efficient road transport solutions for all your logistics needs in Europe and beyond',
+        quote: 'Request a Quote',
+        contact: 'Contact Us',
+        freeQuote: 'Free Quote',
         whyChoose: 'Why choose our road transport?',
         servicesTitle: 'Our Road Transport Services',
         advantages: {
@@ -639,6 +642,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       maritime: {
         title: 'Maritime Transport',
         subtitle: 'Economical and reliable maritime freight solutions for your international shipments of all volumes',
+        quote: 'Request a Quote',
+        contact: 'Contact Us',
+        freeQuote: 'Free Quote',
         whyChoose: 'Why choose our maritime transport?',
         servicesTitle: 'Our Maritime Services',
         routesTitle: 'Main Routes',
