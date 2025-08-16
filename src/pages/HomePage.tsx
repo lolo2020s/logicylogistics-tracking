@@ -8,6 +8,9 @@ import heroImage from '@/assets/hero-transport.jpg';
 import roadIcon from '@/assets/icon-road.png';
 import airIcon from '@/assets/icon-air.png';
 import maritimeIcon from '@/assets/icon-maritime.png';
+import transportRoutierBg from '@/assets/transport-routier-bg.jpg';
+import transportAerienBg from '@/assets/transport-aerien-bg.jpg';
+import transportMaritimeBg from '@/assets/transport-maritime-bg.jpg';
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
@@ -108,19 +111,19 @@ export function HomePage({ onNavigate }: HomePageProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const cardBackgrounds = [
-              '/lovable-uploads/d842d20b-de8d-4519-b594-2e352c8c33c6.png', // Transport Routier
-              '/lovable-uploads/1dc91481-7ab6-4b0c-aec7-716de230aac7.png', // Transport Aérien
-              '/lovable-uploads/5d35ecc5-a96c-42b4-9838-12f5b8372b59.png'  // Transport Maritime
+              transportRoutierBg,
+              transportAerienBg,
+              transportMaritimeBg
             ];
             
             return (
               <div 
                 key={index} 
-                className="group hover:shadow-section transition-smooth cursor-pointer rounded-lg overflow-hidden border shadow-card bg-cover bg-center relative"
+                className="group hover:shadow-section transition-smooth cursor-pointer rounded-lg overflow-hidden border shadow-card bg-cover bg-center relative min-h-[300px]"
                 style={{ backgroundImage: `url(${cardBackgrounds[index]})` }}
               >
-                <div className="absolute inset-0 bg-white/80 group-hover:bg-white/90 transition-smooth" />
-                <div className="relative z-10 p-6">
+                <div className="absolute inset-0 bg-white/85 group-hover:bg-white/90 transition-smooth" />
+                <div className="relative z-10 p-6 h-full flex flex-col justify-center">
                   <CardHeader className="text-center p-0 mb-4">
                     <div className="mx-auto mb-4 w-16 h-16 rounded-xl bg-primary-light flex items-center justify-center group-hover:bg-primary group-hover:scale-105 transition-smooth">
                       <img src={service.icon} alt={service.title} className="w-10 h-10 group-hover:filter group-hover:brightness-0 group-hover:invert transition-smooth" />
