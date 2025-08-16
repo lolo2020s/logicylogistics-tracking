@@ -14,7 +14,158 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+          phone: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      shipments: {
+        Row: {
+          created_at: string
+          current_latitude: number | null
+          current_location: string | null
+          current_longitude: number | null
+          current_status: string
+          dimensions: Json | null
+          estimated_delivery: string | null
+          id: string
+          receiver_address: string
+          receiver_city: string
+          receiver_country: string
+          receiver_name: string
+          sender_address: string
+          sender_city: string
+          sender_country: string
+          sender_name: string
+          shipment_type: string
+          tracking_number: string
+          transport_mode: string
+          updated_at: string
+          user_id: string | null
+          weight: number | null
+        }
+        Insert: {
+          created_at?: string
+          current_latitude?: number | null
+          current_location?: string | null
+          current_longitude?: number | null
+          current_status?: string
+          dimensions?: Json | null
+          estimated_delivery?: string | null
+          id?: string
+          receiver_address: string
+          receiver_city: string
+          receiver_country: string
+          receiver_name: string
+          sender_address: string
+          sender_city: string
+          sender_country: string
+          sender_name: string
+          shipment_type: string
+          tracking_number: string
+          transport_mode: string
+          updated_at?: string
+          user_id?: string | null
+          weight?: number | null
+        }
+        Update: {
+          created_at?: string
+          current_latitude?: number | null
+          current_location?: string | null
+          current_longitude?: number | null
+          current_status?: string
+          dimensions?: Json | null
+          estimated_delivery?: string | null
+          id?: string
+          receiver_address?: string
+          receiver_city?: string
+          receiver_country?: string
+          receiver_name?: string
+          sender_address?: string
+          sender_city?: string
+          sender_country?: string
+          sender_name?: string
+          shipment_type?: string
+          tracking_number?: string
+          transport_mode?: string
+          updated_at?: string
+          user_id?: string | null
+          weight?: number | null
+        }
+        Relationships: []
+      }
+      tracking_history: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          latitude: number | null
+          location: string
+          longitude: number | null
+          shipment_id: string
+          status: string
+          timestamp: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          latitude?: number | null
+          location: string
+          longitude?: number | null
+          shipment_id: string
+          status: string
+          timestamp?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          latitude?: number | null
+          location?: string
+          longitude?: number | null
+          shipment_id?: string
+          status?: string
+          timestamp?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tracking_history_shipment_id_fkey"
+            columns: ["shipment_id"]
+            isOneToOne: false
+            referencedRelation: "shipments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
