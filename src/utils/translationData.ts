@@ -257,6 +257,104 @@ export const translationData: Record<Language, Record<string, any>> = {
       }
     },
 
+    // Quote page
+    quote: {
+      title: 'Demander un Devis',
+      subtitle: 'Obtenez un devis personnalisé en quelques minutes. Notre équipe vous répondra sous 24h.',
+      transportType: 'Type de Transport',
+      transportTypeDescription: 'Sélectionnez le mode de transport le plus adapté à vos besoins',
+      serviceType: 'Type de service',
+      serviceTypePlaceholder: 'Sélectionnez un service',
+      shipmentDetails: 'Détails de l\'Expédition',
+      origin: 'Origine',
+      destination: 'Destination',
+      weight: 'Poids (kg)',
+      dimensions: 'Dimensions (L x l x H en cm)',
+      description: 'Description de la marchandise',
+      descriptionPlaceholder: 'Décrivez brièvement ce que vous souhaitez expédier...',
+      urgency: 'Urgence',
+      contactInfo: 'Vos Informations',
+      name: 'Nom complet',
+      company: 'Entreprise',
+      email: 'Email',
+      phone: 'Téléphone',
+      message: 'Message complémentaire',
+      messagePlaceholder: 'Informations supplémentaires, contraintes particulières...',
+      submit: 'Envoyer ma Demande de Devis',
+      successMessage: 'Demande de devis envoyée avec succès! Nous vous répondrons sous 24h.',
+      responseTime: '* Nous vous répondrons sous 24h avec un devis détaillé',
+      urgencyLevels: {
+        standard: 'Standard (5-7 jours)',
+        express: 'Express (2-3 jours)',
+        urgent: 'Urgent (24-48h)'
+      },
+      services: {
+        road: ['Colis standard', 'Express 24h', 'Transport véhicule', 'Déménagement'],
+        air: ['Express 24h', 'Express 48h', 'Fret standard', 'Marchandises périssables'],
+        maritime: ['Conteneur FCL', 'Groupage LCL', 'Véhicule RoRo', 'Fret en vrac']
+      }
+    },
+
+    // Delivery zones page
+    deliveryZones: {
+      title: 'Zones de Livraison',
+      subtitle: 'Découvrez notre couverture mondiale et les délais de livraison pour chaque destination',
+      stats: {
+        countries: 'Pays desservis',
+        cities: 'Villes principales',
+        minDelivery: 'Délai minimum',
+        deliveryRate: 'Taux de livraison'
+      },
+      coverage: 'Nos Zones de Couverture',
+      transportModes: 'Modes de transport :',
+      mainCountries: 'Pays principaux :',
+      others: 'autres',
+      conditions: {
+        title: 'Conditions et Restrictions',
+        description: 'Informations importantes concernant nos livraisons',
+        accepted: 'Marchandises acceptées :',
+        acceptedList: [
+          'Colis et documents standards',
+          'Marchandises commerciales',
+          'Véhicules (selon destination)',
+          'Produits périssables (conditions spéciales)'
+        ],
+        restrictions: 'Restrictions :',
+        restrictionsList: [
+          'Matières dangereuses (selon réglementation)',
+          'Produits interdits par les douanes',
+          'Objets de valeur exceptionnelle',
+          'Animaux vivants (nous consulter)'
+        ]
+      },
+      cta: {
+        title: 'Votre destination n\'apparaît pas dans la liste ?',
+        description: 'Contactez-nous pour étudier votre demande spécifique. Nous avons des solutions pour presque toutes les destinations.',
+        contact: 'Nous Contacter',
+        quote: 'Demander un Devis'
+      },
+      regions: {
+        'France Métropolitaine': {
+          description: 'Couverture complète avec service express disponible'
+        },
+        'Union Européenne': {
+          description: 'Réseau routier et aérien optimisé'
+        },
+        'Afrique du Nord': {
+          description: 'Liaisons régulières par tous modes de transport'
+        },
+        'Amérique du Nord': {
+          description: 'Fret aérien express et maritime économique'
+        },
+        'Asie-Pacifique': {
+          description: 'Hub logistique pour l\'Asie avec options express'
+        },
+        'Moyen-Orient': {
+          description: 'Partenariats locaux pour une livraison efficace'
+        }
+      }
+    },
+
     // Transport pages
     transport: {
       aerial: {
@@ -602,7 +700,105 @@ export const translationData: Record<Language, Record<string, any>> = {
           title: '¡Mensaje enviado!',
           description: 'Le responderemos a la brevedad.'
         }
+    },
+
+    // Quote page
+    quote: {
+      title: 'Solicitar Cotización',
+      subtitle: 'Obtenga una cotización personalizada en pocos minutos. Nuestro equipo le responderá en 24h.',
+      transportType: 'Tipo de Transporte',
+      transportTypeDescription: 'Seleccione el modo de transporte más adecuado para sus necesidades',
+      serviceType: 'Tipo de servicio',
+      serviceTypePlaceholder: 'Seleccione un servicio',
+      shipmentDetails: 'Detalles del Envío',
+      origin: 'Origen',
+      destination: 'Destino',
+      weight: 'Peso (kg)',
+      dimensions: 'Dimensiones (L x A x H en cm)',
+      description: 'Descripción de la mercancía',
+      descriptionPlaceholder: 'Describa brevemente lo que desea enviar...',
+      urgency: 'Urgencia',
+      contactInfo: 'Su Información',
+      name: 'Nombre completo',
+      company: 'Empresa',
+      email: 'Email',
+      phone: 'Teléfono',
+      message: 'Mensaje adicional',
+      messagePlaceholder: 'Información adicional, restricciones particulares...',
+      submit: 'Enviar mi Solicitud de Cotización',
+      successMessage: '¡Solicitud de cotización enviada con éxito! Le responderemos en 24h.',
+      responseTime: '* Le responderemos en 24h con una cotización detallada',
+      urgencyLevels: {
+        standard: 'Estándar (5-7 días)',
+        express: 'Express (2-3 días)',
+        urgent: 'Urgente (24-48h)'
       },
+      services: {
+        road: ['Paquete estándar', 'Express 24h', 'Transporte vehículo', 'Mudanza'],
+        air: ['Express 24h', 'Express 48h', 'Flete estándar', 'Mercancías perecederas'],
+        maritime: ['Contenedor FCL', 'Grupaje LCL', 'Vehículo RoRo', 'Flete a granel']
+      }
+    },
+
+    // Delivery zones page
+    deliveryZones: {
+      title: 'Zonas de Entrega',
+      subtitle: 'Descubra nuestra cobertura mundial y los plazos de entrega para cada destino',
+      stats: {
+        countries: 'Países servidos',
+        cities: 'Ciudades principales',
+        minDelivery: 'Plazo mínimo',
+        deliveryRate: 'Tasa de entrega'
+      },
+      coverage: 'Nuestras Zonas de Cobertura',
+      transportModes: 'Modos de transporte:',
+      mainCountries: 'Países principales:',
+      others: 'otros',
+      conditions: {
+        title: 'Condiciones y Restricciones',
+        description: 'Información importante sobre nuestras entregas',
+        accepted: 'Mercancías aceptadas:',
+        acceptedList: [
+          'Paquetes y documentos estándar',
+          'Mercancías comerciales',
+          'Vehículos (según destino)',
+          'Productos perecederos (condiciones especiales)'
+        ],
+        restrictions: 'Restricciones:',
+        restrictionsList: [
+          'Materiales peligrosos (según regulación)',
+          'Productos prohibidos por aduanas',
+          'Objetos de valor excepcional',
+          'Animales vivos (consultar)'
+        ]
+      },
+      cta: {
+        title: '¿Su destino no aparece en la lista?',
+        description: 'Contáctenos para estudiar su solicitud específica. Tenemos soluciones para casi todos los destinos.',
+        contact: 'Contáctenos',
+        quote: 'Solicitar Cotización'
+      },
+      regions: {
+        'Francia Metropolitana': {
+          description: 'Cobertura completa con servicio express disponible'
+        },
+        'Unión Europea': {
+          description: 'Red terrestre y aérea optimizada'
+        },
+        'África del Norte': {
+          description: 'Conexiones regulares por todos los modos de transporte'
+        },
+        'América del Norte': {
+          description: 'Flete aéreo express y marítimo económico'
+        },
+        'Asia-Pacífico': {
+          description: 'Centro logístico para Asia con opciones express'
+        },
+        'Medio Oriente': {
+          description: 'Asociaciones locales para entrega eficiente'
+        }
+      }
+    },
       info: {
         email: 'Correo',
         phone: 'Teléfono',
@@ -1129,7 +1325,105 @@ export const translationData: Record<Language, Record<string, any>> = {
         tracking: 'Vollständige Nachverfolgbarkeit Ihrer Sendungen',
         support: 'Reaktiver Kundenservice 24/7',
         environment: 'Umweltschutz'
+    },
+
+    // Quote page  
+    quote: {
+      title: 'Angebot Anfordern',
+      subtitle: 'Erhalten Sie ein personalisiertes Angebot in wenigen Minuten. Unser Team antwortet Ihnen innerhalb von 24h.',
+      transportType: 'Transportart',
+      transportTypeDescription: 'Wählen Sie den für Ihre Bedürfnisse am besten geeigneten Transportmodus',
+      serviceType: 'Service-Typ',
+      serviceTypePlaceholder: 'Service auswählen',
+      shipmentDetails: 'Versanddetails',
+      origin: 'Herkunft',
+      destination: 'Zielort',
+      weight: 'Gewicht (kg)',
+      dimensions: 'Abmessungen (L x B x H in cm)',
+      description: 'Warenbeschreibung',
+      descriptionPlaceholder: 'Beschreiben Sie kurz, was Sie versenden möchten...',
+      urgency: 'Dringlichkeit',
+      contactInfo: 'Ihre Informationen',
+      name: 'Vollständiger Name',
+      company: 'Unternehmen',
+      email: 'E-Mail',
+      phone: 'Telefon',
+      message: 'Zusätzliche Nachricht',
+      messagePlaceholder: 'Zusätzliche Informationen, besondere Einschränkungen...',
+      submit: 'Meine Angebotsanfrage Senden',
+      successMessage: 'Angebotsanfrage erfolgreich gesendet! Wir antworten Ihnen innerhalb von 24h.',
+      responseTime: '* Wir antworten Ihnen innerhalb von 24h mit einem detaillierten Angebot',
+      urgencyLevels: {
+        standard: 'Standard (5-7 Tage)',
+        express: 'Express (2-3 Tage)',
+        urgent: 'Dringend (24-48h)'
       },
+      services: {
+        road: ['Standard-Paket', 'Express 24h', 'Fahrzeugtransport', 'Umzug'],
+        air: ['Express 24h', 'Express 48h', 'Standard-Fracht', 'Verderbliche Waren'],
+        maritime: ['FCL-Container', 'LCL-Sammelladung', 'RoRo-Fahrzeug', 'Massengut']
+      }
+    },
+
+    // Delivery zones page
+    deliveryZones: {
+      title: 'Lieferzonen',
+      subtitle: 'Entdecken Sie unsere weltweite Abdeckung und Lieferzeiten für jedes Ziel',
+      stats: {
+        countries: 'Bediente Länder',
+        cities: 'Hauptstädte',
+        minDelivery: 'Mindestlieferzeit',
+        deliveryRate: 'Lieferrate'
+      },
+      coverage: 'Unsere Abdeckungszonen',
+      transportModes: 'Transportmodi:',
+      mainCountries: 'Hauptländer:',
+      others: 'andere',
+      conditions: {
+        title: 'Bedingungen und Einschränkungen',
+        description: 'Wichtige Informationen zu unseren Lieferungen',
+        accepted: 'Akzeptierte Waren:',
+        acceptedList: [
+          'Standard-Pakete und Dokumente',
+          'Kommerzielle Waren',
+          'Fahrzeuge (je nach Zielort)',
+          'Verderbliche Produkte (Sonderbedingungen)'
+        ],
+        restrictions: 'Einschränkungen:',
+        restrictionsList: [
+          'Gefahrstoffe (gemäß Vorschriften)',
+          'Vom Zoll verbotene Produkte',
+          'Gegenstände von außergewöhnlichem Wert',
+          'Lebende Tiere (bitte anfragen)'
+        ]
+      },
+      cta: {
+        title: 'Ihr Zielort ist nicht in der Liste?',
+        description: 'Kontaktieren Sie uns, um Ihre spezifische Anfrage zu prüfen. Wir haben Lösungen für fast alle Zielorte.',
+        contact: 'Kontaktieren Sie uns',
+        quote: 'Angebot Anfordern'
+      },
+      regions: {
+        'France Métropolitaine': {
+          description: 'Vollständige Abdeckung mit verfügbarem Express-Service'
+        },
+        'Union Européenne': {
+          description: 'Optimiertes Straßen- und Luftnetzwerk'
+        },
+        'Afrique du Nord': {
+          description: 'Regelmäßige Verbindungen mit allen Transportmodi'
+        },
+        'Amérique du Nord': {
+          description: 'Express-Luftfracht und wirtschaftlicher Seetransport'
+        },
+        'Asie-Pacifique': {
+          description: 'Logistik-Hub für Asien mit Express-Optionen'
+        },
+        'Moyen-Orient': {
+          description: 'Lokale Partnerschaften für effiziente Lieferung'
+        }
+      }
+    },
       cta: {
         title: 'Werden Sie einer unserer zufriedenen Kunden',
         description: 'Entdecken Sie, warum Hunderte von Unternehmen uns vertrauen',
@@ -1580,6 +1874,104 @@ export const translationData: Record<Language, Record<string, any>> = {
         description: 'Scopri perché centinaia di aziende si fidano di noi',
         servicesButton: 'Scopri i nostri servizi',
         contactButton: 'Contattaci'
+      }
+    },
+
+    // Quote page
+    quote: {
+      title: 'Richiedi Preventivo',
+      subtitle: 'Ottieni un preventivo personalizzato in pochi minuti. Il nostro team ti risponderà entro 24h.',
+      transportType: 'Tipo di Trasporto',
+      transportTypeDescription: 'Seleziona il modo di trasporto più adatto alle tue esigenze',
+      serviceType: 'Tipo di servizio',
+      serviceTypePlaceholder: 'Seleziona un servizio',
+      shipmentDetails: 'Dettagli della Spedizione',
+      origin: 'Origine',
+      destination: 'Destinazione',
+      weight: 'Peso (kg)',
+      dimensions: 'Dimensioni (L x l x A in cm)',
+      description: 'Descrizione della merce',
+      descriptionPlaceholder: 'Descrivi brevemente quello che vuoi spedire...',
+      urgency: 'Urgenza',
+      contactInfo: 'Le Tue Informazioni',
+      name: 'Nome completo',
+      company: 'Azienda',
+      email: 'Email',
+      phone: 'Telefono',
+      message: 'Messaggio aggiuntivo',
+      messagePlaceholder: 'Informazioni aggiuntive, vincoli particolari...',
+      submit: 'Invia la Mia Richiesta di Preventivo',
+      successMessage: 'Richiesta di preventivo inviata con successo! Ti risponderemo entro 24h.',
+      responseTime: '* Ti risponderemo entro 24h con un preventivo dettagliato',
+      urgencyLevels: {
+        standard: 'Standard (5-7 giorni)',
+        express: 'Express (2-3 giorni)',
+        urgent: 'Urgente (24-48h)'
+      },
+      services: {
+        road: ['Pacco standard', 'Express 24h', 'Trasporto veicolo', 'Trasloco'],
+        air: ['Express 24h', 'Express 48h', 'Trasporto standard', 'Merci deperibili'],
+        maritime: ['Container FCL', 'Groupage LCL', 'Veicolo RoRo', 'Merci alla rinfusa']
+      }
+    },
+
+    // Delivery zones page
+    deliveryZones: {
+      title: 'Zone di Consegna',
+      subtitle: 'Scopri la nostra copertura mondiale e i tempi di consegna per ogni destinazione',
+      stats: {
+        countries: 'Paesi serviti',
+        cities: 'Città principali',
+        minDelivery: 'Tempo minimo',
+        deliveryRate: 'Tasso di consegna'
+      },
+      coverage: 'Le Nostre Zone di Copertura',
+      transportModes: 'Modi di trasporto:',
+      mainCountries: 'Paesi principali:',
+      others: 'altri',
+      conditions: {
+        title: 'Condizioni e Restrizioni',
+        description: 'Informazioni importanti riguardo le nostre consegne',
+        accepted: 'Merci accettate:',
+        acceptedList: [
+          'Pacchi e documenti standard',
+          'Merci commerciali',
+          'Veicoli (secondo destinazione)',
+          'Prodotti deperibili (condizioni speciali)'
+        ],
+        restrictions: 'Restrizioni:',
+        restrictionsList: [
+          'Materie pericolose (secondo regolamentazione)',
+          'Prodotti vietati dalle dogane',
+          'Oggetti di valore eccezionale',
+          'Animali vivi (consultarci)'
+        ]
+      },
+      cta: {
+        title: 'La tua destinazione non appare nella lista?',
+        description: 'Contattaci per studiare la tua richiesta specifica. Abbiamo soluzioni per quasi tutte le destinazioni.',
+        contact: 'Contattaci',
+        quote: 'Richiedi Preventivo'
+      },
+      regions: {
+        'Francia Metropolitana': {
+          description: 'Copertura completa con servizio express disponibile'
+        },
+        'Unione Europea': {
+          description: 'Rete stradale e aerea ottimizzata'
+        },
+        'Africa del Nord': {
+          description: 'Collegamenti regolari con tutti i modi di trasporto'
+        },
+        'America del Nord': {
+          description: 'Trasporto aereo express e marittimo economico'
+        },
+        'Asia-Pacifico': {
+          description: 'Hub logistico per l\'Asia con opzioni express'
+        },
+        'Medio Oriente': {
+          description: 'Partnership locali per consegna efficiente'
+        }
       }
     },
 

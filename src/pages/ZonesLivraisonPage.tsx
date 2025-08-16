@@ -89,10 +89,10 @@ export function ZonesLivraisonPage({ onNavigate }: ZonesLivraisonPageProps) {
       <section className="bg-gradient-hero text-center py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Zones de Livraison
+            {t('deliveryZones.title')}
           </h1>
           <p className="text-xl text-white/90 mb-8">
-            Découvrez notre couverture mondiale et les délais de livraison pour chaque destination
+            {t('deliveryZones.subtitle')}
           </p>
         </div>
       </section>
@@ -104,35 +104,35 @@ export function ZonesLivraisonPage({ onNavigate }: ZonesLivraisonPageProps) {
             <CardContent className="p-6">
               <Globe className="h-8 w-8 text-primary mx-auto mb-3" />
               <p className="text-2xl font-bold text-primary">200+</p>
-              <p className="text-sm text-muted-foreground">Pays desservis</p>
+              <p className="text-sm text-muted-foreground">{t('deliveryZones.stats.countries')}</p>
             </CardContent>
           </Card>
           <Card className="text-center">
             <CardContent className="p-6">
               <MapPin className="h-8 w-8 text-primary mx-auto mb-3" />
               <p className="text-2xl font-bold text-primary">500+</p>
-              <p className="text-sm text-muted-foreground">Villes principales</p>
+              <p className="text-sm text-muted-foreground">{t('deliveryZones.stats.cities')}</p>
             </CardContent>
           </Card>
           <Card className="text-center">
             <CardContent className="p-6">
               <Clock className="h-8 w-8 text-primary mx-auto mb-3" />
               <p className="text-2xl font-bold text-primary">24h</p>
-              <p className="text-sm text-muted-foreground">Délai minimum</p>
+              <p className="text-sm text-muted-foreground">{t('deliveryZones.stats.minDelivery')}</p>
             </CardContent>
           </Card>
           <Card className="text-center">
             <CardContent className="p-6">
               <Truck className="h-8 w-8 text-primary mx-auto mb-3" />
               <p className="text-2xl font-bold text-primary">99.8%</p>
-              <p className="text-sm text-muted-foreground">Taux de livraison</p>
+              <p className="text-sm text-muted-foreground">{t('deliveryZones.stats.deliveryRate')}</p>
             </CardContent>
           </Card>
         </section>
 
         {/* Zones de Livraison */}
         <section>
-          <h2 className="text-3xl font-bold text-center mb-12">Nos Zones de Couverture</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">{t('deliveryZones.coverage')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {zones.map((zone, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -222,10 +222,10 @@ export function ZonesLivraisonPage({ onNavigate }: ZonesLivraisonPageProps) {
         {/* Call to Action */}
         <section className="text-center bg-gradient-hero rounded-xl p-8">
           <h3 className="text-2xl font-bold text-white mb-4">
-            Votre destination n'apparaît pas dans la liste ?
+            {t('deliveryZones.cta.title')}
           </h3>
           <p className="text-white/90 mb-6">
-            Contactez-nous pour étudier votre demande spécifique. Nous avons des solutions pour presque toutes les destinations.
+            {t('deliveryZones.cta.description')}
           </p>
           <div className="space-x-4">
             <Button 
@@ -233,14 +233,14 @@ export function ZonesLivraisonPage({ onNavigate }: ZonesLivraisonPageProps) {
               className="bg-white text-primary hover:bg-white/90"
             >
               <Phone className="h-4 w-4 mr-2" />
-              Nous Contacter
+              {t('deliveryZones.cta.contact')}
             </Button>
             <Button 
               onClick={() => onNavigate('quote')}
               variant="outline"
               className="border-white text-white hover:bg-white/10"
             >
-              Demander un Devis
+              {t('deliveryZones.cta.quote')}
             </Button>
           </div>
         </section>

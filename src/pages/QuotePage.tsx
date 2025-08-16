@@ -14,7 +14,7 @@ interface QuotePageProps {
 }
 
 export function QuotePage({ onNavigate }: QuotePageProps) {
-  const { t } = useTranslation();
+  const { t, tArray } = useTranslation();
   const [formData, setFormData] = useState({
     transportMode: '',
     serviceType: '',
@@ -32,27 +32,27 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
   });
 
   const transportModes = [
-    { value: 'road', label: 'Transport Routier', icon: <Truck className="h-4 w-4" /> },
-    { value: 'air', label: 'Transport Aérien', icon: <Plane className="h-4 w-4" /> },
-    { value: 'maritime', label: 'Transport Maritime', icon: <Ship className="h-4 w-4" /> }
+    { value: 'road', label: t('services.road.title'), icon: <Truck className="h-4 w-4" /> },
+    { value: 'air', label: t('services.air.title'), icon: <Plane className="h-4 w-4" /> },
+    { value: 'maritime', label: t('services.maritime.title'), icon: <Ship className="h-4 w-4" /> }
   ];
 
   const serviceTypes = {
-    road: ['Colis standard', 'Express 24h', 'Transport véhicule', 'Déménagement'],
-    air: ['Express 24h', 'Express 48h', 'Fret standard', 'Marchandises périssables'],
-    maritime: ['Conteneur FCL', 'Groupage LCL', 'Véhicule RoRo', 'Fret en vrac']
+    road: tArray('quote.services.road'),
+    air: tArray('quote.services.air'),
+    maritime: tArray('quote.services.maritime')
   };
 
   const urgencyLevels = [
-    { value: 'standard', label: 'Standard (5-7 jours)', color: 'secondary' },
-    { value: 'express', label: 'Express (2-3 jours)', color: 'default' },
-    { value: 'urgent', label: 'Urgent (24-48h)', color: 'destructive' }
+    { value: 'standard', label: t('quote.urgencyLevels.standard'), color: 'secondary' },
+    { value: 'express', label: t('quote.urgencyLevels.express'), color: 'default' },
+    { value: 'urgent', label: t('quote.urgencyLevels.urgent'), color: 'destructive' }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Simulation d'envoi
-    toast.success("Demande de devis envoyée avec succès! Nous vous répondrons sous 24h.");
+    toast.success(t('quote.successMessage'));
     // Reset form
     setFormData({
       transportMode: '',
@@ -81,10 +81,10 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
       <section className="bg-gradient-hero text-center py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Demander un Devis
+            {t('quote.title')}
           </h1>
           <p className="text-xl text-white/90 mb-8">
-            Obtenez un devis personnalisé en quelques minutes. Notre équipe vous répondra sous 24h.
+            {t('quote.subtitle')}
           </p>
         </div>
       </section>
@@ -96,10 +96,10 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <Calculator className="h-5 w-5 text-primary" />
-                <span>Type de Transport</span>
+                <span>{t('quote.transportType')}</span>
               </CardTitle>
               <CardDescription>
-                Sélectionnez le mode de transport le plus adapté à vos besoins
+                {t('quote.transportTypeDescription')}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -122,10 +122,10 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
 
               {formData.transportMode && (
                 <div className="mt-4">
-                  <label className="block text-sm font-medium mb-2">Type de service</label>
+                  <label className="block text-sm font-medium mb-2">{t('quote.serviceType')}</label>
                   <Select value={formData.serviceType} onValueChange={(value) => handleInputChange('serviceType', value)}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Sélectionnez un service" />
+                      <SelectValue placeholder={t('quote.serviceTypePlaceholder')} />
                     </SelectTrigger>
                     <SelectContent>
                       {serviceTypes[formData.transportMode as keyof typeof serviceTypes]?.map((service) => (
@@ -143,13 +143,13 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <Package className="h-5 w-5 text-primary" />
-                <span>Détails de l'Expédition</span>
+                <span>{t('quote.shipmentDetails')}</span>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Origine</label>
+                  <label className="block text-sm font-medium mb-2">{t('quote.origin')}</label>
                   <Input
                     placeholder="Ville, pays"
                     value={formData.origin}
@@ -158,7 +158,7 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Destination</label>
+                  <label className="block text-sm font-medium mb-2">{t('quote.destination')}</label>
                   <Input
                     placeholder="Ville, pays"
                     value={formData.destination}
@@ -288,10 +288,10 @@ export function QuotePage({ onNavigate }: QuotePageProps) {
               className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg"
               disabled={!formData.name || !formData.email || !formData.transportMode}
             >
-              Envoyer ma Demande de Devis
+              {t('quote.submit')}
             </Button>
             <p className="text-sm text-muted-foreground mt-3">
-              * Nous vous répondrons sous 24h avec un devis détaillé
+              {t('quote.responseTime')}
             </p>
           </div>
         </form>
