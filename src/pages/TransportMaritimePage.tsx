@@ -54,13 +54,16 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-surface">
+    <div className="min-h-screen bg-gradient-surface" style={{ backgroundImage: `url(${transportMaritimeHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+      <div className="absolute inset-0 bg-black/70" />
+      
+      <div className="relative z-10">
       {/* Hero Section */}
       <section 
         className="relative bg-cover bg-center py-24 px-6"
-        style={{ backgroundImage: `url(${transportMaritimeHero})` }}
+        style={{ backgroundImage: `url(${transportMaritimeBg})` }}
       >
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {t('transport.maritime.title', 'Transport Maritime')}
@@ -165,6 +168,7 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
             </Card>
           </div>
         </section>
+      </div>
       </div>
     </div>
   );
