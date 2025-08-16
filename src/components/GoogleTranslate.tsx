@@ -40,7 +40,7 @@ export function GoogleTranslate() {
   const [isTranslateLoaded, setIsTranslateLoaded] = useState(false);
 
   useEffect(() => {
-    // Styles pour masquer les éléments Google Translate par défaut
+    // Styles pour masquer visuellement Google Translate mais le garder fonctionnel
     const style = document.createElement('style');
     style.innerHTML = `
       .goog-te-banner-frame.skiptranslate {
@@ -50,10 +50,19 @@ export function GoogleTranslate() {
         top: 0px !important;
       }
       #google_translate_element {
-        display: none !important;
+        position: absolute;
+        left: -9999px;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
       }
       .goog-te-gadget {
-        display: none !important;
+        font-size: 0px !important;
+      }
+      .goog-te-combo {
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
       }
     `;
     document.head.appendChild(style);
@@ -85,19 +94,29 @@ export function GoogleTranslate() {
   const changeLanguage = (language: Language) => {
     setSelectedLanguage(language);
     
-    // Trigger Google Translate
-    if (isTranslateLoaded && window.google && window.google.translate) {
+    // Déclencher Google Translate
+    setTimeout(() => {
       const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
       if (selectElement) {
         selectElement.value = language.googleCode;
-        selectElement.dispatchEvent(new Event('change'));
+        selectElement.dispatchEvent(new Event('change', { bubbles: true }));
+      } else {
+        console.log('Google Translate not ready yet, retrying...');
+        // Réessayer après un délai
+        setTimeout(() => {
+          const retrySelectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+          if (retrySelectElement) {
+            retrySelectElement.value = language.googleCode;
+            retrySelectElement.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+        }, 500);
       }
-    }
+    }, 100);
   };
 
   return (
     <>
-      <div id="google_translate_element" style={{ display: 'none' }}></div>
+      <div id="google_translate_element"></div>
       
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
