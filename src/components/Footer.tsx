@@ -13,8 +13,7 @@ export function Footer({ onNavigate }: FooterProps) {
   const services = [
     { key: 'transport-routier', label: t('services.road.title'), icon: <Truck className="h-4 w-4" /> },
     { key: 'transport-aerien', label: t('services.air.title'), icon: <Plane className="h-4 w-4" /> },
-    { key: 'transport-maritime', label: t('services.maritime.title'), icon: <Ship className="h-4 w-4" /> },
-    { key: 'solutions-sur-mesure', label: t('common.contact') }
+    { key: 'transport-maritime', label: t('services.maritime.title'), icon: <Ship className="h-4 w-4" /> }
   ];
 
   const quickLinks = [
