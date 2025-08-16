@@ -56,7 +56,7 @@ export function TransportAerienPage({ onNavigate }: TransportAerienPageProps) {
         className="relative bg-cover bg-center py-24 px-6"
         style={{ backgroundImage: `url(${transportAerienBg})` }}
       >
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/80" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {t('transport.aerial.title', 'Transport Aérien')}
