@@ -16,36 +16,6 @@ export function GoogleTranslate() {
         includedLanguages: 'en,fr,es,de,it,pt',
         layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
-
-      // Auto-detect language from URL parameter and update all links
-      setTimeout(() => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const lang = urlParams.get('lang');
-        
-        if (lang && lang !== 'fr') {
-          const selectEl = document.querySelector("#google_translate_element select") as HTMLSelectElement;
-          if (selectEl) {
-            selectEl.value = lang;
-            selectEl.dispatchEvent(new Event('change'));
-          }
-        }
-
-        // Update all links to include language parameter
-        if (lang) {
-          const links = document.querySelectorAll('a[href]');
-          links.forEach((link) => {
-            const href = link.getAttribute('href');
-            
-            // Ignorer les liens externes
-            if (!href || href.startsWith('http') || href.startsWith('#')) return;
-            
-            // Ajouter ou remplacer le paramètre lang
-            const newUrl = new URL(href, window.location.origin);
-            newUrl.searchParams.set('lang', lang);
-            link.setAttribute('href', newUrl.toString());
-          });
-        }
-      }, 1000); // Wait for Google Translate to fully load
     };
 
     // Load Google Translate script
@@ -63,6 +33,7 @@ export function GoogleTranslate() {
       delete window.googleTranslateElementInit;
     };
   }, []);
+
 
   return (
     <div 
