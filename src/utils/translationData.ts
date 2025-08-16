@@ -191,6 +191,16 @@ export const translationData: Record<Language, Record<string, any>> = {
       }
     },
 
+    // Footer
+    footer: {
+      copyright: '© 2024 LOGICY TRANSPORT. Tous droits réservés.',
+      legal: {
+        conditions: 'Conditions Générales',
+        privacy: 'Politique de Confidentialité',
+        mentions: 'Mentions Légales'
+      }
+    },
+
     // Transport pages
     transport: {
       aerial: {
@@ -618,7 +628,17 @@ export const translationData: Record<Language, Record<string, any>> = {
         tracking: 'Trazabilidad completa de sus envíos',
         support: 'Servicio al cliente receptivo 24/7',
         environment: 'Respeto por el medio ambiente'
-      },
+    },
+
+    // Footer
+    footer: {
+      copyright: '© 2024 LOGICY TRANSPORT. Todos los derechos reservados.',
+      legal: {
+        conditions: 'Condiciones Generales',
+        privacy: 'Política de Privacidad',
+        mentions: 'Menciones Legales'
+      }
+    },
       cta: {
         title: 'Únase a nuestros clientes satisfechos',
         description: 'Descubra por qué cientos de empresas confían en nosotros',
@@ -1059,6 +1079,16 @@ export const translationData: Record<Language, Record<string, any>> = {
         description: 'Entdecken Sie, warum Hunderte von Unternehmen uns vertrauen',
         servicesButton: 'Unsere Dienstleistungen entdecken',
         contactButton: 'Kontaktieren Sie uns'
+      }
+    },
+
+    // Footer
+    footer: {
+      copyright: '© 2024 LOGICY TRANSPORT. Alle Rechte vorbehalten.',
+      legal: {
+        conditions: 'Allgemeine Geschäftsbedingungen',
+        privacy: 'Datenschutzrichtlinie',
+        mentions: 'Rechtliche Hinweise'
       }
     },
 
@@ -1651,7 +1681,17 @@ export const translationData: Record<Language, Record<string, any>> = {
             title: 'Affidabilità',
             description: 'Rispetto dei tempi e sicurezza delle merci'
           }
-        },
+    },
+
+    // Footer
+    footer: {
+      copyright: '© 2024 LOGICY TRANSPORT. Tutti i diritti riservati.',
+      legal: {
+        conditions: 'Condizioni Generali',
+        privacy: 'Politica sulla Privacy',
+        mentions: 'Note Legali'
+      }
+    },
         services: {
           0: 'Container FCL (Full Container Load)',
           1: 'Raggruppamento LCL (Less than Container Load)',
@@ -2096,7 +2136,17 @@ export const translationData: Record<Language, Record<string, any>> = {
           5: 'Projetos industriais',
           6: 'Contêineres especiais (Open Top, Flat Rack)',
           7: 'Transporte multimodal mar/rodovia/ferrovia'
-        },
+    },
+
+    // Footer
+    footer: {
+      copyright: '© 2024 LOGICY TRANSPORT. Todos os direitos reservados.',
+      legal: {
+        conditions: 'Condições Gerais',
+        privacy: 'Política de Privacidade',
+        mentions: 'Menções Legais'
+      }
+    },
         containers: {
           title: 'Tipos de contêineres',
           list: {

@@ -27,9 +27,9 @@ export function Footer({ onNavigate }: FooterProps) {
   ];
 
   const legalLinks = [
-    { key: 'conditions-generales', label: 'Conditions Générales' },
-    { key: 'politique-confidentialite', label: 'Politique de Confidentialité' },
-    { key: 'mentions-legales', label: 'Mentions Légales' }
+    { key: 'conditions-generales', label: t('footer.legal.conditions', 'Conditions Générales') },
+    { key: 'politique-confidentialite', label: t('footer.legal.privacy', 'Politique de Confidentialité') },
+    { key: 'mentions-legales', label: t('footer.legal.mentions', 'Mentions Légales') }
   ];
 
   const socialLinks = [
@@ -138,7 +138,7 @@ export function Footer({ onNavigate }: FooterProps) {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-sm text-muted-foreground">
-            © 2024 LOGICY TRANSPORT. Tous droits réservés.
+            {t('footer.copyright', '© 2024 LOGICY TRANSPORT. Tous droits réservés.')}
           </div>
           <div className="flex flex-wrap gap-4 text-xs">
             {legalLinks.map((link) => (
