@@ -600,11 +600,67 @@ export const translationData: Record<Language, Record<string, any>> = {
         content: 'Proporcionar soluciones de transporte confiables, eficientes y personalizadas para acompañar el crecimiento de nuestros clientes.'
       },
       values: {
-        title: '¿Por Qué Elegir LOGICY TRANSPORT?',
+        title: '¿Por qué elegir LOGICY TRANSPORT?',
         reliability: 'Confiabilidad',
         innovation: 'Innovación',
         quality: 'Calidad',
         service: 'Servicio al cliente'
+      },
+      stats: {
+        experience: 'Años de experiencia',
+        clients: 'Clientes satisfechos',
+        countries: 'Países atendidos',
+        shipments: 'Envíos realizados'
+      },
+      timeline: {
+        title: 'Nuestra Historia',
+        items: [
+          {
+            year: '2007',
+            title: 'Creación de LOGICY TRANSPORT',
+            description: 'Fundación de la empresa con una visión clara: revolucionar el transporte logístico.'
+          },
+          {
+            year: '2010',
+            title: 'Expansión europea',
+            description: 'Apertura de nuestros servicios en toda Europa con socios de confianza.'
+          },
+          {
+            year: '2015',
+            title: 'Transporte aéreo',
+            description: 'Lanzamiento de nuestros servicios de transporte aéreo para envíos express.'
+          },
+          {
+            year: '2018',
+            title: 'Soluciones marítimas',
+            description: 'Desarrollo de nuestra oferta marítima para cargas voluminosas.'
+          },
+          {
+            year: '2020',
+            title: 'Digitalización',
+            description: 'Implementación del sistema de seguimiento en tiempo real y digitalización completa.'
+          },
+          {
+            year: '2024',
+            title: 'Innovación continua',
+            description: 'Hoy, seguimos innovando para ofrecer las mejores soluciones.'
+          }
+        ]
+      },
+      missionExpanded: {
+        content: 'Nos comprometemos a brindar soluciones de transporte innovadoras, poniendo la satisfacción del cliente en el centro de nuestras preocupaciones.'
+      },
+      commitments: {
+        title: 'Nuestros Compromisos',
+        tracking: 'Trazabilidad completa de sus envíos',
+        support: 'Servicio al cliente receptivo 24/7',
+        environment: 'Respeto por el medio ambiente'
+      },
+      cta: {
+        title: 'Únase a nuestros clientes satisfechos',
+        description: 'Descubra por qué cientos de empresas confían en nosotros',
+        servicesButton: 'Descubrir nuestros servicios',
+        contactButton: 'Contáctenos'
       }
     }
   },
@@ -789,6 +845,62 @@ export const translationData: Record<Language, Record<string, any>> = {
         innovation: 'Innovation',
         quality: 'Qualität',
         service: 'Kundenservice'
+      },
+      stats: {
+        experience: 'Jahre Erfahrung',
+        clients: 'Zufriedene Kunden',
+        countries: 'Bediente Länder',
+        shipments: 'Durchgeführte Sendungen'
+      },
+      timeline: {
+        title: 'Unsere Geschichte',
+        items: [
+          {
+            year: '2007',
+            title: 'Gründung von LOGICY TRANSPORT',
+            description: 'Unternehmensgründung mit einer klaren Vision: die Revolution des Logistiktransports.'
+          },
+          {
+            year: '2010',
+            title: 'Europäische Expansion',
+            description: 'Eröffnung unserer Dienste in ganz Europa mit vertrauenswürdigen Partnern.'
+          },
+          {
+            year: '2015',
+            title: 'Lufttransport',
+            description: 'Start unserer Lufttransportdienste für Express-Sendungen.'
+          },
+          {
+            year: '2018',
+            title: 'Maritime Lösungen',
+            description: 'Entwicklung unseres maritimen Angebots für sperrige Fracht.'
+          },
+          {
+            year: '2020',
+            title: 'Digitalisierung',
+            description: 'Einführung des Echtzeit-Tracking-Systems und vollständige Digitalisierung.'
+          },
+          {
+            year: '2024',
+            title: 'Kontinuierliche Innovation',
+            description: 'Heute innovieren wir weiterhin, um die besten Lösungen anzubieten.'
+          }
+        ]
+      },
+      missionExpanded: {
+        content: 'Wir verpflichten uns, innovative Transportlösungen anzubieten und die Kundenzufriedenheit in den Mittelpunkt unserer Anliegen zu stellen.'
+      },
+      commitments: {
+        title: 'Unsere Verpflichtungen',
+        tracking: 'Vollständige Nachverfolgbarkeit Ihrer Sendungen',
+        support: 'Reaktiver Kundenservice 24/7',
+        environment: 'Umweltschutz'
+      },
+      cta: {
+        title: 'Werden Sie einer unserer zufriedenen Kunden',
+        description: 'Entdecken Sie, warum Hunderte von Unternehmen uns vertrauen',
+        servicesButton: 'Unsere Dienstleistungen entdecken',
+        contactButton: 'Kontaktieren Sie uns'
       }
     }
   },
@@ -1213,6 +1325,62 @@ export const translationData: Record<Language, Record<string, any>> = {
         innovation: 'Inovação',
         quality: 'Qualidade',
         service: 'Atendimento ao cliente'
+      },
+      stats: {
+        experience: 'Anos de experiência',
+        clients: 'Clientes satisfeitos',
+        countries: 'Países atendidos',
+        shipments: 'Envios realizados'
+      },
+      timeline: {
+        title: 'Nossa História',
+        items: [
+          {
+            year: '2007',
+            title: 'Criação da LOGICY TRANSPORT',
+            description: 'Fundação da empresa com uma visão clara: revolucionar o transporte logístico.'
+          },
+          {
+            year: '2010',
+            title: 'Expansão europeia',
+            description: 'Abertura de nossos serviços em toda a Europa com parceiros de confiança.'
+          },
+          {
+            year: '2015',
+            title: 'Transporte aéreo',
+            description: 'Lançamento de nossos serviços de transporte aéreo para envios expressos.'
+          },
+          {
+            year: '2018',
+            title: 'Soluções marítimas',
+            description: 'Desenvolvimento de nossa oferta marítima para cargas volumosas.'
+          },
+          {
+            year: '2020',
+            title: 'Digitalização',
+            description: 'Implementação do sistema de rastreamento em tempo real e digitalização completa.'
+          },
+          {
+            year: '2024',
+            title: 'Inovação contínua',
+            description: 'Hoje, continuamos a inovar para oferecer as melhores soluções.'
+          }
+        ]
+      },
+      missionExpanded: {
+        content: 'Comprometemo-nos a fornecer soluções de transporte inovadoras, colocando a satisfação do cliente no centro de nossas preocupações.'
+      },
+      commitments: {
+        title: 'Nossos Compromissos',
+        tracking: 'Rastreabilidade completa de seus envios',
+        support: 'Atendimento ao cliente responsivo 24/7',
+        environment: 'Respeito ao meio ambiente'
+      },
+      cta: {
+        title: 'Junte-se aos nossos clientes satisfeitos',
+        description: 'Descubra por que centenas de empresas confiam em nós',
+        servicesButton: 'Descobrir nossos serviços',
+        contactButton: 'Entre em contato'
       }
     }
   }
