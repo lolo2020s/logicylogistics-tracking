@@ -35,9 +35,23 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
     }
   ];
 
-  const services = t('transport.maritime.services') as unknown as string[] || [];
+  const services = [
+    t('transport.maritime.services.0'),
+    t('transport.maritime.services.1'),
+    t('transport.maritime.services.2'),
+    t('transport.maritime.services.3'),
+    t('transport.maritime.services.4'),
+    t('transport.maritime.services.5'),
+    t('transport.maritime.services.6'),
+    t('transport.maritime.services.7')
+  ];
 
-  const routes = t('transport.maritime.routes') as unknown as any[] || [];
+  const routes = [
+    { from: "Le Havre", to: "New York", duration: "7-10 jours" },
+    { from: "Marseille", to: "Casablanca", duration: "2-3 jours" },
+    { from: "Anvers", to: "Shanghai", duration: "25-30 jours" },
+    { from: "Rotterdam", to: "Dubaï", duration: "12-15 jours" }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-surface" style={{ backgroundImage: `url(${transportMaritimeHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
@@ -139,8 +153,8 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
                 <div className="mt-6 pt-4 border-t">
                   <h4 className="font-medium mb-2">{t('transport.maritime.containers.title')}</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    {(t('transport.maritime.containers.list') as unknown as string[] || []).map((item, index) => (
-                      <li key={index}>• {item}</li>
+                    {[0, 1, 2, 3].map(index => (
+                      <li key={index}>• {t(`transport.maritime.containers.list.${index}`)}</li>
                     ))}
                   </ul>
                 </div>

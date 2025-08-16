@@ -35,7 +35,16 @@ export function TransportAerienPage({ onNavigate }: TransportAerienPageProps) {
     }
   ];
 
-  const services = t('transport.aerial.services') as unknown as string[] || [];
+  const services = [
+    t('transport.aerial.services.0'),
+    t('transport.aerial.services.1'),
+    t('transport.aerial.services.2'),
+    t('transport.aerial.services.3'),
+    t('transport.aerial.services.4'),
+    t('transport.aerial.services.5'),
+    t('transport.aerial.services.6'),
+    t('transport.aerial.services.7')
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-surface" style={{ backgroundImage: `url(${transportAerienHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
@@ -142,8 +151,8 @@ export function TransportAerienPage({ onNavigate }: TransportAerienPageProps) {
                 <div className="pt-4 border-t">
                   <h4 className="font-medium mb-2">{t('transport.aerial.timelines.destinations.title')}</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    {(t('transport.aerial.timelines.destinations.list') as unknown as string[] || []).map((item, index) => (
-                      <li key={index}>• {item}</li>
+                    {[0, 1, 2, 3].map(index => (
+                      <li key={index}>• {t(`transport.aerial.timelines.destinations.list.${index}`)}</li>
                     ))}
                   </ul>
                 </div>
