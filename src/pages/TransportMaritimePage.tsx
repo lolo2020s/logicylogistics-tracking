@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Ship, Anchor, Globe, DollarSign, CheckCircle, Phone } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import transportMaritimeBg from '@/assets/transport-maritime-bg.jpg';
+import transportMaritimeHero from '@/assets/transport-maritime-hero.jpg';
 
 interface TransportMaritimePageProps {
   onNavigate: (page: string) => void;
@@ -53,7 +54,9 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-surface">
+    <div className="min-h-screen bg-gradient-surface" style={{ backgroundImage: `url(${transportMaritimeHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+      <div className="absolute inset-0 bg-white/90" />
+      <div className="relative z-10">
       {/* Hero Section */}
       <section 
         className="relative bg-cover bg-center py-24 px-6"
@@ -160,6 +163,7 @@ export function TransportMaritimePage({ onNavigate }: TransportMaritimePageProps
             </Card>
           </div>
         </section>
+      </div>
       </div>
     </div>
   );

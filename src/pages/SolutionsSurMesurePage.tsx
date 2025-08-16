@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Settings, Users, Lightbulb, Target, CheckCircle, Phone, Calendar, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import heroImage from '@/assets/hero-premium.jpg';
+import solutionsHero from '@/assets/solutions-hero.jpg';
 
 interface SolutionsSurMesurePageProps {
   onNavigate: (page: string) => void;
@@ -106,7 +107,9 @@ export function SolutionsSurMesurePage({ onNavigate }: SolutionsSurMesurePagePro
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-surface">
+    <div className="min-h-screen bg-gradient-surface" style={{ backgroundImage: `url(${solutionsHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+      <div className="absolute inset-0 bg-white/90" />
+      <div className="relative z-10">
       {/* Hero Section */}
       <section 
         className="relative bg-cover bg-center py-24 px-6"
@@ -313,6 +316,7 @@ export function SolutionsSurMesurePage({ onNavigate }: SolutionsSurMesurePagePro
             </CardContent>
           </Card>
         </section>
+      </div>
       </div>
     </div>
   );

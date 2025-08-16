@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Plane, Clock, Globe, Shield, CheckCircle, Phone } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import transportAerienBg from '@/assets/transport-aerien-bg.jpg';
+import transportAerienHero from '@/assets/transport-aerien-hero.jpg';
 
 interface TransportAerienPageProps {
   onNavigate: (page: string) => void;
@@ -46,7 +47,9 @@ export function TransportAerienPage({ onNavigate }: TransportAerienPageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-surface">
+    <div className="min-h-screen bg-gradient-surface" style={{ backgroundImage: `url(${transportAerienHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+      <div className="absolute inset-0 bg-white/90" />
+      <div className="relative z-10">
       {/* Hero Section */}
       <section 
         className="relative bg-cover bg-center py-24 px-6"
@@ -158,6 +161,7 @@ export function TransportAerienPage({ onNavigate }: TransportAerienPageProps) {
             </Card>
           </div>
         </section>
+      </div>
       </div>
     </div>
   );

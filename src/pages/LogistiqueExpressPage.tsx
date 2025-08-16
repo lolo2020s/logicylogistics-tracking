@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Zap, Clock, Shield, Phone, CheckCircle, Truck, Plane, Package } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import heroImage from '@/assets/hero-premium.jpg';
+import logistiqueExpressHero from '@/assets/logistique-express-hero.jpg';
 
 interface LogistiqueExpressPageProps {
   onNavigate: (page: string) => void;
@@ -83,7 +84,9 @@ export function LogistiqueExpressPage({ onNavigate }: LogistiqueExpressPageProps
   };
 
   return (
-    <div className="min-h-screen bg-gradient-surface">
+    <div className="min-h-screen bg-gradient-surface" style={{ backgroundImage: `url(${logistiqueExpressHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+      <div className="absolute inset-0 bg-white/90" />
+      <div className="relative z-10">
       {/* Hero Section */}
       <section 
         className="relative bg-cover bg-center py-24 px-6"
@@ -280,6 +283,7 @@ export function LogistiqueExpressPage({ onNavigate }: LogistiqueExpressPageProps
             </CardContent>
           </Card>
         </section>
+      </div>
       </div>
     </div>
   );

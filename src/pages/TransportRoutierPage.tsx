@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Truck, Clock, Shield, Euro, CheckCircle, Phone } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import transportRoutierBg from '@/assets/transport-routier-bg.jpg';
+import transportRoutierHero from '@/assets/transport-routier-hero.jpg';
 
 interface TransportRoutierPageProps {
   onNavigate: (page: string) => void;
@@ -46,7 +47,9 @@ export function TransportRoutierPage({ onNavigate }: TransportRoutierPageProps) 
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-surface">
+    <div className="min-h-screen bg-gradient-surface" style={{ backgroundImage: `url(${transportRoutierHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+      <div className="absolute inset-0 bg-white/90" />
+      <div className="relative z-10">
       {/* Hero Section */}
       <section 
         className="relative bg-cover bg-center py-24 px-6"
@@ -158,6 +161,7 @@ export function TransportRoutierPage({ onNavigate }: TransportRoutierPageProps) 
             </Card>
           </div>
         </section>
+      </div>
       </div>
     </div>
   );
