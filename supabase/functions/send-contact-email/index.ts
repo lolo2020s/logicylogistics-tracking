@@ -39,7 +39,7 @@ serve(async (req: Request) => {
 
     // Send confirmation to user
     const confirmation = await resend.emails.send({
-      from: "Logicy Transport <onboarding@resend.dev>",
+      from: "Logicy Transport <contact@logixy-transport.com>",
       to: [email],
       subject: "Nous avons bien reçu votre message",
       html: `
@@ -56,7 +56,7 @@ serve(async (req: Request) => {
     // Forward to company
     const adminTo = "contact@logixy-transport.com";
     const notification = await resend.emails.send({
-      from: "Logicy Transport <onboarding@resend.dev>",
+      from: "Logicy Transport <contact@logixy-transport.com>",
       to: [adminTo],
       subject: `Nouveau message de contact: ${name}`,
       html: `
