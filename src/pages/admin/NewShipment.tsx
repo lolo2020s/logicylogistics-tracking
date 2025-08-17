@@ -208,56 +208,67 @@ export function NewShipment() {
       // Upload photos if any
       if (uploadedPhotos.length > 0) {
         try {
-          // Manually trigger photo upload for the newly created shipment
-          const uploadPromises = uploadedPhotos.map(async (photo) => {
-            if (photo.uploaded || !photo.file) return photo;
+          // Check authentication for photo upload
+          if (!user) {
+            toast({
+              title: "Attention",
+              description: "Photos non uploadées: vous devez être connecté.",
+              variant: "destructive"
+            });
+          } else {
+            const uploadPromises = uploadedPhotos.map(async (photo) => {
+              if (photo.uploaded || !photo.file) return photo;
 
-            const fileExt = photo.file.name.split('.').pop();
-            const fileName = `${data.id}/${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
+              const fileExt = photo.file.name.split('.').pop();
+              const fileName = `${data.id}/${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
 
-            // Upload to storage
-            const { data: uploadData, error: uploadError } = await supabase.storage
-              .from('shipment-photos')
-              .upload(fileName, photo.file, {
-                contentType: photo.file.type,
-                cacheControl: '3600',
-                upsert: true,
-              });
+              const { error: uploadError } = await supabase.storage
+                .from('shipment-photos')
+                .upload(fileName, photo.file, {
+                  contentType: photo.file.type,
+                  cacheControl: '3600',
+                  upsert: true,
+                });
 
-            if (uploadError) throw uploadError;
+              if (uploadError) {
+                console.error('Upload error:', uploadError);
+                throw new Error(`Erreur d'upload: ${uploadError.message}`);
+              }
 
-            // Get public URL
-            const { data: { publicUrl } } = supabase.storage
-              .from('shipment-photos')
-              .getPublicUrl(fileName);
+              const { data: { publicUrl } } = supabase.storage
+                .from('shipment-photos')
+                .getPublicUrl(fileName);
 
-            // Save to database
-            const { error: dbError } = await supabase
-              .from('shipment_photos')
-              .insert({
-                shipment_id: data.id,
-                photo_url: publicUrl,
-                photo_type: photo.type,
-                description: photo.description || null,
-                uploaded_by: user?.id
-              });
+              const { error: dbError } = await supabase
+                .from('shipment_photos')
+                .insert({
+                  shipment_id: data.id,
+                  photo_url: publicUrl,
+                  photo_type: photo.type,
+                  description: photo.description || null,
+                  uploaded_by: user.id
+                });
 
-            if (dbError) throw dbError;
+              if (dbError) {
+                console.error('Database error:', dbError);
+                throw new Error(`Erreur de base de données: ${dbError.message}`);
+              }
 
-            return true;
-          });
+              return true;
+            });
 
-          await Promise.all(uploadPromises);
-          
-          toast({
-            title: "Photos uploadées",
-            description: `${uploadedPhotos.length} photo(s) ajoutée(s) à l'envoi.`,
-          });
-        } catch (uploadError) {
+            await Promise.all(uploadPromises);
+            
+            toast({
+              title: "Photos uploadées",
+              description: `${uploadedPhotos.length} photo(s) ajoutée(s) à l'envoi.`,
+            });
+          }
+        } catch (uploadError: any) {
           console.error('Photo upload error:', uploadError);
           toast({
             title: "Erreur d'upload des photos",
-            description: "L'envoi a été créé mais certaines photos n'ont pas pu être uploadées.",
+            description: uploadError.message || "L'envoi a été créé mais certaines photos n'ont pas pu être uploadées.",
             variant: "destructive"
           });
         }
