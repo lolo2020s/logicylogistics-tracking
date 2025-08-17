@@ -23,6 +23,8 @@ import { AdminLayout } from "./pages/admin/AdminLayout";
 import { AdminDashboard } from "./pages/admin/AdminDashboard";
 import { ShipmentsList } from "./pages/admin/ShipmentsList";
 import { NewShipment } from "./pages/admin/NewShipment";
+import { ClientsList } from "./pages/admin/ClientsList";
+import { AdminSettings } from "./pages/admin/AdminSettings";
 import { LanguageProvider } from "./context/LanguageContext";
 
 const queryClient = new QueryClient();
@@ -61,6 +63,8 @@ const App = () => (
               <Route index element={<AdminDashboard />} />
               <Route path="shipments" element={<ShipmentsList />} />
               <Route path="shipments/new" element={<NewShipment />} />
+              <Route path="clients" element={<ClientsList />} />
+              <Route path="settings" element={<AdminSettings />} />
             </Route>
             
             {/* Spanish routes */}
