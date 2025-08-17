@@ -109,17 +109,17 @@ export function TrackingSearch() {
               .single();
 
             if (updatedShipment) {
-              // Mettre à jour le state avec les nouvelles données
-              const updatedResult = {
-                ...result,
+              // Mettre à jour le state avec les nouvelles données complètes
+              setResult(prev => prev ? {
+                ...prev,
                 currentLocation: updatedShipment.current_location || t('tracking.processing'),
                 current_latitude: updatedShipment.current_latitude,
                 current_longitude: updatedShipment.current_longitude,
-              };
-              setResult(updatedResult);
+                status: updatedShipment.current_status,
+              } : prev);
               
               toast.success('Position mise à jour automatiquement', {
-                description: `Nouvelle localisation: ${updatedShipment.current_location}`,
+                description: `Nouvelle localisation: ${updatedShipment.current_location || 'Position mise à jour'}`,
               });
             }
           } catch (error) {
@@ -133,7 +133,7 @@ export function TrackingSearch() {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [result]);
+  }, [result?.id, t]); // Dépendances plus précises
 
   const handleSearch = async () => {
     setLoading(true);
