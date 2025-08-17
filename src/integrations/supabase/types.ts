@@ -93,75 +93,141 @@ export type Database = {
       }
       shipments: {
         Row: {
+          client_reference: string | null
           created_at: string
+          currency: string | null
           current_latitude: number | null
           current_location: string | null
           current_longitude: number | null
           current_status: string
+          declared_value: number | null
+          delivery_instructions: string | null
           dimensions: Json | null
+          emergency_contact_name: string | null
+          emergency_contact_phone: string | null
           estimated_delivery: string | null
           id: string
+          insurance_value: number | null
+          internal_notes: string | null
+          is_dangerous: boolean | null
+          is_fragile: boolean | null
+          order_number: string | null
           package_type: string | null
+          payment_method: string | null
+          payment_status: string | null
+          preferred_delivery_time: string | null
+          priority_level: string | null
           receiver_address: string
           receiver_city: string
           receiver_country: string
+          receiver_email: string | null
           receiver_name: string
+          receiver_phone: string | null
+          requires_signature: boolean | null
           sender_address: string
           sender_city: string
           sender_country: string
+          sender_email: string | null
           sender_name: string
+          sender_phone: string | null
           shipment_type: string
+          special_instructions: string | null
           tracking_number: string
+          transport_cost: number | null
           transport_mode: string
           updated_at: string
           user_id: string | null
           weight: number | null
         }
         Insert: {
+          client_reference?: string | null
           created_at?: string
+          currency?: string | null
           current_latitude?: number | null
           current_location?: string | null
           current_longitude?: number | null
           current_status?: string
+          declared_value?: number | null
+          delivery_instructions?: string | null
           dimensions?: Json | null
+          emergency_contact_name?: string | null
+          emergency_contact_phone?: string | null
           estimated_delivery?: string | null
           id?: string
+          insurance_value?: number | null
+          internal_notes?: string | null
+          is_dangerous?: boolean | null
+          is_fragile?: boolean | null
+          order_number?: string | null
           package_type?: string | null
+          payment_method?: string | null
+          payment_status?: string | null
+          preferred_delivery_time?: string | null
+          priority_level?: string | null
           receiver_address: string
           receiver_city: string
           receiver_country: string
+          receiver_email?: string | null
           receiver_name: string
+          receiver_phone?: string | null
+          requires_signature?: boolean | null
           sender_address: string
           sender_city: string
           sender_country: string
+          sender_email?: string | null
           sender_name: string
+          sender_phone?: string | null
           shipment_type: string
+          special_instructions?: string | null
           tracking_number?: string
+          transport_cost?: number | null
           transport_mode: string
           updated_at?: string
           user_id?: string | null
           weight?: number | null
         }
         Update: {
+          client_reference?: string | null
           created_at?: string
+          currency?: string | null
           current_latitude?: number | null
           current_location?: string | null
           current_longitude?: number | null
           current_status?: string
+          declared_value?: number | null
+          delivery_instructions?: string | null
           dimensions?: Json | null
+          emergency_contact_name?: string | null
+          emergency_contact_phone?: string | null
           estimated_delivery?: string | null
           id?: string
+          insurance_value?: number | null
+          internal_notes?: string | null
+          is_dangerous?: boolean | null
+          is_fragile?: boolean | null
+          order_number?: string | null
           package_type?: string | null
+          payment_method?: string | null
+          payment_status?: string | null
+          preferred_delivery_time?: string | null
+          priority_level?: string | null
           receiver_address?: string
           receiver_city?: string
           receiver_country?: string
+          receiver_email?: string | null
           receiver_name?: string
+          receiver_phone?: string | null
+          requires_signature?: boolean | null
           sender_address?: string
           sender_city?: string
           sender_country?: string
+          sender_email?: string | null
           sender_name?: string
+          sender_phone?: string | null
           shipment_type?: string
+          special_instructions?: string | null
           tracking_number?: string
+          transport_cost?: number | null
           transport_mode?: string
           updated_at?: string
           user_id?: string | null
