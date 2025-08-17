@@ -14,15 +14,19 @@ export function PageLayout({ children, currentPage = 'home' }: PageLayoutProps) 
   const navigate = useNavigate();
   const { currentLanguage } = useLanguageContext();
 
-  // Scroll to top when page changes
+  // Scroll to top when page changes OR when component mounts
   useEffect(() => {
-    // Use setTimeout to ensure DOM is fully rendered before scrolling
-    const timer = setTimeout(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    }, 0);
-    
-    return () => clearTimeout(timer);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, [currentPage]);
+
+  // Also scroll to top on initial mount (for page refresh)
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, []);
 
   const handleNavigation = (page: string) => {
     // Convert internal navigation to proper routing with language support
