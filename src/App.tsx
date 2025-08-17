@@ -75,7 +75,7 @@ const App = () => (
             <Route path="/es/acerca-de" element={<AboutPage onNavigate={() => {}} />} />
             <Route path="/es/contacto" element={<ContactPage />} />
             <Route path="/es/servicios" element={<ServicesPage onNavigate={() => {}} />} />
-            <Route path="/es/seguimiento" element={<TrackingPage />} />
+            <Route path="/es/suivi" element={<TrackingPage />} />
             <Route path="/es/transporte-terrestre" element={<TransportRoutierPage onNavigate={() => {}} />} />
             <Route path="/es/transporte-aereo" element={<TransportAerienPage onNavigate={() => {}} />} />
             <Route path="/es/transporte-maritimo" element={<TransportMaritimePage onNavigate={() => {}} />} />
@@ -92,7 +92,7 @@ const App = () => (
             <Route path="/de/uber-uns" element={<AboutPage onNavigate={() => {}} />} />
             <Route path="/de/kontakt" element={<ContactPage />} />
             <Route path="/de/dienstleistungen" element={<ServicesPage onNavigate={() => {}} />} />
-            <Route path="/de/sendungsverfolgung" element={<TrackingPage />} />
+            <Route path="/de/suivi" element={<TrackingPage />} />
             <Route path="/de/strassentransport" element={<TransportRoutierPage onNavigate={() => {}} />} />
             <Route path="/de/lufttransport" element={<TransportAerienPage onNavigate={() => {}} />} />
             <Route path="/de/seetransport" element={<TransportMaritimePage onNavigate={() => {}} />} />
@@ -109,7 +109,7 @@ const App = () => (
             <Route path="/it/chi-siamo" element={<AboutPage onNavigate={() => {}} />} />
             <Route path="/it/contatti" element={<ContactPage />} />
             <Route path="/it/servizi" element={<ServicesPage onNavigate={() => {}} />} />
-            <Route path="/it/tracking" element={<TrackingPage />} />
+            <Route path="/it/suivi" element={<TrackingPage />} />
             <Route path="/it/trasporto-stradale" element={<TransportRoutierPage onNavigate={() => {}} />} />
             <Route path="/it/trasporto-aereo" element={<TransportAerienPage onNavigate={() => {}} />} />
             <Route path="/it/trasporto-marittimo" element={<TransportMaritimePage onNavigate={() => {}} />} />
@@ -126,7 +126,7 @@ const App = () => (
             <Route path="/pt/sobre" element={<AboutPage onNavigate={() => {}} />} />
             <Route path="/pt/contato" element={<ContactPage />} />
             <Route path="/pt/servicos" element={<ServicesPage onNavigate={() => {}} />} />
-            <Route path="/pt/rastreamento" element={<TrackingPage />} />
+            <Route path="/pt/suivi" element={<TrackingPage />} />
             <Route path="/pt/transporte-rodoviario" element={<TransportRoutierPage onNavigate={() => {}} />} />
             <Route path="/pt/transporte-aereo" element={<TransportAerienPage onNavigate={() => {}} />} />
             <Route path="/pt/transporte-maritimo" element={<TransportMaritimePage onNavigate={() => {}} />} />
