@@ -97,8 +97,20 @@ export function EditShipment() {
 
     setUploading(true);
     try {
-      // Get current user once at the beginning
-      const { data: { user } } = await supabase.auth.getUser();
+      // Check authentication first
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
+      
+      if (authError) {
+        console.error('Auth error:', authError);
+        throw new Error('Erreur d\'authentification');
+      }
+      
+      if (!user) {
+        console.error('No user authenticated');
+        throw new Error('Vous devez être connecté pour uploader des photos');
+      }
+      
+      console.log('User authenticated:', user.id);
       
       for (const file of Array.from(files)) {
         const fileExt = file.name.split('.').pop();
