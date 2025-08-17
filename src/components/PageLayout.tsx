@@ -16,7 +16,12 @@ export function PageLayout({ children, currentPage = 'home' }: PageLayoutProps) 
 
   // Scroll to top when page changes
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Use setTimeout to ensure DOM is fully rendered before scrolling
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, 0);
+    
+    return () => clearTimeout(timer);
   }, [currentPage]);
 
   const handleNavigation = (page: string) => {
