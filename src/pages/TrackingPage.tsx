@@ -1,9 +1,21 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { TrackingSearch } from '@/components/TrackingSearch';
 import { useTranslation } from '@/hooks/useTranslation';
 import { PageLayout } from '@/components/PageLayout';
+import { useLanguageContext } from '@/context/LanguageContext';
+import { extractLanguageFromPath } from '@/utils/routeUtils';
 
 export function TrackingPage() {
   const { t } = useTranslation();
+  const location = useLocation();
+  const { setLanguage } = useLanguageContext();
+
+  useEffect(() => {
+    // Extract and set language from URL
+    const { language } = extractLanguageFromPath(location.pathname);
+    setLanguage(language);
+  }, [location.pathname, setLanguage]);
 
   return (
     <PageLayout currentPage="tracking">
