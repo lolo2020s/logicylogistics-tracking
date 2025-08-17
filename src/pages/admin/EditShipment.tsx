@@ -203,39 +203,47 @@ export function EditShipment() {
 
     setSaving(true);
     try {
-      // Check authentication first
-      const { data: { user }, error: authError } = await supabase.auth.getUser();
-      
-      if (authError || !user) {
-        toast({
-          variant: 'destructive',
-          title: 'Erreur d\'authentification',
-          description: 'Vous devez être connecté pour modifier un envoi. Veuillez vous connecter.',
-        });
-        return;
+      // Prepare dimensions data - handle both string and object
+      let dimensionsData = shipment.dimensions;
+      if (typeof shipment.dimensions === 'string' && shipment.dimensions.trim()) {
+        try {
+          // Try to parse as JSON first
+          dimensionsData = JSON.parse(shipment.dimensions);
+        } catch {
+          // If not JSON, store as description object
+          dimensionsData = { description: shipment.dimensions };
+        }
       }
+
+      const updateData: any = {
+        sender_name: shipment.sender_name,
+        sender_address: shipment.sender_address,
+        sender_city: shipment.sender_city,
+        sender_country: shipment.sender_country,
+        receiver_name: shipment.receiver_name,
+        receiver_address: shipment.receiver_address,
+        receiver_city: shipment.receiver_city,
+        receiver_country: shipment.receiver_country,
+        current_status: shipment.current_status,
+        transport_mode: shipment.transport_mode,
+        weight: shipment.weight || null,
+        dimensions: dimensionsData || null,
+      };
+
+      // Only add description if it exists
+      if (shipment.description !== undefined) {
+        updateData.description = shipment.description;
+      }
+
+      console.log('Updating shipment with data:', updateData);
 
       const { error } = await supabase
         .from('shipments')
-        .update({
-          sender_name: shipment.sender_name,
-          sender_address: shipment.sender_address,
-          sender_city: shipment.sender_city,
-          sender_country: shipment.sender_country,
-          receiver_name: shipment.receiver_name,
-          receiver_address: shipment.receiver_address,
-          receiver_city: shipment.receiver_city,
-          receiver_country: shipment.receiver_country,
-          current_status: shipment.current_status,
-          transport_mode: shipment.transport_mode,
-          description: shipment.description,
-          weight: shipment.weight,
-          dimensions: shipment.dimensions,
-        })
+        .update(updateData)
         .eq('id', id);
 
       if (error) {
-        console.error('Update error:', error);
+        console.error('Update error details:', error);
         throw new Error(`Erreur de mise à jour: ${error.message}`);
       }
 
@@ -458,15 +466,19 @@ export function EditShipment() {
               />
             </div>
 
-            <div>
-              <Label htmlFor="dimensions">Dimensions</Label>
-              <Input
-                id="dimensions"
-                value={shipment.dimensions || ''}
-                onChange={(e) => updateField('dimensions', e.target.value)}
-                placeholder="L x l x h (cm)"
-              />
-            </div>
+             <div>
+               <Label htmlFor="dimensions">Dimensions</Label>
+               <Input
+                 id="dimensions"
+                 value={
+                   typeof shipment.dimensions === 'object' && shipment.dimensions?.description
+                     ? shipment.dimensions.description
+                     : (shipment.dimensions || '')
+                 }
+                 onChange={(e) => updateField('dimensions', e.target.value)}
+                 placeholder="L x l x h (cm)"
+               />
+             </div>
           </CardContent>
         </Card>
 
