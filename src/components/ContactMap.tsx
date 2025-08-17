@@ -9,8 +9,8 @@ interface ContactMapProps {
 }
 
 export function ContactMap({ 
-  address = "123 Avenue de la Logistique, 69000 Lyon, France",
-  coordinates = [4.8357, 45.7640] // Lyon, France coordinates
+  address = "Gesworenhoekseweg 4, 5047 TM Tilburg, Pays-Bas",
+  coordinates = [5.0914, 51.5656] // Tilburg, Pays-Bas coordinates
 }: ContactMapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);

@@ -41,11 +41,11 @@ export function Footer({ onNavigate }: FooterProps) {
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>123 Avenue de la Logistique, 75001 Paris</span>
+                <span>Gesworenhoekseweg 4, 5047 TM Tilburg, Pays-Bas</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-primary" />
-                <span>+33 1 23 45 67 89</span>
+                <span>+31626018693</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-primary" />

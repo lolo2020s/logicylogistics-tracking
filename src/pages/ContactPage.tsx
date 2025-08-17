@@ -52,13 +52,13 @@ export function ContactPage() {
     {
       icon: Phone,
       label: t('contact.info.phone', 'Téléphone'),
-      value: '+33 1 23 45 67 89',
-      action: 'tel:+33123456789'
+      value: '+31626018693',
+      action: 'tel:+31626018693'
     },
     {
       icon: MapPin,
       label: t('contact.info.address', 'Adresse'),
-      value: '123 Avenue de la Logistique\n69000 Lyon, France',
+      value: 'Gesworenhoekseweg 4\n5047 TM Tilburg, Pays-Bas',
       action: null
     },
     {
@@ -197,8 +197,8 @@ export function ContactPage() {
               <div className="mt-4 text-center">
                 <h3 className="font-semibold mb-2">LOGICY TRANSPORT</h3>
                 <p className="text-muted-foreground">
-                  123 Avenue de la Logistique<br />
-                  69000 Lyon, France
+                  Gesworenhoekseweg 4<br />
+                  5047 TM Tilburg, Pays-Bas
                 </p>
               </div>
             </CardContent>

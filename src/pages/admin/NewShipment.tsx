@@ -325,7 +325,7 @@ export function NewShipment() {
                   type="tel"
                   value={formData.sender_phone}
                   onChange={(e) => handleInputChange('sender_phone', e.target.value)}
-                  placeholder="+33 1 23 45 67 89"
+                  placeholder="+31626018693"
                   required
                 />
               </div>
@@ -395,7 +395,7 @@ export function NewShipment() {
                   type="tel"
                   value={formData.receiver_phone}
                   onChange={(e) => handleInputChange('receiver_phone', e.target.value)}
-                  placeholder="+33 1 23 45 67 89"
+                  placeholder="+31626018693"
                   required
                 />
               </div>
@@ -628,7 +628,7 @@ export function NewShipment() {
                     type="tel"
                     value={formData.emergency_contact_phone}
                     onChange={(e) => handleInputChange('emergency_contact_phone', e.target.value)}
-                    placeholder="+33 1 23 45 67 89"
+                    placeholder="+31626018693"
                   />
                 </div>
               </div>

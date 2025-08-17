@@ -114,9 +114,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       transportNumber: 'Numéro de transporteur : 2023-001',
       insurance: 'Assurance RCP : AXA France',
       headquartersTitle: 'Siège social',
-      address: '123 Avenue de la Logistique',
-      cityPostal: '75001 Paris, France',
-      phone: 'Tél : +33 1 23 45 67 89',
+      address: 'Gesworenhoekseweg 4',
+      cityPostal: '5047 TM Tilburg, Pays-Bas',
+      phone: 'Tél : +31626018693',
       email: 'Email : contact@logicy-transport.com',
       sections: {
         s1: {
@@ -216,7 +216,7 @@ export const translationData: Record<Language, Record<string, any>> = {
         },
         s10: {
           title: "10. Contact et réclamations",
-          content: "Pour toute question relative à cette politique :\n\n• Email : privacy@logicy-transport.com\n• Courrier : DPO - LOGICY TRANSPORT, 123 Avenue de la Logistique, 75001 Paris\n• Téléphone : +33 1 23 45 67 89\n\nVous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr) si vous estimez que vos droits ne sont pas respectés."
+          content: "Pour toute question relative à cette politique :\n\n• Email : privacy@logicy-transport.com\n• Courrier : DPO - LOGICY TRANSPORT, Gesworenhoekseweg 4, 5047 TM Tilburg, Pays-Bas\n• Téléphone : +31626018693\n\nVous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr) si vous estimez que vos droits ne sont pas respectés."
         }
       }
     },
@@ -2804,9 +2804,9 @@ export const translationData: Record<Language, Record<string, any>> = {
       transportNumber: 'Número de transportadora: 2023-001',
       insurance: 'Seguro RCP: AXA França',
       headquartersTitle: 'Sede social',
-      address: '123 Avenue de la Logistique',
-      cityPostal: '75001 Paris, França',
-      phone: 'Tel: +33 1 23 45 67 89',
+      address: 'Gesworenhoekseweg 4',
+      cityPostal: '5047 TM Tilburg, Países Baixos',
+      phone: 'Tel: +31626018693',
       email: 'Email: contact@logicy-transport.com',
       sections: {
         s1: {
@@ -2906,7 +2906,7 @@ export const translationData: Record<Language, Record<string, any>> = {
         },
         s10: {
           title: "10. Contato e reclamações",
-          content: "Para qualquer questão relativa a esta política:\n\n• Email: privacy@logicy-transport.com\n• Correspondência: DPO - LOGICY TRANSPORT, 123 Avenue de la Logistique, 75001 Paris\n• Telefone: +33 1 23 45 67 89\n\nVocê também pode apresentar uma reclamação junto à CNIL (www.cnil.fr) se considerar que seus direitos não são respeitados."
+          content: "Para qualquer questão relativa a esta política:\n\n• Email: privacy@logicy-transport.com\n• Correspondência: DPO - LOGICY TRANSPORT, Gesworenhoekseweg 4, 5047 TM Tilburg, Países Baixos\n• Telefone: +31626018693\n\nVocê também pode apresentar uma reclamação junto à CNIL (www.cnil.fr) se considerar que seus direitos não são respeitados."
         }
       }
     }
