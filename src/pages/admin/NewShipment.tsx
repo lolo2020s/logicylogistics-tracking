@@ -219,10 +219,9 @@ export function NewShipment() {
                     <SelectValue placeholder="Sélectionnez un type" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="package">Colis</SelectItem>
-                    <SelectItem value="document">Document</SelectItem>
-                    <SelectItem value="vehicle">Véhicule</SelectItem>
-                    <SelectItem value="cargo">Cargaison</SelectItem>
+                    <SelectItem value="standard">Standard</SelectItem>
+                    <SelectItem value="express">Express</SelectItem>
+                    <SelectItem value="premium">Premium</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
