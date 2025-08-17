@@ -39,11 +39,15 @@ export function LanguageSelector() {
       cleanPath = '/' + cleanPath;
     }
     
-    // Build the new path using the route utils
-    import('@/utils/routeUtils').then(({ buildLocalizedPath }) => {
-      const newPath = buildLocalizedPath(cleanPath, languageCode as any);
-      navigate(newPath);
-    });
+    // Build the new path directly
+    let newPath;
+    if (languageCode === 'fr') {
+      newPath = cleanPath === '/' ? '/' : cleanPath;
+    } else {
+      newPath = `/${languageCode}${cleanPath === '/' ? '' : cleanPath}`;
+    }
+    
+    navigate(newPath);
   };
 
   const currentLang = languages.find(lang => lang.code === currentLanguage) || languages[0];
