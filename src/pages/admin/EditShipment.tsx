@@ -92,6 +92,7 @@ export function EditShipment() {
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
+    const inputEl = event.target as HTMLInputElement;
     if (!files || !id) return;
 
     setUploading(true);
@@ -103,10 +104,13 @@ export function EditShipment() {
         const fileExt = file.name.split('.').pop();
         const fileName = `${id}/${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
 
-        // Upload file to storage
         const { error: uploadError } = await supabase.storage
           .from('shipment-photos')
-          .upload(fileName, file);
+          .upload(fileName, file, {
+            contentType: file.type,
+            cacheControl: '3600',
+            upsert: true,
+          });
 
         if (uploadError) {
           console.error('Upload error:', uploadError);
@@ -147,6 +151,7 @@ export function EditShipment() {
         description: `Impossible d'ajouter les photos: ${error.message}`,
       });
     } finally {
+      if (inputEl) inputEl.value = '';
       setUploading(false);
     }
   };
