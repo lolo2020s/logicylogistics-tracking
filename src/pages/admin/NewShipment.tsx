@@ -131,22 +131,24 @@ export function NewShipment() {
         }
       }
 
+      const { google_maps_link, ...form } = formData;
+
       const shipmentData = {
-        ...formData,
+        ...form,
         user_id: user?.id,
-        weight: formData.weight ? parseFloat(formData.weight) : null,
-        dimensions: formData.dimensions ? JSON.stringify({ description: formData.dimensions }) : null,
-        estimated_delivery: formData.estimated_delivery || null,
+        weight: form.weight ? parseFloat(form.weight) : null,
+        dimensions: form.dimensions ? JSON.stringify({ description: form.dimensions }) : null,
+        estimated_delivery: form.estimated_delivery || null,
         current_status: 'pending',
-        current_location: formData.current_location || null,
-        current_latitude: formData.current_latitude ? parseFloat(formData.current_latitude) : null,
-        current_longitude: formData.current_longitude ? parseFloat(formData.current_longitude) : null,
-        declared_value: formData.declared_value ? parseFloat(formData.declared_value) : null,
-        insurance_value: formData.insurance_value ? parseFloat(formData.insurance_value) : null,
-        transport_cost: formData.transport_cost ? parseFloat(formData.transport_cost) : null,
-        is_fragile: formData.is_fragile === true,
-        is_dangerous: formData.is_dangerous === true,
-        requires_signature: formData.requires_signature === true,
+        current_location: form.current_location || null,
+        current_latitude: form.current_latitude ? parseFloat(form.current_latitude) : null,
+        current_longitude: form.current_longitude ? parseFloat(form.current_longitude) : null,
+        declared_value: form.declared_value ? parseFloat(form.declared_value) : null,
+        insurance_value: form.insurance_value ? parseFloat(form.insurance_value) : null,
+        transport_cost: form.transport_cost ? parseFloat(form.transport_cost) : null,
+        is_fragile: form.is_fragile === true,
+        is_dangerous: form.is_dangerous === true,
+        requires_signature: form.requires_signature === true,
       };
 
       let { data, error } = await supabase
