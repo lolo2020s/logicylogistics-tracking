@@ -80,10 +80,10 @@ export function TrackingSearch() {
         },
         (payload) => {
           console.log('Tracking update received:', payload);
-          toast.success('Mise à jour du suivi disponible!', {
-            description: 'Votre colis a été mis à jour. Actualisez pour voir les dernières informations.',
+          toast.success(t('tracking.updateAvailable'), {
+            description: t('tracking.updateDescription'),
             action: {
-              label: 'Actualiser',
+              label: t('tracking.refresh'),
               onClick: () => handleSearch()
             }
           });
@@ -143,7 +143,7 @@ export function TrackingSearch() {
         trackingNumber: shipment.tracking_number,
         type: shipment.shipment_type,
         transportMode: shipment.transport_mode,
-        currentLocation: shipment.current_location || 'En cours de traitement',
+        currentLocation: shipment.current_location || t('tracking.processing'),
         current_latitude: shipment.current_latitude,
         current_longitude: shipment.current_longitude,
         transport_mode: shipment.transport_mode,
@@ -183,7 +183,7 @@ export function TrackingSearch() {
       setResult(formattedResult);
     } catch (error) {
       console.error('Search error:', error);
-      toast.error('Erreur lors de la recherche');
+      toast.error(t('tracking.searchError'));
       setNotFound(true);
     } finally {
       setLoading(false);
@@ -275,11 +275,11 @@ export function TrackingSearch() {
               <CardTitle className="flex items-center justify-between">
                 <span className="flex items-center space-x-2">
                   <MapPin className="h-5 w-5 text-primary" />
-                  <span>Localisation en temps réel</span>
+                  <span>{t('tracking.realTimeLocation')}</span>
                 </span>
                 <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
                   <Bell className="h-3 w-3 mr-1" />
-                  Suivi actif
+                  {t('tracking.activeTracking')}
                 </Badge>
               </CardTitle>
             </CardHeader>
@@ -296,7 +296,7 @@ export function TrackingSearch() {
                 <CardTitle className="flex items-center justify-between">
                   <span className="flex items-center space-x-2">
                     {getTypeIcon(result.type)}
-                    <span>Informations générales</span>
+                    <span>{t('tracking.generalInfo')}</span>
                   </span>
                   <Badge variant={getStatusVariant(result.status)} className="flex items-center space-x-1">
                     {getTransportIcon(result.transportMode)}
@@ -307,25 +307,25 @@ export function TrackingSearch() {
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <p className="font-medium text-muted-foreground">N° de suivi</p>
+                    <p className="font-medium text-muted-foreground">{t('tracking.trackingNumber')}</p>
                     <p className="font-mono">{result.trackingNumber}</p>
                   </div>
                   <div>
-                    <p className="font-medium text-muted-foreground">Type</p>
+                    <p className="font-medium text-muted-foreground">{t('tracking.type')}</p>
                     <p className="capitalize">{result.type}</p>
                   </div>
                   {result.weight && (
                     <div>
                       <p className="font-medium text-muted-foreground flex items-center gap-1">
                         <Weight className="h-3 w-3" />
-                        Poids
+                        {t('tracking.weight')}
                       </p>
                       <p>{result.weight} kg</p>
                     </div>
                   )}
                   {result.dimensions && (
                     <div>
-                      <p className="font-medium text-muted-foreground">Dimensions</p>
+                      <p className="font-medium text-muted-foreground">{t('tracking.dimensions')}</p>
                       <p>{result.dimensions.length}×{result.dimensions.width}×{result.dimensions.height} cm</p>
                     </div>
                   )}
@@ -333,7 +333,7 @@ export function TrackingSearch() {
                     <div className="col-span-2">
                       <p className="font-medium text-muted-foreground flex items-center gap-1">
                         <Calendar className="h-3 w-3" />
-                        Livraison estimée
+                        {t('tracking.estimatedDelivery')}
                       </p>
                       <p className="text-primary font-medium">
                         {new Date(result.estimated_delivery).toLocaleDateString('fr-FR', {
@@ -356,17 +356,17 @@ export function TrackingSearch() {
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <User className="h-5 w-5 text-primary" />
-                  <span>Expéditeur & Destinataire</span>
+                  <span>{t('tracking.senderReceiver')}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <p className="font-medium text-muted-foreground mb-1">Expéditeur</p>
+                  <p className="font-medium text-muted-foreground mb-1">{t('tracking.sender')}</p>
                   <p className="font-medium">{result.sender_name}</p>
                   <p className="text-sm text-muted-foreground">{result.sender_address}</p>
                 </div>
                 <div>
-                  <p className="font-medium text-muted-foreground mb-1">Destinataire</p>
+                  <p className="font-medium text-muted-foreground mb-1">{t('tracking.receiver')}</p>
                   <p className="font-medium">{result.receiver_name}</p>
                   <p className="text-sm text-muted-foreground">{result.receiver_address}</p>
                 </div>
@@ -380,7 +380,7 @@ export function TrackingSearch() {
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Camera className="h-5 w-5 text-primary" />
-                  <span>Photos du colis ({result.photos.length})</span>
+                  <span>{t('tracking.packagePhotos')} ({result.photos.length})</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -390,16 +390,16 @@ export function TrackingSearch() {
                       <div className="relative">
                         <img 
                           src={photo.photo_url}
-                          alt={photo.description || 'Photo du colis'}
+                          alt={photo.description || t('tracking.packagePhoto')}
                           className="w-full h-48 object-cover rounded-lg border shadow-sm hover:shadow-md transition-shadow cursor-pointer"
                           onClick={() => window.open(photo.photo_url, '_blank')}
                         />
                         <div className="absolute top-2 right-2">
                           <Badge variant="secondary" className="text-xs">
-                            {photo.photo_type === 'package' && 'Colis'}
-                            {photo.photo_type === 'delivery_proof' && 'Livraison'}
-                            {photo.photo_type === 'damage' && 'Dommage'}
-                            {photo.photo_type === 'signature' && 'Signature'}
+                            {photo.photo_type === 'package' && t('tracking.package')}
+                            {photo.photo_type === 'delivery_proof' && t('tracking.delivery')}
+                            {photo.photo_type === 'damage' && t('tracking.damage')}
+                            {photo.photo_type === 'signature' && t('tracking.signature')}
                           </Badge>
                         </div>
                       </div>
@@ -428,7 +428,7 @@ export function TrackingSearch() {
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <CheckCircle2 className="h-5 w-5 text-green-500" />
-                  <span>Preuve de livraison</span>
+                  <span>{t('tracking.proofOfDelivery')}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -437,11 +437,11 @@ export function TrackingSearch() {
                     <div>
                       <p className="font-medium text-muted-foreground mb-2 flex items-center gap-1">
                         <Camera className="h-3 w-3" />
-                        Photo de livraison
+                        {t('tracking.deliveryPhoto')}
                       </p>
                       <img 
                         src={result.proof_of_delivery.photo} 
-                        alt="Preuve de livraison"
+                        alt={t('tracking.proofOfDelivery')}
                         className="w-full h-32 object-cover rounded-lg border"
                       />
                     </div>
@@ -449,13 +449,13 @@ export function TrackingSearch() {
                   <div>
                     {result.proof_of_delivery.recipient_name && (
                       <div className="mb-2">
-                        <p className="font-medium text-muted-foreground">Reçu par</p>
+                        <p className="font-medium text-muted-foreground">{t('tracking.receivedBy')}</p>
                         <p>{result.proof_of_delivery.recipient_name}</p>
                       </div>
                     )}
                     {result.proof_of_delivery.delivered_at && (
                       <div>
-                        <p className="font-medium text-muted-foreground">Livré le</p>
+                        <p className="font-medium text-muted-foreground">{t('tracking.deliveredOn')}</p>
                         <p>{new Date(result.proof_of_delivery.delivered_at).toLocaleDateString('fr-FR', {
                           day: '2-digit',
                           month: '2-digit',
@@ -477,7 +477,7 @@ export function TrackingSearch() {
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <PenTool className="h-5 w-5 text-primary" />
-                  <span>Preuve de livraison</span>
+                  <span>{t('tracking.proofOfDelivery')}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -486,7 +486,7 @@ export function TrackingSearch() {
                     onClick={() => setShowSignature(true)}
                     className="w-full bg-gradient-primary hover:opacity-90"
                   >
-                    Signer la réception
+                    {t('tracking.signatureCapture')}
                   </Button>
                 ) : (
                   <ElectronicSignature
@@ -506,7 +506,7 @@ export function TrackingSearch() {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <Clock className="h-5 w-5 text-primary" />
-                <span>Historique de suivi</span>
+                <span>{t('tracking.trackingHistory')}</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
