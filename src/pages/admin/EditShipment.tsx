@@ -269,9 +269,9 @@ export function EditShipment() {
     }
   };
 
-  const updateField = (field: keyof ShipmentData, value: string | number) => {
+  const updateField = (field: keyof ShipmentData, value: string | number | null) => {
     if (!shipment) return;
-    setShipment({ ...shipment, [field]: value });
+    setShipment({ ...shipment, [field]: value as any });
   };
 
   if (loading) {
