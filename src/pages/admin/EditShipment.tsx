@@ -31,7 +31,7 @@ interface ShipmentData {
   receiver_country: string;
   current_status: string;
   transport_mode: string;
-  description?: string;
+  internal_notes?: string;
   weight?: number;
   dimensions?: any;
   current_location?: string;
@@ -234,12 +234,10 @@ export function EditShipment() {
         current_location: shipment.current_location || null,
         current_latitude: shipment.current_latitude || null,
         current_longitude: shipment.current_longitude || null,
+        internal_notes: shipment.internal_notes || null,
       };
 
-      // Only add description if it exists
-      if (shipment.description !== undefined) {
-        updateData.description = shipment.description;
-      }
+// Notes internes conservées dans internal_notes
 
       console.log('Updating shipment with data:', updateData);
 
@@ -464,11 +462,11 @@ export function EditShipment() {
               </div>
 
               <div className="md:col-span-2">
-                <Label htmlFor="description">Description</Label>
+                <Label htmlFor="internal_notes">Description</Label>
                 <Textarea
-                  id="description"
-                  value={shipment.description || ''}
-                  onChange={(e) => updateField('description', e.target.value)}
+                  id="internal_notes"
+                  value={shipment.internal_notes || ''}
+                  onChange={(e) => updateField('internal_notes', e.target.value)}
                   placeholder="Description du contenu de l'envoi"
                 />
               </div>
