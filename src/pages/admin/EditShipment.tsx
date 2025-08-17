@@ -25,18 +25,42 @@ interface ShipmentData {
   sender_address: string;
   sender_city: string;
   sender_country: string;
+  sender_email?: string;
+  sender_phone?: string;
   receiver_name: string;
   receiver_address: string;
   receiver_city: string;
   receiver_country: string;
+  receiver_email?: string;
+  receiver_phone?: string;
+  emergency_contact_name?: string;
+  emergency_contact_phone?: string;
+  client_reference?: string;
+  order_number?: string;
   current_status: string;
   transport_mode: string;
+  shipment_type?: string;
+  package_type?: string;
+  priority_level?: string;
+  payment_method?: string;
+  payment_status?: string;
+  declared_value?: number;
+  insurance_value?: number;
+  transport_cost?: number;
+  currency?: string;
+  is_fragile?: boolean;
+  is_dangerous?: boolean;
+  requires_signature?: boolean;
+  special_instructions?: string;
+  delivery_instructions?: string;
+  preferred_delivery_time?: string;
   internal_notes?: string;
   weight?: number;
   dimensions?: any;
   current_location?: string;
   current_latitude?: number;
   current_longitude?: number;
+  estimated_delivery?: string;
 }
 
 export function EditShipment() {
@@ -223,17 +247,41 @@ export function EditShipment() {
         sender_address: shipment.sender_address,
         sender_city: shipment.sender_city,
         sender_country: shipment.sender_country,
+        sender_email: shipment.sender_email || null,
+        sender_phone: shipment.sender_phone || null,
         receiver_name: shipment.receiver_name,
         receiver_address: shipment.receiver_address,
         receiver_city: shipment.receiver_city,
         receiver_country: shipment.receiver_country,
+        receiver_email: shipment.receiver_email || null,
+        receiver_phone: shipment.receiver_phone || null,
+        emergency_contact_name: shipment.emergency_contact_name || null,
+        emergency_contact_phone: shipment.emergency_contact_phone || null,
+        client_reference: shipment.client_reference || null,
+        order_number: shipment.order_number || null,
         current_status: shipment.current_status,
         transport_mode: shipment.transport_mode,
+        shipment_type: shipment.shipment_type || null,
+        package_type: shipment.package_type || null,
+        priority_level: shipment.priority_level || null,
+        payment_method: shipment.payment_method || null,
+        payment_status: shipment.payment_status || null,
+        declared_value: shipment.declared_value || null,
+        insurance_value: shipment.insurance_value || null,
+        transport_cost: shipment.transport_cost || null,
+        currency: shipment.currency || null,
+        is_fragile: shipment.is_fragile || false,
+        is_dangerous: shipment.is_dangerous || false,
+        requires_signature: shipment.requires_signature || false,
+        special_instructions: shipment.special_instructions || null,
+        delivery_instructions: shipment.delivery_instructions || null,
+        preferred_delivery_time: shipment.preferred_delivery_time || null,
         weight: shipment.weight || null,
         dimensions: dimensionsData || null,
         current_location: shipment.current_location || null,
         current_latitude: shipment.current_latitude || null,
         current_longitude: shipment.current_longitude || null,
+        estimated_delivery: shipment.estimated_delivery || null,
         internal_notes: shipment.internal_notes || null,
       };
 
@@ -270,6 +318,11 @@ export function EditShipment() {
   };
 
   const updateField = (field: keyof ShipmentData, value: string | number | null) => {
+    if (!shipment) return;
+    setShipment({ ...shipment, [field]: value as any });
+  };
+
+  const updateBooleanField = (field: keyof ShipmentData, value: boolean) => {
     if (!shipment) return;
     setShipment({ ...shipment, [field]: value as any });
   };
@@ -347,21 +400,42 @@ export function EditShipment() {
                 onChange={(e) => updateField('sender_address', e.target.value)}
               />
             </div>
-            <div>
-              <Label htmlFor="sender_city">Ville</Label>
-              <Input
-                id="sender_city"
-                value={shipment.sender_city}
-                onChange={(e) => updateField('sender_city', e.target.value)}
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="sender_city">Ville</Label>
+                <Input
+                  id="sender_city"
+                  value={shipment.sender_city}
+                  onChange={(e) => updateField('sender_city', e.target.value)}
+                />
+              </div>
+              <div>
+                <Label htmlFor="sender_country">Pays</Label>
+                <Input
+                  id="sender_country"
+                  value={shipment.sender_country}
+                  onChange={(e) => updateField('sender_country', e.target.value)}
+                />
+              </div>
             </div>
-            <div>
-              <Label htmlFor="sender_country">Pays</Label>
-              <Input
-                id="sender_country"
-                value={shipment.sender_country}
-                onChange={(e) => updateField('sender_country', e.target.value)}
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="sender_email">Email</Label>
+                <Input
+                  id="sender_email"
+                  type="email"
+                  value={shipment.sender_email || ''}
+                  onChange={(e) => updateField('sender_email', e.target.value)}
+                />
+              </div>
+              <div>
+                <Label htmlFor="sender_phone">Téléphone</Label>
+                <Input
+                  id="sender_phone"
+                  value={shipment.sender_phone || ''}
+                  onChange={(e) => updateField('sender_phone', e.target.value)}
+                />
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -389,21 +463,42 @@ export function EditShipment() {
                 onChange={(e) => updateField('receiver_address', e.target.value)}
               />
             </div>
-            <div>
-              <Label htmlFor="receiver_city">Ville</Label>
-              <Input
-                id="receiver_city"
-                value={shipment.receiver_city}
-                onChange={(e) => updateField('receiver_city', e.target.value)}
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="receiver_city">Ville</Label>
+                <Input
+                  id="receiver_city"
+                  value={shipment.receiver_city}
+                  onChange={(e) => updateField('receiver_city', e.target.value)}
+                />
+              </div>
+              <div>
+                <Label htmlFor="receiver_country">Pays</Label>
+                <Input
+                  id="receiver_country"
+                  value={shipment.receiver_country}
+                  onChange={(e) => updateField('receiver_country', e.target.value)}
+                />
+              </div>
             </div>
-            <div>
-              <Label htmlFor="receiver_country">Pays</Label>
-              <Input
-                id="receiver_country"
-                value={shipment.receiver_country}
-                onChange={(e) => updateField('receiver_country', e.target.value)}
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="receiver_email">Email</Label>
+                <Input
+                  id="receiver_email"
+                  type="email"
+                  value={shipment.receiver_email || ''}
+                  onChange={(e) => updateField('receiver_email', e.target.value)}
+                />
+              </div>
+              <div>
+                <Label htmlFor="receiver_phone">Téléphone</Label>
+                <Input
+                  id="receiver_phone"
+                  value={shipment.receiver_phone || ''}
+                  onChange={(e) => updateField('receiver_phone', e.target.value)}
+                />
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -517,6 +612,282 @@ export function EditShipment() {
                       placeholder="Longitude"
                     />
                   </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Section des informations commerciales */}
+            <div className="border-t pt-6">
+              <h3 className="text-lg font-semibold mb-4">Informations Commerciales</h3>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                  <Label htmlFor="declared_value">Valeur déclarée</Label>
+                  <Input
+                    id="declared_value"
+                    type="number"
+                    step="0.01"
+                    value={shipment.declared_value || ''}
+                    onChange={(e) => updateField('declared_value', parseFloat(e.target.value) || null)}
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="insurance_value">Valeur assurée</Label>
+                  <Input
+                    id="insurance_value"
+                    type="number"
+                    step="0.01"
+                    value={shipment.insurance_value || ''}
+                    onChange={(e) => updateField('insurance_value', parseFloat(e.target.value) || null)}
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="transport_cost">Coût transport</Label>
+                  <Input
+                    id="transport_cost"
+                    type="number"
+                    step="0.01"
+                    value={shipment.transport_cost || ''}
+                    onChange={(e) => updateField('transport_cost', parseFloat(e.target.value) || null)}
+                    placeholder="0.00"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="currency">Devise</Label>
+                  <Select
+                    value={shipment.currency || 'EUR'}
+                    onValueChange={(value) => updateField('currency', value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="EUR">EUR</SelectItem>
+                      <SelectItem value="USD">USD</SelectItem>
+                      <SelectItem value="GBP">GBP</SelectItem>
+                      <SelectItem value="CHF">CHF</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </div>
+
+            {/* Section des types et priorité */}
+            <div className="border-t pt-6">
+              <h3 className="text-lg font-semibold mb-4">Type et Priorité</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="shipment_type">Type d'envoi</Label>
+                  <Select
+                    value={shipment.shipment_type || ''}
+                    onValueChange={(value) => updateField('shipment_type', value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Sélectionner un type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="package">Colis</SelectItem>
+                      <SelectItem value="cargo">Cargo</SelectItem>
+                      <SelectItem value="vehicle">Véhicule</SelectItem>
+                      <SelectItem value="document">Document</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <Label htmlFor="package_type">Type de colis</Label>
+                  <Input
+                    id="package_type"
+                    value={shipment.package_type || ''}
+                    onChange={(e) => updateField('package_type', e.target.value)}
+                    placeholder="Ex: Boîte, Palette, Tube..."
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="priority_level">Niveau de priorité</Label>
+                  <Select
+                    value={shipment.priority_level || 'normal'}
+                    onValueChange={(value) => updateField('priority_level', value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="low">Basse</SelectItem>
+                      <SelectItem value="normal">Normale</SelectItem>
+                      <SelectItem value="high">Haute</SelectItem>
+                      <SelectItem value="urgent">Urgente</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </div>
+
+            {/* Section spécifications */}
+            <div className="border-t pt-6">
+              <h3 className="text-lg font-semibold mb-4">Spécifications</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    id="is_fragile"
+                    checked={shipment.is_fragile || false}
+                     onChange={(e) => updateBooleanField('is_fragile', e.target.checked)}
+                     className="rounded border border-input"
+                   />
+                   <Label htmlFor="is_fragile">Fragile</Label>
+                 </div>
+                 <div className="flex items-center space-x-2">
+                   <input
+                     type="checkbox"
+                     id="is_dangerous"
+                     checked={shipment.is_dangerous || false}
+                     onChange={(e) => updateBooleanField('is_dangerous', e.target.checked)}
+                     className="rounded border border-input"
+                   />
+                   <Label htmlFor="is_dangerous">Matières dangereuses</Label>
+                 </div>
+                 <div className="flex items-center space-x-2">
+                   <input
+                     type="checkbox"
+                     id="requires_signature"
+                     checked={shipment.requires_signature || false}
+                     onChange={(e) => updateBooleanField('requires_signature', e.target.checked)}
+                    className="rounded border border-input"
+                  />
+                  <Label htmlFor="requires_signature">Signature requise</Label>
+                </div>
+              </div>
+            </div>
+
+            {/* Section contacts d'urgence et références */}
+            <div className="border-t pt-6">
+              <h3 className="text-lg font-semibold mb-4">Contact d'urgence et Références</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <Label htmlFor="emergency_contact_name">Nom du contact d'urgence</Label>
+                  <Input
+                    id="emergency_contact_name"
+                    value={shipment.emergency_contact_name || ''}
+                    onChange={(e) => updateField('emergency_contact_name', e.target.value)}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="emergency_contact_phone">Téléphone d'urgence</Label>
+                  <Input
+                    id="emergency_contact_phone"
+                    value={shipment.emergency_contact_phone || ''}
+                    onChange={(e) => updateField('emergency_contact_phone', e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="client_reference">Référence client</Label>
+                  <Input
+                    id="client_reference"
+                    value={shipment.client_reference || ''}
+                    onChange={(e) => updateField('client_reference', e.target.value)}
+                    placeholder="REF-CLIENT-123"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="order_number">Numéro de commande</Label>
+                  <Input
+                    id="order_number"
+                    value={shipment.order_number || ''}
+                    onChange={(e) => updateField('order_number', e.target.value)}
+                    placeholder="CMD-2024-001"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Section instructions */}
+            <div className="border-t pt-6">
+              <h3 className="text-lg font-semibold mb-4">Instructions</h3>
+              <div className="space-y-4">
+                <div>
+                  <Label htmlFor="special_instructions">Instructions spéciales</Label>
+                  <Textarea
+                    id="special_instructions"
+                    value={shipment.special_instructions || ''}
+                    onChange={(e) => updateField('special_instructions', e.target.value)}
+                    placeholder="Instructions particulières pour la manipulation, le transport..."
+                    rows={3}
+                  />
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="delivery_instructions">Instructions de livraison</Label>
+                    <Textarea
+                      id="delivery_instructions"
+                      value={shipment.delivery_instructions || ''}
+                      onChange={(e) => updateField('delivery_instructions', e.target.value)}
+                      placeholder="Instructions pour la livraison..."
+                      rows={2}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="preferred_delivery_time">Heure de livraison préférée</Label>
+                    <Input
+                      id="preferred_delivery_time"
+                      value={shipment.preferred_delivery_time || ''}
+                      onChange={(e) => updateField('preferred_delivery_time', e.target.value)}
+                      placeholder="Ex: Entre 9h et 17h"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Section paiement et dates */}
+            <div className="border-t pt-6">
+              <h3 className="text-lg font-semibold mb-4">Paiement et Dates</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="payment_method">Méthode de paiement</Label>
+                  <Select
+                    value={shipment.payment_method || ''}
+                    onValueChange={(value) => updateField('payment_method', value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Sélectionner" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="card">Carte bancaire</SelectItem>
+                      <SelectItem value="bank_transfer">Virement</SelectItem>
+                      <SelectItem value="cash">Espèces</SelectItem>
+                      <SelectItem value="check">Chèque</SelectItem>
+                      <SelectItem value="account">Compte client</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <Label htmlFor="payment_status">Statut du paiement</Label>
+                  <Select
+                    value={shipment.payment_status || 'pending'}
+                    onValueChange={(value) => updateField('payment_status', value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="pending">En attente</SelectItem>
+                      <SelectItem value="paid">Payé</SelectItem>
+                      <SelectItem value="failed">Échec</SelectItem>
+                      <SelectItem value="refunded">Remboursé</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <Label htmlFor="estimated_delivery">Livraison estimée</Label>
+                  <Input
+                    id="estimated_delivery"
+                    type="datetime-local"
+                    value={shipment.estimated_delivery ? new Date(shipment.estimated_delivery).toISOString().slice(0, 16) : ''}
+                    onChange={(e) => updateField('estimated_delivery', e.target.value ? new Date(e.target.value).toISOString() : null)}
+                  />
                 </div>
               </div>
             </div>
