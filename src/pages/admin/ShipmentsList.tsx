@@ -178,9 +178,7 @@ export function ShipmentsList() {
                             variant="outline"
                             size="sm"
                             onClick={() => {
-                              console.log('Modifier envoi:', shipment.id);
-                              // Pour l'instant, on redirige vers la création d'un nouvel envoi
-                              navigate('/admin/shipments/new');
+                              navigate(`/admin/shipments/edit/${shipment.id}`);
                             }}
                           >
                             <Edit className="w-4 h-4" />

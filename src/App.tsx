@@ -23,6 +23,7 @@ import { AdminLayout } from "./pages/admin/AdminLayout";
 import { AdminDashboard } from "./pages/admin/AdminDashboard";
 import { ShipmentsList } from "./pages/admin/ShipmentsList";
 import { NewShipment } from "./pages/admin/NewShipment";
+import { EditShipment } from "./pages/admin/EditShipment";
 import { ClientsList } from "./pages/admin/ClientsList";
 import { AdminSettings } from "./pages/admin/AdminSettings";
 import { LanguageProvider } from "./context/LanguageContext";
@@ -63,6 +64,7 @@ const App = () => (
               <Route index element={<AdminDashboard />} />
               <Route path="shipments" element={<ShipmentsList />} />
               <Route path="shipments/new" element={<NewShipment />} />
+              <Route path="shipments/edit/:id" element={<EditShipment />} />
               <Route path="clients" element={<ClientsList />} />
               <Route path="settings" element={<AdminSettings />} />
             </Route>
