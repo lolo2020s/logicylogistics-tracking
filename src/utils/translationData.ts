@@ -307,18 +307,34 @@ export const translationData: Record<Language, Record<string, any>> = {
       title: 'Contactez-nous',
       description: 'Notre équipe est à votre disposition pour répondre à vos questions',
       form: {
+        title: 'Envoyez-nous un message',
         name: 'Nom complet',
+        namePlaceholder: 'Votre nom complet',
         email: 'Adresse email',
+        emailPlaceholder: 'votre.email@exemple.com',
         phone: 'Téléphone',
         subject: 'Sujet',
         message: 'Message',
-        send: 'Envoyer le message'
+        messagePlaceholder: 'Décrivez votre demande...',
+        send: 'Envoyer le message',
+        success: {
+          title: 'Message envoyé !',
+          description: 'Nous vous répondrons dans les plus brefs délais.'
+        },
+        error: {
+          title: "Erreur lors de l'envoi",
+          description: 'Veuillez réessayer dans quelques instants.'
+        }
       },
       info: {
         address: 'Adresse',
         phone: 'Téléphone',
         email: 'Email',
-        hours: 'Horaires d\'ouverture'
+        hours: 'Horaires',
+        schedule: 'Lun-Ven: 8h-18h\nSam: 9h-12h'
+      },
+      map: {
+        title: 'Nous trouver'
       }
     },
 
