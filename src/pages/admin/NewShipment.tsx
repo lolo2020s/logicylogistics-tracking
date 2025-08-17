@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -16,8 +16,8 @@ export function NewShipment() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useAuth();
-
   const [formData, setFormData] = useState({
     // Sender info
     sender_name: '',
@@ -109,6 +109,28 @@ export function NewShipment() {
     setError('');
 
     try {
+      // Ensure session is active; refresh if near expiry
+      const { data: sessionData } = await supabase.auth.getSession();
+      const session = sessionData?.session;
+      if (!session) {
+        setError("Votre session a expiré. Merci de vous reconnecter.");
+        navigate(`/auth?redirect=${encodeURIComponent(location.pathname + location.search)}`);
+        setLoading(false);
+        return;
+      }
+
+      const now = Date.now();
+      const expiresAtMs = session.expires_at ? session.expires_at * 1000 : 0;
+      if (expiresAtMs && expiresAtMs - now < 60_000) {
+        const { data: refreshed, error: refreshError } = await supabase.auth.refreshSession();
+        if (refreshError || !refreshed?.session) {
+          setError("Votre session a expiré. Merci de vous reconnecter.");
+          navigate(`/auth?redirect=${encodeURIComponent(location.pathname + location.search)}`);
+          setLoading(false);
+          return;
+        }
+      }
+
       const shipmentData = {
         ...formData,
         user_id: user?.id,
@@ -127,11 +149,27 @@ export function NewShipment() {
         requires_signature: formData.requires_signature === true,
       };
 
-      const { data, error } = await supabase
+      let { data, error } = await supabase
         .from('shipments')
         .insert([shipmentData])
         .select()
         .single();
+
+      if (error) {
+        const msg = (error.message || '').toLowerCase();
+        if (msg.includes('jwt expired') || msg.includes('invalid') || (error as any).code === '401') {
+          const { data: refreshed2, error: refreshError2 } = await supabase.auth.refreshSession();
+          if (!refreshError2 && refreshed2?.session) {
+            const retry = await supabase
+              .from('shipments')
+              .insert([shipmentData])
+              .select()
+              .single();
+            data = retry.data as any;
+            error = retry.error as any;
+          }
+        }
+      }
 
       if (error) throw error;
 
@@ -142,7 +180,13 @@ export function NewShipment() {
 
       navigate('/admin/shipments');
     } catch (err: any) {
-      setError(err.message);
+      const msg = (err?.message || '').toLowerCase();
+      if (msg.includes('jwt expired') || msg.includes('invalid')) {
+        setError("Votre session a expiré. Merci de vous reconnecter.");
+        navigate(`/auth?redirect=${encodeURIComponent(location.pathname + location.search)}`);
+      } else {
+        setError(err?.message || 'Une erreur est survenue.');
+      }
     } finally {
       setLoading(false);
     }

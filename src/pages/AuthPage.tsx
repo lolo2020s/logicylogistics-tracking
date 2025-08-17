@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -19,14 +19,17 @@ export function AuthPage() {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useAuth();
-
   // Redirect if already logged in
   useEffect(() => {
     if (user) {
-      navigate('/admin');
+      const params = new URLSearchParams(location.search);
+      const redirect = params.get('redirect');
+      const target = redirect && redirect.startsWith('/') ? redirect : '/admin';
+      navigate(target);
     }
-  }, [user, navigate]);
+  }, [user, navigate, location.search]);
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,7 +45,10 @@ export function AuthPage() {
       if (error) {
         setError(error.message);
       } else {
-        navigate('/admin');
+        const params = new URLSearchParams(location.search);
+        const redirect = params.get('redirect');
+        const target = redirect && redirect.startsWith('/') ? redirect : '/admin';
+        navigate(target);
       }
     } catch (err: any) {
       setError(err.message);
@@ -64,7 +70,10 @@ export function AuthPage() {
     }
 
     try {
-      const redirectUrl = `${window.location.origin}/admin`;
+      const params = new URLSearchParams(location.search);
+      const redirect = params.get('redirect');
+      const target = redirect && redirect.startsWith('/') ? redirect : '/admin';
+      const redirectUrl = `${window.location.origin}${target}`;
       
       const { error } = await supabase.auth.signUp({
         email,
