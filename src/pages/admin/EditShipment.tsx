@@ -128,7 +128,7 @@ export function EditShipment() {
           .insert({
             shipment_id: id,
             photo_url: publicUrl,
-            photo_type: 'general',
+            photo_type: 'package',
             uploaded_by: user?.id
           });
 
