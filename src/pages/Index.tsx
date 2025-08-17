@@ -1,53 +1,54 @@
-import { useState, useEffect } from 'react';
-import { Header } from '@/components/Header-simple';
-import { Footer } from '@/components/Footer';
+import { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { extractLanguageFromPath } from '@/utils/routeUtils';
+import { useLanguageContext } from '@/context/LanguageContext';
 import { HomePage } from './HomePage';
-import { AboutPage } from './AboutPage';
-import { ContactPage } from './ContactPage';
-import { ServicesPage } from './ServicesPage';
-import { TrackingPage } from './TrackingPage';
-import { TransportRoutierPage } from './TransportRoutierPage';
-import { TransportAerienPage } from './TransportAerienPage';
-import { TransportMaritimePage } from './TransportMaritimePage';
-import { LogistiqueExpressPage } from './LogistiqueExpressPage';
-import { SolutionsSurMesurePage } from './SolutionsSurMesurePage';
-import { ConditionsGeneralesPage } from './ConditionsGeneralesPage';
-import { PolitiqueConfidentialitePage } from './PolitiqueConfidentialitePage';
 
 const Index = () => {
-  const [currentPage, setCurrentPage] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { setLanguage } = useLanguageContext();
 
-  // Scroll to top when page changes
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentPage]);
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'about': return <AboutPage onNavigate={setCurrentPage} />;
-      case 'contact': return <ContactPage />;
-      case 'services': return <ServicesPage onNavigate={setCurrentPage} />;
-      case 'tracking': return <TrackingPage />;
-      case 'transport-routier': return <TransportRoutierPage onNavigate={setCurrentPage} />;
-      case 'transport-aerien': return <TransportAerienPage onNavigate={setCurrentPage} />;
-      case 'transport-maritime': return <TransportMaritimePage onNavigate={setCurrentPage} />;
-      case 'logistique-express': return <LogistiqueExpressPage onNavigate={setCurrentPage} />;
-      case 'solutions-sur-mesure': return <SolutionsSurMesurePage onNavigate={setCurrentPage} />;
-      case 'conditions-generales': return <ConditionsGeneralesPage onNavigate={setCurrentPage} />;
-      case 'politique-confidentialite': return <PolitiqueConfidentialitePage onNavigate={setCurrentPage} />;
-      default: return <HomePage onNavigate={setCurrentPage} />;
+    // Extract language and clean path from current URL
+    const { language, cleanPath } = extractLanguageFromPath(location.pathname);
+    
+    // Set the language context
+    setLanguage(language);
+    
+    // If we're on the root paths, show the home page
+    if (cleanPath === '/' || cleanPath === '') {
+      // This is the home page, no need to redirect
+      return;
     }
-  };
+    
+    // For any other path, navigate to the appropriate route
+    // This ensures the correct component is loaded based on the URL
+    navigate(location.pathname, { replace: true });
+  }, [location.pathname, navigate, setLanguage]);
 
-  return (
-    <div className="min-h-screen bg-background">
-      <Header currentPage={currentPage} onNavigate={setCurrentPage} />
-      <main className="flex-1">
-        {renderPage()}
-      </main>
-      <Footer onNavigate={setCurrentPage} />
-    </div>
-  );
+  // This component now only handles the home page
+  return <HomePage onNavigate={(page) => {
+    // Convert internal navigation to proper routing
+    const pathMap: Record<string, string> = {
+      'about': '/a-propos',
+      'contact': '/contact', 
+      'services': '/services',
+      'tracking': '/suivi',
+      'transport-routier': '/transport-routier',
+      'transport-aerien': '/transport-aerien',
+      'transport-maritime': '/transport-maritime',
+      'logistique-express': '/logistique-express',
+      'solutions-sur-mesure': '/solutions-sur-mesure',
+      'conditions-generales': '/conditions-generales',
+      'politique-confidentialite': '/politique-confidentialite'
+    };
+    
+    const path = pathMap[page];
+    if (path) {
+      navigate(path);
+    }
+  }} />;
 };
 
 export default Index;
