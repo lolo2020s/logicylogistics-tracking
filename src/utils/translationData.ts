@@ -200,7 +200,7 @@ export const translationData: Record<Language, Record<string, any>> = {
         },
         s6: {
           title: "6. Vos droits",
-          content: "Conformément au RGPD, vous disposez des droits suivants :\n\n• Droit d'accès : connaître les données que nous détenons sur vous\n• Droit de rectification : corriger les données inexactes\n• Droit d'effacement : demander la suppression de vos données\n• Droit d'opposition : vous opposer au traitement pour motif légitime\n• Droit à la portabilité : récupérer vos données dans un format lisible\n• Droit de limitation : restreindre l'utilisation de vos données\n\nPour exercer ces droits, contactez-nous à privacy@logicy-transport.com"
+          content: "Conformément au RGPD, vous disposez des droits suivants :\n\n• Droit d'accès : connaître les données que nous détenons sur vous\n• Droit de rectification : corriger les données inexactes\n• Droit d'effacement : demander la suppression de vos données\n• Droit d'opposition : vous opposer au traitement pour motif légitime\n• Droit à la portabilité : récupérer vos données dans un format lisible\n• Droit de limitation : restreindre l'utilisation de vos données\n\nPour exercer ces droits, contactez-nous à privacy@logixy-transport.com"
         },
         s7: {
           title: "7. Sécurité des données",
@@ -216,7 +216,7 @@ export const translationData: Record<Language, Record<string, any>> = {
         },
         s10: {
           title: "10. Contact et réclamations",
-          content: "Pour toute question relative à cette politique :\n\n• Email : privacy@logicy-transport.com\n• Courrier : DPO - LOGICY TRANSPORT, Gesworenhoekseweg 4, 5047 TM Tilburg, Pays-Bas\n• Téléphone : +31626018693\n\nVous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr) si vous estimez que vos droits ne sont pas respectés."
+          content: "Pour toute question relative à cette politique :\n\n• Email : privacy@logixy-transport.com\n• Courrier : DPO - LOGICY TRANSPORT, Gesworenhoekseweg 4, 5047 TM Tilburg, Pays-Bas\n• Téléphone : +31626018693\n\nVous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr) si vous estimez que vos droits ne sont pas respectés."
         }
       }
     },
@@ -792,7 +792,22 @@ export const translationData: Record<Language, Record<string, any>> = {
         success: {
           title: '¡Mensaje enviado!',
           description: 'Le responderemos a la brevedad.'
+        },
+        error: {
+          title: 'Error al enviar',
+          description: 'Por favor, intente de nuevo en unos momentos.'
         }
+      },
+      info: {
+        address: 'Dirección',
+        phone: 'Teléfono',
+        email: 'Email',
+        hours: 'Horarios',
+        schedule: 'Lun-Vie: 8h-18h\nSáb: 9h-12h'
+      },
+      map: {
+        title: 'Encuéntranos'
+      }
     },
 
     // Quote page
@@ -1335,18 +1350,21 @@ export const translationData: Record<Language, Record<string, any>> = {
         success: {
           title: 'Nachricht gesendet!',
           description: 'Wir werden Ihnen so schnell wie möglich antworten.'
+        },
+        error: {
+          title: 'Fehler beim Senden',
+          description: 'Bitte versuchen Sie es in wenigen Augenblicken erneut.'
         }
       },
       info: {
-        email: 'E-Mail',
-        phone: 'Telefon',
         address: 'Adresse',
+        phone: 'Telefon',
+        email: 'E-Mail',
         hours: 'Öffnungszeiten',
-        schedule: 'Mo-Fr: 8-18 Uhr\nSa: 9-12 Uhr'
+        schedule: 'Mo-Fr: 8h-18h\nSa: 9h-12h'
       },
       map: {
-        title: 'Finden Sie uns',
-        note: '* Eine interaktive Karte wird bald verfügbar sein, um Ihren Besuch zu erleichtern'
+        title: 'Finden Sie uns'
       }
     },
 
@@ -1878,18 +1896,21 @@ export const translationData: Record<Language, Record<string, any>> = {
         success: {
           title: 'Messaggio inviato!',
           description: 'Vi risponderemo il prima possibile.'
+        },
+        error: {
+          title: 'Errore nell\'invio',
+          description: 'Per favore, riprovate tra qualche istante.'
         }
       },
       info: {
-        email: 'Email',
-        phone: 'Telefono',
         address: 'Indirizzo',
-        hours: 'Orari di apertura',
-        schedule: 'Lun-Ven: 8-18\nSab: 9-12'
+        phone: 'Telefono',
+        email: 'Email',
+        hours: 'Orari',
+        schedule: 'Lun-Ven: 8h-18h\nSab: 9h-12h'
       },
       map: {
-        title: 'Trovateci',
-        note: '* Una mappa interattiva sarà presto disponibile per facilitare la vostra visita'
+        title: 'Trovateci'
       }
     },
 
@@ -2421,18 +2442,21 @@ export const translationData: Record<Language, Record<string, any>> = {
         success: {
           title: 'Mensagem enviada!',
           description: 'Responderemos o mais breve possível.'
+        },
+        error: {
+          title: 'Erro ao enviar',
+          description: 'Por favor, tente novamente em alguns instantes.'
         }
       },
       info: {
-        email: 'Email',
-        phone: 'Telefone',
         address: 'Endereço',
-        hours: 'Horário de funcionamento',
+        phone: 'Telefone',
+        email: 'Email',
+        hours: 'Horários',
         schedule: 'Seg-Sex: 8h-18h\nSáb: 9h-12h'
       },
       map: {
-        title: 'Encontre-nos',
-        note: '* Um mapa interativo estará disponível em breve para facilitar sua visita'
+        title: 'Encontre-nos'
       }
     },
 
@@ -2901,7 +2925,7 @@ export const translationData: Record<Language, Record<string, any>> = {
         },
         s6: {
           title: "6. Seus direitos",
-          content: "Em conformidade com o RGPD, você dispõe dos seguintes direitos:\n\n• Direito de acesso: conhecer os dados que possuímos sobre você\n• Direito de retificação: corrigir dados inexatos\n• Direito de apagamento: solicitar a supressão de seus dados\n• Direito de oposição: opor-se ao tratamento por motivo legítimo\n• Direito à portabilidade: recuperar seus dados em formato legível\n• Direito de limitação: restringir o uso de seus dados\n\nPara exercer estes direitos, entre em contato conosco em privacy@logicy-transport.com"
+          content: "Em conformidade com o RGPD, você dispõe dos seguintes direitos:\n\n• Direito de acesso: conhecer os dados que possuímos sobre você\n• Direito de retificação: corrigir dados inexatos\n• Direito de apagamento: solicitar a supressão de seus dados\n• Direito de oposição: opor-se ao tratamento por motivo legítimo\n• Direito à portabilidade: recuperar seus dados em formato legível\n• Direito de limitação: restringir o uso de seus dados\n\nPara exercer estes direitos, entre em contato conosco em privacy@logixy-transport.com"
         },
         s7: {
           title: "7. Segurança dos dados",
@@ -2917,7 +2941,7 @@ export const translationData: Record<Language, Record<string, any>> = {
         },
         s10: {
           title: "10. Contato e reclamações",
-          content: "Para qualquer questão relativa a esta política:\n\n• Email: privacy@logicy-transport.com\n• Correspondência: DPO - LOGICY TRANSPORT, Gesworenhoekseweg 4, 5047 TM Tilburg, Países Baixos\n• Telefone: +31626018693\n\nVocê também pode apresentar uma reclamação junto à CNIL (www.cnil.fr) se considerar que seus direitos não são respeitados."
+          content: "Para qualquer questão relativa a esta política:\n\n• Email: privacy@logixy-transport.com\n• Correspondência: DPO - LOGICY TRANSPORT, Gesworenhoekseweg 4, 5047 TM Tilburg, Países Baixos\n• Telefone: +31626018693\n\nVocê também pode apresentar uma reclamação junto à CNIL (www.cnil.fr) se considerar que seus direitos não são respeitados."
         }
       }
     }
