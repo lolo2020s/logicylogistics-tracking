@@ -26,6 +26,7 @@ interface AppSettings {
 }
 
 export function AdminSettings() {
+  console.log('AdminSettings component loaded');
   const [settings, setSettings] = useState<AppSettings>({
     siteName: 'LOGICY TRANSPORT',
     siteDescription: 'Solutions logistiques professionnelles',

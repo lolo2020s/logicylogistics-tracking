@@ -28,6 +28,7 @@ export function ClientsList() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
   useEffect(() => {
+    console.log('ClientsList component mounted');
     loadClients();
   }, []);
 

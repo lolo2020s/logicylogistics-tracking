@@ -68,7 +68,12 @@ export function AdminSidebar() {
               {mainItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <NavLink to={item.url} end className={getNavCls}>
+                    <NavLink 
+                      to={item.url} 
+                      end 
+                      className={getNavCls}
+                      onClick={() => console.log('AdminSidebar - Navigating to:', item.url)}
+                    >
                       <item.icon className="mr-2 h-4 w-4" />
                       {open && <span>{item.title}</span>}
                     </NavLink>
@@ -87,7 +92,11 @@ export function AdminSidebar() {
               {settingsItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <NavLink to={item.url} className={getNavCls}>
+                    <NavLink 
+                      to={item.url} 
+                      className={getNavCls}
+                      onClick={() => console.log('AdminSidebar - Navigating to settings:', item.url)}
+                    >
                       <item.icon className="mr-2 h-4 w-4" />
                       {open && <span>{item.title}</span>}
                     </NavLink>
