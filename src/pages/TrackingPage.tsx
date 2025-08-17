@@ -7,15 +7,17 @@ import { useLanguageContext } from '@/context/LanguageContext';
 import { extractLanguageFromPath } from '@/utils/routeUtils';
 
 export function TrackingPage() {
-  const { t } = useTranslation();
+  const { t, currentLanguage } = useTranslation();
   const location = useLocation();
   const { setLanguage } = useLanguageContext();
 
   useEffect(() => {
     // Extract and set language from URL
     const { language } = extractLanguageFromPath(location.pathname);
-    setLanguage(language);
-  }, [location.pathname, setLanguage]);
+    if (language !== currentLanguage) {
+      setLanguage(language);
+    }
+  }, [location.pathname, setLanguage, currentLanguage]);
 
   return (
     <PageLayout currentPage="tracking">

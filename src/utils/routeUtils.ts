@@ -31,6 +31,7 @@ export function buildLocalizedPath(path: string, language: Language): string {
 }
 
 export function getLocalizedNavigation(currentLanguage: Language) {
+  // Use French paths as base for all languages since routes are same
   const basePaths = {
     home: '/',
     tracking: '/suivi',
