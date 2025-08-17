@@ -92,7 +92,8 @@ export const translationData: Record<Language, Record<string, any>> = {
       signatureCapture: 'Capture de signature',
       signature: 'Signature',
       trackingHistory: 'Historique du suivi',
-      noHistory: 'Aucun historique disponible'
+      noHistory: 'Aucun historique disponible',
+      packagePhoto: 'Photo du colis'
     },
 
     // Services
@@ -554,7 +555,8 @@ export const translationData: Record<Language, Record<string, any>> = {
       signatureCapture: 'Captura de firma',
       signature: 'Firma',
       trackingHistory: 'Historial de seguimiento',
-      noHistory: 'No hay historial disponible'
+      noHistory: 'No hay historial disponible',
+      packagePhoto: 'Foto del paquete'
     },
 
     // Services

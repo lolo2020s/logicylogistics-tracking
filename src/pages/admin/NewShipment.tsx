@@ -10,11 +10,14 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/context/AuthContext';
 import { Loader2, Package, User, MapPin, Phone, Mail, AlertTriangle, CreditCard, Shield, FileText, Clock } from 'lucide-react';
+import { PhotoUpload } from '@/components/PhotoUpload';
 import { toast } from '@/hooks/use-toast';
 
 export function NewShipment() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [createdShipmentId, setCreatedShipmentId] = useState<string | null>(null);
+  const [uploadedPhotos, setUploadedPhotos] = useState<any[]>([]);
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuth();
@@ -194,10 +197,67 @@ export function NewShipment() {
 
       if (error) throw error;
 
+      // Store the created shipment ID for photo uploads
+      setCreatedShipmentId(data.id);
+
       toast({
         title: "Envoi créé avec succès !",
         description: `Numéro de tracking: ${data.tracking_number}`,
       });
+
+      // Upload photos if any
+      if (uploadedPhotos.length > 0) {
+        try {
+          // Manually trigger photo upload for the newly created shipment
+          const uploadPromises = uploadedPhotos.map(async (photo) => {
+            if (photo.uploaded || !photo.file) return photo;
+
+            const fileExt = photo.file.name.split('.').pop();
+            const fileName = `${data.id}/${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
+
+            // Upload to storage
+            const { data: uploadData, error: uploadError } = await supabase.storage
+              .from('shipment-photos')
+              .upload(fileName, photo.file);
+
+            if (uploadError) throw uploadError;
+
+            // Get public URL
+            const { data: { publicUrl } } = supabase.storage
+              .from('shipment-photos')
+              .getPublicUrl(fileName);
+
+            // Save to database
+            const { error: dbError } = await supabase
+              .from('shipment_photos')
+              .insert({
+                shipment_id: data.id,
+                photo_url: publicUrl,
+                photo_type: photo.type,
+                description: photo.description || null,
+                uploaded_by: user?.id
+              });
+
+            if (dbError) throw dbError;
+
+            return true;
+          });
+
+          await Promise.all(uploadPromises);
+          
+          toast({
+            title: "Photos uploadées",
+            description: `${uploadedPhotos.length} photo(s) ajoutée(s) à l'envoi.`,
+          });
+        } catch (uploadError) {
+          console.error('Photo upload error:', uploadError);
+          toast({
+            title: "Erreur d'upload des photos",
+            description: "L'envoi a été créé mais certaines photos n'ont pas pu être uploadées.",
+            variant: "destructive"
+          });
+        }
+      }
 
       navigate('/admin/shipments');
     } catch (err: any) {
@@ -806,6 +866,12 @@ export function NewShipment() {
               </div>
             </CardContent>
           </Card>
+
+          {/* Photos Upload */}
+          <PhotoUpload 
+            onPhotosChange={setUploadedPhotos}
+            maxPhotos={10}
+          />
 
         {error && (
           <Alert variant="destructive">
