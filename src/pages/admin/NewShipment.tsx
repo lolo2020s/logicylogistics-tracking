@@ -75,7 +75,6 @@ export function NewShipment() {
     current_location: '',
     current_latitude: '',
     current_longitude: '',
-    google_maps_link: '',
   });
 
   const extractCoordinatesFromGoogleMaps = (link: string) => {
@@ -89,7 +88,6 @@ export function NewShipment() {
         ...prev,
         current_latitude: lat,
         current_longitude: lng,
-        google_maps_link: link
       }));
     }
   };
@@ -97,10 +95,7 @@ export function NewShipment() {
   const handleInputChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     
-    // Auto-extract coordinates if Google Maps link is pasted
-    if (field === 'google_maps_link' && typeof value === 'string' && value.includes('google.com/maps')) {
-      extractCoordinatesFromGoogleMaps(value);
-    }
+    // Note: Google Maps link handled separately, no longer stored in formData
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -477,12 +472,16 @@ export function NewShipment() {
               
               <div>
                 <label className="block text-sm font-medium mb-2">
-                  Lien Google Maps 
+                  Lien Google Maps (temporaire)
                   <span className="text-xs text-muted-foreground ml-1">(optionnel - extrait automatiquement les coordonnées)</span>
                 </label>
                 <Input
-                  value={formData.google_maps_link}
-                  onChange={(e) => handleInputChange('google_maps_link', e.target.value)}
+                  onChange={(e) => {
+                    const link = e.target.value;
+                    if (link.includes('google.com/maps')) {
+                      extractCoordinatesFromGoogleMaps(link);
+                    }
+                  }}
                   placeholder="Ex: https://maps.google.com/..."
                 />
               </div>
