@@ -89,6 +89,25 @@ export function TrackingSearch() {
           });
         }
       )
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'shipments',
+          filter: `id=eq.${result.id}`
+        },
+        (payload) => {
+          console.log('Shipment location update received:', payload);
+          toast.success('Localisation mise à jour', {
+            description: 'La position du véhicule a été mise à jour',
+            action: {
+              label: t('tracking.refresh'),
+              onClick: () => handleSearch()
+            }
+          });
+        }
+      )
       .subscribe();
 
     return () => {
