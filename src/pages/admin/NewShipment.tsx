@@ -33,6 +33,7 @@ export function NewShipment() {
     // Shipment details
     transport_mode: '',
     shipment_type: '',
+    package_type: '',
     weight: '',
     dimensions: '',
     estimated_delivery: '',
@@ -222,6 +223,20 @@ export function NewShipment() {
                     <SelectItem value="standard">Standard</SelectItem>
                     <SelectItem value="express">Express</SelectItem>
                     <SelectItem value="premium">Premium</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">Type de colis</label>
+                <Select value={formData.package_type} onValueChange={(value) => handleInputChange('package_type', value)}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Sélectionnez le type de colis" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="package">Colis</SelectItem>
+                    <SelectItem value="document">Document</SelectItem>
+                    <SelectItem value="vehicle">Véhicule</SelectItem>
+                    <SelectItem value="cargo">Cargaison</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

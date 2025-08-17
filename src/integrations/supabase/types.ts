@@ -101,6 +101,7 @@ export type Database = {
           dimensions: Json | null
           estimated_delivery: string | null
           id: string
+          package_type: string | null
           receiver_address: string
           receiver_city: string
           receiver_country: string
@@ -125,6 +126,7 @@ export type Database = {
           dimensions?: Json | null
           estimated_delivery?: string | null
           id?: string
+          package_type?: string | null
           receiver_address: string
           receiver_city: string
           receiver_country: string
@@ -149,6 +151,7 @@ export type Database = {
           dimensions?: Json | null
           estimated_delivery?: string | null
           id?: string
+          package_type?: string | null
           receiver_address?: string
           receiver_city?: string
           receiver_country?: string
