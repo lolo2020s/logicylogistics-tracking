@@ -34,6 +34,9 @@ interface ShipmentData {
   description?: string;
   weight?: number;
   dimensions?: any;
+  current_location?: string;
+  current_latitude?: number;
+  current_longitude?: number;
 }
 
 export function EditShipment() {
@@ -228,6 +231,9 @@ export function EditShipment() {
         transport_mode: shipment.transport_mode,
         weight: shipment.weight || null,
         dimensions: dimensionsData || null,
+        current_location: shipment.current_location || null,
+        current_latitude: shipment.current_latitude || null,
+        current_longitude: shipment.current_longitude || null,
       };
 
       // Only add description if it exists
@@ -410,75 +416,112 @@ export function EditShipment() {
             <CardTitle>Détails de l'Envoi</CardTitle>
             <CardDescription>Informations sur le transport et le statut</CardDescription>
           </CardHeader>
-          <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-              <Label htmlFor="transport_mode">Mode de Transport</Label>
-              <Select
-                value={shipment.transport_mode}
-                onValueChange={(value) => updateField('transport_mode', value)}
-              >
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="road">Routier</SelectItem>
-                  <SelectItem value="air">Aérien</SelectItem>
-                  <SelectItem value="maritime">Maritime</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            
-            <div>
-              <Label htmlFor="current_status">Statut</Label>
-              <Select
-                value={shipment.current_status}
-                onValueChange={(value) => updateField('current_status', value)}
-              >
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="pending">En attente</SelectItem>
-                  <SelectItem value="in_transit">En transit</SelectItem>
-                  <SelectItem value="delivered">Livré</SelectItem>
-                  <SelectItem value="cancelled">Annulé</SelectItem>
-                </SelectContent>
-              </Select>
+          <CardContent className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <Label htmlFor="transport_mode">Mode de Transport</Label>
+                <Select
+                  value={shipment.transport_mode}
+                  onValueChange={(value) => updateField('transport_mode', value)}
+                >
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="road">Routier</SelectItem>
+                    <SelectItem value="air">Aérien</SelectItem>
+                    <SelectItem value="maritime">Maritime</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div>
+                <Label htmlFor="current_status">Statut</Label>
+                <Select
+                  value={shipment.current_status}
+                  onValueChange={(value) => updateField('current_status', value)}
+                >
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="pending">En attente</SelectItem>
+                    <SelectItem value="in_transit">En transit</SelectItem>
+                    <SelectItem value="delivered">Livré</SelectItem>
+                    <SelectItem value="cancelled">Annulé</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <Label htmlFor="weight">Poids (kg)</Label>
+                <Input
+                  id="weight"
+                  type="number"
+                  value={shipment.weight || ''}
+                  onChange={(e) => updateField('weight', parseFloat(e.target.value) || 0)}
+                />
+              </div>
+
+              <div className="md:col-span-2">
+                <Label htmlFor="description">Description</Label>
+                <Textarea
+                  id="description"
+                  value={shipment.description || ''}
+                  onChange={(e) => updateField('description', e.target.value)}
+                  placeholder="Description du contenu de l'envoi"
+                />
+              </div>
+
+               <div>
+                 <Label htmlFor="dimensions">Dimensions</Label>
+                 <Input
+                   id="dimensions"
+                   value={
+                     typeof shipment.dimensions === 'object' && shipment.dimensions?.description
+                       ? shipment.dimensions.description
+                       : (shipment.dimensions || '')
+                   }
+                   onChange={(e) => updateField('dimensions', e.target.value)}
+                   placeholder="L x l x h (cm)"
+                 />
+               </div>
             </div>
 
-            <div>
-              <Label htmlFor="weight">Poids (kg)</Label>
-              <Input
-                id="weight"
-                type="number"
-                value={shipment.weight || ''}
-                onChange={(e) => updateField('weight', parseFloat(e.target.value) || 0)}
-              />
+            {/* Section de localisation du véhicule */}
+            <div className="border-t pt-6">
+              <h3 className="text-lg font-semibold mb-4">Localisation Actuelle du Véhicule</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="md:col-span-2">
+                  <Label htmlFor="current_location">Lieu Actuel</Label>
+                  <Input
+                    id="current_location"
+                    value={shipment.current_location || ''}
+                    onChange={(e) => updateField('current_location', e.target.value)}
+                    placeholder="Ex: Paris, France - Centre de tri"
+                  />
+                </div>
+                <div className="md:col-span-1">
+                  <Label className="text-sm text-muted-foreground">Coordonnées GPS</Label>
+                  <div className="grid grid-cols-2 gap-2">
+                    <Input
+                      type="number"
+                      step="any"
+                      value={shipment.current_latitude || ''}
+                      onChange={(e) => updateField('current_latitude', parseFloat(e.target.value) || null)}
+                      placeholder="Latitude"
+                    />
+                    <Input
+                      type="number"
+                      step="any"
+                      value={shipment.current_longitude || ''}
+                      onChange={(e) => updateField('current_longitude', parseFloat(e.target.value) || null)}
+                      placeholder="Longitude"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div className="md:col-span-2">
-              <Label htmlFor="description">Description</Label>
-              <Textarea
-                id="description"
-                value={shipment.description || ''}
-                onChange={(e) => updateField('description', e.target.value)}
-                placeholder="Description du contenu de l'envoi"
-              />
-            </div>
-
-             <div>
-               <Label htmlFor="dimensions">Dimensions</Label>
-               <Input
-                 id="dimensions"
-                 value={
-                   typeof shipment.dimensions === 'object' && shipment.dimensions?.description
-                     ? shipment.dimensions.description
-                     : (shipment.dimensions || '')
-                 }
-                 onChange={(e) => updateField('dimensions', e.target.value)}
-                 placeholder="L x l x h (cm)"
-               />
-             </div>
           </CardContent>
         </Card>
 
