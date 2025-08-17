@@ -26,6 +26,12 @@ export const translationData: Record<Language, Record<string, any>> = {
       success: 'Succès'
     },
 
+    // 404 Page
+    notFound: {
+      message: 'Oops ! Page non trouvée',
+      returnHome: 'Retour à l\'accueil'
+    },
+
     // Home page
     home: {
       title: 'Depuis 2007, LOGICY TRANSPORT livre vos colis, cargaisons et véhicules partout dans le monde avec fiabilité et prestige',
@@ -614,6 +620,12 @@ export const translationData: Record<Language, Record<string, any>> = {
       success: 'Éxito'
     },
 
+    // 404 Page
+    notFound: {
+      message: '¡Oops! Página no encontrada',
+      returnHome: 'Volver al inicio'
+    },
+
     // Home page
     home: {
       title: 'Desde 2007, LOGICY TRANSPORT entrega sus paquetes, carga y vehículos en todo el mundo con confiabilidad y prestigio',
@@ -1179,6 +1191,12 @@ export const translationData: Record<Language, Record<string, any>> = {
       success: 'Erfolg'
     },
 
+    // 404 Page
+    notFound: {
+      message: 'Oops! Seite nicht gefunden',
+      returnHome: 'Zurück zur Startseite'
+    },
+
     // Home page
     home: {
       title: 'Seit 2007 liefert LOGICY TRANSPORT Ihre Pakete, Fracht und Fahrzeuge weltweit mit Zuverlässigkeit und Prestige',
@@ -1722,6 +1740,12 @@ export const translationData: Record<Language, Record<string, any>> = {
       success: 'Successo'
     },
 
+    // 404 Page
+    notFound: {
+      message: 'Oops! Pagina non trovata',
+      returnHome: 'Torna alla home'
+    },
+
     // Home page
     home: {
       title: 'Dal 2007, LOGICY TRANSPORT consegna i vostri pacchi, merci e veicoli in tutto il mondo con affidabilità e prestigio',
@@ -2263,6 +2287,12 @@ export const translationData: Record<Language, Record<string, any>> = {
       loading: 'Carregando...',
       error: 'Erro',
       success: 'Sucesso'
+    },
+
+    // 404 Page
+    notFound: {
+      message: 'Oops! Página não encontrada',
+      returnHome: 'Voltar ao início'
     },
 
     // Home page
