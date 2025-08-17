@@ -21,51 +21,70 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     console.log('AuthContext: Starting initialization...');
     
-    // Set up auth state listener FIRST
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        console.log('AuthContext: Auth state changed:', event, session?.user?.email);
-        setSession(session);
-        setUser(session?.user ?? null);
-        
-        if (session?.user) {
-          console.log('AuthContext: User found, setting as admin for now...');
-          setIsAdmin(true); // Temporairement, on met tous les utilisateurs connectés comme admin
-          setLoading(false);
-        } else {
-          console.log('AuthContext: No user, setting loading to false');
-          setIsAdmin(false);
-          setLoading(false);
-        }
-      }
-    );
-
-    // THEN check for existing session
-    console.log('AuthContext: Checking existing session...');
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      console.log('AuthContext: Existing session:', session?.user?.email);
+    // Get initial session
+    const getInitialSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      console.log('AuthContext: Initial session:', session?.user?.email || 'No user');
+      
       setSession(session);
       setUser(session?.user ?? null);
       
       if (session?.user) {
-        console.log('AuthContext: Existing user found, setting as admin for now...');
-        setIsAdmin(true); // Temporairement
-        setLoading(false);
+        // Temporairement, tous les utilisateurs connectés sont admin
+        setIsAdmin(true);
       } else {
-        console.log('AuthContext: No existing user');
+        setIsAdmin(false);
+      }
+      
+      setLoading(false);
+    };
+
+    getInitialSession();
+
+    // Set up auth state listener
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        console.log('AuthContext: Auth state changed:', event, session?.user?.email || 'No user');
+        setSession(session);
+        setUser(session?.user ?? null);
+        
+        if (session?.user) {
+          // Temporairement, tous les utilisateurs connectés sont admin
+          setIsAdmin(true);
+        } else {
+          setIsAdmin(false);
+        }
         setLoading(false);
       }
-    });
+    );
 
     return () => subscription.unsubscribe();
   }, []);
 
   const signOut = async () => {
+    console.log('AuthContext: Signing out...');
     await supabase.auth.signOut();
+    setUser(null);
+    setSession(null);
+    setIsAdmin(false);
   };
 
+  const value = {
+    user,
+    session,
+    isAdmin,
+    loading,
+    signOut,
+  };
+
+  console.log('AuthContext: Current state:', { 
+    user: user?.email || 'No user', 
+    isAdmin, 
+    loading 
+  });
+
   return (
-    <AuthContext.Provider value={{ user, session, isAdmin, loading, signOut }}>
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   );

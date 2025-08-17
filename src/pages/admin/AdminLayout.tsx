@@ -10,7 +10,7 @@ export function AdminLayout() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('AdminLayout - user:', user);
+    console.log('AdminLayout - user:', user?.email || 'No user');
     console.log('AdminLayout - isAdmin:', isAdmin);
     console.log('AdminLayout - loading:', loading);
     
@@ -18,10 +18,14 @@ export function AdminLayout() {
       if (!user) {
         console.log('AdminLayout - No user, redirecting to /auth');
         navigate('/auth');
-      } else if (!isAdmin) {
+        return;
+      } 
+      if (!isAdmin) {
         console.log('AdminLayout - User not admin, redirecting to /');
         navigate('/');
+        return;
       }
+      console.log('AdminLayout - User is admin, proceeding...');
     }
   }, [user, isAdmin, loading, navigate]);
 

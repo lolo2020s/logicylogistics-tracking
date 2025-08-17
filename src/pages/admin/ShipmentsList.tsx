@@ -166,14 +166,22 @@ export function ShipmentsList() {
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => navigate(`/admin/shipments/${shipment.id}`)}
+                            onClick={() => {
+                              console.log('Voir envoi:', shipment.id);
+                              // Pour l'instant, on affiche les détails dans un toast
+                              alert(`Détails de l'envoi ${shipment.tracking_number}`);
+                            }}
                           >
                             <Eye className="w-4 h-4" />
                           </Button>
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => navigate(`/admin/shipments/${shipment.id}/edit`)}
+                            onClick={() => {
+                              console.log('Modifier envoi:', shipment.id);
+                              // Pour l'instant, on redirige vers la création d'un nouvel envoi
+                              navigate('/admin/shipments/new');
+                            }}
                           >
                             <Edit className="w-4 h-4" />
                           </Button>
