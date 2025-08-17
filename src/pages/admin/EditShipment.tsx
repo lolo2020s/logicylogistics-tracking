@@ -7,8 +7,16 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { supabase } from '@/integrations/supabase/client';
-import { ArrowLeft, Save } from 'lucide-react';
+import { ArrowLeft, Save, Upload, X, Eye } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+
+interface ShipmentPhoto {
+  id: string;
+  photo_url: string;
+  photo_type: string;
+  description?: string;
+  created_at: string;
+}
 
 interface ShipmentData {
   id: string;
@@ -35,10 +43,13 @@ export function EditShipment() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [shipment, setShipment] = useState<ShipmentData | null>(null);
+  const [photos, setPhotos] = useState<ShipmentPhoto[]>([]);
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     if (id) {
       loadShipment();
+      loadPhotos();
     }
   }, [id]);
 
@@ -61,6 +72,108 @@ export function EditShipment() {
       });
     } finally {
       setLoading(false);
+    }
+  };
+
+  const loadPhotos = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('shipment_photos')
+        .select('*')
+        .eq('shipment_id', id)
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      setPhotos(data || []);
+    } catch (error) {
+      console.error('Error loading photos:', error);
+    }
+  };
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (!files || !id) return;
+
+    setUploading(true);
+    try {
+      for (const file of Array.from(files)) {
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${id}/${Date.now()}.${fileExt}`;
+
+        // Upload file to storage
+        const { error: uploadError } = await supabase.storage
+          .from('shipment-photos')
+          .upload(fileName, file);
+
+        if (uploadError) throw uploadError;
+
+        // Get public URL
+        const { data: { publicUrl } } = supabase.storage
+          .from('shipment-photos')
+          .getPublicUrl(fileName);
+
+        // Save photo record
+        const { error: dbError } = await supabase
+          .from('shipment_photos')
+          .insert({
+            shipment_id: id,
+            photo_url: publicUrl,
+            photo_type: 'general',
+            uploaded_by: (await supabase.auth.getUser()).data.user?.id
+          });
+
+        if (dbError) throw dbError;
+      }
+
+      await loadPhotos();
+      toast({
+        title: 'Succès',
+        description: 'Photos ajoutées avec succès',
+      });
+    } catch (error) {
+      console.error('Error uploading photos:', error);
+      toast({
+        variant: 'destructive',
+        title: 'Erreur',
+        description: 'Impossible d\'ajouter les photos',
+      });
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const deletePhoto = async (photoId: string, photoUrl: string) => {
+    try {
+      // Extract file path from URL
+      const fileName = photoUrl.split('/').slice(-2).join('/');
+      
+      // Delete from storage
+      const { error: storageError } = await supabase.storage
+        .from('shipment-photos')
+        .remove([fileName]);
+
+      if (storageError) throw storageError;
+
+      // Delete from database
+      const { error: dbError } = await supabase
+        .from('shipment_photos')
+        .delete()
+        .eq('id', photoId);
+
+      if (dbError) throw dbError;
+
+      await loadPhotos();
+      toast({
+        title: 'Succès',
+        description: 'Photo supprimée avec succès',
+      });
+    } catch (error) {
+      console.error('Error deleting photo:', error);
+      toast({
+        variant: 'destructive',
+        title: 'Erreur',
+        description: 'Impossible de supprimer la photo',
+      });
     }
   };
 
@@ -318,6 +431,86 @@ export function EditShipment() {
                 placeholder="L x l x h (cm)"
               />
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Photos du colis */}
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            <CardTitle>Photos du Colis</CardTitle>
+            <CardDescription>Gérez les photos associées à cet envoi</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {/* Upload de nouvelles photos */}
+            <div>
+              <Label htmlFor="photo-upload">Ajouter des photos</Label>
+              <div className="flex items-center space-x-2">
+                <input
+                  id="photo-upload"
+                  type="file"
+                  multiple
+                  accept="image/*"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                />
+                <Button
+                  variant="outline"
+                  onClick={() => document.getElementById('photo-upload')?.click()}
+                  disabled={uploading}
+                >
+                  <Upload className="w-4 h-4 mr-2" />
+                  {uploading ? 'Upload en cours...' : 'Sélectionner des photos'}
+                </Button>
+              </div>
+            </div>
+
+            {/* Affichage des photos existantes */}
+            {photos.length > 0 && (
+              <div>
+                <Label>Photos existantes ({photos.length})</Label>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
+                  {photos.map((photo) => (
+                    <div key={photo.id} className="relative group">
+                      <img
+                        src={photo.photo_url}
+                        alt={photo.description || 'Photo du colis'}
+                        className="w-full h-32 object-cover rounded-lg border"
+                      />
+                      <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center space-x-2">
+                        <Button
+                          size="sm"
+                          variant="secondary"
+                          onClick={() => window.open(photo.photo_url, '_blank')}
+                        >
+                          <Eye className="w-4 h-4" />
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="destructive"
+                          onClick={() => deletePhoto(photo.id, photo.photo_url)}
+                        >
+                          <X className="w-4 h-4" />
+                        </Button>
+                      </div>
+                      {photo.description && (
+                        <p className="text-xs text-muted-foreground mt-1 truncate">
+                          {photo.description}
+                        </p>
+                      )}
+                      <p className="text-xs text-muted-foreground">
+                        {new Date(photo.created_at).toLocaleDateString('fr-FR')}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {photos.length === 0 && (
+              <div className="text-center py-8 text-muted-foreground">
+                Aucune photo ajoutée pour cet envoi
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>
