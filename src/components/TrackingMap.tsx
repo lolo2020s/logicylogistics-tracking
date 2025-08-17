@@ -20,9 +20,11 @@ interface TrackingMapProps {
 export function TrackingMap({ trackingData }: TrackingMapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
+  const markersRef = useRef<mapboxgl.Marker[]>([]);
 
+  // Initialize map only once
   useEffect(() => {
-    if (!mapContainer.current) return;
+    if (!mapContainer.current || map.current) return;
 
     // Initialize map with Mapbox token
     mapboxgl.accessToken = 'pk.eyJ1IjoibG9sb2xvMjAiLCJhIjoiY21lZWVtdzBiMGw3dTJrc2E3dGVyZTF1OCJ9.AjZqAS5HdqB8inRxGS3n_g';
@@ -40,8 +42,32 @@ export function TrackingMap({ trackingData }: TrackingMapProps) {
       'top-right'
     );
 
-    // If we have tracking data, add markers and route
-    if (trackingData && trackingData.current_latitude && trackingData.current_longitude) {
+    // Cleanup
+    return () => {
+      // Clear all markers
+      markersRef.current.forEach(marker => marker.remove());
+      markersRef.current = [];
+      
+      map.current?.remove();
+      map.current = null;
+    };
+  }, []);
+
+  // Update markers when tracking data changes
+  useEffect(() => {
+    if (!map.current || !trackingData) return;
+
+    // Clear existing markers
+    markersRef.current.forEach(marker => marker.remove());
+    markersRef.current = [];
+
+    // Clear existing route
+    if (map.current.getSource('route')) {
+      map.current.removeLayer('route');
+      map.current.removeSource('route');
+    }
+
+    if (trackingData.current_latitude && trackingData.current_longitude) {
       const currentLng = trackingData.current_longitude;
       const currentLat = trackingData.current_latitude;
 
@@ -67,6 +93,8 @@ export function TrackingMap({ trackingData }: TrackingMapProps) {
         )
         .addTo(map.current);
 
+      markersRef.current.push(currentMarker);
+
       // Add history markers if available
       if (trackingData.history && trackingData.history.length > 0) {
         trackingData.history.forEach((point, index) => {
@@ -88,6 +116,8 @@ export function TrackingMap({ trackingData }: TrackingMapProps) {
                   `)
               )
               .addTo(map.current!);
+
+            markersRef.current.push(marker);
           }
         });
 
@@ -100,33 +130,32 @@ export function TrackingMap({ trackingData }: TrackingMapProps) {
         coordinates.push([currentLng, currentLat]);
 
         if (coordinates.length > 1) {
-          map.current.on('load', () => {
-            map.current!.addSource('route', {
-              type: 'geojson',
-              data: {
-                type: 'Feature',
-                properties: {},
-                geometry: {
-                  type: 'LineString',
-                  coordinates: coordinates
-                }
+          // Add route source and layer
+          map.current.addSource('route', {
+            type: 'geojson',
+            data: {
+              type: 'Feature',
+              properties: {},
+              geometry: {
+                type: 'LineString',
+                coordinates: coordinates
               }
-            });
+            }
+          });
 
-            map.current!.addLayer({
-              id: 'route',
-              type: 'line',
-              source: 'route',
-              layout: {
-                'line-join': 'round',
-                'line-cap': 'round'
-              },
-              paint: {
-                'line-color': '#3b82f6',
-                'line-width': 3,
-                'line-opacity': 0.8
-              }
-            });
+          map.current.addLayer({
+            id: 'route',
+            type: 'line',
+            source: 'route',
+            layout: {
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            paint: {
+              'line-color': '#3b82f6',
+              'line-width': 3,
+              'line-opacity': 0.8
+            }
           });
 
           // Fit map to show all points
@@ -136,11 +165,6 @@ export function TrackingMap({ trackingData }: TrackingMapProps) {
         }
       }
     }
-
-    // Cleanup
-    return () => {
-      map.current?.remove();
-    };
   }, [trackingData]);
 
   return (
