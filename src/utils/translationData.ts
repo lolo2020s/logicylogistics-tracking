@@ -117,7 +117,7 @@ export const translationData: Record<Language, Record<string, any>> = {
       address: 'Gesworenhoekseweg 4',
       cityPostal: '5047 TM Tilburg, Pays-Bas',
       phone: 'Tél : +31626018693',
-      email: 'Email : contact@logicy-transport.com',
+      email: 'Email : contact@logixy-transport.com',
       sections: {
         s1: {
           title: "1. Objet et champ d'application",
@@ -2802,7 +2802,7 @@ export const translationData: Record<Language, Record<string, any>> = {
       address: 'Gesworenhoekseweg 4',
       cityPostal: '5047 TM Tilburg, Países Baixos',
       phone: 'Tel: +31626018693',
-      email: 'Email: contact@logicy-transport.com',
+      email: 'Email: contact@logixy-transport.com',
       sections: {
         s1: {
           title: "1. Objeto e campo de aplicação",

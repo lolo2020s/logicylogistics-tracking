@@ -54,7 +54,7 @@ serve(async (req: Request) => {
     console.log("Confirmation email result:", confirmation);
 
     // Forward to company
-    const adminTo = "contact@logicy-transport.com";
+    const adminTo = "contact@logixy-transport.com";
     const notification = await resend.emails.send({
       from: "Logicy Transport <onboarding@resend.dev>",
       to: [adminTo],
