@@ -61,6 +61,7 @@ export function ContactPage() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    e.stopPropagation(); // Empêche la propagation de l'événement
     console.log('Form field changed:', e.target.name, '=', e.target.value);
     setFormData(prev => ({
       ...prev,
@@ -119,7 +120,7 @@ export function ContactPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
                     {t('contact.form.name')} *
@@ -131,6 +132,8 @@ export function ContactPage() {
                     required
                     value={formData.name}
                     onChange={handleChange}
+                    onFocus={(e) => e.stopPropagation()}
+                    onBlur={(e) => e.stopPropagation()}
                     placeholder={t('contact.form.namePlaceholder', 'Votre nom complet')}
                   />
                 </div>
@@ -146,6 +149,8 @@ export function ContactPage() {
                     required
                     value={formData.email}
                     onChange={handleChange}
+                    onFocus={(e) => e.stopPropagation()}
+                    onBlur={(e) => e.stopPropagation()}
                     placeholder={t('contact.form.emailPlaceholder', 'votre.email@exemple.com')}
                   />
                 </div>
@@ -160,6 +165,8 @@ export function ContactPage() {
                     required
                     value={formData.message}
                     onChange={handleChange}
+                    onFocus={(e) => e.stopPropagation()}
+                    onBlur={(e) => e.stopPropagation()}
                     placeholder={t('contact.form.messagePlaceholder', 'Décrivez votre demande...')}
                     className="min-h-[120px]"
                   />
