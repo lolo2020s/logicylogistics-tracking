@@ -97,15 +97,35 @@ export function TrackingSearch() {
           table: 'shipments',
           filter: `id=eq.${result.id}`
         },
-        (payload) => {
+        async (payload) => {
           console.log('Shipment location update received:', payload);
-          toast.success('Localisation mise à jour', {
-            description: 'La position du véhicule a été mise à jour',
-            action: {
-              label: t('tracking.refresh'),
-              onClick: () => handleSearch()
+          
+          // Mettre à jour automatiquement les données SANS action utilisateur
+          try {
+            const { data: updatedShipment } = await supabase
+              .from('shipments')
+              .select('*')
+              .eq('id', result.id)
+              .single();
+
+            if (updatedShipment) {
+              // Mettre à jour le state avec les nouvelles données
+              const updatedResult = {
+                ...result,
+                currentLocation: updatedShipment.current_location || t('tracking.processing'),
+                current_latitude: updatedShipment.current_latitude,
+                current_longitude: updatedShipment.current_longitude,
+              };
+              setResult(updatedResult);
+              
+              toast.success('Position mise à jour automatiquement', {
+                description: `Nouvelle localisation: ${updatedShipment.current_location}`,
+              });
             }
-          });
+          } catch (error) {
+            console.error('Error updating location:', error);
+            toast.error('Erreur lors de la mise à jour');
+          }
         }
       )
       .subscribe();
