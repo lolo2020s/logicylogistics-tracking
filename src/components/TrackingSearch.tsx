@@ -402,68 +402,57 @@ export function TrackingSearch() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4 text-sm">
-                  {result.shipment?.declared_value && (
-                    <div>
-                      <p className="font-medium text-muted-foreground">Valeur déclarée</p>
-                      <p>{result.shipment.declared_value} {result.shipment.currency || 'EUR'}</p>
-                    </div>
-                  )}
-                  {result.shipment?.insurance_value && (
-                    <div>
-                      <p className="font-medium text-muted-foreground">Valeur assurée</p>
-                      <p>{result.shipment.insurance_value} {result.shipment.currency || 'EUR'}</p>
-                    </div>
-                  )}
-                  {result.shipment?.transport_cost && (
-                    <div>
-                      <p className="font-medium text-muted-foreground">Coût transport</p>
-                      <p>{result.shipment.transport_cost} {result.shipment.currency || 'EUR'}</p>
-                    </div>
-                  )}
-                  {result.shipment?.package_type && (
-                    <div>
-                      <p className="font-medium text-muted-foreground">Type de colis</p>
-                      <p className="capitalize">{result.shipment.package_type}</p>
-                    </div>
-                  )}
-                  {result.shipment?.priority_level && (
-                    <div>
-                      <p className="font-medium text-muted-foreground">Priorité</p>
-                      <p className="capitalize">{result.shipment.priority_level}</p>
-                    </div>
-                  )}
-                  {result.shipment?.payment_status && (
-                    <div>
-                      <p className="font-medium text-muted-foreground">Statut paiement</p>
-                      <Badge variant={result.shipment.payment_status === 'paid' ? 'default' : 'secondary'}>
-                        {result.shipment.payment_status}
-                      </Badge>
-                    </div>
-                  )}
+                  <div>
+                    <p className="font-medium text-muted-foreground">Valeur déclarée</p>
+                    <p>{result.shipment?.declared_value ? `${result.shipment.declared_value} ${result.shipment.currency || 'EUR'}` : 'Non renseignée'}</p>
+                  </div>
+                  <div>
+                    <p className="font-medium text-muted-foreground">Valeur assurée</p>
+                    <p>{result.shipment?.insurance_value ? `${result.shipment.insurance_value} ${result.shipment.currency || 'EUR'}` : 'Non renseignée'}</p>
+                  </div>
+                  <div>
+                    <p className="font-medium text-muted-foreground">Coût transport</p>
+                    <p>{result.shipment?.transport_cost ? `${result.shipment.transport_cost} ${result.shipment.currency || 'EUR'}` : 'Non renseigné'}</p>
+                  </div>
+                  <div>
+                    <p className="font-medium text-muted-foreground">Type de colis</p>
+                    <p className="capitalize">{result.shipment?.package_type || 'Non spécifié'}</p>
+                  </div>
+                  <div>
+                    <p className="font-medium text-muted-foreground">Priorité</p>
+                    <p className="capitalize">{result.shipment?.priority_level || 'Normale'}</p>
+                  </div>
+                  <div>
+                    <p className="font-medium text-muted-foreground">Statut paiement</p>
+                    <Badge variant={result.shipment?.payment_status === 'paid' ? 'default' : 'secondary'}>
+                      {result.shipment?.payment_status || 'pending'}
+                    </Badge>
+                  </div>
                 </div>
                 
-                {(result.shipment?.is_fragile || result.shipment?.is_dangerous || result.shipment?.requires_signature) && (
-                  <div className="border-t pt-4">
-                    <p className="font-medium text-muted-foreground mb-2">Spécifications</p>
-                    <div className="flex flex-wrap gap-2">
-                      {result.shipment.is_fragile && (
-                        <Badge variant="outline" className="text-orange-600 border-orange-600">
-                          Fragile
-                        </Badge>
-                      )}
-                      {result.shipment.is_dangerous && (
-                        <Badge variant="outline" className="text-red-600 border-red-600">
-                          Matières dangereuses
-                        </Badge>
-                      )}
-                      {result.shipment.requires_signature && (
-                        <Badge variant="outline" className="text-blue-600 border-blue-600">
-                          Signature requise
-                        </Badge>
-                      )}
-                    </div>
+                <div className="border-t pt-4">
+                  <p className="font-medium text-muted-foreground mb-2">Spécifications</p>
+                  <div className="flex flex-wrap gap-2">
+                    {result.shipment?.is_fragile && (
+                      <Badge variant="outline" className="text-orange-600 border-orange-600">
+                        Fragile
+                      </Badge>
+                    )}
+                    {result.shipment?.is_dangerous && (
+                      <Badge variant="outline" className="text-red-600 border-red-600">
+                        Matières dangereuses
+                      </Badge>
+                    )}
+                    {result.shipment?.requires_signature && (
+                      <Badge variant="outline" className="text-blue-600 border-blue-600">
+                        Signature requise
+                      </Badge>
+                    )}
+                    {!result.shipment?.is_fragile && !result.shipment?.is_dangerous && !result.shipment?.requires_signature && (
+                      <span className="text-sm text-muted-foreground">Aucune spécification particulière</span>
+                    )}
                   </div>
-                )}
+                </div>
                 
                 {result.shipment?.special_instructions && (
                   <div className="border-t pt-4">
