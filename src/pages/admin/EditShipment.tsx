@@ -96,21 +96,18 @@ export function EditShipment() {
     if (!files || !id) return;
 
     setUploading(true);
+    
     try {
-      // Check authentication first
       const { data: { user }, error: authError } = await supabase.auth.getUser();
       
-      if (authError) {
-        console.error('Auth error:', authError);
-        throw new Error('Erreur d\'authentification');
+      if (authError || !user) {
+        toast({
+          variant: 'destructive',
+          title: 'Erreur',
+          description: 'Vous devez être connecté pour uploader des photos. Veuillez vous connecter.',
+        });
+        return;
       }
-      
-      if (!user) {
-        console.error('No user authenticated');
-        throw new Error('Vous devez être connecté pour uploader des photos');
-      }
-      
-      console.log('User authenticated:', user.id);
       
       for (const file of Array.from(files)) {
         const fileExt = file.name.split('.').pop();
@@ -126,41 +123,39 @@ export function EditShipment() {
 
         if (uploadError) {
           console.error('Upload error:', uploadError);
-          throw uploadError;
+          throw new Error(`Erreur d'upload: ${uploadError.message}`);
         }
 
-        // Get public URL
         const { data: { publicUrl } } = supabase.storage
           .from('shipment-photos')
           .getPublicUrl(fileName);
 
-        // Save photo record
         const { error: dbError } = await supabase
           .from('shipment_photos')
           .insert({
             shipment_id: id,
             photo_url: publicUrl,
             photo_type: 'package',
-            uploaded_by: user?.id
+            uploaded_by: user.id
           });
 
         if (dbError) {
           console.error('Database error:', dbError);
-          throw dbError;
+          throw new Error(`Erreur de base de données: ${dbError.message}`);
         }
       }
 
       await loadPhotos();
       toast({
         title: 'Succès',
-        description: 'Photos ajoutées avec succès',
+        description: `${files.length} photo(s) ajoutée(s) avec succès`,
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error uploading photos:', error);
       toast({
         variant: 'destructive',
         title: 'Erreur',
-        description: `Impossible d'ajouter les photos: ${error.message}`,
+        description: error.message || 'Impossible d\'ajouter les photos',
       });
     } finally {
       if (inputEl) inputEl.value = '';
