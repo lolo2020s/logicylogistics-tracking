@@ -22,9 +22,16 @@ export function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Contact form submitted with data:', formData);
     setLoading(true);
 
     try {
+      console.log('Invoking Supabase function with:', {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      });
+      
       const { error } = await supabase.functions.invoke('send-contact-email', {
         body: {
           name: formData.name,
@@ -33,6 +40,7 @@ export function ContactPage() {
         },
       });
 
+      console.log('Supabase function result:', { error });
       if (error) throw error;
 
       toast({
@@ -53,6 +61,7 @@ export function ContactPage() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    console.log('Form field changed:', e.target.name, '=', e.target.value);
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
