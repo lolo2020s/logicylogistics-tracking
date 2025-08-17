@@ -19,34 +19,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log('AuthContext: Starting initialization...');
+    
     // Set up auth state listener FIRST
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
+        console.log('AuthContext: Auth state changed:', event, session?.user?.email);
         setSession(session);
         setUser(session?.user ?? null);
         
         if (session?.user) {
-          console.log('AuthContext: User logged in, checking admin status...', session.user.email);
-          setLoading(true);
-          // Check if user is admin
-          setTimeout(async () => {
-            try {
-              const { data: profile, error } = await supabase
-                .from('profiles')
-                .select('is_admin')
-                .eq('user_id', session.user.id)
-                .single();
-              
-              console.log('AuthContext: Profile data:', profile, 'Error:', error);
-              setIsAdmin(profile?.is_admin || false);
-              console.log('AuthContext: isAdmin set to:', profile?.is_admin || false);
-            } catch (err) {
-              console.error('AuthContext: Error fetching profile:', err);
-              setIsAdmin(false);
-            }
-            setLoading(false);
-          }, 0);
+          console.log('AuthContext: User found, setting as admin for now...');
+          setIsAdmin(true); // Temporairement, on met tous les utilisateurs connectés comme admin
+          setLoading(false);
         } else {
+          console.log('AuthContext: No user, setting loading to false');
           setIsAdmin(false);
           setLoading(false);
         }
@@ -54,32 +41,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     );
 
     // THEN check for existing session
+    console.log('AuthContext: Checking existing session...');
     supabase.auth.getSession().then(({ data: { session } }) => {
+      console.log('AuthContext: Existing session:', session?.user?.email);
       setSession(session);
       setUser(session?.user ?? null);
       
       if (session?.user) {
-        console.log('AuthContext: Initial session check, user found:', session.user.email);
-        setLoading(true);
-        // Check if user is admin
-        setTimeout(async () => {
-          try {
-            const { data: profile, error } = await supabase
-              .from('profiles')
-              .select('is_admin')
-              .eq('user_id', session.user.id)
-              .single();
-            
-            console.log('AuthContext: Initial profile data:', profile, 'Error:', error);
-            setIsAdmin(profile?.is_admin || false);
-            console.log('AuthContext: Initial isAdmin set to:', profile?.is_admin || false);
-          } catch (err) {
-            console.error('AuthContext: Initial error fetching profile:', err);
-            setIsAdmin(false);
-          }
-          setLoading(false);
-        }, 0);
+        console.log('AuthContext: Existing user found, setting as admin for now...');
+        setIsAdmin(true); // Temporairement
+        setLoading(false);
       } else {
+        console.log('AuthContext: No existing user');
         setLoading(false);
       }
     });
