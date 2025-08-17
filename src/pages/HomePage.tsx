@@ -84,13 +84,6 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   >
                     {t('nav.tracking')}
                   </Button>
-                  <Button
-                    onClick={() => window.location.href = '/auth'}
-                    variant="outline"
-                    className="border-primary text-primary hover:bg-primary hover:text-white font-montserrat font-semibold px-8 py-4 text-lg rounded-lg transition-smooth"
-                  >
-                    Administration
-                  </Button>
                 </div>
               </div>
 
