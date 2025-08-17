@@ -96,6 +96,131 @@ export const translationData: Record<Language, Record<string, any>> = {
       packagePhoto: 'Photo du colis'
     },
 
+    
+    // Terms, Privacy, Legal
+    terms: {
+      title: 'Conditions Générales',
+      subtitle: 'Conditions générales de vente et de transport - LOGICY TRANSPORT',
+      lastUpdate: 'Dernière mise à jour : 15 janvier 2024',
+      updateNote: 'Ces conditions générales peuvent être modifiées à tout moment. La version applicable est celle en vigueur au moment de la commande.',
+      questionsTitle: 'Des questions sur nos conditions ?',
+      questionsDescription: 'Notre équipe juridique est à votre disposition pour tout éclaircissement',
+      contactUs: 'Nous Contacter',
+      legalEmail: 'Email Juridique',
+      legalInfo: 'Informations légales',
+      company: 'LOGICY TRANSPORT',
+      companyDescription: 'Société de transport et logistique',
+      siret: 'SIRET : 123 456 789 00012',
+      transportNumber: 'Numéro de transporteur : 2023-001',
+      insurance: 'Assurance RCP : AXA France',
+      headquartersTitle: 'Siège social',
+      address: '123 Avenue de la Logistique',
+      cityPostal: '75001 Paris, France',
+      phone: 'Tél : +33 1 23 45 67 89',
+      email: 'Email : contact@logicy-transport.com',
+      sections: {
+        s1: {
+          title: "1. Objet et champ d'application",
+          content: "Les présentes conditions générales s'appliquent à tous les services de transport et de logistique fournis par LOGICY TRANSPORT. Elles régissent les relations contractuelles entre LOGICY TRANSPORT et ses clients pour tous types de prestations : transport routier, aérien, maritime, stockage et manutention."
+        },
+        s2: {
+          title: "2. Acceptation des commandes",
+          content: "Toute commande implique l'acceptation pleine et entière des présentes conditions générales. Les commandes ne sont définitives qu'après confirmation écrite de LOGICY TRANSPORT. Les prix sont établis selon les tarifs en vigueur au moment de la commande."
+        },
+        s3: {
+          title: "3. Obligations du client",
+          content: "Le client s'engage à :\n• Fournir des informations exactes sur la marchandise (nature, poids, dimensions, valeur)\n• Emballer correctement les marchandises selon les normes en vigueur\n• Respecter les réglementations douanières et sanitaires\n• Être présent ou représenté aux lieux de collecte et de livraison\n• Régler les factures dans les délais convenus"
+        },
+        s4: {
+          title: "4. Obligations de LOGICY TRANSPORT",
+          content: "LOGICY TRANSPORT s'engage à :\n• Acheminer les marchandises dans les meilleures conditions\n• Respecter les délais convenus dans la mesure du possible\n• Informer le client en cas de retard ou d'incident\n• Assurer la marchandise selon les conditions du contrat\n• Maintenir la confidentialité des informations clients"
+        },
+        s5: {
+          title: "5. Délais de livraison",
+          content: "Les délais indiqués sont donnés à titre indicatif et ne constituent pas un engagement ferme. LOGICY TRANSPORT met tout en œuvre pour respecter ces délais mais ne peut être tenue responsable des retards dus à des causes indépendantes de sa volonté (conditions météorologiques, grèves, contrôles douaniers, etc.)."
+        },
+        s6: {
+          title: "6. Responsabilité et assurance",
+          content: "La responsabilité de LOGICY TRANSPORT est limitée aux conventions internationales applicables selon le mode de transport :\n• Transport routier : Convention CMR\n• Transport aérien : Convention de Montréal\n• Transport maritime : Règles de La Haye-Visby\n\nUne assurance complémentaire peut être souscrite sur demande du client."
+        },
+        s7: {
+          title: "7. Réclamations",
+          content: "Toute réclamation doit être formulée par écrit dans les délais légaux :\n• Transport routier : 21 jours pour les dommages apparents, 7 jours pour les dommages non apparents\n• Transport aérien : 14 jours pour les dommages, 21 jours pour les retards\n• Transport maritime : 3 jours pour les dommages apparents, dans un délai raisonnable pour les dommages non apparents"
+        },
+        s8: {
+          title: "8. Facturation et paiement",
+          content: "Les factures sont payables à 30 jours net sauf conditions particulières convenues. En cas de retard de paiement, des intérêts de retard au taux légal majoré de 10 points seront automatiquement appliqués. Une indemnité forfaitaire de 40€ pour frais de recouvrement sera facturée."
+        },
+        s9: {
+          title: "9. Marchandises interdites",
+          content: "LOGICY TRANSPORT se réserve le droit de refuser le transport de marchandises dangereuses, illégales ou non déclarées. Le client est responsable de la conformité de ses envois avec les réglementations en vigueur."
+        },
+        s10: {
+          title: "10. Protection des données",
+          content: "LOGICY TRANSPORT s'engage à protéger les données personnelles de ses clients conformément au RGPD. Les données collectées sont utilisées uniquement dans le cadre de l'exécution des prestations et ne sont pas transmises à des tiers sans autorisation."
+        },
+        s11: {
+          title: "11. Droit applicable et juridiction",
+          content: "Les présentes conditions générales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents. Toutefois, nous privilégions toujours la résolution amiable des différends."
+        }
+      }
+    },
+
+    privacy: {
+      title: 'Politique de Confidentialité',
+      subtitle: 'Protection et traitement de vos données personnelles - RGPD',
+      lastUpdate: 'Dernière mise à jour : 15 janvier 2024',
+      updateNote: 'Cette politique de confidentialité peut être modifiée pour refléter les changements dans nos pratiques de données. Nous vous informerons de toute modification significative.',
+      questionsTitle: 'Questions sur vos données ?',
+      questionsDescription: 'Notre Délégué à la Protection des Données est à votre écoute',
+      contactUs: 'Nous Contacter',
+      dpoEmail: 'DPO Email',
+      commitment: 'Notre engagement',
+      commitmentDescription: 'LOGICY TRANSPORT s\'engage à protéger votre vie privée et vos données personnelles. Cette politique de confidentialité vous informe de la manière dont nous collectons, utilisons et protégeons vos informations personnelles dans le respect du Règlement Général sur la Protection des Données (RGPD) et de la loi française.',
+      sections: {
+        s1: {
+          title: "1. Collecte des données personnelles",
+          content: "Nous collectons les données personnelles suivantes :\n\n• Données d'identification : nom, prénom, adresse, téléphone, email\n• Données professionnelles : entreprise, fonction, secteur d'activité\n• Données de transport : adresses de collecte/livraison, nature des marchandises\n• Données de navigation : cookies, adresse IP, données de connexion\n• Données de facturation : informations bancaires, historique des paiements\n\nCes données sont collectées directement lors de vos interactions avec nos services."
+        },
+        s2: {
+          title: "2. Finalités du traitement",
+          content: "Vos données personnelles sont utilisées pour :\n\n• Exécuter nos prestations de transport et logistique\n• Gérer la relation commerciale et les commandes\n• Assurer le suivi et la traçabilité des envois\n• Établir la facturation et gérer les paiements\n• Répondre à vos demandes et réclamations\n• Améliorer nos services et votre expérience client\n• Respecter nos obligations légales et réglementaires\n• Vous informer de nos nouveaux services (avec votre accord)"
+        },
+        s3: {
+          title: "3. Base légale du traitement",
+          content: "Le traitement de vos données repose sur :\n\n• L'exécution du contrat de transport (prestations commandées)\n• Le respect d'obligations légales (comptabilité, douanes, sécurité)\n• Notre intérêt légitime (amélioration des services, sécurité)\n• Votre consentement (communications marketing, cookies non essentiels)\n\nVous pouvez retirer votre consentement à tout moment sans affecter les traitements basés sur d'autres fondements légaux."
+        },
+        s4: {
+          title: "4. Partage des données",
+          content: "Vos données peuvent être transmises à :\n\n• Nos sous-traitants techniques (hébergement, maintenance informatique)\n• Nos partenaires transport (transporteurs, agents à l'étranger)\n• Les autorités compétentes (douanes, administrations)\n• Nos prestataires de services (assurance, facturation)\n\nNous nous assurons que tous nos partenaires respectent le même niveau de protection de vos données et signons des accords de confidentialité appropriés."
+        },
+        s5: {
+          title: "5. Durée de conservation",
+          content: "Nous conservons vos données selon les durées suivantes :\n\n• Données clients actifs : pendant toute la durée de la relation commerciale\n• Données de facturation : 10 ans (obligation comptable)\n• Données de transport : 5 ans (convention CMR)\n• Données de prospection : 3 ans après le dernier contact\n• Données de navigation : 13 mois maximum\n\nÀ l'issue de ces délais, vos données sont supprimées ou anonymisées."
+        },
+        s6: {
+          title: "6. Vos droits",
+          content: "Conformément au RGPD, vous disposez des droits suivants :\n\n• Droit d'accès : connaître les données que nous détenons sur vous\n• Droit de rectification : corriger les données inexactes\n• Droit d'effacement : demander la suppression de vos données\n• Droit d'opposition : vous opposer au traitement pour motif légitime\n• Droit à la portabilité : récupérer vos données dans un format lisible\n• Droit de limitation : restreindre l'utilisation de vos données\n\nPour exercer ces droits, contactez-nous à privacy@logicy-transport.com"
+        },
+        s7: {
+          title: "7. Sécurité des données",
+          content: "Nous mettons en place des mesures de sécurité appropriées :\n\n• Chiffrement des données sensibles (SSL/TLS)\n• Contrôle d'accès strict aux données\n• Sauvegarde régulière et sécurisée\n• Formation du personnel à la protection des données\n• Audit de sécurité régulier\n• Plan de continuité et de récupération des données\n\nEn cas de violation de données, nous nous engageons à vous informer dans les 72 heures."
+        },
+        s8: {
+          title: "8. Cookies et traceurs",
+          content: "Notre site utilise différents types de cookies :\n\n• Cookies essentiels : nécessaires au fonctionnement du site\n• Cookies de performance : mesure d'audience et optimisation\n• Cookies fonctionnels : amélioration de votre expérience\n• Cookies publicitaires : personnalisation des annonces (avec consentement)\n\nVous pouvez gérer vos préférences de cookies via le bandeau dédié ou les paramètres de votre navigateur."
+        },
+        s9: {
+          title: "9. Transferts internationaux",
+          content: "Dans le cadre de nos activités internationales, vos données peuvent être transférées hors de l'UE :\n\n• Vers des pays disposant d'une décision d'adéquation\n• Via des clauses contractuelles types approuvées par la Commission européenne\n• Avec votre consentement explicite\n\nNous nous assurons toujours que vos données bénéficient d'un niveau de protection équivalent à celui de l'UE."
+        },
+        s10: {
+          title: "10. Contact et réclamations",
+          content: "Pour toute question relative à cette politique :\n\n• Email : privacy@logicy-transport.com\n• Courrier : DPO - LOGICY TRANSPORT, 123 Avenue de la Logistique, 75001 Paris\n• Téléphone : +33 1 23 45 67 89\n\nVous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr) si vous estimez que vos droits ne sont pas respectés."
+        }
+      }
+    },
+
     // Services
     services: {
       title: 'Nos Services de Transport',
@@ -2659,6 +2784,130 @@ export const translationData: Record<Language, Record<string, any>> = {
         conditions: 'Condições Gerais',
         privacy: 'Política de Privacidade',
         mentions: 'Menções Legais'
+      }
+    },
+
+    // Terms, Privacy, Legal (Portuguese)
+    terms: {
+      title: 'Condições Gerais',
+      subtitle: 'Condições gerais de venda e transporte - LOGICY TRANSPORT',
+      lastUpdate: 'Última atualização: 15 de janeiro de 2024',
+      updateNote: 'Estas condições gerais podem ser modificadas a qualquer momento. A versão aplicável é aquela em vigor no momento do pedido.',
+      questionsTitle: 'Dúvidas sobre nossas condições?',
+      questionsDescription: 'Nossa equipe jurídica está à sua disposição para qualquer esclarecimento',
+      contactUs: 'Entre em Contato',
+      legalEmail: 'Email Jurídico',
+      legalInfo: 'Informações legais',
+      company: 'LOGICY TRANSPORT',
+      companyDescription: 'Empresa de transporte e logística',
+      siret: 'SIRET: 123 456 789 00012',
+      transportNumber: 'Número de transportadora: 2023-001',
+      insurance: 'Seguro RCP: AXA França',
+      headquartersTitle: 'Sede social',
+      address: '123 Avenue de la Logistique',
+      cityPostal: '75001 Paris, França',
+      phone: 'Tel: +33 1 23 45 67 89',
+      email: 'Email: contact@logicy-transport.com',
+      sections: {
+        s1: {
+          title: "1. Objeto e campo de aplicação",
+          content: "As presentes condições gerais aplicam-se a todos os serviços de transporte e logística fornecidos pela LOGICY TRANSPORT. Elas regem as relações contratuais entre a LOGICY TRANSPORT e seus clientes para todos os tipos de prestações: transporte rodoviário, aéreo, marítimo, armazenamento e manuseio."
+        },
+        s2: {
+          title: "2. Aceitação de pedidos",
+          content: "Todo pedido implica a aceitação plena e total das presentes condições gerais. Os pedidos só são definitivos após confirmação por escrito da LOGICY TRANSPORT. Os preços são estabelecidos de acordo com as tarifas em vigor no momento do pedido."
+        },
+        s3: {
+          title: "3. Obrigações do cliente",
+          content: "O cliente compromete-se a:\n• Fornecer informações exatas sobre a mercadoria (natureza, peso, dimensões, valor)\n• Embalar corretamente as mercadorias de acordo com as normas em vigor\n• Respeitar as regulamentações alfandegárias e sanitárias\n• Estar presente ou representado nos locais de coleta e entrega\n• Pagar as faturas nos prazos acordados"
+        },
+        s4: {
+          title: "4. Obrigações da LOGICY TRANSPORT",
+          content: "A LOGICY TRANSPORT compromete-se a:\n• Transportar as mercadorias nas melhores condições\n• Respeitar os prazos acordados na medida do possível\n• Informar o cliente em caso de atraso ou incidente\n• Segurar a mercadoria de acordo com as condições do contrato\n• Manter a confidencialidade das informações dos clientes"
+        },
+        s5: {
+          title: "5. Prazos de entrega",
+          content: "Os prazos indicados são dados a título indicativo e não constituem um compromisso firme. A LOGICY TRANSPORT faz todos os esforços para respeitar estes prazos, mas não pode ser responsabilizada por atrasos devidos a causas independentes de sua vontade (condições meteorológicas, greves, controles alfandegários, etc.)."
+        },
+        s6: {
+          title: "6. Responsabilidade e seguro",
+          content: "A responsabilidade da LOGICY TRANSPORT é limitada às convenções internacionais aplicáveis de acordo com o modo de transporte:\n• Transporte rodoviário: Convenção CMR\n• Transporte aéreo: Convenção de Montreal\n• Transporte marítimo: Regras de Haia-Visby\n\nUm seguro complementar pode ser contratado a pedido do cliente."
+        },
+        s7: {
+          title: "7. Reclamações",
+          content: "Toda reclamação deve ser formulada por escrito nos prazos legais:\n• Transporte rodoviário: 21 dias para danos aparentes, 7 dias para danos não aparentes\n• Transporte aéreo: 14 dias para danos, 21 dias para atrasos\n• Transporte marítimo: 3 dias para danos aparentes, num prazo razoável para danos não aparentes"
+        },
+        s8: {
+          title: "8. Faturação e pagamento",
+          content: "As faturas são pagáveis a 30 dias líquidos, salvo condições particulares acordadas. Em caso de atraso no pagamento, juros de mora à taxa legal acrescida de 10 pontos serão automaticamente aplicados. Uma indenização forfetária de 40€ por custos de cobrança será faturada."
+        },
+        s9: {
+          title: "9. Mercadorias proibidas",
+          content: "A LOGICY TRANSPORT reserva-se o direito de recusar o transporte de mercadorias perigosas, ilegais ou não declaradas. O cliente é responsável pela conformidade de seus envios com as regulamentações em vigor."
+        },
+        s10: {
+          title: "10. Proteção de dados",
+          content: "A LOGICY TRANSPORT compromete-se a proteger os dados pessoais de seus clientes em conformidade com o RGPD. Os dados coletados são utilizados apenas no âmbito da execução das prestações e não são transmitidos a terceiros sem autorização."
+        },
+        s11: {
+          title: "11. Direito aplicável e jurisdição",
+          content: "As presentes condições gerais estão sujeitas ao direito francês. Em caso de litígio, os tribunais franceses serão os únicos competentes. No entanto, privilegiamos sempre a resolução amigável de diferendos."
+        }
+      }
+    },
+
+    privacy: {
+      title: 'Política de Privacidade',
+      subtitle: 'Proteção e tratamento de seus dados pessoais - RGPD',
+      lastUpdate: 'Última atualização: 15 de janeiro de 2024',
+      updateNote: 'Esta política de privacidade pode ser modificada para refletir mudanças em nossas práticas de dados. Informaremos sobre qualquer modificação significativa.',
+      questionsTitle: 'Dúvidas sobre seus dados?',
+      questionsDescription: 'Nosso Encarregado de Proteção de Dados está à sua escuta',
+      contactUs: 'Entre em Contato',
+      dpoEmail: 'Email DPO',
+      commitment: 'Nosso compromisso',
+      commitmentDescription: 'A LOGICY TRANSPORT compromete-se a proteger sua privacidade e seus dados pessoais. Esta política de privacidade informa como coletamos, utilizamos e protegemos suas informações pessoais em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD) e a lei francesa.',
+      sections: {
+        s1: {
+          title: "1. Coleta de dados pessoais",
+          content: "Coletamos os seguintes dados pessoais:\n\n• Dados de identificação: nome, sobrenome, endereço, telefone, email\n• Dados profissionais: empresa, função, setor de atividade\n• Dados de transporte: endereços de coleta/entrega, natureza das mercadorias\n• Dados de navegação: cookies, endereço IP, dados de conexão\n• Dados de faturação: informações bancárias, histórico de pagamentos\n\nEstes dados são coletados diretamente durante suas interações com nossos serviços."
+        },
+        s2: {
+          title: "2. Finalidades do tratamento",
+          content: "Seus dados pessoais são utilizados para:\n\n• Executar nossas prestações de transporte e logística\n• Gerenciar a relação comercial e pedidos\n• Assegurar o acompanhamento e rastreabilidade dos envios\n• Estabelecer a faturação e gerenciar os pagamentos\n• Responder a suas solicitações e reclamações\n• Melhorar nossos serviços e sua experiência de cliente\n• Respeitar nossas obrigações legais e regulamentares\n• Informá-lo sobre nossos novos serviços (com seu acordo)"
+        },
+        s3: {
+          title: "3. Base legal do tratamento",
+          content: "O tratamento de seus dados baseia-se em:\n\n• A execução do contrato de transporte (prestações encomendadas)\n• O respeito de obrigações legais (contabilidade, alfândega, segurança)\n• Nosso interesse legítimo (melhoria dos serviços, segurança)\n• Seu consentimento (comunicações de marketing, cookies não essenciais)\n\nVocê pode retirar seu consentimento a qualquer momento sem afetar os tratamentos baseados em outros fundamentos legais."
+        },
+        s4: {
+          title: "4. Compartilhamento de dados",
+          content: "Seus dados podem ser transmitidos para:\n\n• Nossos subcontratados técnicos (hospedagem, manutenção informática)\n• Nossos parceiros de transporte (transportadoras, agentes no exterior)\n• As autoridades competentes (alfândega, administrações)\n• Nossos prestadores de serviços (seguro, faturação)\n\nAsseguramos que todos os nossos parceiros respeitam o mesmo nível de proteção de seus dados e assinamos acordos de confidencialidade apropriados."
+        },
+        s5: {
+          title: "5. Duração de conservação",
+          content: "Conservamos seus dados pelas seguintes durações:\n\n• Dados de clientes ativos: durante toda a duração da relação comercial\n• Dados de faturação: 10 anos (obrigação contábil)\n• Dados de transporte: 5 anos (convenção CMR)\n• Dados de prospecção: 3 anos após o último contato\n• Dados de navegação: 13 meses no máximo\n\nAo final destes prazos, seus dados são excluídos ou anonimizados."
+        },
+        s6: {
+          title: "6. Seus direitos",
+          content: "Em conformidade com o RGPD, você dispõe dos seguintes direitos:\n\n• Direito de acesso: conhecer os dados que possuímos sobre você\n• Direito de retificação: corrigir dados inexatos\n• Direito de apagamento: solicitar a supressão de seus dados\n• Direito de oposição: opor-se ao tratamento por motivo legítimo\n• Direito à portabilidade: recuperar seus dados em formato legível\n• Direito de limitação: restringir o uso de seus dados\n\nPara exercer estes direitos, entre em contato conosco em privacy@logicy-transport.com"
+        },
+        s7: {
+          title: "7. Segurança dos dados",
+          content: "Implementamos medidas de segurança apropriadas:\n\n• Criptografia de dados sensíveis (SSL/TLS)\n• Controle de acesso rigoroso aos dados\n• Backup regular e seguro\n• Formação do pessoal sobre proteção de dados\n• Auditoria de segurança regular\n• Plano de continuidade e recuperação de dados\n\nEm caso de violação de dados, comprometemo-nos a informá-lo em 72 horas."
+        },
+        s8: {
+          title: "8. Cookies e rastreadores",
+          content: "Nosso site utiliza diferentes tipos de cookies:\n\n• Cookies essenciais: necessários ao funcionamento do site\n• Cookies de performance: medição de audiência e otimização\n• Cookies funcionais: melhoria de sua experiência\n• Cookies publicitários: personalização de anúncios (com consentimento)\n\nVocê pode gerenciar suas preferências de cookies através do banner dedicado ou das configurações do seu navegador."
+        },
+        s9: {
+          title: "9. Transferências internacionais",
+          content: "No âmbito de nossas atividades internacionais, seus dados podem ser transferidos fora da UE:\n\n• Para países que possuem decisão de adequação\n• Via cláusulas contratuais tipo aprovadas pela Comissão Europeia\n• Com seu consentimento explícito\n\nSempre asseguramos que seus dados beneficiem de um nível de proteção equivalente ao da UE."
+        },
+        s10: {
+          title: "10. Contato e reclamações",
+          content: "Para qualquer questão relativa a esta política:\n\n• Email: privacy@logicy-transport.com\n• Correspondência: DPO - LOGICY TRANSPORT, 123 Avenue de la Logistique, 75001 Paris\n• Telefone: +33 1 23 45 67 89\n\nVocê também pode apresentar uma reclamação junto à CNIL (www.cnil.fr) se considerar que seus direitos não são respeitados."
+        }
       }
     }
   }
