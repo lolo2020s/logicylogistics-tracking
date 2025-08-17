@@ -218,7 +218,11 @@ export function NewShipment() {
             // Upload to storage
             const { data: uploadData, error: uploadError } = await supabase.storage
               .from('shipment-photos')
-              .upload(fileName, photo.file);
+              .upload(fileName, photo.file, {
+                contentType: photo.file.type,
+                cacheControl: '3600',
+                upsert: true,
+              });
 
             if (uploadError) throw uploadError;
 
