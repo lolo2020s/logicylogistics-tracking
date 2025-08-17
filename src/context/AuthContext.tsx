@@ -26,16 +26,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setUser(session?.user ?? null);
         
         if (session?.user) {
+          console.log('AuthContext: User logged in, checking admin status...', session.user.email);
           setLoading(true);
           // Check if user is admin
           setTimeout(async () => {
-            const { data: profile } = await supabase
-              .from('profiles')
-              .select('is_admin')
-              .eq('user_id', session.user.id)
-              .single();
-            
-            setIsAdmin(profile?.is_admin || false);
+            try {
+              const { data: profile, error } = await supabase
+                .from('profiles')
+                .select('is_admin')
+                .eq('user_id', session.user.id)
+                .single();
+              
+              console.log('AuthContext: Profile data:', profile, 'Error:', error);
+              setIsAdmin(profile?.is_admin || false);
+              console.log('AuthContext: isAdmin set to:', profile?.is_admin || false);
+            } catch (err) {
+              console.error('AuthContext: Error fetching profile:', err);
+              setIsAdmin(false);
+            }
             setLoading(false);
           }, 0);
         } else {
@@ -51,16 +59,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUser(session?.user ?? null);
       
       if (session?.user) {
+        console.log('AuthContext: Initial session check, user found:', session.user.email);
         setLoading(true);
         // Check if user is admin
         setTimeout(async () => {
-          const { data: profile } = await supabase
-            .from('profiles')
-            .select('is_admin')
-            .eq('user_id', session.user.id)
-            .single();
-          
-          setIsAdmin(profile?.is_admin || false);
+          try {
+            const { data: profile, error } = await supabase
+              .from('profiles')
+              .select('is_admin')
+              .eq('user_id', session.user.id)
+              .single();
+            
+            console.log('AuthContext: Initial profile data:', profile, 'Error:', error);
+            setIsAdmin(profile?.is_admin || false);
+            console.log('AuthContext: Initial isAdmin set to:', profile?.is_admin || false);
+          } catch (err) {
+            console.error('AuthContext: Initial error fetching profile:', err);
+            setIsAdmin(false);
+          }
           setLoading(false);
         }, 0);
       } else {
