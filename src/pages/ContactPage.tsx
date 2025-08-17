@@ -8,6 +8,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { useToast } from '@/hooks/use-toast';
 import { ContactMap } from '@/components/ContactMap';
 import { PageLayout } from '@/components/PageLayout';
+import { supabase } from '@/integrations/supabase/client';
 
 export function ContactPage() {
   const { t } = useTranslation();
@@ -23,16 +24,32 @@ export function ContactPage() {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+      });
 
-    toast({
-      title: t('contact.form.success.title', 'Message envoyé !'),
-      description: t('contact.form.success.description', 'Nous vous répondrons dans les plus brefs délais.'),
-    });
+      if (error) throw error;
 
-    setFormData({ name: '', email: '', message: '' });
-    setLoading(false);
+      toast({
+        title: t('contact.form.success.title', 'Message envoyé !'),
+        description: t('contact.form.success.description', 'Nous vous répondrons dans les plus brefs délais.'),
+      });
+
+      setFormData({ name: '', email: '', message: '' });
+    } catch (err: any) {
+      console.error('Contact form error:', err);
+      toast({
+        title: t('contact.form.error.title', "Erreur lors de l’envoi"),
+        description: t('contact.form.error.description', 'Veuillez réessayer dans quelques instants.'),
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
