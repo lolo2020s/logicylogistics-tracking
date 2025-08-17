@@ -1,16 +1,29 @@
-/*
-/index.html 200
-/accueil /index.html 200
-/a-propos /index.html 200
-/contact /index.html 200
-/services /index.html 200
-/suivi /index.html 200
-/transport-routier /index.html 200
-/transport-aerien /index.html 200
-/transport-maritime /index.html 200
-/logistique-express /index.html 200
-/solutions-sur-mesure /index.html 200
-/devis /index.html 200
-/zones-livraison /index.html 200
-/conditions-generales /index.html 200
-/politique-confidentialite /index.html 200
+# Handle SPA routing - catch all routes and serve index.html
+/*    /index.html   200
+
+# Specific routes for SEO (optional but good practice)
+/accueil    /index.html   200
+/a-propos    /index.html   200
+/contact    /index.html   200
+/services    /index.html   200
+/suivi    /index.html   200
+/transport-routier    /index.html   200
+/transport-aerien    /index.html   200
+/transport-maritime    /index.html   200
+/logistique-express    /index.html   200
+/solutions-sur-mesure    /index.html   200
+/devis    /index.html   200
+/zones-livraison    /index.html   200
+/conditions-generales    /index.html   200
+/politique-confidentialite    /index.html   200
+
+# Handle multilingual routes
+/fr/*    /index.html   200
+/es/*    /index.html   200
+/de/*    /index.html   200
+/it/*    /index.html   200
+/pt/*    /index.html   200
+
+# Admin routes
+/admin/*    /index.html   200
+/auth    /index.html   200
