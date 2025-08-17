@@ -2939,11 +2939,7 @@ export const translationData: Record<Language, Record<string, any>> = {
           title: "9. Transferências internacionais",
           content: "No âmbito de nossas atividades internacionais, seus dados podem ser transferidos fora da UE:\n\n• Para países que possuem decisão de adequação\n• Via cláusulas contratuais tipo aprovadas pela Comissão Europeia\n• Com seu consentimento explícito\n\nSempre asseguramos que seus dados beneficiem de um nível de proteção equivalente ao da UE."
         },
-        s10: {
-          title: "10. Contato e reclamações",
-          content: "Para qualquer questão relativa a esta política:\n\n• Email: privacy@logixy-transport.com\n• Correspondência: DPO - LOGICY TRANSPORT, Gesworenhoekseweg 4, 5047 TM Tilburg, Países Baixos\n• Telefone: +31626018693\n\nVocê também pode apresentar uma reclamação junto à CNIL (www.cnil.fr) se considerar que seus direitos não são respeitados."
         }
       }
     }
-  }
 };
