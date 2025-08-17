@@ -203,6 +203,18 @@ export function EditShipment() {
 
     setSaving(true);
     try {
+      // Check authentication first
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
+      
+      if (authError || !user) {
+        toast({
+          variant: 'destructive',
+          title: 'Erreur d\'authentification',
+          description: 'Vous devez être connecté pour modifier un envoi. Veuillez vous connecter.',
+        });
+        return;
+      }
+
       const { error } = await supabase
         .from('shipments')
         .update({
@@ -222,7 +234,10 @@ export function EditShipment() {
         })
         .eq('id', id);
 
-      if (error) throw error;
+      if (error) {
+        console.error('Update error:', error);
+        throw new Error(`Erreur de mise à jour: ${error.message}`);
+      }
 
       toast({
         title: 'Succès',
@@ -230,12 +245,12 @@ export function EditShipment() {
       });
       
       navigate('/admin/shipments');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error updating shipment:', error);
       toast({
         variant: 'destructive',
         title: 'Erreur',
-        description: 'Impossible de modifier l\'envoi',
+        description: error.message || 'Impossible de modifier l\'envoi',
       });
     } finally {
       setSaving(false);
