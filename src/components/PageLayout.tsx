@@ -14,7 +14,7 @@ export function PageLayout({ children, currentPage = 'home' }: PageLayoutProps) 
   const navigate = useNavigate();
   const { currentLanguage } = useLanguageContext();
 
-  // Scroll to top when page changes
+  // Scroll to top when page changes OR when component mounts
   useEffect(() => {
     console.log('PageLayout: currentPage changed to:', currentPage);
     console.log('Current scroll position:', window.scrollY);
@@ -30,6 +30,14 @@ export function PageLayout({ children, currentPage = 'home' }: PageLayoutProps) 
     
     requestAnimationFrame(scrollToTop);
   }, [currentPage]);
+
+  // Also scroll to top on initial mount (for page refresh)
+  useEffect(() => {
+    console.log('PageLayout: Initial mount, scrolling to top');
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, []);
 
   const handleNavigation = (page: string) => {
     console.log('Navigation requested to:', page);
