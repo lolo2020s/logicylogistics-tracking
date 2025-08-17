@@ -117,7 +117,7 @@ export const translationData: Record<Language, Record<string, any>> = {
       address: 'Gesworenhoekseweg 4',
       cityPostal: '5047 TM Tilburg, Pays-Bas',
       phone: 'Tél : +31626018693',
-      email: 'Email : contact@logixy-transport.com',
+      email: 'Email : contact@logicy-transport.com',
       sections: {
         s1: {
           title: "1. Objet et champ d'application",
@@ -651,6 +651,11 @@ export const translationData: Record<Language, Record<string, any>> = {
       placeholder: 'Ingrese su código de seguimiento',
       search: 'Buscar',
       notFound: 'No se encontró ningún envío con este código',
+      help: '¿Necesita ayuda?',
+      format: 'Formato del código de seguimiento:',
+      formatExample: 'LOG + 9 dígitos (ej: LOG123456789)',
+      testCodes: 'Códigos de prueba:',
+      testCodesExample: 'LOG123456789, LOG987654321',
       updateAvailable: '¡Actualización de seguimiento disponible!',
       updateDescription: 'Su paquete ha sido actualizado. Actualice para ver la información más reciente.',
       refresh: 'Actualizar',
@@ -2802,7 +2807,7 @@ export const translationData: Record<Language, Record<string, any>> = {
       address: 'Gesworenhoekseweg 4',
       cityPostal: '5047 TM Tilburg, Países Baixos',
       phone: 'Tel: +31626018693',
-      email: 'Email: contact@logixy-transport.com',
+      email: 'Email: contact@logicy-transport.com',
       sections: {
         s1: {
           title: "1. Objeto e campo de aplicação",

@@ -63,8 +63,8 @@ export function ContactPage() {
     {
       icon: Mail,
       label: t('contact.info.email', 'Email'),
-      value: 'contact@logixy-transport.com',
-      action: 'mailto:contact@logixy-transport.com'
+      value: 'contact@logicy-transport.com',
+      action: 'mailto:contact@logicy-transport.com'
     },
     {
       icon: Phone,

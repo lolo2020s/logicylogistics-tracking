@@ -49,7 +49,7 @@ export function Footer({ onNavigate }: FooterProps) {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-primary" />
-                <span>contact@logixy-transport.com</span>
+                <span>contact@logicy-transport.com</span>
               </div>
             </div>
           </div>
