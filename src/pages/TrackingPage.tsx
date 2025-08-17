@@ -3,10 +3,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { PageLayout } from '@/components/PageLayout';
 
 export function TrackingPage() {
-  const { t, currentLanguage } = useTranslation();
-  
-  console.log('TrackingPage currentLanguage:', currentLanguage);
-  console.log('TrackingPage tracking.title:', t('tracking.title'));
+  const { t } = useTranslation();
 
   return (
     <PageLayout currentPage="tracking">
