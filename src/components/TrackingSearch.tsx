@@ -397,73 +397,73 @@ export function TrackingSearch() {
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Package className="h-5 w-5 text-primary" />
-                  <span>Détails supplémentaires</span>
+                  <span>{t('tracking.additionalDetails')}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <p className="font-medium text-muted-foreground">Valeur déclarée</p>
-                    <p>{result.shipment?.declared_value ? `${result.shipment.declared_value} ${result.shipment.currency || 'EUR'}` : 'Non renseignée'}</p>
+                    <p className="font-medium text-muted-foreground">{t('tracking.declaredValue')}</p>
+                    <p>{result.shipment?.declared_value ? `${result.shipment.declared_value} ${result.shipment.currency || 'EUR'}` : t('tracking.notProvided')}</p>
                   </div>
                   <div>
-                    <p className="font-medium text-muted-foreground">Valeur assurée</p>
-                    <p>{result.shipment?.insurance_value ? `${result.shipment.insurance_value} ${result.shipment.currency || 'EUR'}` : 'Non renseignée'}</p>
+                    <p className="font-medium text-muted-foreground">{t('tracking.insuredValue')}</p>
+                    <p>{result.shipment?.insurance_value ? `${result.shipment.insurance_value} ${result.shipment.currency || 'EUR'}` : t('tracking.notProvided')}</p>
                   </div>
                   <div>
-                    <p className="font-medium text-muted-foreground">Coût transport</p>
-                    <p>{result.shipment?.transport_cost ? `${result.shipment.transport_cost} ${result.shipment.currency || 'EUR'}` : 'Non renseigné'}</p>
+                    <p className="font-medium text-muted-foreground">{t('tracking.transportCost')}</p>
+                    <p>{result.shipment?.transport_cost ? `${result.shipment.transport_cost} ${result.shipment.currency || 'EUR'}` : t('tracking.notProvided')}</p>
                   </div>
                   <div>
-                    <p className="font-medium text-muted-foreground">Type de colis</p>
-                    <p className="capitalize">{result.shipment?.package_type || 'Non spécifié'}</p>
+                    <p className="font-medium text-muted-foreground">{t('tracking.packageType')}</p>
+                    <p className="capitalize">{result.shipment?.package_type || t('tracking.notSpecified')}</p>
                   </div>
                   <div>
-                    <p className="font-medium text-muted-foreground">Priorité</p>
-                    <p className="capitalize">{result.shipment?.priority_level || 'Normale'}</p>
+                    <p className="font-medium text-muted-foreground">{t('tracking.priority')}</p>
+                    <p className="capitalize">{result.shipment?.priority_level || t('tracking.normal')}</p>
                   </div>
                   <div>
-                    <p className="font-medium text-muted-foreground">Statut paiement</p>
+                    <p className="font-medium text-muted-foreground">{t('tracking.paymentStatus')}</p>
                     <Badge variant={result.shipment?.payment_status === 'paid' ? 'default' : 'secondary'}>
-                      {result.shipment?.payment_status || 'pending'}
+                      {result.shipment?.payment_status === 'paid' ? t('tracking.paid') : t('tracking.pending')}
                     </Badge>
                   </div>
                 </div>
                 
                 <div className="border-t pt-4">
-                  <p className="font-medium text-muted-foreground mb-2">Spécifications</p>
+                  <p className="font-medium text-muted-foreground mb-2">{t('tracking.specifications')}</p>
                   <div className="flex flex-wrap gap-2">
                     {result.shipment?.is_fragile && (
                       <Badge variant="outline" className="text-orange-600 border-orange-600">
-                        Fragile
+                        {t('tracking.fragile')}
                       </Badge>
                     )}
                     {result.shipment?.is_dangerous && (
                       <Badge variant="outline" className="text-red-600 border-red-600">
-                        Matières dangereuses
+                        {t('tracking.dangerousGoods')}
                       </Badge>
                     )}
                     {result.shipment?.requires_signature && (
                       <Badge variant="outline" className="text-blue-600 border-blue-600">
-                        Signature requise
+                        {t('tracking.signatureRequired')}
                       </Badge>
                     )}
                     {!result.shipment?.is_fragile && !result.shipment?.is_dangerous && !result.shipment?.requires_signature && (
-                      <span className="text-sm text-muted-foreground">Aucune spécification particulière</span>
+                      <span className="text-sm text-muted-foreground">{t('tracking.noSpecialRequirements')}</span>
                     )}
                   </div>
                 </div>
                 
                 {result.shipment?.special_instructions && (
                   <div className="border-t pt-4">
-                    <p className="font-medium text-muted-foreground mb-1">Instructions spéciales</p>
+                    <p className="font-medium text-muted-foreground mb-1">{t('tracking.specialInstructions')}</p>
                     <p className="text-sm bg-muted/30 p-3 rounded">{result.shipment.special_instructions}</p>
                   </div>
                 )}
                 
                 {result.shipment?.delivery_instructions && (
                   <div className="border-t pt-4">
-                    <p className="font-medium text-muted-foreground mb-1">Instructions de livraison</p>
+                    <p className="font-medium text-muted-foreground mb-1">{t('tracking.deliveryInstructions')}</p>
                     <p className="text-sm bg-muted/30 p-3 rounded">{result.shipment.delivery_instructions}</p>
                   </div>
                 )}
