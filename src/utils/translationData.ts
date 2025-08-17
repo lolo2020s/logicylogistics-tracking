@@ -93,7 +93,11 @@ export const translationData: Record<Language, Record<string, any>> = {
       signature: 'Signature',
       trackingHistory: 'Historique du suivi',
       noHistory: 'Aucun historique disponible',
-      packagePhoto: 'Photo du colis'
+      packagePhoto: 'Photo du colis',
+      package: 'Colis',
+      delivery: 'Livraison',
+      damage: 'Dommage',
+      history: 'Historique'
     },
 
     
@@ -692,7 +696,11 @@ export const translationData: Record<Language, Record<string, any>> = {
       signature: 'Firma',
       trackingHistory: 'Historial de seguimiento',
       noHistory: 'No hay historial disponible',
-      packagePhoto: 'Foto del paquete'
+      packagePhoto: 'Foto del paquete',
+      package: 'Paquete',
+      delivery: 'Entrega',
+      damage: 'Daño',
+      history: 'Historial'
     },
 
     // Services
@@ -1262,7 +1270,11 @@ export const translationData: Record<Language, Record<string, any>> = {
       signature: 'Unterschrift',
       trackingHistory: 'Verfolgungshistorie',
       noHistory: 'Keine Historie verfügbar',
-      packagePhoto: 'Paketfoto'
+      packagePhoto: 'Paketfoto',
+      package: 'Paket',
+      delivery: 'Lieferung',
+      damage: 'Schaden',
+      history: 'Historie'
     },
 
     // Services
@@ -1832,7 +1844,11 @@ export const translationData: Record<Language, Record<string, any>> = {
       signature: 'Firma',
       trackingHistory: 'Cronologia tracciamento',
       noHistory: 'Nessuna cronologia disponibile',
-      packagePhoto: 'Foto del pacco'
+      packagePhoto: 'Foto del pacco',
+      package: 'Pacco',
+      delivery: 'Consegna',
+      damage: 'Danno',
+      history: 'Cronologia'
     },
 
     // Services
@@ -2402,7 +2418,11 @@ export const translationData: Record<Language, Record<string, any>> = {
       signature: 'Assinatura',
       trackingHistory: 'Histórico de rastreamento',
       noHistory: 'Nenhum histórico disponível',
-      packagePhoto: 'Foto do pacote'
+      packagePhoto: 'Foto do pacote',
+      package: 'Pacote',
+      delivery: 'Entrega',
+      damage: 'Dano',
+      history: 'Histórico'
     },
 
     // Services
