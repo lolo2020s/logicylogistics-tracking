@@ -67,42 +67,37 @@ export function HomePage({ onNavigate }: HomePageProps) {
   return (
     <PageLayout currentPage="home">
       <div className="min-h-screen bg-white">
-        {/* Section blanche du haut avec carrousel */}
-        <section className="bg-white py-20 px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Texte à gauche */}
-              <div className="text-left">
-                <h1 className="text-4xl md:text-5xl font-montserrat font-bold text-black leading-tight mb-8">
-                  {t('home.title')}
-                </h1>
-                
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button
-                    onClick={() => onNavigate('tracking')}
-                    className="bg-primary hover:bg-primary/90 text-white font-montserrat font-semibold px-8 py-4 text-lg rounded-lg shadow-button transition-smooth"
-                  >
-                    {t('nav.tracking')}
-                  </Button>
+        {/* Section hero avec carrousel en arrière-plan */}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+          {/* Carrousel en arrière-plan */}
+          <div className="absolute inset-0" ref={emblaRef}>
+            <div className="flex h-full">
+              {carouselImages.map((image, index) => (
+                <div key={index} className="flex-none w-full h-full relative">
+                  <img 
+                    src={image} 
+                    alt={t(`home.carousel.alt.${index}`, `${t('home.services.title')} ${index + 1}`)}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/40" />
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
 
-              {/* Carrousel à droite */}
-              <div className="relative">
-                <div className="overflow-hidden rounded-lg shadow-section" ref={emblaRef}>
-                  <div className="flex">
-                    {carouselImages.map((image, index) => (
-                      <div key={index} className="flex-none w-full">
-                        <img 
-                          src={image} 
-                          alt={t(`home.carousel.alt.${index}`, `${t('home.services.title')} ${index + 1}`)}
-                          className="w-full h-[400px] object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+          {/* Contenu centré */}
+          <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-7xl font-montserrat font-bold text-white leading-tight mb-8 animate-fade-in">
+              {t('home.title')}
+            </h1>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+              <Button
+                onClick={() => onNavigate('tracking')}
+                className="bg-primary hover:bg-primary/90 text-white font-montserrat font-semibold px-12 py-6 text-xl rounded-lg shadow-button transition-smooth hover-scale"
+              >
+                {t('nav.tracking')}
+              </Button>
             </div>
           </div>
         </section>
