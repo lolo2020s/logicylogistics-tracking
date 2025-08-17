@@ -60,7 +60,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
 
             {/* Mobile Menu Toggle */}
             <button
-              className="md:hidden p-2 hover:bg-accent rounded-md transition-smooth"
+              className="md:hidden p-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-md transition-smooth"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
