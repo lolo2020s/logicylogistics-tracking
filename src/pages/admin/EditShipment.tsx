@@ -96,16 +96,22 @@ export function EditShipment() {
 
     setUploading(true);
     try {
+      // Get current user once at the beginning
+      const { data: { user } } = await supabase.auth.getUser();
+      
       for (const file of Array.from(files)) {
         const fileExt = file.name.split('.').pop();
-        const fileName = `${id}/${Date.now()}.${fileExt}`;
+        const fileName = `${id}/${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${fileExt}`;
 
         // Upload file to storage
         const { error: uploadError } = await supabase.storage
           .from('shipment-photos')
           .upload(fileName, file);
 
-        if (uploadError) throw uploadError;
+        if (uploadError) {
+          console.error('Upload error:', uploadError);
+          throw uploadError;
+        }
 
         // Get public URL
         const { data: { publicUrl } } = supabase.storage
@@ -119,10 +125,13 @@ export function EditShipment() {
             shipment_id: id,
             photo_url: publicUrl,
             photo_type: 'general',
-            uploaded_by: (await supabase.auth.getUser()).data.user?.id
+            uploaded_by: user?.id
           });
 
-        if (dbError) throw dbError;
+        if (dbError) {
+          console.error('Database error:', dbError);
+          throw dbError;
+        }
       }
 
       await loadPhotos();
@@ -135,7 +144,7 @@ export function EditShipment() {
       toast({
         variant: 'destructive',
         title: 'Erreur',
-        description: 'Impossible d\'ajouter les photos',
+        description: `Impossible d'ajouter les photos: ${error.message}`,
       });
     } finally {
       setUploading(false);
