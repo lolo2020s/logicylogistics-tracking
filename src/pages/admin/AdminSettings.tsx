@@ -30,7 +30,7 @@ export function AdminSettings() {
   const [settings, setSettings] = useState<AppSettings>({
     siteName: 'LOGICY TRANSPORT',
     siteDescription: 'Solutions logistiques professionnelles',
-    contactEmail: 'contact@logicy-transport.com',
+    contactEmail: 'contact@logixy-transport.com',
     contactPhone: '+31626018693',
     supportEmail: 'support@logicy-transport.com',
     maintenanceMode: false,
@@ -69,7 +69,7 @@ export function AdminSettings() {
     setSettings({
       siteName: 'LOGICY TRANSPORT',
       siteDescription: 'Solutions logistiques professionnelles',
-      contactEmail: 'contact@logicy-transport.com',
+      contactEmail: 'contact@logixy-transport.com',
       contactPhone: '+31626018693',
       supportEmail: 'support@logicy-transport.com',
       maintenanceMode: false,
