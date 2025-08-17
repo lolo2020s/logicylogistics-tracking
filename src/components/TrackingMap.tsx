@@ -60,8 +60,8 @@ export function TrackingMap({ trackingData }: TrackingMapProps) {
             .setHTML(`
               <div class="p-2">
                 <h3 class="font-semibold">Position actuelle</h3>
-                <p class="text-sm">${trackingData.current_location}</p>
-                <p class="text-xs text-gray-600">Transport: ${trackingData.transport_mode}</p>
+                <p class="text-sm">${trackingData.current_location || 'Position en cours de mise à jour'}</p>
+                <p class="text-xs text-gray-600">Transport: ${trackingData.transport_mode || 'road'}</p>
               </div>
             `)
         )
