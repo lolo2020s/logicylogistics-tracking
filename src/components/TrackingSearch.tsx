@@ -32,6 +32,7 @@ interface TrackingResult {
   receiver_name: string;
   receiver_address: string;
   created_at: string;
+  shipment?: any; // Toutes les données du shipment
   proof_of_delivery?: {
     photo?: string;
     signature?: string;
@@ -195,6 +196,7 @@ export function TrackingSearch() {
         receiver_name: shipment.receiver_name,
         receiver_address: `${shipment.receiver_address}, ${shipment.receiver_city}, ${shipment.receiver_country}`,
         created_at: shipment.created_at,
+        shipment: shipment, // Inclure toutes les données du shipment
         photos: photos?.map(p => ({
           id: p.id,
           photo_url: p.photo_url,
@@ -390,7 +392,96 @@ export function TrackingSearch() {
               </CardContent>
             </Card>
 
-            {/* Addresses */}
+            {/* Additional Details */}
+            <Card className="shadow-elegant">
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <Package className="h-5 w-5 text-primary" />
+                  <span>Détails supplémentaires</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  {result.shipment?.declared_value && (
+                    <div>
+                      <p className="font-medium text-muted-foreground">Valeur déclarée</p>
+                      <p>{result.shipment.declared_value} {result.shipment.currency || 'EUR'}</p>
+                    </div>
+                  )}
+                  {result.shipment?.insurance_value && (
+                    <div>
+                      <p className="font-medium text-muted-foreground">Valeur assurée</p>
+                      <p>{result.shipment.insurance_value} {result.shipment.currency || 'EUR'}</p>
+                    </div>
+                  )}
+                  {result.shipment?.transport_cost && (
+                    <div>
+                      <p className="font-medium text-muted-foreground">Coût transport</p>
+                      <p>{result.shipment.transport_cost} {result.shipment.currency || 'EUR'}</p>
+                    </div>
+                  )}
+                  {result.shipment?.package_type && (
+                    <div>
+                      <p className="font-medium text-muted-foreground">Type de colis</p>
+                      <p className="capitalize">{result.shipment.package_type}</p>
+                    </div>
+                  )}
+                  {result.shipment?.priority_level && (
+                    <div>
+                      <p className="font-medium text-muted-foreground">Priorité</p>
+                      <p className="capitalize">{result.shipment.priority_level}</p>
+                    </div>
+                  )}
+                  {result.shipment?.payment_status && (
+                    <div>
+                      <p className="font-medium text-muted-foreground">Statut paiement</p>
+                      <Badge variant={result.shipment.payment_status === 'paid' ? 'default' : 'secondary'}>
+                        {result.shipment.payment_status}
+                      </Badge>
+                    </div>
+                  )}
+                </div>
+                
+                {(result.shipment?.is_fragile || result.shipment?.is_dangerous || result.shipment?.requires_signature) && (
+                  <div className="border-t pt-4">
+                    <p className="font-medium text-muted-foreground mb-2">Spécifications</p>
+                    <div className="flex flex-wrap gap-2">
+                      {result.shipment.is_fragile && (
+                        <Badge variant="outline" className="text-orange-600 border-orange-600">
+                          Fragile
+                        </Badge>
+                      )}
+                      {result.shipment.is_dangerous && (
+                        <Badge variant="outline" className="text-red-600 border-red-600">
+                          Matières dangereuses
+                        </Badge>
+                      )}
+                      {result.shipment.requires_signature && (
+                        <Badge variant="outline" className="text-blue-600 border-blue-600">
+                          Signature requise
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+                )}
+                
+                {result.shipment?.special_instructions && (
+                  <div className="border-t pt-4">
+                    <p className="font-medium text-muted-foreground mb-1">Instructions spéciales</p>
+                    <p className="text-sm bg-muted/30 p-3 rounded">{result.shipment.special_instructions}</p>
+                  </div>
+                )}
+                
+                {result.shipment?.delivery_instructions && (
+                  <div className="border-t pt-4">
+                    <p className="font-medium text-muted-foreground mb-1">Instructions de livraison</p>
+                    <p className="text-sm bg-muted/30 p-3 rounded">{result.shipment.delivery_instructions}</p>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* Contact Information */}
             <Card className="shadow-elegant">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
@@ -403,12 +494,56 @@ export function TrackingSearch() {
                   <p className="font-medium text-muted-foreground mb-1">{t('tracking.sender')}</p>
                   <p className="font-medium">{result.sender_name}</p>
                   <p className="text-sm text-muted-foreground">{result.sender_address}</p>
+                  {result.shipment?.sender_email && (
+                    <p className="text-sm text-muted-foreground">📧 {result.shipment.sender_email}</p>
+                  )}
+                  {result.shipment?.sender_phone && (
+                    <p className="text-sm text-muted-foreground">📞 {result.shipment.sender_phone}</p>
+                  )}
                 </div>
                 <div>
                   <p className="font-medium text-muted-foreground mb-1">{t('tracking.receiver')}</p>
                   <p className="font-medium">{result.receiver_name}</p>
                   <p className="text-sm text-muted-foreground">{result.receiver_address}</p>
+                  {result.shipment?.receiver_email && (
+                    <p className="text-sm text-muted-foreground">📧 {result.shipment.receiver_email}</p>
+                  )}
+                  {result.shipment?.receiver_phone && (
+                    <p className="text-sm text-muted-foreground">📞 {result.shipment.receiver_phone}</p>
+                  )}
                 </div>
+                
+                {(result.shipment?.emergency_contact_name || result.shipment?.emergency_contact_phone) && (
+                  <div className="border-t pt-4">
+                    <p className="font-medium text-muted-foreground mb-1">Contact d'urgence</p>
+                    {result.shipment.emergency_contact_name && (
+                      <p className="font-medium">{result.shipment.emergency_contact_name}</p>
+                    )}
+                    {result.shipment.emergency_contact_phone && (
+                      <p className="text-sm text-muted-foreground">📞 {result.shipment.emergency_contact_phone}</p>
+                    )}
+                  </div>
+                )}
+                
+                {(result.shipment?.client_reference || result.shipment?.order_number) && (
+                  <div className="border-t pt-4">
+                    <p className="font-medium text-muted-foreground mb-2">Références</p>
+                    <div className="grid grid-cols-1 gap-2 text-sm">
+                      {result.shipment.client_reference && (
+                        <div>
+                          <span className="font-medium">Réf. client:</span>
+                          <span className="ml-2 font-mono">{result.shipment.client_reference}</span>
+                        </div>
+                      )}
+                      {result.shipment.order_number && (
+                        <div>
+                          <span className="font-medium">N° commande:</span>
+                          <span className="ml-2 font-mono">{result.shipment.order_number}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </div>
