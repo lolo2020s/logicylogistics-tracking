@@ -122,6 +122,9 @@ export function NewShipment() {
         declared_value: formData.declared_value ? parseFloat(formData.declared_value) : null,
         insurance_value: formData.insurance_value ? parseFloat(formData.insurance_value) : null,
         transport_cost: formData.transport_cost ? parseFloat(formData.transport_cost) : null,
+        is_fragile: formData.is_fragile === true,
+        is_dangerous: formData.is_dangerous === true,
+        requires_signature: formData.requires_signature === true,
       };
 
       const { data, error } = await supabase
@@ -644,7 +647,7 @@ export function NewShipment() {
                   <Checkbox
                     id="fragile"
                     checked={formData.is_fragile}
-                    onCheckedChange={(checked) => handleInputChange('is_fragile', checked ? 'true' : 'false')}
+                    onCheckedChange={(checked) => handleInputChange('is_fragile', checked === true)}
                   />
                   <label htmlFor="fragile" className="text-sm font-medium cursor-pointer">
                     Colis fragile
@@ -655,7 +658,7 @@ export function NewShipment() {
                   <Checkbox
                     id="dangerous"
                     checked={formData.is_dangerous}
-                    onCheckedChange={(checked) => handleInputChange('is_dangerous', checked ? 'true' : 'false')}
+                    onCheckedChange={(checked) => handleInputChange('is_dangerous', checked === true)}
                   />
                   <label htmlFor="dangerous" className="text-sm font-medium cursor-pointer">
                     Matières dangereuses
@@ -666,7 +669,7 @@ export function NewShipment() {
                   <Checkbox
                     id="signature"
                     checked={formData.requires_signature}
-                    onCheckedChange={(checked) => handleInputChange('requires_signature', checked ? 'true' : 'false')}
+                    onCheckedChange={(checked) => handleInputChange('requires_signature', checked === true)}
                   />
                   <label htmlFor="signature" className="text-sm font-medium cursor-pointer">
                     Signature obligatoire
